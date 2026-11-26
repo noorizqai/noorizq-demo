@@ -12,7 +12,7 @@
   project to call the real edge functions (chat, onboarding, approvals, memory). See BUILD_GUIDE.md.
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Amiri:wght@400;700&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#060411; --ink-2:#0b0722; --ink-3:#140d33;
@@ -24,7 +24,7 @@
   --grad:linear-gradient(100deg,var(--blue),var(--violet) 55%,var(--magenta));
   --r:14px; --r-lg:20px;
   --shadow:0 1px 0 rgba(20,10,60,.04),0 2px 6px -2px rgba(20,10,60,.08),0 12px 24px -12px rgba(20,10,60,.12);
-  --f-display:"Fraunces",ui-serif,Georgia,serif; --f-head:"Outfit",ui-sans-serif,system-ui,sans-serif;
+  --f-display:"Fraunces",ui-serif,Georgia,serif; --f-head:"Outfit",ui-sans-serif,system-ui,sans-serif; --f-hand:"Caveat",cursive;
   --f-body:"Figtree",ui-sans-serif,system-ui,sans-serif; --f-ar:"Amiri",serif;
 }
 *{box-sizing:border-box} html,body{height:100%;margin:0}
@@ -1096,24 +1096,24 @@ body.tl-away #ritual::after{content:"Paused while you're away";position:fixed;in
 .b-btn.ghosty{background:transparent}
 .starfield{background-image:radial-gradient(#dec895 1.5px,#0000 1.8px),radial-gradient(#ffffff80 1px,#0000 1.2px),radial-gradient(500px 300px at 20% 30%,#853bfa55,#0000 70%),radial-gradient(500px 300px at 80% 70%,#1665fb55,#0000 70%) !important;background-size:120px 120px,67px 67px,auto,auto !important}
 .b-grid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));max-width:1340px;margin:0 auto;gap:26px}
-.b-card{min-height:230px;background:#f7f2e6;border-radius:6px;box-shadow:0 16px 38px -14px rgba(5,2,20,.7);transform:rotate(var(--rot,0deg)) translateY(18px) scale(.96);padding-top:22px;font-size:14px}
+.b-card{min-height:0;background:#f7f2e6;border-radius:6px;box-shadow:0 16px 38px -14px rgba(5,2,20,.7);transform:rotate(var(--rot,0deg)) translateY(18px) scale(.96);padding-top:22px;font-size:14px}
 .b-card .small{font-size:14px;line-height:1.6}
 .b-card ul{font-size:13.5px;line-height:1.6}
-.b-card .punch{font:italic 500 19px/1.6 Georgia,serif;color:#2b2350}
+.b-card .punch{font:600 21px/1.35 var(--f-hand);color:#2b2350}
 .b-card:nth-child(odd){--rot:-1.3deg}
 .b-card:nth-child(even){--rot:1.2deg}
 .b-card.on{transform:rotate(var(--rot,0deg))}
 .b-card::before{content:"";position:absolute;top:-9px;left:50%;transform:translateX(-50%) rotate(-2deg);width:64px;height:18px;background:rgba(233,201,138,.85);border-radius:2px;box-shadow:0 1px 3px rgba(0,0,0,.2)}
-.b-card.pending{align-items:center;justify-content:center}
+.b-card.pending{align-items:center;justify-content:center;min-height:230px}
 .b-card .pend{color:#8a7fb8;font-style:italic}
 .b-card:not(:last-child)::after{content:"";position:absolute;right:-26px;top:50%;width:24px;border-top:3px dashed rgba(233,201,138,.85)}
 .b-card.on{animation:cardPop .55s cubic-bezier(.2,.7,.3,1.15) both;animation-delay:inherit}
 @keyframes cardPop{from{opacity:0;transform:rotate(var(--rot,0deg)) translateY(26px) scale(.92)}to{opacity:1;transform:rotate(var(--rot,0deg))}}
 .b-card .n{color:rgba(30,17,69,.2)}
-.b-card h4{color:#7c5a1e;letter-spacing:.16em}
+.b-card h4{font:700 22px var(--f-hand);color:#6d28d9;letter-spacing:0;text-transform:none}
 .b-card .small{color:#4a4270}
 .b-card ul{color:#3c3466}
-.b-card .bigname{font:700 clamp(30px,3.2vw,40px)/1.12 Georgia,serif;background:linear-gradient(92deg,#1e1145 30%,#8b3ff0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.b-card .bigname{font:700 clamp(34px,4vw,46px)/1.12 Georgia,serif;background:linear-gradient(92deg,#1e1145 30%,#8b3ff0);-webkit-background-clip:text;background-clip:text;color:transparent}
 .emailc{background:#fff;border:1px solid #e6dfce;border-radius:8px;padding:12px 14px}
 .logo2{display:grid;gap:8px}
 .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
@@ -1127,6 +1127,65 @@ body.tl-away #ritual::after{content:"Paused while you're away";position:fixed;in
 .emailc .ebody{font-size:11.5px;line-height:1.5;color:#57506b}
 .b-card ul li::marker{color:var(--gold)}
 .b-bub{align-self:center}
+.heroimg{border-radius:8px;overflow:hidden;margin-bottom:8px}
+.heroimg img{width:100%;height:120px;object-fit:cover;display:block}
+.tl{background:#1e1145;border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:9px}
+.tl .trow{display:flex;gap:9px;align-items:flex-start}
+.tl .tnum{flex:none;width:19px;height:19px;border-radius:50%;background:#e9c98a;color:#1e1145;font:700 11px var(--f-head);display:grid;place-items:center;margin-top:1px}
+.tl .tt{font:700 12.5px Georgia,serif;color:#fff;line-height:1.3}
+.tl .td{font-size:11px;line-height:1.35;color:#cfc6ee;margin-top:1px}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;background:#1e1145;border-radius:10px;padding:6px}
+.week .wc{border-radius:6px;padding:5px 2px;text-align:center;background:rgba(139,63,240,.28);border:1px solid rgba(233,201,138,.25)}
+.week .wc:nth-child(even){background:rgba(233,201,138,.14)}
+.week .wd{font:700 10px var(--f-head);color:#e9c98a}
+.week .wt{font-size:8px;line-height:1.2;color:#e7e2f7;margin-top:2px;overflow-wrap:break-word}
+.inbox{background:#fff;border:1px solid #e6dfce;border-radius:10px;padding:10px 12px;box-shadow:0 4px 10px -6px rgba(30,17,69,.25)}
+.inbox .ihead{display:flex;align-items:center;gap:8px;margin-bottom:7px}
+.inbox .iav{flex:none;width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#8b3ff0,#1e1145);color:#fff;display:grid;place-items:center;font:700 12px var(--f-head)}
+.inbox .ifrom{font:700 11.5px var(--f-head);color:#1e1145;line-height:1.25}
+.inbox .ito{font-weight:500;color:#9a93ad;font-size:9.5px}
+.inbox .itime{margin-left:auto;font-size:9.5px;color:#9a93ad;align-self:flex-start}
+.inbox .isub{font:700 13px Georgia,serif;color:#1e1145;margin-bottom:4px}
+.inbox .ibody{font-size:11.5px;line-height:1.5;color:#57506b}
+.prgrid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.prtile{position:relative;border-radius:8px;overflow:hidden;aspect-ratio:4/3;background:#eee7d8}
+.prtile img{width:100%;height:100%;object-fit:cover;display:block}
+.prtile .prsvg{width:100%;height:100%;display:block}
+.prtile .prname{position:absolute;left:0;right:0;bottom:0;font:600 14px var(--f-hand);color:#fff;background:linear-gradient(transparent,rgba(20,12,48,.85));padding:10px 7px 4px;line-height:1.1}
+.ideaov{position:relative;border-radius:8px;overflow:hidden;margin-bottom:8px}
+.ideaov img{width:100%;height:150px;object-fit:cover;display:block}
+.ideaov .punch{position:absolute;left:0;right:0;bottom:0;padding:22px 10px 8px;background:linear-gradient(transparent,rgba(20,12,48,.82));color:#fff !important;font-size:20px !important}
+.namepanel{margin:-4px -4px 0;border-radius:10px;padding:16px 14px 14px;background:linear-gradient(135deg,#1e1145 0%,#3b1d7a 55%,#8b3ff0 130%);position:relative;overflow:hidden;text-align:center}
+.namepanel::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 15%,rgba(233,201,138,.35),transparent 45%),radial-gradient(circle at 10% 90%,rgba(233,201,138,.18),transparent 40%)}
+.namepanel .bigname{position:relative;background:linear-gradient(92deg,#fff 30%,#e9c98a);-webkit-background-clip:text;background-clip:text;color:transparent}
+.namepanel .np-tag{position:relative;font:600 21px var(--f-hand);color:#e9c98a;margin-top:4px}
+.namepanel .np-alt{position:relative;font:600 9.5px var(--f-head);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:8px}
+.brandrow{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #e6dfce;border-radius:10px;padding:9px 11px}
+.brandrow .bmark{flex:none;width:38px;height:38px}
+.brandrow .bwm{font:700 19px Georgia,serif;color:#1e1145;letter-spacing:.04em;line-height:1.1}
+.brandrow .bwtag{font:600 15px var(--f-hand);color:#8b5cf6;line-height:1.1}
+.lvars{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:6px}
+.lvar{border-radius:8px;padding:9px 6px 7px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px}
+.lvar .bmark{width:24px;height:24px}
+.lvar .lvname{font:700 10.5px Georgia,serif;letter-spacing:.03em}
+.lvar.dark{background:#1e1145;color:#fff}
+.lvar.light{background:#fff;border:1px solid #e6dfce;color:#1e1145}
+.lvar.gold{background:linear-gradient(150deg,#1e1145,#2a1a5e);color:#e9c98a}
+.lmocks{display:grid;grid-template-columns:5fr 3fr;gap:6px;margin-top:6px}
+.bizcard{border-radius:8px;background:#fdfaf2;border:1px solid #e6dfce;padding:9px 11px;display:flex;flex-direction:column;justify-content:center;gap:2px;box-shadow:0 3px 8px -4px rgba(30,17,69,.25)}
+.bizcard .bcrow{display:flex;align-items:center;gap:7px}
+.bizcard .bmark{width:22px;height:22px}
+.bizcard .bcname{font:700 12px Georgia,serif;color:#1e1145}
+.bizcard .bcline{font-size:8px;color:#9a93ad;letter-spacing:.06em}
+.appicon{width:44px;height:44px;border-radius:12px;margin:auto;overflow:hidden;display:grid;place-items:center;background:linear-gradient(135deg,#8b3ff0,#1e1145);box-shadow:0 4px 10px -4px rgba(30,17,69,.4)}
+.appicon img{width:100%;height:100%;object-fit:cover;display:block}
+.appicon .bmark{width:26px;height:26px}
+.appcap{text-align:center;font:600 8.5px var(--f-head);letter-spacing:.1em;color:#8a7fb8;margin-top:4px;text-transform:uppercase}
+.docs3{display:flex;flex-direction:column;gap:6px}
+.doc{background:#fdfaf2;border:1px solid #e6dfce;border-radius:8px;padding:8px 11px;box-shadow:0 2px 6px -3px rgba(30,17,69,.2)}
+.doc .dt{font:700 9px var(--f-head);letter-spacing:.12em;text-transform:uppercase;color:#8b5cf6;border-bottom:1px solid #e6dfce;padding-bottom:4px;margin-bottom:5px}
+.doc .dx{font-size:10.5px;line-height:1.45;color:#57506b;font-family:Georgia,serif}
+.prprice{position:absolute;top:6px;right:6px;font:700 10px var(--f-head);color:#1e1145;background:#e9c98a;padding:2px 7px;border-radius:999px}
 /* ---------- /build screen ---------- */
 </style>
 </head>
@@ -2768,6 +2827,39 @@ const weekSvg = (weekly, colours) => { const { p, g } = _pal(colours); const day
 const docThumbs = (colours) => { const { p, g } = _pal(colours);
   const doc = (label) => `<svg viewBox="0 0 104 120"><rect width="104" height="120" rx="8" fill="#f7f4ee"/><path d="M104 0 L86 0 L104 18 Z" fill="#e2dccb"/><rect x="12" y="16" width="56" height="8" rx="4" fill="${p}"/>${[0, 1, 2, 3, 4, 5].map((i) => `<rect x="12" y="${34 + i * 11}" width="${80 - (i % 3) * 16}" height="5" rx="2.5" fill="#ddd6c9"/>`).join("")}<rect x="12" y="102" width="46" height="7" rx="3.5" fill="${g}"/><text x="13" y="30" font-size="5" letter-spacing="1" fill="#999">${label}</text></svg>`;
   return `<div class="docs2">${doc("COMPETITOR ANALYSIS")}${doc("IDEAL CUSTOMER")}</div>`; };
+const MODEST_PPL = "People shown from behind or hands only, no visible faces, modest loose clothing, women wearing hijab. Photorealistic.";
+const MODEST_PROD = "Styled product photography or flat-lay, no people, photorealistic.";
+const tlHtml = (phases) => `<div class="tl">${(phases ?? []).slice(0, 3).map((ph, i) => `<div class="trow"><div class="tnum">${i + 1}</div><div><div class="tt">${esc(ph.title ?? "")}</div><div class="td">${esc(ph.detail ?? "")}</div></div></div>`).join("")}</div>`;
+const weekHtml = (weekly) => { const days = ["M", "T", "W", "T", "F", "S", "S"];
+  return `<div class="week">${days.map((dl, i) => `<div class="wc"><div class="wd">${dl}</div><div class="wt">${esc(String((weekly ?? [])[i] ?? "\u2014").split(/\s+/).slice(0, 3).join(" "))}</div></div>`).join("")}</div>`; };
+const SYM_KINDS = [
+  [/sweet|dessert|cake|bake|sugar|eid|chocolat|baklava|kunafa|pastry|moon|qamar/i, "moon"],
+  [/hijab|scarf|abaya|modest|veil|shawl/i, "scarf"],
+  [/cloth|fashion|sew|stitch|tailor|thrift|wear|apparel|boutique/i, "hanger"],
+  [/skin|beauty|soap|spa|glow|organic|leaf|herb|candle/i, "leaf"],
+  [/coffee|cafe|tea |chai/i, "cup"],
+  [/meal|food|kitchen|prep|chef|cook|curry|spice/i, "cloche"],
+  [/jewel|henna|gold|accessor|bridal/i, "gem"],
+  [/kid|toy|baby|party|balloon/i, "star"],
+];
+const symKind = (txt) => { for (const [re, k] of SYM_KINDS) if (re.test(txt)) return k; return "star"; };
+const symSvg = (kind, color, accent) => { const c = color, a = accent ?? color;
+  const M = {
+    moon: `<path d="M30 6a17 17 0 1 0 12 29A19 19 0 0 1 30 6Z" fill="${c}"/><path d="M35 12l1.7 4.2 4.2 1.7-4.2 1.7L35 23.8l-1.7-4.2-4.2-1.7 4.2-1.7Z" fill="${a}"/>`,
+    scarf: `<path d="M8 30c8-14 18-16 32-12-6 1-9 4-11 8 6-2 10-1 13 2-8 8-24 10-34 2Z" fill="${c}"/><path d="M12 34c8 4 20 3 27-3" stroke="${a}" stroke-width="2" fill="none" stroke-linecap="round"/>`,
+    hanger: `<path d="M24 10a4 4 0 1 1 4 4v3" stroke="${c}" stroke-width="2.6" fill="none" stroke-linecap="round"/><path d="M24 17 6 32a3 3 0 0 0 2 5h32a3 3 0 0 0 2-5L24 17Z" fill="${c}"/>`,
+    leaf: `<path d="M38 8C20 10 10 20 10 30a10 10 0 0 0 10 10c10 0 20-10 18-32Z" fill="${c}"/><path d="M15 35C20 26 28 18 36 12" stroke="${a}" stroke-width="2" fill="none" stroke-linecap="round"/>`,
+    cup: `<path d="M10 18h22v8a9 9 0 0 1-9 9h-4a9 9 0 0 1-9-9v-8Z" fill="${c}"/><path d="M32 20h3a5 5 0 0 1 0 10h-3" stroke="${c}" stroke-width="2.6" fill="none"/><path d="M16 12c0-3 3-3 3-6M24 12c0-3 3-3 3-6" stroke="${a}" stroke-width="2.2" fill="none" stroke-linecap="round"/>`,
+    cloche: `<path d="M8 32a16 16 0 0 1 32 0Z" fill="${c}"/><circle cx="24" cy="13" r="2.6" fill="${c}"/><path d="M6 37h36" stroke="${a}" stroke-width="2.6" stroke-linecap="round"/>`,
+    gem: `<path d="M14 10h20l8 10-18 20L6 20Z" fill="${c}"/><path d="M6 20h36M14 10l10 10 10-10M24 20v20" stroke="${a}" stroke-width="1.8" fill="none"/>`,
+    star: `<path d="M24 4l4.5 13.5L42 22l-13.5 4.5L24 40l-4.5-13.5L6 22l13.5-4.5Z" fill="${c}"/>`,
+  };
+  return `<svg viewBox="0 0 48 48" class="bmark">${M[kind] ?? M.star}</svg>`; };
+const brandCard = (co, tagline, cols, ideaTxt) => { const { p, d, g: gg } = _pal(cols); const kind = symKind(String(ideaTxt) + " " + String(co));
+  const wm = _nm(co); const tg = esc(tagline ?? "");
+  return `<div class="brandrow">${symSvg(kind, p, gg)}<div><div class="bwm">${esc(wm)}</div>${tg ? `<div class="bwtag">${tg}</div>` : ""}</div></div>
+  <div class="lvars"><div class="lvar dark">${symSvg(kind, "#fff", gg)}<div class="lvname">${esc(wm)}</div></div><div class="lvar light">${symSvg(kind, p, gg)}<div class="lvname">${esc(wm)}</div></div><div class="lvar gold">${symSvg(kind, gg, gg)}<div class="lvname">${esc(wm)}</div></div></div>
+  <div class="lmocks"><div class="bizcard"><div class="bcrow">${symSvg(kind, p, gg)}<div class="bcname">${esc(wm)}</div></div><div class="bcline">${tg ? esc(tg.toUpperCase()) : "MADE WITH BARAKAH"}</div><div class="bcline">@${esc(wm.toLowerCase().replace(/[^a-z0-9]+/g, ""))} · CARDIFF</div></div><div><div class="appicon" id="appIc">${symSvg(kind, "#fff", gg)}</div><div class="appcap">App icon</div></div></div>`; };
 async function buildAssets(g, input) {
   const bub = (t) => { const b = document.createElement("span"); b.className = "b-bub"; b.textContent = t; $("#bBubs").appendChild(b); requestAnimationFrame(() => b.classList.add("on")); return b; };
   const bubDone = (b) => { if (b) b.classList.add("done"); };
@@ -2782,7 +2874,7 @@ async function buildAssets(g, input) {
   fill(2, "Business name", `<div class="bigname">${_nm(g.company)}</div>`);
   bubDone(b1);
   const b3 = bub("Designing your logo");
-  fill(3, "Logo", logoSvgB(g.company, cols)); bubDone(b3);
+  fill(3, "Logo & brand", brandCard(g.company, null, cols, g.offer ?? g.label ?? input)); bubDone(b3);
   bar(30);
   const b4 = bub("Writing your 90-day plan"), b7 = bub("Listing your products");
   let a1 = {};
@@ -2790,12 +2882,21 @@ async function buildAssets(g, input) {
   else { a1 = { idea_pitch: g.reflection, name_options: [g.company, "Barakah & Co", "The Honest Table"], tagline: "Made with barakah", products: (g.facts ?? []).slice(0, 4).map((f) => ({ name: f[0].slice(0, 30), description: f[0] })), plan_summary: g.outcomes?.[0]?.title ?? "First 10 customers", plan_phases: [{ title: "Weeks 1-4", detail: "Set up and first sales" }, { title: "Weeks 5-8", detail: "Repeat orders and referrals" }, { title: "Weeks 9-12", detail: "Grow what works" }] }; }
   Object.assign(assets, a1);
   if (a1.idea_pitch) fill(1, "Your idea", `<div class="punch">&ldquo;${esc(a1.idea_pitch)}&rdquo;</div>`);
-  if (a1.name_options?.length) fill(2, "Business name", `<div class="bigname">${_nm(g.company ?? a1.name_options[0])}</div><div class="small">Also considered: ${a1.name_options.slice(1).map(esc).join(" · ")}</div>${a1.tagline ? `<div class="punch" style="margin-top:8px">${esc(a1.tagline)}</div>` : ""}`);
+  if (LIVE) { const pitchTxt = a1.idea_pitch ?? g.facts?.find((f) => f[1] === "offer")?.[0] ?? g.offer ?? input;
+    api("genesis", { action: "image", prompt: `Editorial hero photo for this business idea: ${String(pitchTxt).slice(0, 120)}. ${/wedding|people|family|community|customer|woman|women|sister|hijab|modest|muslim/i.test(String(pitchTxt)) ? MODEST_PPL : MODEST_PROD}` }).then((r) => { if (r?.ok && r.img) fill(1, "Your idea", `<div class="ideaov"><img src="${r.img}" alt=""><div class="punch">&ldquo;${esc(pitchTxt)}&rdquo;</div></div>`); }).catch(() => {}); }
+  if (a1.name_options?.length) fill(2, "Business name", `<div class="namepanel"><div class="bigname">${_nm(g.company ?? a1.name_options[0])}</div>${a1.tagline ? `<div class="np-tag">${esc(a1.tagline)}</div>` : ""}<div class="np-alt">Also considered: ${a1.name_options.slice(1).map(esc).join(" · ")}</div></div>`);
+  fill(3, "Logo & brand", brandCard(g.company ?? a1.name_options?.[0], a1.tagline, cols, (g.offer ?? "") + " " + (a1.idea_pitch ?? "")));
+  if (LIVE) { const kindI = symKind(String(g.offer ?? "") + " " + String(g.company ?? ""));
+    api("genesis", { action: "image", prompt: `Minimal premium app icon for a brand, flat vector style emblem, centered on a deep purple gradient background, no text, no letters: ${kindI} symbol. ${MODEST_PROD}` }).then((r) => { const t = $("#appIc"); if (r?.ok && r.img && t) t.innerHTML = `<img src="${r.img}" alt="">`; }).catch(() => {}); }
   const b5 = bub("Building your website preview");
   fill(5, "Website preview", siteSvgB(g.company, a1.tagline ?? g.offer, cols, a1.products)); bubDone(b5);
-  if (a1.products?.length) fill(7, "Products & services", `<ul>${a1.products.slice(0, 5).map((p) => `<li><b>${esc(p.name)}</b></li>`).join("")}</ul>`); else fail(7, "Products & services");
+  if (a1.products?.length) {
+    const prods = a1.products.slice(0, 4);
+    fill(7, "Products & services", `<div class="prgrid">${prods.map((pp, i) => { const { p: pc, d: dc } = _pal(cols); const u = ++_uidc; return `<div class="prtile" id="pt7${i}">${pp.price ? `<div class="prprice">${esc(pp.price)}</div>` : ""}<svg class="prsvg" viewBox="0 0 100 75"><defs><linearGradient id="ptg${u}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${i % 2 ? dc : pc}"/><stop offset="1" stop-color="${i % 2 ? pc : dc}"/></linearGradient></defs><rect width="100" height="75" fill="url(#ptg${u})"/></svg><div class="prname">${esc(pp.name)}</div></div>`; }).join("")}</div>`);
+    if (LIVE) Promise.all(prods.map((pp, i) => api("genesis", { action: "image", prompt: `Product photo for a business selling: ${String(pp.name).slice(0, 90)}. ${MODEST_PROD}` }).then((r) => (r?.ok && r.img ? { i, img: r.img } : null)).catch(() => null))).then((rs) => { rs.filter(Boolean).forEach((x) => { const t = $(`#pt7${x.i}`); if (t) t.innerHTML = `${prods[x.i].price ? `<div class="prprice">${esc(prods[x.i].price)}</div>` : ""}<img src="${x.img}" alt=""><div class="prname">${esc(prods[x.i].name)}</div>`; }); });
+  } else fail(7, "Products & services");
   bubDone(b7);
-  if (a1.plan_phases?.length) fill(4, "90-day plan", timelineSvg(a1.plan_phases, cols)); else fail(4, "90-day plan");
+  if (a1.plan_phases?.length) fill(4, "90-day plan", tlHtml(a1.plan_phases)); else fail(4, "90-day plan");
   bubDone(b4);
   bar(55);
   const b6 = bub("Drafting your first email"), b8 = bub("Designing your social posts"), b9 = bub("Planning week one + your ad"), b10 = bub("Researching competitors & audience");
@@ -2803,13 +2904,13 @@ async function buildAssets(g, input) {
   if (LIVE) { try { a2 = await api("genesis", { action: "assets", stage: 2 }); } catch { a2 = {}; } }
   else { a2 = { posts_facebook: (g.outcomes ?? []).slice(0, 3).map((o) => o.title), posts_instagram: [], email: { subject: "Hello from your neighbour", body: "I make celebration cakes here in Cardiff..." }, weekly_plan: [], ad: { headline: "", body: "", cta: "" }, competitor_analysis: g.reflection, audience_profile: g.audience }; }
   Object.assign(assets, a2);
-  if (a2.email?.subject) fill(6, "Proposed email", `<div class="emailc"><div class="esub">${esc(a2.email.subject)}</div><div class="ebody">${esc((a2.email.body ?? "").slice(0, 150))}…</div></div>`); else fail(6, "Proposed email");
+  if (a2.email?.subject) fill(6, "Proposed email", `<div class="inbox"><div class="ihead"><div class="iav">${esc(_ini(g.company))}</div><div class="ifrom">${esc(_nm(g.company))}<div class="ito">to your first customer</div></div><div class="itime">9:41 AM</div></div><div class="isub">${esc(a2.email.subject)}</div><div class="ibody">${esc((a2.email.body ?? "").slice(0, 170))}…</div></div>`); else fail(6, "Proposed email");
   bubDone(b6);
   const posts = [...(a2.posts_facebook ?? []).map((p) => ["Facebook", p]), ...(a2.posts_instagram ?? []).map((p) => ["Instagram", p])];
   if (posts.length) {
     fill(8, "6 social posts", postsSvg(posts, g.company, cols));
     if (LIVE) {
-      Promise.all(posts.slice(0, 6).map(([kind, t], i) => api("genesis", { action: "image", prompt: `Photo for a ${kind} post: ${String(t).slice(0, 110)}. ${/hijab|modest|muslim|abaya|scarf|sister|woman|women/i.test(String(t) + String(g.offer)) ? "modestly dressed, no face close-up" : "styled product or flat-lay, no people"}.` }).then((r) => (r?.ok && r.img ? { i, img: r.img } : null)).catch(() => null))).then((rs) => {
+      Promise.all(posts.slice(0, 6).map(([kind, t], i) => api("genesis", { action: "image", prompt: `Photo for a ${kind} post: ${String(t).slice(0, 110)}. ${/hijab|modest|muslim|abaya|scarf|sister|woman|women|wedding|family|community|customer|people|team/i.test(String(t) + String(g.offer)) ? MODEST_PPL : MODEST_PROD}` }).then((r) => (r?.ok && r.img ? { i, img: r.img } : null)).catch(() => null))).then((rs) => {
         const imgs = {}; rs.filter(Boolean).forEach((x) => { imgs[x.i] = x.img; });
         if (!Object.keys(imgs).length) return;
         fill(8, "6 social posts", `<div class="pgrid">${posts.slice(0, 6).map(([kind, t], i) => imgs[i] ? `<div class="pimg"><img src="${imgs[i]}" alt=""><span class="ptag">${kind.toUpperCase()}</span></div>` : "").join("")}</div>`);
@@ -2817,9 +2918,10 @@ async function buildAssets(g, input) {
     }
   } else fail(8, "6 social posts");
   bubDone(b8);
-  if (a2.weekly_plan?.length || a2.ad?.headline) fill(9, "Weekly plan + ad", `${a2.weekly_plan?.length ? weekSvg(a2.weekly_plan, cols) : ""}${a2.ad?.headline ? `<div style="margin-top:8px">${adSvg(a2.ad, cols)}</div>` : ""}`); else fail(9, "Weekly plan + ad");
+  if (a2.weekly_plan?.length || a2.ad?.headline) fill(9, "Weekly plan + ad", `${a2.weekly_plan?.length ? weekHtml(a2.weekly_plan) : ""}${a2.ad?.headline ? `<div style="margin-top:8px">${adSvg(a2.ad, cols)}</div>` : ""}`); else fail(9, "Weekly plan + ad");
   bubDone(b9);
-  if (a2.competitor_analysis || a2.audience_profile) fill(10, "Research docs", docThumbs(cols)); else fail(10, "Research docs");
+  const asText = (v) => typeof v === "string" ? v : (Array.isArray(v) ? v.map(asText).join(" ") : (v && typeof v === "object" ? Object.values(v).map(asText).join(" ") : ""));
+  if (a2.competitor_analysis || a2.audience_profile) fill(10, "Research docs", `<div class="docs3">${a2.competitor_analysis ? `<div class="doc"><div class="dt">Competitor analysis</div><div class="dx">${esc(asText(a2.competitor_analysis).slice(0, 170))}…</div></div>` : ""}${a2.audience_profile ? `<div class="doc"><div class="dt">Ideal customer</div><div class="dx">${esc(asText(a2.audience_profile).slice(0, 170))}…</div></div>` : ""}</div>`); else fail(10, "Research docs");
   bubDone(b10);
   bar(80);
   if (ASM.stopped) return;
