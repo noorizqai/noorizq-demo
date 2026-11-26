@@ -2762,6 +2762,7 @@ const docThumbs = (colours) => { const { p, g } = _pal(colours);
   return `<div class="docs2">${doc("COMPETITOR ANALYSIS")}${doc("IDEAL CUSTOMER")}</div>`; };
 async function buildAssets(g, input) {
   const bub = (t) => { const b = document.createElement("span"); b.className = "b-bub"; b.textContent = t; $("#bBubs").appendChild(b); requestAnimationFrame(() => b.classList.add("on")); return b; };
+  const bubDone = (b) => { if (b) b.classList.add("done"); };
   const card = (n, t) => { const c = document.createElement("div"); c.className = "b-card pending"; c.id = `bC${n}`; c.style.transitionDelay = `${(n - 1) * 90}ms`; c.innerHTML = `<span class="n">${n}</span><span class="pend">${t}</span>`; $("#bGrid").appendChild(c); requestAnimationFrame(() => c.classList.add("on")); return c; };
   const fill = (n, title, html) => { const c = $(`#bC${n}`); if (!c) return; c.style.transitionDelay = "0ms"; c.classList.remove("pending"); c.innerHTML = `<span class="n">${n}</span><h4>${title}</h4>${html}`; FX.pop(); };
   const fail = (n, title) => fill(n, title, `<div class="small">The studio is busy right now — I will finish this in your office tonight.</div>`);
