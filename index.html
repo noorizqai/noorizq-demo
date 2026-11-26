@@ -1117,6 +1117,9 @@ body.tl-away #ritual::after{content:"Paused while you're away";position:fixed;in
 .emailc{background:#fff;border:1px solid #e6dfce;border-radius:8px;padding:12px 14px}
 .logo2{display:grid;gap:8px}
 .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.pimg{position:relative;border-radius:8px;overflow:hidden;aspect-ratio:1}
+.pimg img{width:100%;height:100%;object-fit:cover;display:block}
+.pimg .ptag{position:absolute;left:6px;bottom:6px;font:700 8px var(--f-head);letter-spacing:1px;color:#fff;background:rgba(20,12,48,.75);padding:3px 7px;border-radius:999px}
 .docs2{display:flex;gap:10px}
 .docs2 svg,.logo2 svg,.pgrid svg{width:100%;height:auto;display:block;border-radius:8px}
 .emailc{background:#f7f4ee;border-radius:10px;padding:12px 14px}
@@ -2802,7 +2805,16 @@ async function buildAssets(g, input) {
   if (a2.email?.subject) fill(6, "Proposed email", `<div class="emailc"><div class="esub">${esc(a2.email.subject)}</div><div class="ebody">${esc((a2.email.body ?? "").slice(0, 150))}…</div></div>`); else fail(6, "Proposed email");
   bubDone(b6);
   const posts = [...(a2.posts_facebook ?? []).map((p) => ["Facebook", p]), ...(a2.posts_instagram ?? []).map((p) => ["Instagram", p])];
-  if (posts.length) fill(8, "6 social posts", postsSvg(posts, g.company, cols)); else fail(8, "6 social posts");
+  if (posts.length) {
+    fill(8, "6 social posts", postsSvg(posts, g.company, cols));
+    if (LIVE) {
+      Promise.all(posts.slice(0, 6).map(([kind, t], i) => api("genesis", { action: "image", prompt: `Photo for a ${kind} post: ${String(t).slice(0, 110)}. ${/hijab|modest|muslim|abaya|scarf|sister|woman|women/i.test(String(t) + String(g.offer)) ? "modestly dressed, no face close-up" : "styled product or flat-lay, no people"}.` }).then((r) => (r?.ok && r.img ? { i, img: r.img } : null)).catch(() => null))).then((rs) => {
+        const imgs = {}; rs.filter(Boolean).forEach((x) => { imgs[x.i] = x.img; });
+        if (!Object.keys(imgs).length) return;
+        fill(8, "6 social posts", `<div class="pgrid">${posts.slice(0, 6).map(([kind, t], i) => imgs[i] ? `<div class="pimg"><img src="${imgs[i]}" alt=""><span class="ptag">${kind.toUpperCase()}</span></div>` : "").join("")}</div>`);
+      });
+    }
+  } else fail(8, "6 social posts");
   bubDone(b8);
   if (a2.weekly_plan?.length || a2.ad?.headline) fill(9, "Weekly plan + ad", `${a2.weekly_plan?.length ? weekSvg(a2.weekly_plan, cols) : ""}${a2.ad?.headline ? `<div style="margin-top:8px">${adSvg(a2.ad, cols)}</div>` : ""}`); else fail(9, "Weekly plan + ad");
   bubDone(b9);
