@@ -1135,7 +1135,7 @@ body.tl-away #ritual::after{content:"Paused while you're away";position:fixed;in
 .tl .tnum{flex:none;width:19px;height:19px;border-radius:50%;background:#e9c98a;color:#1e1145;font:700 11px var(--f-head);display:grid;place-items:center;margin-top:1px}
 .tl .tt{font:700 12.5px Georgia,serif;color:#fff;line-height:1.3}
 .tl .td{font-size:11px;line-height:1.35;color:#cfc6ee;margin-top:1px}
-.week{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;background:#1e1145;border-radius:10px;padding:6px}
+.week{display:flex;gap:4px;background:#1e1145;border-radius:10px;padding:6px;overflow-x:auto;scrollbar-width:none}
 .week .wc{border-radius:6px;padding:5px 2px;text-align:center;background:rgba(139,63,240,.28);border:1px solid rgba(233,201,138,.25)}
 .week .wc:nth-child(even){background:rgba(233,201,138,.14)}
 .week .wd{font:700 9px var(--f-head);color:#e9c98a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -1211,7 +1211,7 @@ body.tl-away #ritual::after{content:"Paused while you're away";position:fixed;in
 .b-card .inbox{flex:1;display:flex;flex-direction:column;justify-content:center}
 .b-card .docs3{flex:1}
 .b-card .docs3 .doc{flex:1;display:flex;flex-direction:column;justify-content:center}
-.week .wc{min-width:0}
+.week .wc{flex:0 0 58px;min-width:58px}
 .week .wt{overflow:hidden;text-overflow:ellipsis}
 /* ---------- /build screen ---------- */
 </style>
