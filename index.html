@@ -2905,7 +2905,7 @@ function showOutcomes(g, outs) {
   o.innerHTML = `<div class="eyebrow" style="color:#e9c98a;letter-spacing:.2em;font:600 12px var(--f-head)">${esc(g.company)} IS ASSEMBLED</div><h2>Here's what I'd go after <em>first.</em></h2><p class="lead">Tap one and your team starts now. You won't need to type anything.</p>
   <div class="oc-row">${outs.options.map((x, i) => { const a = agentById(x.agent); return `<div class="oc tilt" data-i="${i}"><div class="lead-a">${faceHtml(a, "sm")}${esc(a.name)} leads${i === 0 ? '<span class="rec">NOOR’S PICK</span>' : ""}</div><h3>${esc(x.title)}</h3><div class="tgt"><span>🎯 ${esc(x.target)} ${esc(x.metric)}</span><span>📅 by ${esc(x.due)}</span></div><div class="why">${esc(x.why)}</div>${x.ev ? `<div class="ev">${esc(x.ev)}</div>` : ""}<div class="fm"><b>FIRST MOVE</b>${esc(x.first)}</div><div class="conf" title="Noor's confidence"><i style="width:${Math.round((x.conf ?? 0.6) * 100)}%"></i></div><button class="go">Go after this</button></div>`; }).join("")}</div>`;
   // the hero and the scene step back so the choice is the only thing on stage
-  $("#aHero").style.cssText += ";opacity:0;transform:scale(.9)"; $(".a-col.left").style.opacity = ".0"; $(".a-col.right").style.opacity = ".0"; $("#aSeats").style.opacity = "0"; status("");
+  const _h = $("#aHero"); if (_h) _h.style.cssText += ";opacity:0;transform:scale(.9)"; const _cl = $(".a-col.left"); if (_cl) _cl.style.opacity = ".0"; const _cr = $(".a-col.right"); if (_cr) _cr.style.opacity = ".0"; const _st = $("#aSeats"); if (_st) _st.style.opacity = "0"; status("");
   o.classList.add("on"); FX.chime(4);
   $$(".oc", o).forEach((c, i) => { setTimeout(() => { c.classList.add("on"); FX.tick(); }, 180 * i + 100);
     c.onclick = async () => {
