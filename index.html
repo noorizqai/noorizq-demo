@@ -1201,7 +1201,7 @@ body.tl-away #ritual::after{content:"Paused while you're away";position:fixed;in
 .qpanel::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 18%,rgba(233,201,138,.4),transparent 46%),radial-gradient(circle at 10% 88%,rgba(233,201,138,.18),transparent 42%)}
 .qpanel::after{content:"\201C";position:absolute;right:10px;top:-6px;font:700 66px Georgia,serif;color:rgba(233,201,138,.4)}
 .qpanel .punch{position:relative;color:#fff !important;font-size:19px !important}
-.tfoot{margin-top:8px;text-align:center;font:600 13px var(--f-hand);color:#7c5a1e;background:rgba(233,201,138,.25);border:1.2px dashed rgba(124,90,30,.45);border-radius:8px;padding:5px 8px}
+.tfoot{margin-top:8px;text-align:center;font:600 12.5px/1.4 var(--f-hand);color:#7c5a1e;background:rgba(233,201,138,.25);border:1.2px dashed rgba(124,90,30,.45);border-radius:8px;padding:6px 10px;overflow-wrap:break-word;flex:none}
 .b-card .tl{flex:1;justify-content:space-evenly}
 /* ---------- /build screen ---------- */
 </style>
@@ -2921,7 +2921,7 @@ async function buildAssets(g, input) {
     if (LIVE) Promise.all(prods.map((pp, i) => tryImg(`Product photo for a business selling: ${String(pp.name).slice(0, 90)}. ${MODEST_PROD}`).then((img) => (img ? { i, img } : null)))).then((rs) => { rs.filter(Boolean).forEach((x) => { const t = $(`#pt7${x.i}`); if (t) t.innerHTML = `${prods[x.i].price ? `<div class="prprice">${esc(prods[x.i].price)}</div>` : ""}<img src="${x.img}" alt=""><div class="prname">${esc(prods[x.i].name)}</div>`; const si = document.getElementById("sp" + x.i); if (si) si.setAttribute("href", x.img); }); });
   } else fail(7, "Products & services");
   bubDone(b7);
-  if (a1.plan_phases?.length) fill(4, "90-day plan", tlHtml(a1.plan_phases) + (a1.plan_summary ? `<div class="tfoot">Goal: ${esc(a1.plan_summary)}</div>` : "")); else fail(4, "90-day plan");
+  if (a1.plan_phases?.length) fill(4, "90-day plan", tlHtml(a1.plan_phases) + (a1.plan_summary ? `<div class="tfoot">Goal: ${esc(_wslice(a1.plan_summary, 90))}</div>` : "")); else fail(4, "90-day plan");
   bubDone(b4);
   bar(55);
   const b6 = bub("Drafting your first email"), b8 = bub("Designing your social posts"), b9 = bub("Planning week one + your ad"), b10 = bub("Researching competitors & audience");
