@@ -2738,7 +2738,7 @@ async function liveRead(input) {
   const r = await api("genesis", { action: "read", input });
   if (r.silent) throw new Error(r.status);
   if (r.fallback || r.kind === "no_idea") return r.kind === "no_idea" ? { ideas: r.ideas.map((x, i) => ({ key: i + 1, title: x.idea, detail: x.why_it_fits })) } : r;
-  return { company: r.company, facts: r.facts.map((t, i) => [t, ["business", "offer", "strength", "strength", "who"][i] ?? "noted"]), reflection: r.reflection, colours: r.colours?.length ? r.colours : ["#7c3aed", "#1e1145", "#e9c98a"], pages: 4, path: r.kind === "url" ? "existing" : "new_founder" };
+  return { company: r.company, offer: r.offer, audience: r.audience, tone: r.tone, facts: r.facts.map((t, i) => [t, ["business", "offer", "strength", "strength", "who"][i] ?? "noted"]), reflection: r.reflection, colours: r.colours?.length ? r.colours : ["#7c3aed", "#1e1145", "#e9c98a"], pages: 4, path: r.kind === "url" ? "existing" : "new_founder" };
 }
 let _liveProp = null;
 function liveProposeStart() { return (_liveProp ??= api("genesis", { action: "propose" })); }
