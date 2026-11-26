@@ -1161,12 +1161,12 @@ body.tl-away #ritual::after{content:"Paused while you're away";position:fixed;in
 .namepanel .np-tag{position:relative;font:600 21px var(--f-hand);color:#e9c98a;margin-top:4px}
 .namepanel .np-alt{position:relative;font:600 9.5px var(--f-head);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:8px}
 .brandrow{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #e6dfce;border-radius:10px;padding:9px 11px}
-.brandrow .bmark{flex:none;width:38px;height:38px}
-.brandrow .bwm{font:700 19px Georgia,serif;color:#1e1145;letter-spacing:.04em;line-height:1.1}
+.brandrow .bmark{flex:none;width:46px;height:46px}
+.brandrow .bwm{font:700 21px Georgia,serif;color:#1e1145;letter-spacing:.04em;line-height:1.1}
 .brandrow .bwtag{font:600 15px var(--f-hand);color:#8b5cf6;line-height:1.1}
 .lvars{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:6px}
 .lvar{border-radius:8px;padding:9px 6px 7px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px}
-.lvar .bmark{width:24px;height:24px}
+.lvar .bmark{width:30px;height:30px}
 .lvar .lvname{font:700 10.5px Georgia,serif;letter-spacing:.03em}
 .lvar.dark{background:#1e1145;color:#fff}
 .lvar.light{background:#fff;border:1px solid #e6dfce;color:#1e1145}
@@ -1174,18 +1174,25 @@ body.tl-away #ritual::after{content:"Paused while you're away";position:fixed;in
 .lmocks{display:grid;grid-template-columns:5fr 3fr;gap:6px;margin-top:6px}
 .bizcard{border-radius:8px;background:#fdfaf2;border:1px solid #e6dfce;padding:9px 11px;display:flex;flex-direction:column;justify-content:center;gap:2px;box-shadow:0 3px 8px -4px rgba(30,17,69,.25)}
 .bizcard .bcrow{display:flex;align-items:center;gap:7px}
-.bizcard .bmark{width:22px;height:22px}
+.bizcard .bmark{width:26px;height:26px}
 .bizcard .bcname{font:700 12px Georgia,serif;color:#1e1145}
 .bizcard .bcline{font-size:8px;color:#9a93ad;letter-spacing:.06em}
 .appicon{width:44px;height:44px;border-radius:12px;margin:auto;overflow:hidden;display:grid;place-items:center;background:linear-gradient(135deg,#8b3ff0,#1e1145);box-shadow:0 4px 10px -4px rgba(30,17,69,.4)}
 .appicon img{width:100%;height:100%;object-fit:cover;display:block}
-.appicon .bmark{width:26px;height:26px}
+.appicon .bmark{width:30px;height:30px}
 .appcap{text-align:center;font:600 8.5px var(--f-head);letter-spacing:.1em;color:#8a7fb8;margin-top:4px;text-transform:uppercase}
 .docs3{display:flex;flex-direction:column;gap:6px}
 .doc{background:#fdfaf2;border:1px solid #e6dfce;border-radius:8px;padding:8px 11px;box-shadow:0 2px 6px -3px rgba(30,17,69,.2)}
 .doc .dt{font:700 9px var(--f-head);letter-spacing:.12em;text-transform:uppercase;color:#8b5cf6;border-bottom:1px solid #e6dfce;padding-bottom:4px;margin-bottom:5px}
 .doc .dx{font-size:10.5px;line-height:1.45;color:#57506b;font-family:Georgia,serif}
 .prprice{position:absolute;top:6px;right:6px;font:700 10px var(--f-head);color:#1e1145;background:#e9c98a;padding:2px 7px;border-radius:999px}
+.ichips{display:flex;flex-wrap:wrap;gap:5px}
+.ichips span{font:600 10.5px var(--f-head);color:#7c5a1e;border:1.2px solid rgba(124,90,30,.4);border-radius:999px;padding:3px 9px;background:rgba(233,201,138,.18)}
+.iactions{display:flex;gap:6px;margin-top:8px}
+.iactions .btn2{flex:1;text-align:center;font:700 10.5px var(--f-head);padding:7px 0;border-radius:8px}
+.iactions .primary2{background:#1e1145;color:#fff}
+.iactions .ghost2{border:1.2px solid #d8d0bd;color:#57506b}
+.inote{font-size:9.5px;color:#9a93ad;margin-top:6px;text-align:center;font-style:italic}
 /* ---------- /build screen ---------- */
 </style>
 </head>
@@ -2818,7 +2825,7 @@ const siteSvgB = (name, tagline, colours, products) => { const { p, d, g } = _pa
 const postsSvg = (posts, name, colours) => { const { p, d, g } = _pal(colours); const u = ++_uidc; const ini = _ini(name);
   const words = (t) => esc((t ?? "").replace(/\*\*/g, "").split(/\s+/).slice(0, 4).join(" "));
   return `<div class="pgrid">${posts.slice(0, 6).map(([kind, t], i) => { const dark = i % 2 === 0; return `<svg viewBox="0 0 100 100"><defs><linearGradient id="pg${u}${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${dark ? p : d}"/><stop offset="1" stop-color="${dark ? d : p}"/></linearGradient></defs><rect width="100" height="100" rx="8" fill="url(#pg${u}${i})"/><text x="9" y="44" font-family="Georgia,serif" font-weight="bold" font-size="12.5" fill="#ffffff">${words(t)}</text><text x="9" y="59" font-size="5.5" letter-spacing="1.4" fill="${g}">${kind.toUpperCase()}</text><circle cx="87" cy="87" r="7.5" fill="${g}"/><text x="87" y="90.5" text-anchor="middle" font-size="6.5" font-family="Georgia" fill="${d}">${ini}</text></svg>`; }).join("")}</div>`; };
-const _wslice = (t, n) => { t = String(t ?? ""); return t.length <= n ? t : t.slice(0, n).replace(/\s+\S*$/, "") + "\u2026"; };
+const _wslice = (t, n) => { t = String(t ?? ""); return t.length <= n ? t : t.slice(0, n).replace(/\s+\S*$/, "").replace(/[.\s]+$/, "") + "\u2026"; };
 const adSvg = (ad, colours) => { const { p, d, g } = _pal(colours); const u = ++_uidc;
   return `<svg viewBox="0 0 260 92"><defs><linearGradient id="ad${u}" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="${d}"/><stop offset="1" stop-color="${p}"/></linearGradient></defs><rect width="260" height="92" rx="12" fill="url(#ad${u})"/><circle cx="230" cy="46" r="30" fill="${g}" opacity=".22"/><circle cx="240" cy="46" r="17" fill="${g}" opacity=".32"/><text x="16" y="32" font-family="Georgia,serif" font-weight="bold" font-size="11.5" fill="#fff">${esc(_wslice(ad?.headline ?? "Your launch ad", 34))}</text><text x="16" y="47" font-size="6.6" fill="#ffffffbb">${esc(_wslice(ad?.body ?? "", 66))}</text><rect x="16" y="58" width="92" height="15" rx="7.5" fill="${g}"/><text x="62" y="68.5" text-anchor="middle" font-size="6.8" font-weight="bold" fill="${d}">${esc(_wslice(ad?.cta ?? "Learn more", 20))}</text></svg>`; };
 const timelineSvg = (phases, colours) => { const { p, d, g } = _pal(colours); const pts = (phases ?? []).slice(0, 3);
@@ -2830,6 +2837,7 @@ const docThumbs = (colours) => { const { p, g } = _pal(colours);
   return `<div class="docs2">${doc("COMPETITOR ANALYSIS")}${doc("IDEAL CUSTOMER")}</div>`; };
 const MODEST_PPL = "People shown from behind or hands only, no visible faces, modest loose clothing, women wearing hijab. Photorealistic.";
 const MODEST_PROD = "Styled product photography or flat-lay, no people, photorealistic.";
+const tryImg = async (prompt) => { for (let k = 0; k < 2; k++) { try { const r = await api("genesis", { action: "image", prompt }); if (r?.ok && r.img) return r.img; } catch {} if (k === 0) await new Promise((res) => setTimeout(res, 1200)); } return null; };
 const tlHtml = (phases) => `<div class="tl">${(phases ?? []).slice(0, 3).map((ph, i) => `<div class="trow"><div class="tnum">${i + 1}</div><div><div class="tt">${esc(ph.title ?? "")}</div><div class="td">${esc(ph.detail ?? "")}</div></div></div>`).join("")}</div>`;
 const weekHtml = (weekly) => { const days = ["M", "T", "W", "T", "F", "S", "S"];
   return `<div class="week">${days.map((dl, i) => `<div class="wc"><div class="wd">${dl}</div><div class="wt">${esc(String((weekly ?? [])[i] ?? "\u2014").split(/\s+/).slice(0, 3).join(" "))}</div></div>`).join("")}</div>`; };
@@ -2870,8 +2878,10 @@ async function buildAssets(g, input) {
   ["Your idea", "Business name", "Logo", "90-day plan", "Website preview", "Proposed email", "Products & services", "6 social posts", "Weekly plan + ad", "Research docs"].forEach((t, i) => card(i + 1, t));
   const assets = {};
   const cols = g.colours;
+  const chips1 = (g.facts ?? []).map((f) => String(f[0]).slice(0, 24)).filter(Boolean).slice(0, 3);
+  const chips1Html = chips1.length ? `<div class="ichips">${chips1.map((c) => `<span>${esc(c)}</span>`).join("")}</div>` : "";
   const b1 = bub("Shaping your idea");
-  fill(1, "Your idea", `<div class="punch">&ldquo;${esc(g.facts?.find((f) => f[1] === "offer")?.[0] ?? g.offer ?? g.label ?? input)}&rdquo;</div>`);
+  fill(1, "Your idea", `<div class="punch">&ldquo;${esc(g.facts?.find((f) => f[1] === "offer")?.[0] ?? g.offer ?? g.label ?? input)}&rdquo;</div>${chips1Html}`);
   fill(2, "Business name", `<div class="bigname">${_nm(g.company)}</div>`);
   bubDone(b1);
   const b3 = bub("Designing your logo");
@@ -2882,9 +2892,9 @@ async function buildAssets(g, input) {
   if (LIVE) { try { a1 = await api("genesis", { action: "assets", stage: 1 }); } catch { a1 = {}; } }
   else { a1 = { idea_pitch: g.reflection, name_options: [g.company, "Barakah & Co", "The Honest Table"], tagline: "Made with barakah", products: (g.facts ?? []).slice(0, 4).map((f) => ({ name: f[0].slice(0, 30), description: f[0] })), plan_summary: g.outcomes?.[0]?.title ?? "First 10 customers", plan_phases: [{ title: "Weeks 1-4", detail: "Set up and first sales" }, { title: "Weeks 5-8", detail: "Repeat orders and referrals" }, { title: "Weeks 9-12", detail: "Grow what works" }] }; }
   Object.assign(assets, a1);
-  if (a1.idea_pitch) fill(1, "Your idea", `<div class="punch">&ldquo;${esc(a1.idea_pitch)}&rdquo;</div>`);
+  if (a1.idea_pitch) fill(1, "Your idea", `<div class="punch">&ldquo;${esc(a1.idea_pitch)}&rdquo;</div>${chips1Html}`);
   if (LIVE) { const pitchTxt = a1.idea_pitch ?? g.facts?.find((f) => f[1] === "offer")?.[0] ?? g.offer ?? input;
-    api("genesis", { action: "image", prompt: `Editorial hero photo for this business idea: ${String(pitchTxt).slice(0, 120)}. ${/wedding|people|family|community|customer|woman|women|sister|hijab|modest|muslim/i.test(String(pitchTxt)) ? MODEST_PPL : MODEST_PROD}` }).then((r) => { if (r?.ok && r.img) fill(1, "Your idea", `<div class="ideaov"><img src="${r.img}" alt=""><div class="punch">&ldquo;${esc(pitchTxt)}&rdquo;</div></div>`); }).catch(() => {}); }
+    api("genesis", { action: "image", prompt: `Editorial hero photo for this business idea: ${String(pitchTxt).slice(0, 120)}. ${/wedding|people|family|community|customer|woman|women|sister|hijab|modest|muslim/i.test(String(pitchTxt)) ? MODEST_PPL : MODEST_PROD}` }).then((r) => { if (r?.ok && r.img) fill(1, "Your idea", `<div class="ideaov"><img src="${r.img}" alt=""><div class="punch">&ldquo;${esc(pitchTxt)}&rdquo;</div></div>${chips1Html}`); }).catch(() => {}); }
   if (a1.name_options?.length) fill(2, "Business name", `<div class="namepanel"><div class="bigname">${_nm(g.company ?? a1.name_options[0])}</div>${a1.tagline ? `<div class="np-tag">${esc(a1.tagline)}</div>` : ""}<div class="np-alt">Also considered: ${a1.name_options.slice(1).map(esc).join(" · ")}</div></div>`);
   fill(3, "Logo & brand", brandCard(g.company ?? a1.name_options?.[0], a1.tagline, cols, (g.offer ?? "") + " " + (a1.idea_pitch ?? "")));
   if (LIVE) { const kindI = symKind(String(g.offer ?? "") + " " + String(g.company ?? ""));
@@ -2894,7 +2904,7 @@ async function buildAssets(g, input) {
   if (a1.products?.length) {
     const prods = a1.products.slice(0, 4);
     fill(7, "Products & services", `<div class="prgrid">${prods.map((pp, i) => { const { p: pc, d: dc } = _pal(cols); const u = ++_uidc; return `<div class="prtile" id="pt7${i}">${pp.price ? `<div class="prprice">${esc(pp.price)}</div>` : ""}<svg class="prsvg" viewBox="0 0 100 75"><defs><linearGradient id="ptg${u}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${i % 2 ? dc : pc}"/><stop offset="1" stop-color="${i % 2 ? pc : dc}"/></linearGradient></defs><rect width="100" height="75" fill="url(#ptg${u})"/></svg><div class="prname">${esc(pp.name)}</div></div>`; }).join("")}</div>`);
-    if (LIVE) Promise.all(prods.map((pp, i) => api("genesis", { action: "image", prompt: `Product photo for a business selling: ${String(pp.name).slice(0, 90)}. ${MODEST_PROD}` }).then((r) => (r?.ok && r.img ? { i, img: r.img } : null)).catch(() => null))).then((rs) => { rs.filter(Boolean).forEach((x) => { const t = $(`#pt7${x.i}`); if (t) t.innerHTML = `${prods[x.i].price ? `<div class="prprice">${esc(prods[x.i].price)}</div>` : ""}<img src="${x.img}" alt=""><div class="prname">${esc(prods[x.i].name)}</div>`; }); });
+    if (LIVE) Promise.all(prods.map((pp, i) => tryImg(`Product photo for a business selling: ${String(pp.name).slice(0, 90)}. ${MODEST_PROD}`).then((img) => (img ? { i, img } : null)))).then((rs) => { rs.filter(Boolean).forEach((x) => { const t = $(`#pt7${x.i}`); if (t) t.innerHTML = `${prods[x.i].price ? `<div class="prprice">${esc(prods[x.i].price)}</div>` : ""}<img src="${x.img}" alt=""><div class="prname">${esc(prods[x.i].name)}</div>`; }); });
   } else fail(7, "Products & services");
   bubDone(b7);
   if (a1.plan_phases?.length) fill(4, "90-day plan", tlHtml(a1.plan_phases)); else fail(4, "90-day plan");
@@ -2905,13 +2915,15 @@ async function buildAssets(g, input) {
   if (LIVE) { try { a2 = await api("genesis", { action: "assets", stage: 2 }); } catch { a2 = {}; } }
   else { a2 = { posts_facebook: (g.outcomes ?? []).slice(0, 3).map((o) => o.title), posts_instagram: [], email: { subject: "Hello from your neighbour", body: "I make celebration cakes here in Cardiff..." }, weekly_plan: [], ad: { headline: "", body: "", cta: "" }, competitor_analysis: g.reflection, audience_profile: g.audience }; }
   Object.assign(assets, a2);
-  if (a2.email?.subject) fill(6, "Proposed email", `<div class="inbox"><div class="ihead"><div class="iav">${esc(_ini(g.company))}</div><div class="ifrom">${esc(_nm(g.company))}<div class="ito">to your first customer</div></div><div class="itime">9:41 AM</div></div><div class="isub">${esc(a2.email.subject)}</div><div class="ibody">${esc((a2.email.body ?? "").slice(0, 170))}…</div></div>`); else fail(6, "Proposed email");
+  if (a2.email?.subject) fill(6, "Proposed email", `<div class="inbox"><div class="ihead"><div class="iav">${esc(_ini(g.company))}</div><div class="ifrom">${esc(_nm(g.company))}<div class="ito">to your first customer</div></div><div class="itime">9:41 AM</div></div><div class="isub">${esc(a2.email.subject)}</div><div class="ibody">${esc((a2.email.body ?? "").slice(0, 170))}…</div></div><div class="iactions"><div class="btn2 primary2">Send now</div><div class="btn2 ghost2">Schedule 9:00 AM</div></div><div class="inote">Noor sends only when you tap. Nothing goes out without you.</div>`); else fail(6, "Proposed email");
   bubDone(b6);
   const posts = [...(a2.posts_facebook ?? []).map((p) => ["Facebook", p]), ...(a2.posts_instagram ?? []).map((p) => ["Instagram", p])];
   if (posts.length) {
     fill(8, "6 social posts", postsSvg(posts, g.company, cols));
     if (LIVE) {
-      Promise.all(posts.slice(0, 6).map(([kind, t], i) => api("genesis", { action: "image", prompt: `Photo for a ${kind} post: ${String(t).slice(0, 110)}. ${/hijab|modest|muslim|abaya|scarf|sister|woman|women|wedding|family|community|customer|people|team/i.test(String(t) + String(g.offer)) ? MODEST_PPL : MODEST_PROD}` }).then((r) => (r?.ok && r.img ? { i, img: r.img } : null)).catch(() => null))).then((rs) => {
+      const SCENES_PPL = ["hands only styling the product, no face", "a person seen from behind, modest loose clothing, hijab", "close-up detail of texture and material", "overhead flat-lay of the product with props", "a person from the side looking away, modest clothing, hijab", "styled lifestyle scene, no people"];
+      const SCENES_PROD = ["overhead flat-lay with props", "close-up detail shot", "styled scene on a table with props", "product on a clean pedestal", "lifestyle context scene, no people", "top-down arrangement"];
+      Promise.all(posts.slice(0, 6).map(([kind, t], i) => { const ppl = /hijab|modest|muslim|abaya|scarf|sister|woman|women|wedding|family|community|customer|people|team/i.test(String(t) + String(g.offer)); return tryImg(`Photo for a ${kind} post: ${String(t).slice(0, 100)}. ${(ppl ? SCENES_PPL : SCENES_PROD)[i % 6]}. ${ppl ? "No visible faces, modest clothing, women in hijab." : "No people."} Photorealistic.`).then((img) => (img ? { i, img } : null)); })).then((rs) => {
         const imgs = {}; rs.filter(Boolean).forEach((x) => { imgs[x.i] = x.img; });
         if (!Object.keys(imgs).length) return;
         fill(8, "6 social posts", `<div class="pgrid">${posts.slice(0, 6).map(([kind, t], i) => imgs[i] ? `<div class="pimg"><img src="${imgs[i]}" alt=""><span class="ptag">${kind.toUpperCase()}</span></div>` : "").join("")}</div>`);
