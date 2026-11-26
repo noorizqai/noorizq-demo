@@ -1,0 +1,62 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Caveat:wght@500;600&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;box-sizing:border-box}
+body{font-family:Sora,sans-serif;min-height:100vh;display:flex;flex-direction:column;color:#f5f0ff;overflow-x:hidden;position:relative}
+.logo{position:absolute;top:22px;left:36px;background:#fff;border-radius:14px;padding:10px 16px;box-shadow:0 10px 28px -8px rgba(20,8,50,.55);z-index:9}
+.logo img{height:30px;display:block}
+.badge{position:absolute;top:38px;left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:3px;color:#fff;text-transform:uppercase;text-shadow:0 1px 8px rgba(40,10,90,.7);z-index:9}
+h1{font-family:Fraunces,serif;font-weight:400;font-size:42px;text-align:center;text-shadow:0 2px 18px rgba(40,10,90,.8)}
+h1 em{font-style:italic;color:#f2d795}
+.sub{text-align:center;color:#f0e7ff;font-size:15px;margin-top:10px;text-shadow:0 1px 10px rgba(40,10,90,.8)}
+.hand{font-family:Caveat,cursive}
+.node{position:absolute;border-radius:16px;padding:13px 18px;font-size:12.5px}
+.done{background:rgba(250,245,235,.97);color:#1e1145;box-shadow:0 16px 38px -12px rgba(3,6,26,.85)}
+.forming{border:1.6px dashed rgba(233,201,138,.9);color:#f2d795;background:rgba(38,14,92,.72)}
+.nlbl{font:700 8.5px Sora;letter-spacing:2px;display:block;margin-bottom:4px}
+.done .nlbl{color:#a1641f}.forming .nlbl{color:#f2d795}
+.tape{position:absolute;top:-9px;width:70px;height:18px;background:rgba(233,201,138,.85)}
+.stage{position:relative;z-index:5;flex:1;display:flex;align-items:center;justify-content:center;padding:10px 0 118px}
+.canvas{position:relative;width:1120px;height:470px}
+.dock{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);display:flex;align-items:center;gap:16px;background:#1c0a45;border:1.5px solid #e9c98a;border-radius:999px;padding:12px 24px;z-index:9;box-shadow:0 14px 36px -8px rgba(5,2,20,.85)}
+.dock span{font-size:13px;color:#f2eaff}
+.dock .sep{color:#c9a9f2}
+.bars{display:flex;align-items:flex-end;gap:3px;height:22px}
+.bars i{width:4px;background:#e9c98a;border-radius:2px}
+@keyframes float1{0%,100%{transform:rotate(var(--r,0deg)) translateY(0)}50%{transform:rotate(var(--r,0deg)) translateY(-7px)}}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.mq .node{position:static;flex:none;width:230px;height:100px}@keyframes mq1{from{transform:translateX(0)}to{transform:translateX(-50%)}}@keyframes mq2{from{transform:translateX(-50%)}to{transform:translateX(0)}}</style></head><body>
+<div style="position:fixed;inset:0;z-index:0;background:url(../assets/hero-backdrop-nolady.jpg) center/cover"></div><div style="position:fixed;inset:0;z-index:1;background:linear-gradient(160deg,rgba(122,53,232,.66),rgba(42,16,98,.76) 78%)"></div>
+<div class="logo"><img src="../assets/noorizq-logo-crisp.png" alt="Noorizq"></div>
+<div class="badge">37 · The Phone</div>
+<div style="text-align:center;padding-top:96px;position:relative;z-index:5"><h1>Your voice, <em>in your hand</em>.</h1>
+<div class="sub">Speak into the phone; the business unpacks on both sides of it.</div></div>
+<div class="stage"><div class="canvas">
+<div style="position:absolute;left:445px;top:6px;width:230px;height:458px;background:#1c0a45;border:3px solid #e9c98a;border-radius:38px;box-shadow:0 0 60px rgba(233,201,138,.3)"></div>
+<div style="position:absolute;left:545px;top:20px;width:30px;height:6px;border-radius:3px;background:#e9c98a;opacity:.6"></div><div style="position:absolute;left:470px;top:330px;width:180px;display:flex;align-items:flex-end;gap:5px;height:60px;justify-content:center"><i style="width:6px;height:20px;background:#a86ef2;border-radius:3px"></i><i style="width:6px;height:44px;background:#e9c98a;border-radius:3px"></i><i style="width:6px;height:30px;background:#e9c98a;border-radius:3px"></i><i style="width:6px;height:56px;background:#a86ef2;border-radius:3px"></i><i style="width:6px;height:26px;background:#e9c98a;border-radius:3px"></i><i style="width:6px;height:48px;background:#e9c98a;border-radius:3px"></i><i style="width:6px;height:18px;background:#a86ef2;border-radius:3px"></i><i style="width:6px;height:38px;background:#e9c98a;border-radius:3px"></i><i style="width:6px;height:50px;background:#e9c98a;border-radius:3px"></i><i style="width:6px;height:24px;background:#a86ef2;border-radius:3px"></i><i style="width:6px;height:40px;background:#e9c98a;border-radius:3px"></i><i style="width:6px;height:16px;background:#e9c98a;border-radius:3px"></i></div><div class="node done" style="--r:0deg;left:465px;top:110px;width:190px;transform:rotate(0deg);"><span data-said class="nlbl">YOU SAID</span><b style="font-family:Fraunces,serif;font-size:14px">"baklava boxes for Eid, <em style="color:#8b3ff0">sold to my community</em>" ▍</b></div>
+<div class="hand" style="position:absolute;left:486px;top:400px;color:#f2d795;font-size:19px;transform:rotate(0deg)">listening…</div>
+<svg style="position:absolute;inset:0" width="1120" height="470" fill="none"><path d="M300 100 L445 160 M300 250 L445 230 M820 100 L675 160 M820 250 L675 230" stroke="#f2d795" stroke-opacity=".6" stroke-width="1.5" stroke-dasharray="5 6"/></svg>
+<div class="node done" style="--r:-2deg;left:70px;top:70px;width:230px;transform:rotate(-2deg);animation:float1 7.4s ease-in-out infinite;"><span class="nlbl">LOGO · DRAWN</span><div style="width:38px;height:38px;border:2.5px solid #8b3ff0;border-radius:50%;margin:2px auto 4px"></div><b style="font-family:Fraunces,serif;display:block;text-align:center">Barakah Bakes</b></div>
+<div class="node done" style="--r:2deg;left:40px;top:210px;width:260px;transform:rotate(2deg);animation:float1 7.0s ease-in-out infinite;"><span class="nlbl">WEBSITE · LIVE</span>barakahbakes.noorizq.site</div>
+<div class="node done" style="--r:-1deg;left:80px;top:330px;width:230px;transform:rotate(-1deg);animation:float1 6.3s ease-in-out infinite;"><span class="nlbl">PRICE LIST</span>£12 box · £20 duo</div>
+<div class="node done" style="--r:2deg;left:820px;top:60px;width:230px;transform:rotate(2deg);animation:float1 5.6s ease-in-out infinite;"><span class="nlbl">90-DAY PLAN · PRINTING</span>Week 1 · photos + price list<br>Week 2 · soft launch, 20 boxes<br>Week 3 · Eid preorder push<span style="color:#8b3ff0">▍</span></div>
+<div class="node forming" style="--r:-2deg;left:830px;top:230px;width:220px;transform:rotate(-2deg);animation:float1 7.7s ease-in-out infinite;"><span class="nlbl">6 POSTS · DRAFTED</span>photos + captions…</div>
+<div class="node forming" style="--r:1deg;left:800px;top:350px;width:260px;transform:rotate(1deg);animation:float1 6.7s ease-in-out infinite;"><span class="nlbl">INSTAGRAM · LINKED</span>instagram.com/barakahbakes</div>
+</div></div>
+<div class="dock"><button id="mic" style="display:flex;align-items:flex-end;gap:3px;height:22px;background:none;border:none;cursor:pointer;padding:0"><i style="width:4px;height:8px;background:#e9c98a;border-radius:2px"></i><i style="width:4px;height:18px;background:#e9c98a;border-radius:2px"></i><i style="width:4px;height:12px;background:#a86ef2;border-radius:2px"></i><i style="width:4px;height:20px;background:#e9c98a;border-radius:2px"></i><i style="width:4px;height:7px;background:#e9c98a;border-radius:2px"></i></button><span id="speakLbl" style="cursor:pointer">speak</span><span class="sep">|</span><input id="typer" placeholder="type it, press enter" style="background:none;border:none;outline:none;color:#f2eaff;font:13px Sora;width:150px"/><span class="sep">|</span><span>drop a link or photo</span></div>
+<div id="veil" style="position:fixed;inset:0;z-index:20;display:none;align-items:center;justify-content:center;background:rgba(28,10,69,.72);backdrop-filter:blur(4px)"><div style="border:2.5px dashed #e9c98a;border-radius:26px;padding:34px 54px;font:600 22px Fraunces,serif;color:#f2d795">drop it — it becomes part of the business</div></div>
+<script>
+const S=["baklava boxes for Eid, sold to my community","Sunday roast prep for busy families","hand-poured oud candles for Ramadan"];
+let si=0;
+const _t=document.querySelector('[data-said]');const saidEl=document.querySelector('[data-said] b')||((_t.closest('.node')||_t).querySelector('b'))||_t;
+function typeSaid(t){let i=0;saidEl.innerHTML='';const iv=setInterval(()=>{saidEl.innerHTML='"'+t.slice(0,++i)+'"<span style="color:#8b3ff0">▍</span>';if(i>=t.length){clearInterval(iv);evolve();}},26);}
+function evolve(){const f=document.querySelector('.forming:not(.evolved)');if(!f)return;f.classList.remove('forming');f.classList.add('done','evolved');const l=f.querySelector('.nlbl');if(l)l.textContent=l.textContent.replace(/DRAFTED|IGNITING|FORMING|RISING|DAWNING|SETTING NOW|DOCKING|IN THE WINGS/,'DONE');f.style.animation='none';}
+function listen(){const m=document.getElementById('mic'),l=document.getElementById('speakLbl');l.textContent='listening…';m.querySelectorAll('i').forEach(b=>b.style.animation='tw .5s ease-in-out infinite');setTimeout(()=>{l.textContent='speak';m.querySelectorAll('i').forEach(b=>b.style.animation='');typeSaid(S[si++%S.length]);},1500);}
+document.getElementById('mic').onclick=listen;document.getElementById('speakLbl').onclick=listen;
+document.getElementById('typer').addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.value.trim()){const v=e.target.value.trim();e.target.value='';typeSaid(v);}});
+const veil=document.getElementById('veil');
+window.addEventListener('dragover',e=>{e.preventDefault();veil.style.display='flex';});
+veil.addEventListener('dragleave',()=>veil.style.display='none');
+veil.addEventListener('drop',e=>{e.preventDefault();veil.style.display='none';const c=document.querySelector('.canvas');const d=document.createElement('div');d.className='node done';d.style.cssText='left:'+(60+Math.random()*700)+'px;top:'+(60+Math.random()*280)+'px;width:180px;padding:10px;transform:rotate('+(Math.random()*6-3)+'deg)';d.innerHTML='<div style="height:96px;border-radius:8px;background:conic-gradient(from 40deg at 50% 50%,#c98a2e,#2a1650 40%,#c98a2e 60%,#2a1650 85%,#c98a2e)"></div><div class="hand" style="text-align:center;color:#6b5a3e;font-size:15px;margin-top:5px">photo you dropped in</div>';c.appendChild(d);evolve();});
+</script>
+</body></html>
