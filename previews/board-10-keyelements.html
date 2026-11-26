@@ -77,7 +77,7 @@ document.getElementById('typer').addEventListener('keydown',e=>{if(e.key==='Ente
 const veil=document.getElementById('veil');
 window.addEventListener('dragover',e=>{e.preventDefault();veil.style.display='flex';});
 veil.addEventListener('dragleave',()=>veil.style.display='none');
-veil.addEventListener('drop',e=>{e.preventDefault();veil.style.display='none';const c=document.querySelector('.canvas');const d=document.createElement('div');d.className='node done';const P=[[180,262],[195,272],[180,262],[195,272]];const p=P[(window._dn=(window._dn||0)+1)%P.length];d.style.cssText='left:'+p[0]+'px;top:'+p[1]+'px;width:170px;padding:9px;transform:rotate('+(Math.random()*6-3)+'deg)';d.innerHTML='<div style="height:96px;border-radius:8px;background:conic-gradient(from 40deg at 50% 50%,#c98a2e,#2a1650 40%,#c98a2e 60%,#2a1650 85%,#c98a2e)"></div><div class="hand" style="text-align:center;color:#6b5a3e;font-size:15px;margin-top:5px">photo you dropped in</div>';c.appendChild(d);evolve();});
+veil.addEventListener('drop',e=>{e.preventDefault();veil.style.display='none';window._dc=(window._dc||0)+1;const ph=document.querySelector('.node [style*=conic-gradient]');if(ph){ph.style.background='conic-gradient(from '+(40+window._dc*70)+'deg at 50% 50%,#c98a2e,#2a1650 40%,#c98a2e 60%,#2a1650 85%,#c98a2e)';const n=ph.parentNode;n.style.outline='3px solid #8b3ff0';setTimeout(()=>n.style.outline='',900);const h=n.querySelector('.hand');if(h)h.lastChild.textContent=' '+window._dc+' photo'+(window._dc>1?'s':'')+' dropped in';}evolve();});
 
 let gv=12;function setG(v){gv=v;document.getElementById('gfl').style.width=(v/50*100)+'%';document.getElementById('gnum').textContent=v+' / 50';}
 setG(12);
