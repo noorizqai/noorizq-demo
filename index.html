@@ -1065,21 +1065,22 @@ body.tl-away #ritual::after{content:"Paused while you're away";position:fixed;in
 #build .a-top button.ghost{color:#cfc6ee;font:500 13px var(--f-head);padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.14)}
 #build .a-top .a-input{max-width:40vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#cfc6ee;font-size:13px;border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:6px 14px}
 #build .a-bar{position:absolute;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--magenta));z-index:6;transition:width .6s var(--ease)}
-#build .b-hero{margin-top:64px}
+#build .b-hero{margin-top:52px}
 #build .a-outcomes{position:fixed;z-index:20;background:rgba(9,4,24,.94)}
 /* ---------- build screen: 10 assets cascade in ---------- */
-.b-hero{position:relative;z-index:2;text-align:center;padding:26px 16px 6px}
-.b-hero h1{font:600 clamp(26px,4vw,40px)/1.1 var(--f-head);letter-spacing:-.02em}
+.b-hero{position:relative;z-index:2;text-align:center;padding:14px 16px 4px}
+.b-hero h1{font:600 clamp(24px,3.2vw,34px)/1.1 var(--f-head);letter-spacing:-.02em}
 .b-hero h1 em{font-style:italic;color:var(--gold)}
-.b-bubbles{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative;z-index:2;padding:10px 16px 2px;min-height:38px}
-.b-bub{font:600 12px var(--f-head);letter-spacing:.04em;color:#e9c98a;background:rgba(233,201,138,.1);border:1px solid rgba(233,201,138,.3);border-radius:999px;padding:6px 12px;opacity:0;transform:translateY(6px);transition:all .4s var(--ease)}
+.b-bubbles{display:flex;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;gap:7px;justify-content:safe center;position:relative;z-index:2;padding:10px 16px 8px;max-width:1180px;margin:0 auto}
+.b-bubbles::-webkit-scrollbar{display:none}
+.b-bub{flex:none;white-space:nowrap;font:600 12px var(--f-head);letter-spacing:.04em;color:#e9c98a;background:rgba(233,201,138,.1);border:1px solid rgba(233,201,138,.3);border-radius:999px;padding:6px 12px;opacity:0;transform:translateY(6px);transition:all .4s var(--ease)}
 .b-bub.on{opacity:1;transform:none}
 .b-bub.done{color:#c4b5fd;border-color:rgba(196,181,253,.35);background:rgba(139,63,240,.12)}
-.b-grid{position:relative;z-index:2;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;padding:18px clamp(14px,4vw,44px) 30px;max-width:1180px;margin:0 auto}
+.b-grid{position:relative;z-index:2;display:grid;grid-template-columns:repeat(auto-fill,minmax(252px,1fr));gap:14px;padding:12px clamp(12px,3vw,32px) 24px;max-width:1500px;margin:0 auto}
 .b-card{background:rgba(20,12,48,.72);border:1px solid rgba(185,166,255,.16);border-radius:18px;padding:14px 16px;min-height:120px;opacity:0;transform:translateY(14px) scale(.97);transition:all .5s var(--ease);display:flex;flex-direction:column;gap:6px;overflow:visible;position:relative}
 .b-card.on{opacity:1;transform:none}
 .b-card.pending{border-style:dashed;align-items:center;justify-content:center}
-.b-card .n{position:absolute;top:10px;right:12px;font:800 26px var(--f-head);color:rgba(185,166,255,.22)}
+.b-card .n{position:absolute;top:10px;right:12px;font:800 20px var(--f-head);color:rgba(185,166,255,.22)}
 .b-card h4{font:700 11px var(--f-head);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 2px}
 .b-card .big{font:600 17px var(--f-head);color:#fff}
 .b-card .small{font-size:12.5px;line-height:1.5;color:#cdc4f2}
@@ -1095,11 +1096,11 @@ body.tl-away #ritual::after{content:"Paused while you're away";position:fixed;in
 .b-btn.primary{background:linear-gradient(135deg,var(--violet),var(--magenta));border:none}
 .b-btn.ghosty{background:transparent}
 .starfield{background-image:radial-gradient(#dec895 1.5px,#0000 1.8px),radial-gradient(#ffffff80 1px,#0000 1.2px),radial-gradient(500px 300px at 20% 30%,#853bfa55,#0000 70%),radial-gradient(500px 300px at 80% 70%,#1665fb55,#0000 70%) !important;background-size:120px 120px,67px 67px,auto,auto !important}
-.b-grid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));max-width:1340px;margin:0 auto;gap:26px}
-.b-card{min-height:0;background:#f7f2e6;border-radius:6px;box-shadow:0 16px 38px -14px rgba(5,2,20,.7);transform:rotate(var(--rot,0deg)) translateY(18px) scale(.96);padding-top:22px;font-size:14px}
-.b-card .small{font-size:14px;line-height:1.6}
-.b-card ul{font-size:13.5px;line-height:1.6}
-.b-card .punch{font:600 21px/1.35 var(--f-hand);color:#2b2350}
+/* density handled above */
+.b-card{min-height:0;background:#f7f2e6;border-radius:6px;box-shadow:0 16px 38px -14px rgba(5,2,20,.7);transform:rotate(var(--rot,0deg)) translateY(18px) scale(.96);padding-top:16px;font-size:13px}
+.b-card .small{font-size:12.5px;line-height:1.5}
+.b-card ul{font-size:12.5px;line-height:1.5}
+.b-card .punch{font:600 18px/1.35 var(--f-hand);color:#2b2350}
 .b-card:nth-child(odd){--rot:-1.3deg}
 .b-card:nth-child(even){--rot:1.2deg}
 .b-card.on{transform:rotate(var(--rot,0deg))}
@@ -1113,7 +1114,7 @@ body.tl-away #ritual::after{content:"Paused while you're away";position:fixed;in
 .b-card h4{font:700 22px var(--f-hand);color:#6d28d9;letter-spacing:0;text-transform:none}
 .b-card .small{color:#4a4270}
 .b-card ul{color:#3c3466}
-.b-card .bigname{font:700 clamp(34px,4vw,46px)/1.12 Georgia,serif;background:linear-gradient(92deg,#1e1145 30%,#8b3ff0);-webkit-background-clip:text;background-clip:text;color:transparent}
+.b-card .bigname{font:700 clamp(26px,3vw,36px)/1.12 Georgia,serif;background:linear-gradient(92deg,#1e1145 30%,#8b3ff0);-webkit-background-clip:text;background-clip:text;color:transparent}
 .emailc{background:#fff;border:1px solid #e6dfce;border-radius:8px;padding:12px 14px}
 .logo2{display:grid;gap:8px}
 .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
@@ -1129,7 +1130,7 @@ body.tl-away #ritual::after{content:"Paused while you're away";position:fixed;in
 .b-bub{align-self:center}
 .heroimg{border-radius:8px;overflow:hidden;margin-bottom:8px}
 .heroimg img{width:100%;height:120px;object-fit:cover;display:block}
-.tl{background:#1e1145;border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:9px}
+.tl{background:#1e1145;border-radius:10px;padding:10px 12px;display:flex;flex-direction:column;gap:7px}
 .tl .trow{display:flex;gap:9px;align-items:flex-start}
 .tl .tnum{flex:none;width:19px;height:19px;border-radius:50%;background:#e9c98a;color:#1e1145;font:700 11px var(--f-head);display:grid;place-items:center;margin-top:1px}
 .tl .tt{font:700 12.5px Georgia,serif;color:#fff;line-height:1.3}
@@ -1153,20 +1154,20 @@ body.tl-away #ritual::after{content:"Paused while you're away";position:fixed;in
 .prtile .prsvg{width:100%;height:100%;display:block}
 .prtile .prname{position:absolute;left:0;right:0;bottom:0;font:600 14px var(--f-hand);color:#fff;background:linear-gradient(transparent,rgba(20,12,48,.85));padding:10px 7px 4px;line-height:1.1}
 .ideaov{position:relative;border-radius:8px;overflow:hidden;margin-bottom:8px}
-.ideaov img{width:100%;height:150px;object-fit:cover;display:block}
+.ideaov img{width:100%;height:110px;object-fit:cover;display:block}
 .ideaov .punch{position:absolute;left:0;right:0;bottom:0;padding:22px 10px 8px;background:linear-gradient(transparent,rgba(20,12,48,.82));color:#fff !important;font-size:20px !important}
-.namepanel{margin:-4px -4px 0;border-radius:10px;padding:18px 14px 16px;background:linear-gradient(135deg,#1e1145 0%,#3b1d7a 55%,#8b3ff0 130%);position:relative;overflow:hidden;text-align:center}
+.namepanel{margin:-4px -4px 0;border-radius:10px;padding:12px 12px;background:linear-gradient(135deg,#1e1145 0%,#3b1d7a 55%,#8b3ff0 130%);position:relative;overflow:hidden;text-align:center}
 .namepanel::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 15%,rgba(233,201,138,.35),transparent 45%),radial-gradient(circle at 10% 90%,rgba(233,201,138,.18),transparent 40%)}
 .namepanel .bigname{position:relative;background:linear-gradient(92deg,#fff 30%,#e9c98a);-webkit-background-clip:text;background-clip:text;color:transparent}
 .namepanel .np-tag{position:relative;font:600 21px var(--f-hand);color:#e9c98a;margin-top:4px}
-.np-mark{width:46px;height:46px;margin:0 auto 6px}
+.np-mark{width:36px;height:36px;margin:0 auto 4px}
 .np-mark svg{width:100%;height:100%}
 .np-domain{position:relative;display:inline-block;margin-top:9px;font:600 10px var(--f-head);letter-spacing:.08em;color:#1e1145;background:#e9c98a;padding:3px 11px;border-radius:999px}
 .namepanel .np-alt{position:relative;font:600 9.5px var(--f-head);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:8px}
 .brandrow{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #e6dfce;border-radius:10px;padding:9px 11px}
-.brandrow .bmark{flex:none;width:46px;height:46px}
-.brandrow .bwm{font:700 21px Georgia,serif;color:#1e1145;letter-spacing:.04em;line-height:1.1}
-.brandrow .bwtag{font:600 15px var(--f-hand);color:#8b5cf6;line-height:1.1}
+.brandrow .bmark{flex:none;width:38px;height:38px}
+.brandrow .bwm{font:700 17px Georgia,serif;color:#1e1145;letter-spacing:.04em;line-height:1.1}
+.brandrow .bwtag{font:600 13px var(--f-hand);color:#8b5cf6;line-height:1.1}
 .lvars{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:6px}
 .lvar{border-radius:8px;padding:9px 6px 7px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:4px}
 .lvar .bmark{width:30px;height:30px}
@@ -1180,7 +1181,7 @@ body.tl-away #ritual::after{content:"Paused while you're away";position:fixed;in
 .bizcard .bmark{width:26px;height:26px}
 .bizcard .bcname{font:700 12px Georgia,serif;color:#1e1145}
 .bizcard .bcline{font-size:8px;color:#9a93ad;letter-spacing:.06em}
-.appicon{width:44px;height:44px;border-radius:12px;margin:auto;overflow:hidden;display:grid;place-items:center;background:linear-gradient(135deg,#8b3ff0,#1e1145);box-shadow:0 4px 10px -4px rgba(30,17,69,.4)}
+.appicon{width:38px;height:38px;border-radius:12px;margin:auto;overflow:hidden;display:grid;place-items:center;background:linear-gradient(135deg,#8b3ff0,#1e1145);box-shadow:0 4px 10px -4px rgba(30,17,69,.4)}
 .appicon img{width:100%;height:100%;object-fit:cover;display:block}
 .appicon .bmark{width:30px;height:30px}
 .appcap{text-align:center;font:600 8.5px var(--f-head);letter-spacing:.1em;color:#8a7fb8;margin-top:4px;text-transform:uppercase}
@@ -1196,6 +1197,12 @@ body.tl-away #ritual::after{content:"Paused while you're away";position:fixed;in
 .iactions .primary2{background:#1e1145;color:#fff}
 .iactions .ghost2{border:1.2px solid #d8d0bd;color:#57506b}
 .inote{font-size:9.5px;color:#9a93ad;margin-top:6px;text-align:center;font-style:italic}
+.qpanel{position:relative;border-radius:10px;overflow:hidden;margin-bottom:8px;padding:22px 16px;background:linear-gradient(135deg,#1e1145,#3b1d7a 60%,#8b3ff0 145%)}
+.qpanel::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 18%,rgba(233,201,138,.4),transparent 46%),radial-gradient(circle at 10% 88%,rgba(233,201,138,.18),transparent 42%)}
+.qpanel::after{content:"\201C";position:absolute;right:10px;top:-6px;font:700 66px Georgia,serif;color:rgba(233,201,138,.4)}
+.qpanel .punch{position:relative;color:#fff !important;font-size:19px !important}
+.tfoot{margin-top:8px;text-align:center;font:600 13px var(--f-hand);color:#7c5a1e;background:rgba(233,201,138,.25);border:1.2px dashed rgba(124,90,30,.45);border-radius:8px;padding:5px 8px}
+.b-card .tl{flex:1;justify-content:space-evenly}
 /* ---------- /build screen ---------- */
 </style>
 </head>
@@ -2816,21 +2823,23 @@ function mountBuild(input) {
   return s;
 }
 const _pal = (cols) => { const c = cols?.length ? cols : ["#7c3aed", "#1e1145", "#e9c98a"]; return { p: c[0], d: c[1] ?? "#160b38", g: c[2] ?? "#e9c98a" }; };
-const _ini = (n) => esc((n || "N").replace(/\(.*?\)/g, "").trim().split(/\s+/).map((w) => w[0]).slice(0, 2).join("").toUpperCase() || "N");
-const _nm = (n) => esc((n || "Your brand").replace(/\(.*?\)/g, "").trim());
+const _ini = (n) => esc((String(n || "").replace(/\(.*?\)/g, "").replace(/^\s*working\s+name\s*[:\-\u2013\u2014]?\s*/i, "").trim().split(/\s+/).map((w) => w[0]).slice(0, 2).join("").toUpperCase() || "N"));
+const _nm = (n) => esc((String(n || "").replace(/\(.*?\)/g, "").replace(/^\s*working\s+name\s*[:\-\u2013\u2014]?\s*/i, "").trim() || "Your brand"));
 let _uidc = 0;
 const logoSvgB = (name, colours) => { const { p, d, g } = _pal(colours); const ini = _ini(name), nm = _nm(name), u = ++_uidc;
   const tile = (bg, fg, k) => `<svg viewBox="0 0 260 120"><defs><linearGradient id="lg${u}${k}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${g}"/><stop offset="1" stop-color="${p}"/></linearGradient></defs><rect width="260" height="120" rx="12" fill="${bg}"/><circle cx="50" cy="60" r="25" fill="url(#lg${u}${k})"/><text x="50" y="69" text-anchor="middle" font-family="Georgia,serif" font-size="24" fill="${k ? "#1e1145" : "#fff"}">${ini}</text><text x="90" y="57" font-family="Georgia,serif" font-weight="bold" font-size="17" fill="${fg}">${nm.slice(0, 16)}</text><text x="90" y="76" font-family="Georgia,serif" font-size="7.5" letter-spacing="3.5" fill="${k ? p : g}">EST. 2026</text></svg>`;
   return `<div class="logo2">${tile("#140c30", "#ffffff", 0)}${tile("#f7f4ee", "#1e1145", 1)}</div>`; };
 const siteSvgB = (name, tagline, colours, products) => { const { p, d, g } = _pal(colours); const nm = _nm(name); const u = ++_uidc;
-  const tiles = (products ?? []).slice(0, 3).map((pr, i) => { const x = 12 + i * 80; return `<rect x="${x}" y="100" width="72" height="40" rx="6" fill="#ffffff"/><clipPath id="spc${i}"><rect x="${x + 4}" y="104" width="64" height="21" rx="3"/></clipPath><rect x="${x + 4}" y="104" width="64" height="21" rx="3" fill="${i % 2 ? p : g}"/><image id="sp${i}" x="${x + 4}" y="104" width="64" height="21" clip-path="url(#spc${i})" preserveAspectRatio="xMidYMid slice" href=""/><text x="${x + 6}" y="134" font-size="5.6" fill="#333" font-weight="bold">${esc((pr.name ?? "").slice(0, 16))}</text>`; }).join("");
-  return `<svg viewBox="0 0 260 144"><defs><linearGradient id="sh${u}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${p}"/><stop offset="1" stop-color="${d}"/></linearGradient></defs><rect width="260" height="144" rx="12" fill="#f4f2fa"/><rect width="260" height="18" rx="9" fill="#e8e5f0"/><circle cx="11" cy="9" r="3" fill="#f66"/><circle cx="21" cy="9" r="3" fill="#fc3"/><circle cx="31" cy="9" r="3" fill="#4c4"/><rect x="48" y="4" width="150" height="10" rx="5" fill="#fff"/><text x="54" y="12" font-size="6" fill="#888">${esc(nm.toLowerCase().replace(/[^a-z0-9]/g, "") + ".co.uk")}</text><rect width="260" height="80" y="18" fill="url(#sh${u})"/><circle cx="26" cy="44" r="11" fill="${g}"/><text x="26" y="48.5" text-anchor="middle" font-size="11" font-family="Georgia" fill="${d}">${_ini(name)}</text><text x="44" y="42" font-family="Georgia,serif" font-weight="bold" font-size="13" fill="#fff">${nm.slice(0, 20)}</text><text x="44" y="56" font-size="6.4" fill="#ffffffcc">${esc((tagline ?? "").slice(0, 54))}</text><rect x="44" y="64" width="54" height="12" rx="6" fill="${g}"/><text x="71" y="72.5" text-anchor="middle" font-size="6.4" font-weight="bold" fill="${d}">SHOP NOW</text>${tiles}</svg>`; };
+  const tiles = (products ?? []).slice(0, 3).map((pr, i) => { const x = 12 + i * 80; return `<rect x="${x}" y="100" width="72" height="40" rx="6" fill="#ffffff"/><clipPath id="spc${i}"><rect x="${x + 4}" y="104" width="64" height="21" rx="3"/></clipPath><rect x="${x + 4}" y="104" width="64" height="21" rx="3" fill="${i % 2 ? p : g}"/><circle cx="${x + 14}" cy="114" r="6" fill="none" stroke="#ffffffcc" stroke-width="1.4"/><circle cx="${x + 14}" cy="114" r="2.2" fill="#ffffffcc"/><image id="sp${i}" x="${x + 4}" y="104" width="64" height="21" clip-path="url(#spc${i})" preserveAspectRatio="xMidYMid slice" href=""/><text x="${x + 6}" y="134" font-size="5.6" fill="#333" font-weight="bold">${esc(_wslice(pr.name ?? "", 18))}</text>`; }).join("");
+  return `<svg viewBox="0 0 260 144"><defs><linearGradient id="sh${u}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${p}"/><stop offset="1" stop-color="${d}"/></linearGradient></defs><rect width="260" height="144" rx="12" fill="#f4f2fa"/><rect width="260" height="18" rx="9" fill="#e8e5f0"/><circle cx="11" cy="9" r="3" fill="#f66"/><circle cx="21" cy="9" r="3" fill="#fc3"/><circle cx="31" cy="9" r="3" fill="#4c4"/><rect x="48" y="4" width="150" height="10" rx="5" fill="#fff"/><text x="54" y="12" font-size="6" fill="#888">${esc(nm.toLowerCase().replace(/[^a-z0-9]/g, "") + ".co.uk")}</text><rect width="260" height="80" y="18" fill="url(#sh${u})"/><circle cx="26" cy="44" r="11" fill="${g}"/><text x="26" y="48.5" text-anchor="middle" font-size="11" font-family="Georgia" fill="${d}">${_ini(name)}</text><text x="44" y="42" font-family="Georgia,serif" font-weight="bold" font-size="12" fill="#fff">${esc(_wslice(nm, 22))}</text><text x="44" y="56" font-size="6.4" fill="#ffffffcc">${esc((tagline ?? "").slice(0, 54))}</text><rect x="44" y="64" width="54" height="12" rx="6" fill="${g}"/><text x="71" y="72.5" text-anchor="middle" font-size="6.4" font-weight="bold" fill="${d}">SHOP NOW</text>${tiles}</svg>`; };
 const postsSvg = (posts, name, colours) => { const { p, d, g } = _pal(colours); const u = ++_uidc; const ini = _ini(name);
-  const words = (t) => esc((t ?? "").replace(/\*\*/g, "").split(/\s+/).slice(0, 4).join(" "));
-  return `<div class="pgrid">${posts.slice(0, 6).map(([kind, t], i) => { const dark = i % 2 === 0; return `<svg viewBox="0 0 100 100"><defs><linearGradient id="pg${u}${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${dark ? p : d}"/><stop offset="1" stop-color="${dark ? d : p}"/></linearGradient></defs><rect width="100" height="100" rx="8" fill="url(#pg${u}${i})"/><text x="9" y="44" font-family="Georgia,serif" font-weight="bold" font-size="12.5" fill="#ffffff">${words(t)}</text><text x="9" y="59" font-size="5.5" letter-spacing="1.4" fill="${g}">${kind.toUpperCase()}</text><circle cx="87" cy="87" r="7.5" fill="${g}"/><text x="87" y="90.5" text-anchor="middle" font-size="6.5" font-family="Georgia" fill="${d}">${ini}</text></svg>`; }).join("")}</div>`; };
+  return `<div class="pgrid">${posts.slice(0, 6).map(([kind, t], i) => { const dark = i % 2 === 0; const lines = _wrapT(t, 15, 3); const mot = symG(symKind(String(t ?? "")), "#ffffff", g); return `<svg viewBox="0 0 100 100"><defs><linearGradient id="pg${u}${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${dark ? p : d}"/><stop offset="1" stop-color="${dark ? d : p}"/></linearGradient><radialGradient id="pl${u}${i}" cx=".82" cy=".12" r=".95"><stop offset="0" stop-color="#ffffff" stop-opacity=".3"/><stop offset=".55" stop-color="#ffffff" stop-opacity="0"/></radialGradient><pattern id="pp${u}${i}" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><circle cx="6" cy="6" r="1.1" fill="#ffffff" opacity=".13"/></pattern></defs><rect width="100" height="100" rx="8" fill="url(#pg${u}${i})"/><rect width="100" height="100" rx="8" fill="url(#pp${u}${i})"/><rect width="100" height="100" rx="8" fill="url(#pl${u}${i})"/><g transform="translate(64 62) scale(.72)" opacity=".55">${mot}</g>${lines.map((l, li) => `<text x="9" y="${30 + li * 13}" font-family="Georgia,serif" font-weight="bold" font-size="11" fill="#ffffff">${esc(l)}</text>`).join("")}<text x="9" y="90" font-size="5.5" letter-spacing="1.4" fill="${g}">${kind.toUpperCase()}</text></svg>`; }).join("")}</div>`; };
+const _wrapT = (t, max, n) => { const ws = String(t ?? "").replace(/\*\*/g, "").split(/\s+/).filter(Boolean); const lines = []; let cur = ""; for (let i = 0; i < ws.length; i++) { const cand = cur ? cur + " " + ws[i] : ws[i]; if (cand.length > max && cur) { lines.push(cur); if (lines.length === n - 1) { let rest = ws[i]; for (let j = i + 1; j < ws.length; j++) { if ((rest + " " + ws[j]).length <= max) rest += " " + ws[j]; else break; } lines.push(rest.replace(/[.,\s]+$/, "") + "\u2026"); return lines; } cur = ws[i]; } else cur = cand; } if (cur) lines.push(cur); return lines.slice(0, n); };
 const _wslice = (t, n) => { t = String(t ?? ""); return t.length <= n ? t : t.slice(0, n).replace(/\s+\S*$/, "").replace(/[.,\s]+$/, "") + "\u2026"; };
 const adSvg = (ad, colours) => { const { p, d, g } = _pal(colours); const u = ++_uidc;
-  return `<svg viewBox="0 0 260 92"><defs><linearGradient id="ad${u}" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="${d}"/><stop offset="1" stop-color="${p}"/></linearGradient></defs><rect width="260" height="92" rx="12" fill="url(#ad${u})"/><circle cx="230" cy="46" r="30" fill="${g}" opacity=".22"/><circle cx="240" cy="46" r="17" fill="${g}" opacity=".32"/><text x="16" y="32" font-family="Georgia,serif" font-weight="bold" font-size="11.5" fill="#fff">${esc(_wslice(ad?.headline ?? "Your launch ad", 34))}</text><text x="16" y="47" font-size="6.6" fill="#ffffffbb">${esc(_wslice(ad?.body ?? "", 66))}</text><rect x="16" y="58" width="92" height="15" rx="7.5" fill="${g}"/><text x="62" y="68.5" text-anchor="middle" font-size="6.8" font-weight="bold" fill="${d}">${esc(_wslice(ad?.cta ?? "Learn more", 20))}</text></svg>`; };
+  const hl = _wrapT(ad?.headline ?? "Your launch ad", 30, 2), bd = _wrapT(ad?.body ?? "", 52, 2), cta = _wslice(ad?.cta ?? "Learn more", 22);
+  const bw = Math.max(60, cta.length * 4.6 + 20), cy = 100 - 8 - 15, by = 22 + hl.length * 13 + 6;
+  return `<svg viewBox="0 0 260 100"><defs><linearGradient id="ad${u}" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="${d}"/><stop offset="1" stop-color="${p}"/></linearGradient></defs><rect width="260" height="100" rx="12" fill="url(#ad${u})"/><circle cx="232" cy="48" r="30" fill="${g}" opacity=".22"/><circle cx="242" cy="48" r="17" fill="${g}" opacity=".32"/>${hl.map((l, i) => `<text x="16" y="${22 + i * 13}" font-family="Georgia,serif" font-weight="bold" font-size="11" fill="#fff">${esc(l)}</text>`).join("")}${bd.map((l, i) => `<text x="16" y="${by + i * 9}" font-size="6.4" fill="#ffffffbb">${esc(l)}</text>`).join("")}<rect x="16" y="${cy}" width="${bw}" height="15" rx="7.5" fill="${g}"/><text x="${16 + bw / 2}" y="${cy + 10.5}" text-anchor="middle" font-size="6.8" font-weight="bold" fill="${d}">${esc(cta)}</text></svg>`; };
 const timelineSvg = (phases, colours) => { const { p, d, g } = _pal(colours); const pts = (phases ?? []).slice(0, 3);
   return `<svg viewBox="0 0 260 118"><rect width="260" height="118" rx="10" fill="#1e1145"/><line x1="20" y1="22" x2="20" y2="98" stroke="${g}" stroke-width="2" opacity=".7"/>${pts.map((ph, i) => { const y = 22 + i * 38; return `<circle cx="20" cy="${y}" r="8" fill="${p}" stroke="${g}" stroke-width="2"/><text x="20" y="${y + 3.5}" text-anchor="middle" font-size="9" font-weight="bold" fill="#fff">${i + 1}</text><text x="38" y="${y - 1}" font-family="Georgia,serif" font-weight="bold" font-size="12" fill="#fff">${esc((ph.title ?? "").slice(0, 26))}</text><text x="38" y="${y + 14}" font-size="8.5" fill="#cfc6ee">${esc((ph.detail ?? "").slice(0, 40))}</text>`; }).join("")}</svg>`; };
 const weekSvg = (weekly, colours) => { const { p, g } = _pal(colours); const days = ["M", "T", "W", "T", "F", "S", "S"];
@@ -2867,6 +2876,7 @@ const symSvg = (kind, color, accent) => { const c = color, a = accent ?? color;
     star: `<path d="M24 4l4.5 13.5L42 22l-13.5 4.5L24 40l-4.5-13.5L6 22l13.5-4.5Z" fill="${c}"/>`,
   };
   return `<svg viewBox="0 0 48 48" class="bmark"><circle cx="24" cy="24" r="22" fill="none" stroke="${c}" stroke-width="2.2"/><circle cx="24" cy="24" r="17.5" fill="none" stroke="${a}" stroke-width="1" opacity=".55"/><g transform="translate(8.6 8.6) scale(0.64)">${M[kind] ?? M.star}</g></svg>`; };
+const symG = (kind, c, a) => symSvg(kind, c, a).replace(/<\/?svg[^>]*>/g, "");
 const brandCard = (co, tagline, cols, ideaTxt) => { const { p, d, g: gg } = _pal(cols); const kind = symKind(String(ideaTxt) + " " + String(co));
   const wm = _nm(co); const tg = esc(tagline ?? "");
   return `<div class="brandrow">${symSvg(kind, p, gg)}<div><div class="bwm">${esc(wm)}</div>${tg ? `<div class="bwtag">${tg}</div>` : ""}</div></div>
@@ -2885,7 +2895,7 @@ async function buildAssets(g, input) {
   const chips1 = (g.facts ?? []).map((f) => cleanTag(f[0])).filter((x) => x.length > 1).slice(0, 3);
   const chips1Html = chips1.length ? `<div class="ichips">${chips1.map((c) => `<span>${esc(c)}</span>`).join("")}</div>` : "";
   const b1 = bub("Shaping your idea");
-  fill(1, "Your idea", `<div class="punch">&ldquo;${esc(g.facts?.find((f) => f[1] === "offer")?.[0] ?? g.offer ?? g.label ?? input)}&rdquo;</div>${chips1Html}`);
+  fill(1, "Your idea", `<div class="qpanel"><div class="punch">&ldquo;${esc(g.facts?.find((f) => f[1] === "offer")?.[0] ?? g.offer ?? g.label ?? input)}&rdquo;</div></div>${chips1Html}`);
   fill(2, "Business name", `<div class="namepanel"><div class="np-mark">${symSvg(symKind(String(g.offer ?? "") + " " + String(g.company ?? "")), "#e9c98a", "#fff")}</div><div class="bigname">${_nm(g.company)}</div></div>`);
   bubDone(b1);
   const b3 = bub("Designing your logo");
@@ -2896,10 +2906,10 @@ async function buildAssets(g, input) {
   if (LIVE) { try { a1 = await api("genesis", { action: "assets", stage: 1 }); } catch { a1 = {}; } }
   else { a1 = { idea_pitch: g.reflection, name_options: [g.company, "Barakah & Co", "The Honest Table"], tagline: "Made with barakah", products: (g.facts ?? []).slice(0, 4).map((f) => ({ name: f[0].slice(0, 30), description: f[0] })), plan_summary: g.outcomes?.[0]?.title ?? "First 10 customers", plan_phases: [{ title: "Weeks 1-4", detail: "Set up and first sales" }, { title: "Weeks 5-8", detail: "Repeat orders and referrals" }, { title: "Weeks 9-12", detail: "Grow what works" }] }; }
   Object.assign(assets, a1);
-  if (a1.idea_pitch) fill(1, "Your idea", `<div class="punch">&ldquo;${esc(a1.idea_pitch)}&rdquo;</div>${chips1Html}`);
+  if (a1.idea_pitch) fill(1, "Your idea", `<div class="qpanel"><div class="punch">&ldquo;${esc(a1.idea_pitch)}&rdquo;</div></div>${chips1Html}`);
   if (LIVE) { const pitchTxt = a1.idea_pitch ?? g.facts?.find((f) => f[1] === "offer")?.[0] ?? g.offer ?? input;
     api("genesis", { action: "image", prompt: `Editorial hero photo for this business idea: ${String(pitchTxt).slice(0, 120)}. ${/wedding|people|family|community|customer|woman|women|sister|hijab|modest|muslim/i.test(String(pitchTxt)) ? MODEST_PPL : MODEST_PROD}` }).then((r) => { if (r?.ok && r.img) fill(1, "Your idea", `<div class="ideaov"><img src="${r.img}" alt=""><div class="punch">&ldquo;${esc(pitchTxt)}&rdquo;</div></div>${chips1Html}`); }).catch(() => {}); }
-  if (a1.name_options?.length) { const nm2 = _nm(g.company ?? a1.name_options[0]); fill(2, "Business name", `<div class="namepanel"><div class="np-mark">${symSvg(symKind(String(g.offer ?? "") + " " + nm2), "#e9c98a", "#fff")}</div><div class="bigname">${nm2}</div>${a1.tagline ? `<div class="np-tag">${esc(a1.tagline)}</div>` : ""}<div class="np-domain">${esc(nm2.toLowerCase().replace(/[^a-z0-9]+/g, ""))}.co.uk</div><div class="np-alt">Also considered: ${a1.name_options.slice(1).map(esc).join(" · ")}</div></div>`); }
+  if (a1.name_options?.length) { const nm2 = _nm(g.company ?? a1.name_options[0]); fill(2, "Business name", `<div class="namepanel"><div class="np-mark">${symSvg(symKind(String(g.offer ?? "") + " " + nm2), "#e9c98a", "#fff")}</div><div class="bigname">${nm2}</div>${a1.tagline ? `<div class="np-tag">${esc(a1.tagline)}</div>` : ""}<div class="np-domain">${esc(nm2.toLowerCase().replace(/[^a-z0-9]+/g, ""))}.co.uk</div><div class="np-alt">Also considered: ${a1.name_options.slice(1).map((x) => _nm(x)).join(" · ")}</div></div>`); }
   fill(3, "Logo & brand", brandCard(g.company ?? a1.name_options?.[0], a1.tagline, cols, (g.offer ?? "") + " " + (a1.idea_pitch ?? "")));
   if (LIVE) { const kindI = symKind(String(g.offer ?? "") + " " + String(g.company ?? ""));
     api("genesis", { action: "image", prompt: `Minimal premium app icon for a brand, flat vector style emblem, centered on a deep purple gradient background, no text, no letters: ${kindI} symbol. ${MODEST_PROD}` }).then((r) => { const t = $("#appIc"); if (r?.ok && r.img && t) t.innerHTML = `<img src="${r.img}" alt="">`; }).catch(() => {}); }
@@ -2907,11 +2917,11 @@ async function buildAssets(g, input) {
   fill(5, "Website preview", siteSvgB(g.company, a1.tagline ?? g.offer, cols, a1.products)); bubDone(b5);
   if (a1.products?.length) {
     const prods = a1.products.slice(0, 4);
-    fill(7, "Products & services", `<div class="prgrid">${prods.map((pp, i) => { const { p: pc, d: dc } = _pal(cols); const u = ++_uidc; return `<div class="prtile" id="pt7${i}">${pp.price ? `<div class="prprice">${esc(pp.price)}</div>` : ""}<svg class="prsvg" viewBox="0 0 100 75"><defs><linearGradient id="ptg${u}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${i % 2 ? dc : pc}"/><stop offset="1" stop-color="${i % 2 ? pc : dc}"/></linearGradient></defs><rect width="100" height="75" fill="url(#ptg${u})"/></svg><div class="prname">${esc(pp.name)}</div></div>`; }).join("")}</div>`);
+    fill(7, "Products & services", `<div class="prgrid">${prods.map((pp, i) => { const { p: pc, d: dc } = _pal(cols); const u = ++_uidc; const mot = symG(symKind(String(pp.name ?? "") + " " + String(pp.description ?? "")), "#ffffff", "#e9c98a"); return `<div class="prtile" id="pt7${i}">${pp.price ? `<div class="prprice">${esc(pp.price)}</div>` : ""}<svg class="prsvg" viewBox="0 0 100 75"><defs><linearGradient id="ptg${u}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${i % 2 ? dc : pc}"/><stop offset="1" stop-color="${i % 2 ? pc : dc}"/></linearGradient><radialGradient id="ptl${u}" cx=".82" cy=".14" r=".95"><stop offset="0" stop-color="#ffffff" stop-opacity=".3"/><stop offset=".55" stop-color="#ffffff" stop-opacity="0"/></radialGradient><pattern id="ptp${u}" width="13" height="13" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><circle cx="6.5" cy="6.5" r="1.2" fill="#ffffff" opacity=".15"/></pattern></defs><rect width="100" height="75" fill="url(#ptg${u})"/><rect width="100" height="75" fill="url(#ptp${u})"/><rect width="100" height="75" fill="url(#ptl${u})"/><circle cx="84" cy="60" r="24" fill="#ffffff" opacity=".08"/><g transform="translate(66 30) scale(.72)" opacity=".85">${mot}</g><rect x="3.5" y="3.5" width="93" height="68" rx="5" fill="none" stroke="#ffffff" stroke-opacity=".28" stroke-width=".8"/></svg><div class="prname">${esc(pp.name)}</div></div>`; }).join("")}</div>`);
     if (LIVE) Promise.all(prods.map((pp, i) => tryImg(`Product photo for a business selling: ${String(pp.name).slice(0, 90)}. ${MODEST_PROD}`).then((img) => (img ? { i, img } : null)))).then((rs) => { rs.filter(Boolean).forEach((x) => { const t = $(`#pt7${x.i}`); if (t) t.innerHTML = `${prods[x.i].price ? `<div class="prprice">${esc(prods[x.i].price)}</div>` : ""}<img src="${x.img}" alt=""><div class="prname">${esc(prods[x.i].name)}</div>`; const si = document.getElementById("sp" + x.i); if (si) si.setAttribute("href", x.img); }); });
   } else fail(7, "Products & services");
   bubDone(b7);
-  if (a1.plan_phases?.length) fill(4, "90-day plan", tlHtml(a1.plan_phases)); else fail(4, "90-day plan");
+  if (a1.plan_phases?.length) fill(4, "90-day plan", tlHtml(a1.plan_phases) + (a1.plan_summary ? `<div class="tfoot">Goal: ${esc(a1.plan_summary)}</div>` : "")); else fail(4, "90-day plan");
   bubDone(b4);
   bar(55);
   const b6 = bub("Drafting your first email"), b8 = bub("Designing your social posts"), b9 = bub("Planning week one + your ad"), b10 = bub("Researching competitors & audience");
