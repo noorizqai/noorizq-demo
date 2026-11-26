@@ -1138,7 +1138,7 @@ body.tl-away #ritual::after{content:"Paused while you're away";position:fixed;in
 .week{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;background:#1e1145;border-radius:10px;padding:6px}
 .week .wc{border-radius:6px;padding:5px 2px;text-align:center;background:rgba(139,63,240,.28);border:1px solid rgba(233,201,138,.25)}
 .week .wc:nth-child(even){background:rgba(233,201,138,.14)}
-.week .wd{font:700 10px var(--f-head);color:#e9c98a}
+.week .wd{font:700 9px var(--f-head);color:#e9c98a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .week .wt{font-size:8px;line-height:1.2;color:#e7e2f7;margin-top:2px;overflow-wrap:break-word}
 .inbox{background:#fff;border:1px solid #e6dfce;border-radius:10px;padding:10px 12px;box-shadow:0 4px 10px -6px rgba(30,17,69,.25)}
 .inbox .ihead{display:flex;align-items:center;gap:8px;margin-bottom:7px}
@@ -2862,7 +2862,7 @@ const MODEST_PROD = "Styled product photography or flat-lay, no people, photorea
 const tryImg = async (prompt) => { for (let k = 0; k < 2; k++) { try { const r = await api("genesis", { action: "image", prompt }); if (r?.ok && r.img) return r.img; } catch {} if (k === 0) await new Promise((res) => setTimeout(res, 1200)); } return null; };
 const tlHtml = (phases) => `<div class="tl">${(phases ?? []).slice(0, 3).map((ph, i) => `<div class="trow"><div class="tnum">${i + 1}</div><div><div class="tt">${esc(ph.title ?? "")}</div><div class="td">${esc(ph.detail ?? "")}</div></div></div>`).join("")}</div>`;
 const weekHtml = (weekly) => { const days = ["M", "T", "W", "T", "F", "S", "S"];
-  return `<div class="week">${days.map((dl, i) => `<div class="wc"><div class="wd">${dl}</div><div class="wt">${esc(String((weekly ?? [])[i] ?? "\u2014").split(/\s+/).slice(0, 3).join(" "))}</div></div>`).join("")}</div>`; };
+  return `<div class="week">${days.map((dl, i) => `<div class="wc"><div class="wd">${dl.slice(0, 3)}</div><div class="wt">${esc(String((weekly ?? [])[i] ?? "\u2014").split(/\s+/).slice(0, 3).join(" "))}</div></div>`).join("")}</div>`; };
 const SYM_KINDS = [
   [/sweet|dessert|cake|bake|sugar|eid|chocolat|baklava|kunafa|pastry|moon|qamar/i, "moon"],
   [/hijab|scarf|abaya|modest|veil|shawl/i, "scarf"],
