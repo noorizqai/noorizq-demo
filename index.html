@@ -1095,20 +1095,25 @@ body.tl-away #ritual::after{content:"Paused while you're away";position:fixed;in
 .b-btn.primary{background:linear-gradient(135deg,var(--violet),var(--magenta));border:none}
 .b-btn.ghosty{background:transparent}
 .starfield{background-image:radial-gradient(#dec895 1.5px,#0000 1.8px),radial-gradient(#ffffff80 1px,#0000 1.2px),radial-gradient(500px 300px at 20% 30%,#853bfa55,#0000 70%),radial-gradient(500px 300px at 80% 70%,#1665fb55,#0000 70%) !important;background-size:120px 120px,67px 67px,auto,auto !important}
-.b-grid{grid-template-columns:repeat(auto-fill,minmax(270px,1fr));max-width:1240px;margin:0 auto;gap:20px}
-.b-card{min-height:158px;background:#f7f2e6;border-radius:6px;box-shadow:0 14px 34px -14px rgba(5,2,20,.65);transform:rotate(var(--rot,0deg)) translateY(14px);padding-top:20px}
+.b-grid{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));max-width:1340px;margin:0 auto;gap:26px}
+.b-card{min-height:210px;background:#f7f2e6;border-radius:6px;box-shadow:0 16px 38px -14px rgba(5,2,20,.7);transform:rotate(var(--rot,0deg)) translateY(18px) scale(.96);padding-top:22px;font-size:14px}
+.b-card .small{font-size:13.5px;line-height:1.55}
+.b-card ul{font-size:13.5px;line-height:1.6}
+.b-card .punch{font:italic 500 17px/1.6 Georgia,serif;color:#2b2350}
 .b-card:nth-child(odd){--rot:-1.3deg}
 .b-card:nth-child(even){--rot:1.2deg}
-.b-card.on{transition:all .55s cubic-bezier(.2,.7,.3,1);transform:rotate(var(--rot,0deg))}
+.b-card.on{transform:rotate(var(--rot,0deg))}
 .b-card::before{content:"";position:absolute;top:-9px;left:50%;transform:translateX(-50%) rotate(-2deg);width:64px;height:18px;background:rgba(233,201,138,.85);border-radius:2px;box-shadow:0 1px 3px rgba(0,0,0,.2)}
 .b-card.pending{align-items:center;justify-content:center}
 .b-card .pend{color:#8a7fb8;font-style:italic}
+.b-card:not(:last-child)::after{content:"";position:absolute;right:-24px;top:50%;width:22px;border-top:2px dashed rgba(233,201,138,.55)}
+.b-card.on{animation:cardPop .55s cubic-bezier(.2,.7,.3,1.15) both;animation-delay:inherit}
+@keyframes cardPop{from{opacity:0;transform:rotate(var(--rot,0deg)) translateY(26px) scale(.92)}to{opacity:1;transform:rotate(var(--rot,0deg))}}
 .b-card .n{color:rgba(30,17,69,.2)}
 .b-card h4{color:#7c5a1e;letter-spacing:.16em}
 .b-card .small{color:#4a4270}
 .b-card ul{color:#3c3466}
 .b-card .bigname{font:700 clamp(24px,2.6vw,32px)/1.15 Georgia,serif;background:linear-gradient(92deg,#1e1145 30%,#8b3ff0);-webkit-background-clip:text;background-clip:text;color:transparent}
-.b-card .punch{font:italic 500 15.5px/1.55 Georgia,serif;color:#2b2350}
 .emailc{background:#fff;border:1px solid #e6dfce;border-radius:8px;padding:12px 14px}
 .logo2{display:grid;gap:8px}
 .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
@@ -2749,8 +2754,8 @@ const siteSvgB = (name, tagline, colours, products) => { const { p, d, g } = _pa
   const tiles = (products ?? []).slice(0, 3).map((pr, i) => { const x = 12 + i * 80; return `<rect x="${x}" y="102" width="72" height="34" rx="6" fill="#ffffff"/><rect x="${x + 5}" y="108" width="24" height="22" rx="4" fill="${i % 2 ? p : g}"/><text x="${x + 34}" y="117" font-size="5.4" fill="#333">${esc((pr.name ?? "").slice(0, 11))}</text><text x="${x + 34}" y="126" font-size="4.6" fill="#999">${esc((pr.description ?? "").slice(0, 14))}</text>`; }).join("");
   return `<svg viewBox="0 0 260 144"><defs><linearGradient id="sh${u}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${p}"/><stop offset="1" stop-color="${d}"/></linearGradient></defs><rect width="260" height="144" rx="12" fill="#f4f2fa"/><rect width="260" height="18" rx="9" fill="#e8e5f0"/><circle cx="11" cy="9" r="3" fill="#f66"/><circle cx="21" cy="9" r="3" fill="#fc3"/><circle cx="31" cy="9" r="3" fill="#4c4"/><rect x="48" y="4" width="150" height="10" rx="5" fill="#fff"/><text x="54" y="12" font-size="6" fill="#888">${esc(nm.toLowerCase().replace(/[^a-z0-9]/g, "") + ".co.uk")}</text><rect width="260" height="80" y="18" fill="url(#sh${u})"/><circle cx="26" cy="44" r="11" fill="${g}"/><text x="26" y="48.5" text-anchor="middle" font-size="11" font-family="Georgia" fill="${d}">${_ini(name)}</text><text x="44" y="42" font-family="Georgia,serif" font-weight="bold" font-size="13" fill="#fff">${nm.slice(0, 20)}</text><text x="44" y="56" font-size="6.4" fill="#ffffffcc">${esc((tagline ?? "").slice(0, 54))}</text><rect x="44" y="64" width="54" height="12" rx="6" fill="${g}"/><text x="71" y="72.5" text-anchor="middle" font-size="6.4" font-weight="bold" fill="${d}">SHOP NOW</text>${tiles}</svg>`; };
 const postsSvg = (posts, name, colours) => { const { p, d, g } = _pal(colours); const u = ++_uidc; const ini = _ini(name);
-  const words = (t) => esc((t ?? "").replace(/\*\*/g, "").split(/\s+/).slice(0, 3).join(" "));
-  return `<div class="pgrid">${posts.slice(0, 6).map(([kind, t], i) => { const dark = i % 2 === 0; return `<svg viewBox="0 0 100 100"><defs><linearGradient id="pg${u}${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${dark ? p : g}"/><stop offset="1" stop-color="${dark ? d : p}"/></linearGradient></defs><rect width="100" height="100" rx="8" fill="url(#pg${u}${i})"/><text x="9" y="42" font-family="Georgia,serif" font-weight="bold" font-size="10.5" fill="${dark ? "#fff" : d}">${words(t)}</text><text x="9" y="55" font-size="5" letter-spacing="1.2" fill="${dark ? g : "#ffffffdd"}">${kind.toUpperCase()}</text><circle cx="87" cy="87" r="7.5" fill="${dark ? g : d}"/><text x="87" y="90.5" text-anchor="middle" font-size="6.5" font-family="Georgia" fill="${dark ? d : "#fff"}">${ini}</text></svg>`; }).join("")}</div>`; };
+  const words = (t) => esc((t ?? "").replace(/\*\*/g, "").split(/\s+/).slice(0, 4).join(" "));
+  return `<div class="pgrid">${posts.slice(0, 6).map(([kind, t], i) => { const dark = i % 2 === 0; return `<svg viewBox="0 0 100 100"><defs><linearGradient id="pg${u}${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${dark ? p : g}"/><stop offset="1" stop-color="${dark ? d : p}"/></linearGradient></defs><rect width="100" height="100" rx="8" fill="url(#pg${u}${i})"/><text x="9" y="42" font-family="Georgia,serif" font-weight="bold" font-size="11.5" fill="${dark ? "#fff" : "#1e1145"}">${words(t)}</text><text x="9" y="55" font-size="5" letter-spacing="1.2" fill="${dark ? g : "#ffffffdd"}">${kind.toUpperCase()}</text><circle cx="87" cy="87" r="7.5" fill="${dark ? g : d}"/><text x="87" y="90.5" text-anchor="middle" font-size="6.5" font-family="Georgia" fill="${dark ? d : "#fff"}">${ini}</text></svg>`; }).join("")}</div>`; };
 const adSvg = (ad, colours) => { const { p, d, g } = _pal(colours); const u = ++_uidc;
   return `<svg viewBox="0 0 260 92"><defs><linearGradient id="ad${u}" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="${d}"/><stop offset="1" stop-color="${p}"/></linearGradient></defs><rect width="260" height="92" rx="12" fill="url(#ad${u})"/><circle cx="230" cy="46" r="30" fill="${g}" opacity=".22"/><circle cx="240" cy="46" r="17" fill="${g}" opacity=".32"/><text x="16" y="32" font-family="Georgia,serif" font-weight="bold" font-size="11.5" fill="#fff">${esc((ad?.headline ?? "Your launch ad").slice(0, 32))}</text><text x="16" y="47" font-size="6.6" fill="#ffffffbb">${esc((ad?.body ?? "").slice(0, 64))}</text><rect x="16" y="58" width="66" height="15" rx="7.5" fill="${g}"/><text x="49" y="68.5" text-anchor="middle" font-size="6.8" font-weight="bold" fill="${d}">${esc((ad?.cta ?? "Learn more").slice(0, 16))}</text></svg>`; };
 const timelineSvg = (phases, colours) => { const { p, d, g } = _pal(colours); const pts = (phases ?? []).slice(0, 3);
