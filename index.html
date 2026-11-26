@@ -40,11 +40,60 @@ h1 em{font-style:italic;color:#f2d795}
 .sg button{margin-top:5px;border:0;border-radius:9px;background:#6d2fd0;color:#fff;font:700 10px Sora;padding:5px 11px;cursor:pointer}
 .sg.ok button{background:#2f9a4e}
 </style>
+<style>
+.tg{position:fixed;top:24px;right:34px;z-index:30;display:flex;background:rgba(250,245,235,.97);border-radius:20px;padding:3px;box-shadow:0 10px 26px -10px rgba(3,6,26,.8);font:700 12px Sora}
+.tg button{border:0;background:none;border-radius:17px;padding:8px 18px;color:#1e1145;cursor:pointer;font:700 12px Sora}
+.tg button.on{background:#6d2fd0;color:#fff}
+#res{display:none;position:absolute;left:50%;top:86px;margin-left:-560px;width:1120px;z-index:6;zoom:1.04;color:#1e1145;font:500 12px Sora}
+body.rv #res{display:block}body.rv .stage,body.rv #hd{display:none}
+#res .cd{background:rgba(250,245,235,.97);border-radius:16px;padding:12px 16px;box-shadow:0 14px 32px -12px rgba(3,6,26,.85);position:relative}
+#res .lb{font:700 8.5px Sora;letter-spacing:2px;color:#a1641f;display:block;margin-bottom:5px}
+#res .g{display:grid;gap:12px}
+#res .big{font:700 24px Fraunces,serif}
+.up{color:#1f8f46;font-weight:700}.dn{color:#d1313f;font-weight:700}
+.mc{border-top:5px solid #1f8f46}.mc.red{border-top-color:#d1313f}.mc.amb{border-top-color:#d89a1e}
+.mc .big{font-size:22px}.mc small{display:block;color:#6b5a3e;margin-top:3px;font-size:10.5px}
+.pbar{height:9px;border-radius:5px;background:#e4d9c3;overflow:hidden;margin-top:8px}.pbar i{display:block;height:100%;background:linear-gradient(90deg,#8b3ff0,#c98a2e);width:56%;transition:width .9s}
+.brief{background:#f2d795!important}
+.brief button,.inb button{border:0;border-radius:10px;padding:8px 14px;font:700 11px Sora;cursor:pointer;margin:8px 8px 0 0}
+.bp{background:#fff;color:#6d2fd0;border:1.5px solid #6d2fd0!important}.bs{background:#6d2fd0;color:#fff}
+.pv{display:none;margin-top:8px;background:#fff;border-radius:10px;padding:9px 11px;font-size:11px;line-height:1.5}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#1f8f46;margin-right:6px;animation:pl 1.4s infinite}
+.msg{font-size:11px;line-height:1.4}.msg b{display:block;font-size:11px}
+.tag{display:inline-block;font:700 8px Sora;letter-spacing:1.5px;border-radius:8px;padding:2px 7px;margin-bottom:5px}
+.tag.a{background:#e4f5ea;color:#1f8f46}.tag.n{background:#fde3e5;color:#d1313f}
+.smp{font:700 8.5px Sora;letter-spacing:2px;color:#f2d795;text-align:right;margin:8px 4px 0}
+</style>
 </head><body>
 <div style="position:fixed;inset:0;z-index:0;background:url(assets/hero-backdrop-nolady.jpg) center/cover"></div><div style="position:fixed;inset:0;z-index:1;background:linear-gradient(160deg,rgba(122,53,232,.66),rgba(42,16,98,.76) 78%)"></div>
 <div class="logo"><img src="assets/noorizq-logo-crisp.png" alt="Noorizq"></div>
-<div style="text-align:center;padding-top:96px;position:relative;z-index:5"><h1>Say <em>one</em> thing. Big.</h1>
+<div id="hd" style="text-align:center;padding-top:96px;position:relative;z-index:5"><h1>Say <em>one</em> thing. Big.</h1>
 <div class="sub">Your sentence is the headline; everything else is small print that builds itself.</div></div>
+<div class="tg"><button id="tb" class="on" onclick="sv(0)">Build</button><button id="tr" onclick="sv(1)">Results</button></div>
+<div id="res">
+<div class="g" style="grid-template-columns:1fr 1fr 1fr">
+<div class="cd"><span class="lb">PROGRESS TO GOAL</span><span class="big" id="rg">28 / 50</span> <span style="color:#6b5a3e">orders this week</span><div class="pbar"><i id="rgb"></i></div></div>
+<div class="cd" id="prob" style="border-left:6px solid #d1313f"><span class="lb" id="probl" style="color:#d1313f">BIGGEST PROBLEM RIGHT NOW</span><span class="big" id="probt">41% leave at the price card</span></div>
+<div class="cd"><span class="lb">LIVE NOW</span><span class="big"><span class="dot"></span>14 people on your page</span><div id="alert" class="dn" style="margin-top:4px">2 stuck on pricing 90s+</div></div>
+</div>
+<div class="g" style="grid-template-columns:1.8fr 1fr;margin-top:12px">
+<div class="g" style="grid-template-columns:1fr 1fr 1fr">
+<div class="cd mc"><span class="lb">2 · WEBSITE VISITS</span><span class="big">1,240</span> <span class="up">▲ 18%</span><small>this week</small></div>
+<div class="cd mc"><span class="lb">8 · META AD CLICKS</span><span class="big">86</span> <span class="up">▲ 9%</span><small>£0.42 per click</small></div>
+<div class="cd mc red" id="pm"><span class="lb">3 · PRICE CARD</span><span class="big" id="pmv">41%</span> <span class="dn" id="pmt">▼ leave here</span><small id="pms">3 in 4 never reach checkout</small></div>
+<div class="cd mc"><span class="lb">4 · POSTS REACH</span><span class="big">2.1k</span> <span class="up">▲ 31%</span><small>6 posts</small></div>
+<div class="cd mc amb"><span class="lb">7 + 9 · PDF OPENS</span><span class="big">23</span> <span style="color:#a1641f;font-weight:700">● steady</span><small>research 14, plan 9</small></div>
+<div class="cd mc"><span class="lb">1 · ORDERS TODAY</span><span class="big">3</span> <span class="up">▲ 1</span><small>£36 so far</small></div>
+</div>
+<div class="cd brief"><span class="lb" style="color:#6d2fd0">AGENT BRIEF · FINANCE + MARKETING</span><div style="font:700 15px/1.25 Fraunces,serif">People like the box but leave when they see £12 with no duo deal.</div><div style="margin-top:6px;font-size:11px">Proposed fix: show the £20 duo first with "saves £4", and put the £14 box second.</div><div class="pv" id="pv"><b>Preview</b><br>Before: "£12 box · £20 duo"<br>After: "<b>Duo £20 (save £4)</b> · box £14"<br><span style="color:#6b5a3e">Sample estimate: drop-off 41% → about 30%. Invented number.</span></div><button class="bp" onclick="pvw()">Preview fix</button><button class="bs" id="ship" onclick="shp()">Approve and ship</button></div>
+</div>
+<div class="g inb" style="grid-template-columns:1fr 1fr 1fr;margin-top:12px">
+<div class="cd msg"><span class="tag a">AGENT ANSWERED</span><b>"Do you deliver to Cardiff?"</b>Yes, free over £30. Sent 2 min ago.</div>
+<div class="cd msg"><span class="tag a">AGENT ANSWERED</span><b>"Are the boxes nut-free?"</b>No, they contain pistachio. Sent 9 min ago.</div>
+<div class="cd msg" id="nm" style="border:2.5px solid #d1313f"><span class="tag n" id="nmt">NEEDS YOU</span><b>"Can you do 40 boxes for a wedding?"</b><span id="nmx">The agent can't quote custom orders.</span><br><button class="bs" id="to" onclick="tko()">Take over</button></div>
+</div>
+<div class="smp">SAMPLE DATA · ALL NUMBERS AND MESSAGES ARE INVENTED</div>
+</div>
 <div class="stage"><div class="canvas">
 <div class="node done" style="--r:0deg;left:345px;top:95px;width:430px;transform:rotate(0deg);padding:30px 36px;border:3px solid #e9c98a;"><span data-said class="nlbl">YOU SAID</span><b style="font-family:Fraunces,serif;font-size:27px">"baklava boxes for Eid, <em style="color:#8b3ff0">sold to my community</em>" ▍</b></div>
 <div class="hand" style="position:absolute;left:360px;top:48px;color:#f2d795;font-size:19px;transform:rotate(-2deg)">this is the only thing you have to say</div>
@@ -85,5 +134,15 @@ function ap(n){const b=document.getElementById('sg'+n);if(b.classList.contains('
 if(n==1){[...document.querySelectorAll('.nlbl')].find(l=>/PRICE LIST/.test(l.textContent)).parentNode.lastChild.textContent='£14 box · £20 duo';document.getElementById('a3').textContent='price updated to £14';setG(gv+7);}
 else{[...document.querySelectorAll('.nlbl')].find(l=>/90-DAY PLAN/.test(l.textContent)).parentNode.innerHTML='<span class="nlbl">6 · 90-DAY PLAN</span>Wk 1 photos + price list<br>Wk 2 Eid pre-order push<br>Wk 3 soft launch, 20 boxes';document.getElementById('a2').textContent='plan reordered';setG(gv+9);}}
 setInterval(()=>{const T={a1:['drawing logo options','picking brand colours','logo ready'],a2:['writing 6 posts','choosing photos','scheduling posts'],a3:['checking prices','pricing the gift box','totals ready']};for(const k in T){const e=document.getElementById(k);if(/updated|reordered/.test(e.textContent))continue;e.textContent=T[k][Math.floor(Date.now()/3500+k.charCodeAt(1))%3];}},3500);
+
+function sv(r){document.body.classList.toggle('rv',!!r);document.getElementById('tb').classList.toggle('on',!r);document.getElementById('tr').classList.toggle('on',!!r);}
+function pvw(){document.getElementById('pv').style.display='block';}
+function shp(){const b=document.getElementById('ship');if(b.dataset.d)return;b.dataset.d=1;b.textContent='Shipped ✓';document.getElementById('pv').style.display='block';
+const pm=document.getElementById('pm');pm.className='cd mc amb';document.getElementById('pmv').textContent='30%';const t=document.getElementById('pmt');t.className='';t.style.cssText='color:#a1641f;font-weight:700';t.textContent='● watching';document.getElementById('pms').textContent='sample: fix live, measuring';
+document.getElementById('probl').textContent='FIX SHIPPED · WATCHING';document.getElementById('probl').style.color='#1f8f46';document.getElementById('probt').textContent='Price card: duo shown first';document.getElementById('prob').style.borderLeftColor='#1f8f46';
+document.getElementById('alert').className='up';document.getElementById('alert').textContent='pricing fix live for new visitors';
+document.getElementById('rg').textContent='31 / 50';document.getElementById('rgb').style.width='62%';}
+function tko(){const b=document.getElementById('to');if(b.dataset.d)return;b.dataset.d=1;b.textContent='You have this ✓';document.getElementById('nmt').textContent='YOU TOOK OVER';document.getElementById('nm').style.borderColor='#1f8f46';document.getElementById('nmx').textContent='Auto-replies paused on this thread. The agent drafted a quote for you to review.';}
+document.getElementById('rgb').style.width='56%';
 </script>
 </body></html>
