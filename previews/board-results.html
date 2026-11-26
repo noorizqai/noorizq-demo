@@ -64,6 +64,26 @@ body.rv #res{display:block}body.rv .stage,body.rv #hd{display:none}
 .tag.a{background:#e4f5ea;color:#1f8f46}.tag.n{background:#fde3e5;color:#d1313f}
 .smp{font:700 8.5px Sora;letter-spacing:2px;color:#f2d795;text-align:right;margin:8px 4px 0}
 </style>
+<style>
+@keyframes rise{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes fadein{from{opacity:0;transform:scale(.985)}to{opacity:1;transform:none}}
+@keyframes gl{50%{box-shadow:0 14px 32px -12px rgba(3,6,26,.85),0 0 30px 3px var(--c)}}
+@keyframes mv{0%{transform:translate(0,0)}50%{transform:translate(var(--x),var(--y))}100%{transform:translate(0,0)}}
+@keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.07)}100%{transform:scale(1)}}
+@keyframes cf{from{transform:translate(0,0) rotate(0);opacity:1}to{transform:translate(var(--dx),var(--dy)) rotate(540deg);opacity:0}}
+body.rv #res .cd{animation:rise .55s cubic-bezier(.2,.8,.2,1) both}
+body.rv #res .g>*:nth-child(2){animation-delay:.07s}body.rv #res .g>*:nth-child(3){animation-delay:.14s}body.rv #res .g>*:nth-child(4){animation-delay:.2s}body.rv #res .g>*:nth-child(5){animation-delay:.26s}body.rv #res .g>*:nth-child(6){animation-delay:.32s}
+body:not(.rv) .stage,body:not(.rv) #hd{animation:fadein .5s ease both}
+#res .mc{--c:rgba(31,143,70,.75);animation:rise .55s both,gl 2.8s ease-in-out .8s infinite}
+#res .mc.red{--c:rgba(209,49,63,.85)}#res .mc.amb{--c:rgba(216,154,30,.7)}
+#prob{--c:rgba(209,49,63,.8);animation:rise .55s both,gl 2.2s ease-in-out .8s infinite}
+#prob.ok{--c:rgba(31,143,70,.8)}
+.vd{position:relative;height:30px;margin-top:6px;background:rgba(109,47,208,.07);border-radius:10px;overflow:hidden}
+.vd i{position:absolute;width:7px;height:7px;border-radius:50%;background:#6d2fd0;animation:mv 3.4s ease-in-out infinite}
+.vd i.r{background:#d1313f;box-shadow:0 0 8px #d1313f}
+.cfp{position:fixed;width:9px;height:14px;border-radius:2px;z-index:60;pointer-events:none;animation:cf 1.2s ease-out forwards}
+.shp{animation:pop .5s ease}
+</style>
 </head><body>
 <div style="position:fixed;inset:0;z-index:0;background:url(../assets/hero-backdrop-nolady.jpg) center/cover"></div><div style="position:fixed;inset:0;z-index:1;background:linear-gradient(160deg,rgba(122,53,232,.66),rgba(42,16,98,.76) 78%)"></div>
 <div class="logo"><img src="../assets/noorizq-logo-crisp.png" alt="Noorizq"></div>
@@ -72,18 +92,18 @@ body.rv #res{display:block}body.rv .stage,body.rv #hd{display:none}
 <div class="tg"><button id="tb" class="on" onclick="sv(0)">Build</button><button id="tr" onclick="sv(1)">Results</button></div>
 <div id="res">
 <div class="g" style="grid-template-columns:1fr 1fr 1fr">
-<div class="cd"><span class="lb">PROGRESS TO GOAL</span><span class="big" id="rg">28 / 50</span> <span style="color:#6b5a3e">orders this week</span><div class="pbar"><i id="rgb"></i></div></div>
+<div class="cd"><span class="lb">PROGRESS TO GOAL</span><span class="big"><span id="rg" data-n="28">28</span> / 50</span> <span style="color:#6b5a3e">orders this week</span><div class="pbar"><i id="rgb"></i></div></div>
 <div class="cd" id="prob" style="border-left:6px solid #d1313f"><span class="lb" id="probl" style="color:#d1313f">BIGGEST PROBLEM RIGHT NOW</span><span class="big" id="probt">41% leave at the price card</span></div>
-<div class="cd"><span class="lb">LIVE NOW</span><span class="big"><span class="dot"></span>14 people on your page</span><div id="alert" class="dn" style="margin-top:4px">2 stuck on pricing 90s+</div></div>
+<div class="cd"><span class="lb">LIVE NOW</span><span class="big"><span class="dot"></span><span data-n="14">14</span> people on your page</span><div class="vd"><i style="left:3.0%;top:3px;--x:-18px;--y:-6px;animation-delay:-0.00s"></i><i style="left:10.3%;top:14px;--x:-9px;--y:0px;animation-delay:-0.37s"></i><i style="left:17.6%;top:5px;--x:0px;--y:6px;animation-delay:-0.74s"></i><i style="left:24.9%;top:16px;--x:9px;--y:-6px;animation-delay:-1.11s"></i><i style="left:32.2%;top:7px;--x:18px;--y:0px;animation-delay:-1.48s"></i><i style="left:39.5%;top:18px;--x:-18px;--y:6px;animation-delay:-1.85s"></i><i style="left:46.8%;top:9px;--x:-9px;--y:-6px;animation-delay:-2.22s"></i><i style="left:54.1%;top:20px;--x:0px;--y:0px;animation-delay:-2.59s"></i><i style="left:61.4%;top:11px;--x:9px;--y:6px;animation-delay:-2.96s"></i><i style="left:68.7%;top:22px;--x:18px;--y:-6px;animation-delay:-3.33s"></i><i style="left:76.0%;top:13px;--x:-18px;--y:0px;animation-delay:-3.70s"></i><i style="left:83.3%;top:4px;--x:-9px;--y:6px;animation-delay:-4.07s"></i><i class="r" style="left:38%;top:12px;--x:4px;--y:0"></i><i class="r" style="left:41%;top:16px;--x:-4px;--y:2px"></i></div><div id="alert" class="dn" style="margin-top:4px">2 stuck on pricing 90s+</div></div>
 </div>
 <div class="g" style="grid-template-columns:1.8fr 1fr;margin-top:12px">
 <div class="g" style="grid-template-columns:1fr 1fr 1fr">
-<div class="cd mc"><span class="lb">2 · WEBSITE VISITS</span><span class="big">1,240</span> <span class="up">▲ 18%</span><small>this week</small></div>
-<div class="cd mc"><span class="lb">8 · META AD CLICKS</span><span class="big">86</span> <span class="up">▲ 9%</span><small>£0.42 per click</small></div>
-<div class="cd mc red" id="pm"><span class="lb">3 · PRICE CARD</span><span class="big" id="pmv">41%</span> <span class="dn" id="pmt">▼ leave here</span><small id="pms">3 in 4 never reach checkout</small></div>
+<div class="cd mc"><span class="lb">2 · WEBSITE VISITS</span><span class="big" data-n="1240" data-f="c">1,240</span> <span class="up">▲ 18%</span><small>this week</small></div>
+<div class="cd mc"><span class="lb">8 · META AD CLICKS</span><span class="big" data-n="86">86</span> <span class="up">▲ 9%</span><small>£0.42 per click</small></div>
+<div class="cd mc red" id="pm"><span class="lb">3 · PRICE CARD</span><span class="big" id="pmv" data-n="41" data-f="p">41%</span> <span class="dn" id="pmt">▼ leave here</span><small id="pms">3 in 4 never reach checkout</small></div>
 <div class="cd mc"><span class="lb">4 · POSTS REACH</span><span class="big">2.1k</span> <span class="up">▲ 31%</span><small>6 posts</small></div>
-<div class="cd mc amb"><span class="lb">7 + 9 · PDF OPENS</span><span class="big">23</span> <span style="color:#a1641f;font-weight:700">● steady</span><small>research 14, plan 9</small></div>
-<div class="cd mc"><span class="lb">1 · ORDERS TODAY</span><span class="big">3</span> <span class="up">▲ 1</span><small>£36 so far</small></div>
+<div class="cd mc amb"><span class="lb">7 + 9 · PDF OPENS</span><span class="big" data-n="23">23</span> <span style="color:#a1641f;font-weight:700">● steady</span><small>research 14, plan 9</small></div>
+<div class="cd mc"><span class="lb">1 · ORDERS TODAY</span><span class="big" data-n="3">3</span> <span class="up">▲ 1</span><small>£36 so far</small></div>
 </div>
 <div class="cd brief"><span class="lb" style="color:#6d2fd0">AGENT BRIEF · FINANCE + MARKETING</span><div style="font:700 15px/1.25 Fraunces,serif">People like the box but leave when they see £12 with no duo deal.</div><div style="margin-top:6px;font-size:11px">Proposed fix: show the £20 duo first with "saves £4", and put the £14 box second.</div><div class="pv" id="pv"><b>Preview</b><br>Before: "£12 box · £20 duo"<br>After: "<b>Duo £20 (save £4)</b> · box £14"<br><span style="color:#6b5a3e">Sample estimate: drop-off 41% → about 30%. Invented number.</span></div><button class="bp" onclick="pvw()">Preview fix</button><button class="bs" id="ship" onclick="shp()">Approve and ship</button></div>
 </div>
@@ -141,8 +161,13 @@ function shp(){const b=document.getElementById('ship');if(b.dataset.d)return;b.d
 const pm=document.getElementById('pm');pm.className='cd mc amb';document.getElementById('pmv').textContent='30%';const t=document.getElementById('pmt');t.className='';t.style.cssText='color:#a1641f;font-weight:700';t.textContent='● watching';document.getElementById('pms').textContent='sample: fix live, measuring';
 document.getElementById('probl').textContent='FIX SHIPPED · WATCHING';document.getElementById('probl').style.color='#1f8f46';document.getElementById('probt').textContent='Price card: duo shown first';document.getElementById('prob').style.borderLeftColor='#1f8f46';
 document.getElementById('alert').className='up';document.getElementById('alert').textContent='pricing fix live for new visitors';
-document.getElementById('rg').textContent='31 / 50';document.getElementById('rgb').style.width='62%';}
+document.getElementById('rg').textContent='31';document.getElementById('rgb').style.width='62%';}
 function tko(){const b=document.getElementById('to');if(b.dataset.d)return;b.dataset.d=1;b.textContent='You have this ✓';document.getElementById('nmt').textContent='YOU TOOK OVER';document.getElementById('nm').style.borderColor='#1f8f46';document.getElementById('nmx').textContent='Auto-replies paused on this thread. The agent drafted a quote for you to review.';}
 document.getElementById('rgb').style.width='56%';
+
+function cu(e,t,f){const T=900,t0=performance.now();(function st(n){const k=Math.min(1,(n-t0)/T),v=Math.round(t*(1-Math.pow(1-k,3)));e.textContent=f=='c'?v.toLocaleString('en-GB'):f=='p'?v+'%':v;if(k<1)requestAnimationFrame(st);})(t0);}
+const _sv=sv;sv=function(r){_sv(r);if(r){document.querySelectorAll('#res [data-n]').forEach(e=>{const f=e.dataset.f;let t=+e.dataset.n;if(e.id=='pmv'&&document.getElementById('ship').dataset.d)t=30;if(e.id=='rg'&&document.getElementById('ship').dataset.d)t=31;cu(e,t,f)});document.getElementById('rgb').style.width='0';setTimeout(()=>document.getElementById('rgb').style.width=(document.getElementById('ship').dataset.d?62:56)+'%',60);}};
+function conf(el){const r=el.getBoundingClientRect(),cs=['#6d2fd0','#c98a2e','#f2d795','#1f8f46','#8b3ff0'];for(let i=0;i<34;i++){const d=document.createElement('i');d.className='cfp';d.style.left=(r.left+r.width/2)+'px';d.style.top=(r.top+r.height/2)+'px';d.style.background=cs[i%5];const a=Math.random()*6.28,k=80+Math.random()*140;d.style.setProperty('--dx',Math.cos(a)*k+'px');d.style.setProperty('--dy',Math.sin(a)*k-40+'px');document.body.appendChild(d);setTimeout(()=>d.remove(),1300);}}
+const _shp=shp;shp=function(){const b=document.getElementById('ship');if(b.dataset.d)return;_shp();conf(b);b.classList.add('shp');document.getElementById('prob').classList.add('ok');const g=document.getElementById('rg');cu(g,31,'');const m=document.getElementById('pmv');cu(m,30,'p');document.querySelectorAll('#res .vd i.r').forEach(i=>{i.className='';});};
 </script>
 </body></html>
