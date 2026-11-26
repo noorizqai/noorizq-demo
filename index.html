@@ -1057,6 +1057,35 @@ body.tl-away #ritual::after{content:"Paused while you're away";position:fixed;in
   .em-c{width:104px;height:104px}.em-c b{font-size:17px}
 }
 
+/* ---------- build screen: 10 assets cascade in ---------- */
+.b-hero{position:relative;z-index:2;text-align:center;padding:26px 16px 6px}
+.b-hero h1{font:600 clamp(26px,4vw,40px)/1.1 var(--f-head);letter-spacing:-.02em}
+.b-hero h1 em{font-style:italic;color:var(--gold)}
+.b-bubbles{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative;z-index:2;padding:10px 16px 2px;min-height:38px}
+.b-bub{font:600 12px var(--f-head);letter-spacing:.04em;color:#e9c98a;background:rgba(233,201,138,.1);border:1px solid rgba(233,201,138,.3);border-radius:999px;padding:6px 12px;opacity:0;transform:translateY(6px);transition:all .4s var(--ease)}
+.b-bub.on{opacity:1;transform:none}
+.b-bub.done{color:#c4b5fd;border-color:rgba(196,181,253,.35);background:rgba(139,63,240,.12)}
+.b-grid{position:relative;z-index:2;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;padding:18px clamp(14px,4vw,44px) 30px;max-width:1180px;margin:0 auto}
+.b-card{background:rgba(20,12,48,.72);border:1px solid rgba(185,166,255,.16);border-radius:18px;padding:14px 16px;min-height:120px;opacity:0;transform:translateY(14px) scale(.97);transition:all .5s var(--ease);display:flex;flex-direction:column;gap:6px;overflow:hidden;position:relative}
+.b-card.on{opacity:1;transform:none}
+.b-card.pending{border-style:dashed;align-items:center;justify-content:center}
+.b-card .n{position:absolute;top:10px;right:12px;font:800 26px var(--f-head);color:rgba(185,166,255,.22)}
+.b-card h4{font:700 11px var(--f-head);letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 2px}
+.b-card .big{font:600 17px var(--f-head);color:#fff}
+.b-card .small{font-size:12.5px;line-height:1.5;color:#cdc4f2}
+.b-card svg{border-radius:10px;width:100%;height:auto;display:block}
+.b-card ul{margin:0;padding-left:16px;font-size:12.5px;line-height:1.5;color:#cdc4f2}
+.b-card .pend{font:600 12.5px var(--f-head);color:#a99ad6}
+.b-consent{position:relative;z-index:2;text-align:center;padding:10px 16px 40px;display:none}
+.b-consent.on{display:block}
+.b-consent h2{font:600 clamp(22px,3.4vw,32px) var(--f-head);margin-bottom:6px}
+.b-consent .hint{color:#a99ad6;font-size:13px;margin-bottom:16px}
+.b-consent .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.b-btn{font:700 14px var(--f-head);border-radius:14px;padding:13px 22px;border:1px solid rgba(185,166,255,.3);background:rgba(139,63,240,.18);color:#fff;cursor:pointer}
+.b-btn.primary{background:linear-gradient(135deg,var(--violet),var(--magenta));border:none}
+.b-btn.ghosty{background:transparent}
+.starfield{background-image:radial-gradient(#dec895 1.5px,#0000 1.8px),radial-gradient(#ffffff80 1px,#0000 1.2px),radial-gradient(500px 300px at 20% 30%,#853bfa55,#0000 70%),radial-gradient(500px 300px at 80% 70%,#1665fb55,#0000 70%) !important;background-size:120px 120px,67px 67px,auto,auto !important}
+/* ---------- /build screen ---------- */
 </style>
 </head>
 <body>
@@ -2588,6 +2617,7 @@ const G_IDEAS = [
 ];
 const pickDemo = (input) => isUrl(input) ? "bakery" : /book|account|finance|number/i.test(input) ? "books" : /bake|bread|cake|food|box/i.test(input) ? "bakery" : "active";
 
+
 /* ---------------- 1. GENESIS: give Noor one thing ---------------- */
 function rosetteSvg() {
   const p = []; for (let i = 0; i < 12; i++) p.push(`<g transform="rotate(${i * 15} 550 550)"><rect x="250" y="250" width="600" height="600" fill="none" stroke="#e9c98a" stroke-opacity=".35"/></g>`);
@@ -2595,8 +2625,8 @@ function rosetteSvg() {
 }
 function mountGenesis() {
   if ($("#genesis")) return;
-  const s = document.createElement("section"); s.id = "genesis"; s.className = "screen hidden";
-  s.innerHTML = `${rosetteSvg()}<div class="stars" id="starsG"></div><div class="g-arches"></div>
+  const s = document.createElement("section"); s.id = "genesis"; s.className = "screen hidden starfield";
+  s.innerHTML = `<div class="stars" id="starsG"></div>
   <div class="g-top"><img class="logo" src="${$("#signin .logo").src}" alt="Noorizq"><div style="display:flex;align-items:center"><span id="gSnd"></span><a href="#" id="gSignin">Sign in</a></div></div>
   <div class="g-core">
     <div class="eyebrow">✦ Your self-driving company</div>
@@ -2658,6 +2688,110 @@ function mountAssembly() {
   $("#aSkip").onclick = () => { ASM.skip = true; };
   return s;
 }
+function mountBuild(input) {
+  $("#build")?.remove();
+  const s = document.createElement("section"); s.id = "build"; s.className = "screen starfield";
+  s.innerHTML = `<div class="a-bar" id="aBar"></div><div class="stars" id="starsB"></div>
+  <div class="a-top"><img class="logo" src="${$("#signin .logo").src}" alt="Noorizq"><span class="a-input" id="aIn"></span><span class="sp"></span><span id="aSnd"></span><button class="ghost" data-actl="human">Human</button><button class="ghost" data-actl="stop">Stop</button></div>
+  <div class="b-hero"><h1>Building your company <em>live.</em></h1></div>
+  <div class="b-bubbles" id="bBubs"></div>
+  <div class="b-grid" id="bGrid"></div>
+  <div class="a-status" id="aStatus"></div>
+  <div class="b-consent" id="bConsent"></div>
+  <div class="a-outcomes" id="aOut"></div>`;
+  document.body.appendChild(s); stars("starsB", 50);
+  $("#aSnd").appendChild(sndBtn());
+  $$("[data-actl]", s).forEach((b) => b.onclick = () => { ASM.stopped = true; toast(b.dataset.actl === "stop" ? "Stopped. Nothing else will run or be sent." : "A person from the Noorizq team has been alerted. I've gone quiet."); });
+  return s;
+}
+const logoSvgB = (name, colours) => { const c1 = colours?.[0] ?? "#7c3aed", c2 = colours?.[1] ?? "#e9c98a", init = esc((name || "N").trim()[0].toUpperCase()); return `<svg viewBox="0 0 240 120"><defs><linearGradient id="lg${init}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c2}"/><stop offset="1" stop-color="${c1}"/></linearGradient></defs><rect width="240" height="120" rx="12" fill="#140c30"/><circle cx="50" cy="60" r="30" fill="url(#lg${init})"/><text x="50" y="70" text-anchor="middle" font-family="Georgia" font-size="30" fill="#fff">${init}</text><text x="92" y="66" font-family="Georgia" font-size="16" fill="#fff">${esc((name || "").slice(0, 18))}</text></svg>`; };
+const siteSvgB = (name, tagline, colours) => { const c1 = colours?.[0] ?? "#7c3aed", c2 = colours?.[1] ?? "#e9c98a"; return `<svg viewBox="0 0 240 140"><rect width="240" height="140" rx="10" fill="#fff"/><rect width="240" height="16" rx="8" fill="#ededf2"/><circle cx="10" cy="8" r="3" fill="#f66"/><circle cx="20" cy="8" r="3" fill="#fc3"/><circle cx="30" cy="8" r="3" fill="#4c4"/><rect width="240" height="66" y="16" fill="${c1}"/><text x="14" y="44" font-family="Georgia" font-size="13" font-weight="bold" fill="#fff">${esc((name || "").slice(0, 26))}</text><text x="14" y="60" font-size="8" fill="#ffffffcc">${esc((tagline || "").slice(0, 46))}</text><rect x="14" y="70" width="46" height="9" rx="4.5" fill="${c2}"/><rect x="14" y="92" width="212" height="12" rx="4" fill="#eee"/><rect x="14" y="108" width="150" height="12" rx="4" fill="#f2f2f2"/></svg>`; };
+async function buildAssets(g, input) {
+  const bub = (t) => { const b = document.createElement("span"); b.className = "b-bub"; b.textContent = t; $("#bBubs").appendChild(b); requestAnimationFrame(() => b.classList.add("on")); return b; };
+  const bubDone = (b) => b && b.classList.add("done");
+  const card = (n, title) => { const c = document.createElement("div"); c.className = "b-card pending"; c.id = `bC${n}`; c.innerHTML = `<span class="n">${n}</span><span class="pend">${title} · queued</span>`; $("#bGrid").appendChild(c); requestAnimationFrame(() => c.classList.add("on")); return c; };
+  const fill = (n, title, html) => { const c = $(`#bC${n}`); if (!c) return; c.classList.remove("pending"); c.innerHTML = `<span class="n">${n}</span><h4>${title}</h4>${html}`; FX.pop(); };
+  const fail = (n, title) => fill(n, title, `<div class="small">The studio is busy right now — I'll finish this in your office tonight.</div>`);
+  ["Your idea", "Business name", "Logo", "90-day plan", "Website preview", "Proposed email", "Products & services", "6 social posts", "Weekly plan + ad", "Competitor & audience docs"].forEach((t, i) => card(i + 1, t));
+  const assets = {};
+  const b1 = bub("Shaping your idea");
+  fill(1, "Your idea", `<div class="small">${esc(g.facts?.find((f) => f[1] === "offer")?.[0] ?? g.offer ?? g.label ?? input)}</div>`);
+  fill(2, "Business name", `<div class="big">${esc(g.company ?? "")}</div><div class="small">A working name — change it any time.</div>`);
+  bubDone(b1);
+  const b3 = bub("Designing your logo");
+  fill(3, "Logo", logoSvgB(g.company, g.colours)); bubDone(b3);
+  const b5 = bub("Building your website preview");
+  fill(5, "Website preview", siteSvgB(g.company, g.offer, g.colours)); bubDone(b5);
+  const b4 = bub("Writing your 90-day plan"), b7 = bub("Listing your products");
+  bar(30);
+  let a1 = {};
+  if (LIVE) { try { a1 = await api("genesis", { action: "assets", stage: 1 }); } catch { a1 = {}; } }
+  else { a1 = { idea_pitch: g.reflection, name_options: [g.company, "Barakah & Co", "The Honest Table"], tagline: "Made with barakah", products: (g.facts ?? []).slice(0, 4).map((f) => ({ name: f[0].slice(0, 30), description: f[0] })), plan_summary: g.outcomes?.[0]?.title ?? "First 10 customers", plan_phases: [{ title: "Weeks 1-4", detail: "Set up and first sales" }, { title: "Weeks 5-8", detail: "Repeat orders and referrals" }, { title: "Weeks 9-12", detail: "Grow what works" }] }; }
+  Object.assign(assets, a1);
+  if (a1.idea_pitch) fill(1, "Your idea", `<div class="small">${esc(a1.idea_pitch)}</div>`);
+  if (a1.name_options?.length) fill(2, "Business name", `<div class="big">${esc(g.company ?? a1.name_options[0])}</div><div class="small">Also considered: ${a1.name_options.slice(1).map(esc).join(" · ")}</div>`);
+  if (a1.tagline) fill(5, "Website preview", siteSvgB(g.company, a1.tagline, g.colours));
+  if (a1.products?.length) fill(7, "Products & services", `<ul>${a1.products.slice(0, 5).map((p) => `<li><b>${esc(p.name)}</b> — ${esc(p.description)}</li>`).join("")}</ul>`); else fail(7, "Products & services");
+  bubDone(b7);
+  if (a1.plan_phases?.length) fill(4, "90-day plan", `<div class="small">${esc(a1.plan_summary ?? "")}</div><ul>${a1.plan_phases.map((p) => `<li><b>${esc(p.title)}</b> — ${esc(p.detail)}</li>`).join("")}</ul>`); else fail(4, "90-day plan");
+  bubDone(b4);
+  bar(55);
+  const b6 = bub("Drafting your first email"), b8 = bub("Writing your social posts"), b9 = bub("Planning week one + your ad"), b10 = bub("Researching competitors & audience");
+  let a2 = {};
+  if (LIVE) { try { a2 = await api("genesis", { action: "assets", stage: 2 }); } catch { a2 = {}; } }
+  else { a2 = { posts_facebook: (g.outcomes ?? []).slice(0, 3).map((o) => o.title), posts_instagram: [], email: { subject: "Hello from your neighbour", body: "I make celebration cakes here in Cardiff..." }, weekly_plan: [], ad: { headline: "", body: "", cta: "" }, competitor_analysis: g.reflection, audience_profile: g.audience }; }
+  Object.assign(assets, a2);
+  if (a2.email?.subject) fill(6, "Proposed email", `<div class="small"><b>${esc(a2.email.subject)}</b><br>${esc((a2.email.body ?? "").slice(0, 220))}${(a2.email.body ?? "").length > 220 ? "…" : ""}</div>`); else fail(6, "Proposed email");
+  bubDone(b6);
+  const posts = [...(a2.posts_facebook ?? []).map((p) => ["Facebook", p]), ...(a2.posts_instagram ?? []).map((p) => ["Instagram", p])];
+  if (posts.length) fill(8, "6 social posts", `<ul>${posts.slice(0, 6).map(([k, p]) => `<li><b>${k}:</b> ${esc(p.slice(0, 90))}${p.length > 90 ? "…" : ""}</li>`).join("")}</ul>`); else fail(8, "6 social posts");
+  bubDone(b8);
+  if (a2.weekly_plan?.length || a2.ad?.headline) fill(9, "Weekly plan + ad", `${a2.weekly_plan?.length ? `<ul>${a2.weekly_plan.slice(0, 7).map((d) => `<li>${esc(d)}</li>`).join("")}</ul>` : ""}${a2.ad?.headline ? `<div class="small" style="margin-top:6px"><b>Ad:</b> ${esc(a2.ad.headline)} — ${esc(a2.ad.body)} <b>${esc(a2.ad.cta)}</b></div>` : ""}`); else fail(9, "Weekly plan + ad");
+  bubDone(b9);
+  if (a2.competitor_analysis || a2.audience_profile) fill(10, "Competitor & audience docs", `<div class="small"><b>Competitors:</b> ${esc((a2.competitor_analysis ?? "").slice(0, 160))}${(a2.competitor_analysis ?? "").length > 160 ? "…" : ""}<br><b>Ideal customer:</b> ${esc((a2.audience_profile ?? "").slice(0, 160))}${(a2.audience_profile ?? "").length > 160 ? "…" : ""}</div>`); else fail(10, "Competitor & audience docs");
+  bubDone(b10);
+  bar(80);
+  if (ASM.stopped) return;
+  S.genesis = { ...(S.genesis ?? {}), g, assets };
+  await askConsent();
+  if (ASM.stopped) return;
+  bar(88);
+  const goal = await askOutcome(g);
+  if (ASM.stopped) return;
+  if (goal && LIVE) api("chat", { message: `My 90-day goal: ${goal}`, idempotency_key: uid() }).catch(() => {});
+  status(`Noor is choosing what to go after first ${dots}`);
+  const outs = LIVE ? await liveProposeStart().then((r) => ({ id: r.proposal_id, options: r.options.map(fromLiveOption) })).catch(() => ({ id: "demo", options: g.outcomes })) : { id: "demo", options: g.outcomes };
+  status("");
+  bar(96);
+  showOutcomes(g, outs); bar(100);
+  outcomeGestures();
+}
+function askConsent() {
+  return new Promise((resolve) => {
+    const c = $("#bConsent");
+    c.innerHTML = `<h2>Are you happy with this?</h2><div class="hint">Nod for yes · shake for not sure · raise your brows for changes — or just tap.</div><div class="row"><button class="b-btn primary" id="bcYes">Love it — let's go</button><button class="b-btn" id="bcNot">Not sure yet</button><button class="b-btn ghosty" id="bcCh">I want changes</button></div>`;
+    c.classList.add("on"); c.scrollIntoView({ behavior: "smooth", block: "center" });
+    const done = (v) => { window.__gh = null; c.classList.remove("on"); resolve(v); };
+    $("#bcYes").onclick = () => done("yes"); $("#bcNot").onclick = () => done("not"); $("#bcCh").onclick = () => done("changes");
+    window.__gh = (ev) => { if (ev === "nod") { done("yes"); return true; } if (ev === "shake") { done("not"); return true; } if (ev === "brows" || ev === "eyebrows") { done("changes"); return true; } return false; };
+  });
+}
+function askOutcome(g) {
+  return new Promise((resolve) => {
+    const o = $("#aOut");
+    o.innerHTML = `<div class="eyebrow" style="color:#e9c98a;letter-spacing:.2em;font:600 12px var(--f-head)">YOUR NEXT 90 DAYS</div><h2>What do you want in the next 90 days?</h2><p class="lead">One sentence is enough. Noor turns it into three outcomes you can pick with a look.</p><form class="g-pill" id="oForm" style="width:min(640px,92vw);opacity:1;animation:none"><input id="oIn" placeholder="e.g. My first 10 paying customers"></form><div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:10px">${["First 10 paying customers", "Launch my brand properly", "A month of marketing done for me"].map((x) => `<button class="b-btn ghosty" data-s="${esc(x)}">${esc(x)}</button>`).join("")}</div>`;
+    o.classList.add("on"); $("#oIn").focus();
+    const done = (v) => { o.classList.remove("on"); resolve(v); };
+    $("#oForm").onsubmit = (e) => { e.preventDefault(); const v = $("#oIn").value.trim(); if (v) done(v); };
+    $$("[data-s]", o).forEach((b) => b.onclick = () => done(b.dataset.s));
+  });
+}
+function outcomeGestures() {
+  const cards = $$("#aOut .oc"); if (!TL.on || !cards.length) return;
+  let i = 0; const focus = () => cards.forEach((c, k) => { c.style.outline = k === i ? "2px solid var(--gold)" : ""; });
+  focus();
+  window.__gh = (ev) => { if (ev === "shake") { i = (i + 1) % cards.length; focus(); return true; } if (ev === "nod") { window.__gh = null; cards[i].querySelector("button")?.click(); return true; } return false; };
+}
 const ASM = { skip: false, stopped: false };
 const status = (html) => { const el = $("#aStatus"); if (el) el.innerHTML = html; };
 const dots = '<span class="dots"><i></i><i></i><i></i></span>';
@@ -2669,19 +2803,20 @@ async function startAssembly(input) {
   const word = input.trim().toLowerCase();
   if (["stop", "human"].includes(word)) { $("#gHint").textContent = word === "stop" ? "Stopped. Nothing will run." : "A person has been alerted and will reply by email."; return; }
   if (LIVE && !session) await authAnonymous().catch(() => {});          // try first, save with email later
-  mountAssembly(); show("assembly");
+  mountBuild(input); show("build");
   $("#aIn").textContent = isUrl(input) ? `🔗 ${input}` : `“${input}”`;
-  const orb = $("#aOrb");
-  await wait(250); FX.ignite(); orb.classList.add("on"); bar(6);
-  // --- read (LIVE: genesis.read runs while the scan animates; DEMO: the mirror) ---
-  orb.classList.add("reading");
-  status(`${isUrl(input) ? `Reading ${esc(input.replace(/^https?:\/\//, ""))}` : "Understanding your idea"} ${dots}`);
+  bar(6);
+  // --- read: fast, then the assets build live in front of the owner ---
+  const rb = document.createElement("span"); rb.className = "b-bub"; rb.textContent = isUrl(input) ? `Reading ${input.replace(/^https?:\/\//, "")}` : "Reading your idea"; $("#bBubs").appendChild(rb); requestAnimationFrame(() => rb.classList.add("on"));
   let g;
-  const minScan = beat(1800);
   try { g = LIVE ? await liveRead(input) : demoRead(input); } catch (e) { status("I couldn't reach my tools just now. Nothing was lost. <a href='#' onclick='location.reload()' style='color:#e9c98a'>Try again</a>"); return; }
-  await minScan;
-  if (g.fallback) { orb.classList.remove("reading"); return assemblyFallback(g); }
-  if (g.ideas) { orb.classList.remove("reading"); return pickIdea(g); }
+  rb.classList.add("done");
+  if (g.fallback) return assemblyFallback(g);
+  if (g.ideas) return pickIdea(g);
+  return buildAssets(g, input);
+}
+async function _unused_oldFlow(g, input) {
+  const orb = $("#aOrb");
   if (isUrl(input)) for (let p = 1; p <= (g.pages ?? 4); p++) { status(`Reading ${esc(input.replace(/^https?:\/\//, ""))} · page ${p} of ${g.pages ?? 4} ${dots}`); FX.tick(); await beat(260); }
   orb.classList.remove("reading"); bar(22);
   // --- facts, one by one ---
@@ -2744,13 +2879,13 @@ let _liveProp = null;
 function liveProposeStart() { return (_liveProp ??= api("genesis", { action: "propose" })); }
 function fromLiveOption(o) { return { agent: o.lead_agent, title: o.title, metric: o.metric, target: o.target_value, due: new Date(o.due_date).toLocaleDateString("en-GB", { day: "numeric", month: "short" }), why: o.why, ev: o.evidence?.[0]?.text ?? "", first: o.first_move, conf: o.confidence }; }
 function assemblyFallback(g) {
-  status(""); $("#aOrb").style.opacity = "0";
+  status(""); const _o = $("#aOrb"); if (_o) _o.style.opacity = "0";
   $("#aOut").innerHTML = `<div class="eyebrow" style="color:#e9c98a;letter-spacing:.2em;font:600 12px var(--f-head)">ONE SMALL THING</div><h2>${esc(g.reply)}</h2><form class="g-pill" id="fbForm" style="width:min(640px,92vw);opacity:1;animation:none"><input id="fbIn" placeholder="e.g. Sourdough and celebration boxes for families in Birmingham"><button class="g-go">Continue</button></form>`;
   $("#aOut").classList.add("on"); $("#fbIn").focus();
   $("#fbForm").onsubmit = (e) => { e.preventDefault(); const v = $("#fbIn").value.trim(); if (v) startAssembly(v); };
 }
 function pickIdea(g) {
-  status(""); FX.chime(3); $("#aOrb").style.opacity = "0";
+  status(""); FX.chime(3); const _o = $("#aOrb"); if (_o) _o.style.opacity = "0";
   const o = $("#aOut");
   o.innerHTML = `<div class="eyebrow" style="color:#e9c98a;letter-spacing:.2em;font:600 12px var(--f-head)">NO IDEA YET IS FINE</div><h2>Three businesses that <em>fit you.</em></h2><p class="lead">Tap one. Noor develops it with you, and nothing is locked in.</p><div class="oc-row a-ideas">${g.ideas.map((x, i) => `<div class="oc tilt" data-i="${i}"><div class="lead-a">${faceHtml(TEAM[1], "sm")}Layla suggests</div><h3>${esc(x.title)}</h3><div class="why">${esc(x.detail)}</div><button class="go">Build this one</button></div>`).join("")}</div>`;
   o.classList.add("on");
@@ -2770,7 +2905,7 @@ function showOutcomes(g, outs) {
       const r = c.getBoundingClientRect(); FX.celebrate(); FX.confetti(r.left + r.width / 2, r.top + 40, 120);
       const chosen = outs.options[i];
       S.path = g.path; Object.assign(S.profile, { company: g.company, website: g.path === "existing" ? g.label : undefined, offer: g.offer, audience: g.audience, tone: g.tone, brandColours: g.colours });
-      S.genesis = { g, outs, chosen, i }; S.demoKey = g.key;
+      S.genesis = { ...(S.genesis ?? {}), g, outs, chosen, i }; S.demoKey = g.key;
       if (LIVE) { try { const res = await api("genesis", { action: "choose", proposal_id: outs.id, n: i + 1 }); S.liveOutcomeId = res.outcome_id; } catch (e) { toast(e.message); } }
       await wait(1100); enterAppV3();
     };
@@ -2796,6 +2931,15 @@ function enterAppV3() {
   S.questions = [{ field: "owner_name", q: "What should I call you?", options: [] }, { field: "typical_spend", q: "Roughly what does one customer spend with you?", options: SPEND }, { field: "dream_client", q: "Who is your dream client, in a sentence?", options: [p.audience].filter(Boolean) }];
   audit("Genesis", `One input → profile, brand, first visual, 3 proposed outcomes · chose "${c?.title}"`, 0.0061);
   if (S.genesis?.g?.hero) { const h = demoHero(S.genesis.g); const d = addDoc("visual", "Your first visual · Idris", `<div style="max-width:560px;margin:0 auto">${h.svg.replace(/width="\d+" height="\d+"/, 'width="100%" style="height:auto;display:block;border-radius:16px"')}</div><p class="src">${h.provider === "none" ? "Typographic layout: no photo passed the quality check." : "Demo photography for the prototype. Live: free FLUX via Cloudflare Workers AI, vision-checked before use."}</p>`); S.selectedDoc = d.id; }
+  const A = S.genesis?.assets;
+  if (A) { const co = S.profile.company ?? "Your business";
+    if (A.plan_phases) addDoc("plan", "Your 90-day plan", `<h2>${esc(A.plan_summary ?? co)}</h2><ul>${A.plan_phases.map((p) => `<li><b>${esc(p.title)}</b> — ${esc(p.detail)}</li>`).join("")}</ul>`);
+    if (A.products) addDoc("document", "Products & services", `<ul>${A.products.map((p) => `<li><b>${esc(p.name)}</b> — ${esc(p.description)}</li>`).join("")}</ul>`);
+    if (A.email) addDoc("email", `Email: ${A.email.subject}`, `<h3>${esc(A.email.subject)}</h3><p>${esc(A.email.body ?? "").replace(/\n/g, "<br>")}</p>`);
+    if (A.posts_facebook || A.posts_instagram) addDoc("post", "Your first 6 social posts", [...(A.posts_facebook ?? []).map((p) => ["Facebook", p]), ...(A.posts_instagram ?? []).map((p) => ["Instagram", p])].map(([k, p]) => `<p><b>${k}:</b> ${esc(p)}</p>`).join(""));
+    if (A.weekly_plan || A.ad) addDoc("plan", "Week one + your first ad", `${(A.weekly_plan ?? []).map((d) => `<p>• ${esc(d)}</p>`).join("")}<p><b>Ad:</b> ${esc(A.ad?.headline ?? "")} — ${esc(A.ad?.body ?? "")} <b>${esc(A.ad?.cta ?? "")}</b></p>`);
+    if (A.competitor_analysis || A.audience_profile) addDoc("document", "Competitor & audience research", `<p><b>Competitors:</b> ${esc(A.competitor_analysis ?? "")}</p><p><b>Ideal customer:</b> ${esc(A.audience_profile ?? "")}</p>`);
+  }
   startOffice(c);
   setTab("office");
   if (innerWidth <= 900) mobileTo("office");
@@ -3536,6 +3680,7 @@ const recentSignals = () => TL.signals.map(([, s]) => s);
 const LABEL = { nod: "Nod", shake: "Shake", tilt_left: "Tilt", tilt_right: "Tilt", lean_in: "Lean in", flick_right: "Look right", flick_left: "Look left", look_up_hold: "Look up", look_down_hold: "Look down",
   double_blink: "Double blink", wink_left: "Left wink", wink_right: "Right wink", eye_menu: "Eyes closed", pause: "Long close", smile: "Smile", brows: "Brows up", mouth_open: "Mouth open", thumbs_up: "Thumbs up", palm: "Open palm" };
 function gesture(ev) {
+  if (window.__gh && window.__gh(ev)) return;
   if (TL.prefs.off[ev]) return;
   const via = TLCore.SIGNAL_OF[ev]; if (via) signal(via);
   chip(LABEL[ev] ?? ev);
