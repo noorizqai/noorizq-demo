@@ -1094,6 +1094,20 @@ body.tl-away #ritual::after{content:"Paused while you're away";position:fixed;in
 .b-btn.primary{background:linear-gradient(135deg,var(--violet),var(--magenta));border:none}
 .b-btn.ghosty{background:transparent}
 .starfield{background-image:radial-gradient(#dec895 1.5px,#0000 1.8px),radial-gradient(#ffffff80 1px,#0000 1.2px),radial-gradient(500px 300px at 20% 30%,#853bfa55,#0000 70%),radial-gradient(500px 300px at 80% 70%,#1665fb55,#0000 70%) !important;background-size:120px 120px,67px 67px,auto,auto !important}
+.b-grid{grid-template-columns:repeat(auto-fill,minmax(270px,1fr));max-width:1240px;margin:0 auto}
+.b-card{min-height:158px;background:rgba(23,13,52,.72);backdrop-filter:blur(6px)}
+.b-card.on{transition:all .6s cubic-bezier(.2,.7,.3,1)}
+.b-card .bigname{font:700 clamp(24px,2.6vw,32px)/1.15 Georgia,serif;background:linear-gradient(92deg,#fff 30%,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.b-card .punch{font:italic 500 15.5px/1.55 Georgia,serif;color:#f3efff}
+.logo2{display:grid;gap:8px}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.docs2{display:flex;gap:10px}
+.docs2 svg,.logo2 svg,.pgrid svg{width:100%;height:auto;display:block;border-radius:8px}
+.emailc{background:#f7f4ee;border-radius:10px;padding:12px 14px}
+.emailc .esub{font:700 12.5px Georgia,serif;color:#1e1145;margin-bottom:5px}
+.emailc .ebody{font-size:11.5px;line-height:1.5;color:#57506b}
+.b-card ul li::marker{color:var(--gold)}
+.b-bub{align-self:center}
 /* ---------- /build screen ---------- */
 </style>
 </head>
@@ -2713,51 +2727,69 @@ function mountBuild(input) {
   $$("[data-actl]", s).forEach((b) => b.onclick = () => { ASM.stopped = true; toast(b.dataset.actl === "stop" ? "Stopped. Nothing else will run or be sent." : "A person from the Noorizq team has been alerted. I've gone quiet."); });
   return s;
 }
-const logoSvgB = (name, colours) => { const c1 = colours?.[0] ?? "#7c3aed", c2 = colours?.[1] ?? "#e9c98a", init = esc((name || "N").trim()[0].toUpperCase()); return `<svg viewBox="0 0 240 120"><defs><linearGradient id="lg${init}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c2}"/><stop offset="1" stop-color="${c1}"/></linearGradient></defs><rect width="240" height="120" rx="12" fill="#140c30"/><circle cx="50" cy="60" r="30" fill="url(#lg${init})"/><text x="50" y="70" text-anchor="middle" font-family="Georgia" font-size="30" fill="#fff">${init}</text><text x="92" y="66" font-family="Georgia" font-size="16" fill="#fff">${esc((name || "").slice(0, 18))}</text></svg>`; };
-const siteSvgB = (name, tagline, colours) => { const c1 = colours?.[0] ?? "#7c3aed", c2 = colours?.[1] ?? "#e9c98a"; return `<svg viewBox="0 0 240 140"><rect width="240" height="140" rx="10" fill="#fff"/><rect width="240" height="16" rx="8" fill="#ededf2"/><circle cx="10" cy="8" r="3" fill="#f66"/><circle cx="20" cy="8" r="3" fill="#fc3"/><circle cx="30" cy="8" r="3" fill="#4c4"/><rect width="240" height="66" y="16" fill="${c1}"/><text x="14" y="44" font-family="Georgia" font-size="13" font-weight="bold" fill="#fff">${esc((name || "").slice(0, 26))}</text><text x="14" y="60" font-size="8" fill="#ffffffcc">${esc((tagline || "").slice(0, 46))}</text><rect x="14" y="70" width="46" height="9" rx="4.5" fill="${c2}"/><rect x="14" y="92" width="212" height="12" rx="4" fill="#eee"/><rect x="14" y="108" width="150" height="12" rx="4" fill="#f2f2f2"/></svg>`; };
+const _pal = (cols) => { const c = cols?.length ? cols : ["#7c3aed", "#1e1145", "#e9c98a"]; return { p: c[0], d: c[1] ?? "#160b38", g: c[2] ?? "#e9c98a" }; };
+const _ini = (n) => esc((n || "N").replace(/\(.*?\)/g, "").trim().split(/\s+/).map((w) => w[0]).slice(0, 2).join("").toUpperCase() || "N");
+const _nm = (n) => esc((n || "Your brand").replace(/\(.*?\)/g, "").trim());
+let _uidc = 0;
+const logoSvgB = (name, colours) => { const { p, d, g } = _pal(colours); const ini = _ini(name), nm = _nm(name), u = ++_uidc;
+  const tile = (bg, fg, k) => `<svg viewBox="0 0 260 120"><defs><linearGradient id="lg${u}${k}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${g}"/><stop offset="1" stop-color="${p}"/></linearGradient></defs><rect width="260" height="120" rx="12" fill="${bg}"/><circle cx="50" cy="60" r="25" fill="url(#lg${u}${k})"/><text x="50" y="69" text-anchor="middle" font-family="Georgia,serif" font-size="24" fill="${k ? "#1e1145" : "#fff"}">${ini}</text><text x="90" y="57" font-family="Georgia,serif" font-weight="bold" font-size="17" fill="${fg}">${nm.slice(0, 16)}</text><text x="90" y="76" font-family="Georgia,serif" font-size="7.5" letter-spacing="3.5" fill="${k ? p : g}">EST. 2026</text></svg>`;
+  return `<div class="logo2">${tile("#140c30", "#ffffff", 0)}${tile("#f7f4ee", "#1e1145", 1)}</div>`; };
+const siteSvgB = (name, tagline, colours, products) => { const { p, d, g } = _pal(colours); const nm = _nm(name); const u = ++_uidc;
+  const tiles = (products ?? []).slice(0, 3).map((pr, i) => { const x = 12 + i * 80; return `<rect x="${x}" y="102" width="72" height="34" rx="6" fill="#ffffff"/><rect x="${x + 5}" y="108" width="24" height="22" rx="4" fill="${i % 2 ? p : g}"/><text x="${x + 34}" y="117" font-size="5.4" fill="#333">${esc((pr.name ?? "").slice(0, 11))}</text><text x="${x + 34}" y="126" font-size="4.6" fill="#999">${esc((pr.description ?? "").slice(0, 14))}</text>`; }).join("");
+  return `<svg viewBox="0 0 260 144"><defs><linearGradient id="sh${u}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${p}"/><stop offset="1" stop-color="${d}"/></linearGradient></defs><rect width="260" height="144" rx="12" fill="#f4f2fa"/><rect width="260" height="18" rx="9" fill="#e8e5f0"/><circle cx="11" cy="9" r="3" fill="#f66"/><circle cx="21" cy="9" r="3" fill="#fc3"/><circle cx="31" cy="9" r="3" fill="#4c4"/><rect x="48" y="4" width="150" height="10" rx="5" fill="#fff"/><text x="54" y="12" font-size="6" fill="#888">${esc(nm.toLowerCase().replace(/[^a-z0-9]/g, "") + ".co.uk")}</text><rect width="260" height="80" y="18" fill="url(#sh${u})"/><circle cx="26" cy="44" r="11" fill="${g}"/><text x="26" y="48.5" text-anchor="middle" font-size="11" font-family="Georgia" fill="${d}">${_ini(name)}</text><text x="44" y="42" font-family="Georgia,serif" font-weight="bold" font-size="13" fill="#fff">${nm.slice(0, 20)}</text><text x="44" y="56" font-size="6.4" fill="#ffffffcc">${esc((tagline ?? "").slice(0, 54))}</text><rect x="44" y="64" width="54" height="12" rx="6" fill="${g}"/><text x="71" y="72.5" text-anchor="middle" font-size="6.4" font-weight="bold" fill="${d}">SHOP NOW</text>${tiles}</svg>`; };
+const postsSvg = (posts, name, colours) => { const { p, d, g } = _pal(colours); const u = ++_uidc; const ini = _ini(name);
+  const words = (t) => esc((t ?? "").replace(/\*\*/g, "").split(/\s+/).slice(0, 3).join(" "));
+  return `<div class="pgrid">${posts.slice(0, 6).map(([kind, t], i) => { const dark = i % 2 === 0; return `<svg viewBox="0 0 100 100"><defs><linearGradient id="pg${u}${i}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${dark ? p : g}"/><stop offset="1" stop-color="${dark ? d : p}"/></linearGradient></defs><rect width="100" height="100" rx="8" fill="url(#pg${u}${i})"/><text x="9" y="42" font-family="Georgia,serif" font-weight="bold" font-size="10.5" fill="${dark ? "#fff" : d}">${words(t)}</text><text x="9" y="55" font-size="5" letter-spacing="1.2" fill="${dark ? g : "#ffffffdd"}">${kind.toUpperCase()}</text><circle cx="87" cy="87" r="7.5" fill="${dark ? g : d}"/><text x="87" y="90.5" text-anchor="middle" font-size="6.5" font-family="Georgia" fill="${dark ? d : "#fff"}">${ini}</text></svg>`; }).join("")}</div>`; };
+const adSvg = (ad, colours) => { const { p, d, g } = _pal(colours); const u = ++_uidc;
+  return `<svg viewBox="0 0 260 92"><defs><linearGradient id="ad${u}" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="${d}"/><stop offset="1" stop-color="${p}"/></linearGradient></defs><rect width="260" height="92" rx="12" fill="url(#ad${u})"/><circle cx="230" cy="46" r="30" fill="${g}" opacity=".22"/><circle cx="240" cy="46" r="17" fill="${g}" opacity=".32"/><text x="16" y="32" font-family="Georgia,serif" font-weight="bold" font-size="11.5" fill="#fff">${esc((ad?.headline ?? "Your launch ad").slice(0, 32))}</text><text x="16" y="47" font-size="6.6" fill="#ffffffbb">${esc((ad?.body ?? "").slice(0, 64))}</text><rect x="16" y="58" width="66" height="15" rx="7.5" fill="${g}"/><text x="49" y="68.5" text-anchor="middle" font-size="6.8" font-weight="bold" fill="${d}">${esc((ad?.cta ?? "Learn more").slice(0, 16))}</text></svg>`; };
+const timelineSvg = (phases, colours) => { const { p, d, g } = _pal(colours); const pts = (phases ?? []).slice(0, 3);
+  return `<svg viewBox="0 0 260 92"><line x1="34" y1="24" x2="226" y2="24" stroke="${g}" stroke-width="2" opacity=".7"/>${pts.map((ph, i) => { const x = 34 + i * 96; return `<circle cx="${x}" cy="24" r="8" fill="${p}" stroke="${g}" stroke-width="2"/><text x="${x}" y="28.5" text-anchor="middle" font-size="8" font-weight="bold" fill="#fff">${i + 1}</text><text x="${x}" y="48" text-anchor="middle" font-family="Georgia,serif" font-weight="bold" font-size="8.5" fill="#fff">${esc((ph.title ?? "").slice(0, 15))}</text><text x="${x}" y="62" text-anchor="middle" font-size="6" fill="#cfc6ee">${esc((ph.detail ?? "").slice(0, 26))}</text>`; }).join("")}</svg>`; };
+const weekSvg = (weekly, colours) => { const { p, g } = _pal(colours); const days = ["M", "T", "W", "T", "F", "S", "S"];
+  return `<svg viewBox="0 0 260 56">${days.map((dl, i) => { const x = 6 + i * 36; const item = (weekly ?? [])[i]; return `<rect x="${x}" y="4" width="31" height="48" rx="6" fill="${i % 2 ? "rgba(233,201,138,.14)" : "rgba(139,63,240,.28)"}" stroke="${g}44"/><text x="${x + 15.5}" y="18" text-anchor="middle" font-size="8" font-weight="bold" fill="${g}">${dl}</text><text x="${x + 15.5}" y="33" text-anchor="middle" font-size="4.6" fill="#e7e2f7">${esc((item ?? "").split(/\s+/).slice(0, 2).join(" "))}</text>`; }).join("")}</svg>`; };
+const docThumbs = (colours) => { const { p, g } = _pal(colours);
+  const doc = (label) => `<svg viewBox="0 0 104 120"><rect width="104" height="120" rx="8" fill="#f7f4ee"/><path d="M104 0 L86 0 L104 18 Z" fill="#e2dccb"/><rect x="12" y="16" width="56" height="8" rx="4" fill="${p}"/>${[0, 1, 2, 3, 4, 5].map((i) => `<rect x="12" y="${34 + i * 11}" width="${80 - (i % 3) * 16}" height="5" rx="2.5" fill="#ddd6c9"/>`).join("")}<rect x="12" y="102" width="46" height="7" rx="3.5" fill="${g}"/><text x="13" y="30" font-size="5" letter-spacing="1" fill="#999">${label}</text></svg>`;
+  return `<div class="docs2">${doc("COMPETITOR ANALYSIS")}${doc("IDEAL CUSTOMER")}</div>`; };
 async function buildAssets(g, input) {
   const bub = (t) => { const b = document.createElement("span"); b.className = "b-bub"; b.textContent = t; $("#bBubs").appendChild(b); requestAnimationFrame(() => b.classList.add("on")); return b; };
-  const bubDone = (b) => b && b.classList.add("done");
-  const card = (n, title) => { const c = document.createElement("div"); c.className = "b-card pending"; c.id = `bC${n}`; c.innerHTML = `<span class="n">${n}</span><span class="pend">${title} · queued</span>`; $("#bGrid").appendChild(c); requestAnimationFrame(() => c.classList.add("on")); return c; };
-  const fill = (n, title, html) => { const c = $(`#bC${n}`); if (!c) return; c.classList.remove("pending"); c.innerHTML = `<span class="n">${n}</span><h4>${title}</h4>${html}`; FX.pop(); };
-  const fail = (n, title) => fill(n, title, `<div class="small">The studio is busy right now — I'll finish this in your office tonight.</div>`);
-  ["Your idea", "Business name", "Logo", "90-day plan", "Website preview", "Proposed email", "Products & services", "6 social posts", "Weekly plan + ad", "Competitor & audience docs"].forEach((t, i) => card(i + 1, t));
+  const card = (n, t) => { const c = document.createElement("div"); c.className = "b-card pending"; c.id = `bC${n}`; c.style.transitionDelay = `${(n - 1) * 90}ms`; c.innerHTML = `<span class="n">${n}</span><span class="pend">${t}</span>`; $("#bGrid").appendChild(c); requestAnimationFrame(() => c.classList.add("on")); return c; };
+  const fill = (n, title, html) => { const c = $(`#bC${n}`); if (!c) return; c.style.transitionDelay = "0ms"; c.classList.remove("pending"); c.innerHTML = `<span class="n">${n}</span><h4>${title}</h4>${html}`; FX.pop(); };
+  const fail = (n, title) => fill(n, title, `<div class="small">The studio is busy right now — I will finish this in your office tonight.</div>`);
+  ["Your idea", "Business name", "Logo", "90-day plan", "Website preview", "Proposed email", "Products & services", "6 social posts", "Weekly plan + ad", "Research docs"].forEach((t, i) => card(i + 1, t));
   const assets = {};
+  const cols = g.colours;
   const b1 = bub("Shaping your idea");
-  fill(1, "Your idea", `<div class="small">${esc(g.facts?.find((f) => f[1] === "offer")?.[0] ?? g.offer ?? g.label ?? input)}</div>`);
-  fill(2, "Business name", `<div class="big">${esc(g.company ?? "")}</div><div class="small">A working name — change it any time.</div>`);
+  fill(1, "Your idea", `<div class="punch">&ldquo;${esc(g.facts?.find((f) => f[1] === "offer")?.[0] ?? g.offer ?? g.label ?? input)}&rdquo;</div>`);
+  fill(2, "Business name", `<div class="bigname">${_nm(g.company)}</div>`);
   bubDone(b1);
   const b3 = bub("Designing your logo");
-  fill(3, "Logo", logoSvgB(g.company, g.colours)); bubDone(b3);
-  const b5 = bub("Building your website preview");
-  fill(5, "Website preview", siteSvgB(g.company, g.offer, g.colours)); bubDone(b5);
-  const b4 = bub("Writing your 90-day plan"), b7 = bub("Listing your products");
+  fill(3, "Logo", logoSvgB(g.company, cols)); bubDone(b3);
   bar(30);
+  const b4 = bub("Writing your 90-day plan"), b7 = bub("Listing your products");
   let a1 = {};
   if (LIVE) { try { a1 = await api("genesis", { action: "assets", stage: 1 }); } catch { a1 = {}; } }
   else { a1 = { idea_pitch: g.reflection, name_options: [g.company, "Barakah & Co", "The Honest Table"], tagline: "Made with barakah", products: (g.facts ?? []).slice(0, 4).map((f) => ({ name: f[0].slice(0, 30), description: f[0] })), plan_summary: g.outcomes?.[0]?.title ?? "First 10 customers", plan_phases: [{ title: "Weeks 1-4", detail: "Set up and first sales" }, { title: "Weeks 5-8", detail: "Repeat orders and referrals" }, { title: "Weeks 9-12", detail: "Grow what works" }] }; }
   Object.assign(assets, a1);
-  if (a1.idea_pitch) fill(1, "Your idea", `<div class="small">${esc(a1.idea_pitch)}</div>`);
-  if (a1.name_options?.length) fill(2, "Business name", `<div class="big">${esc(g.company ?? a1.name_options[0])}</div><div class="small">Also considered: ${a1.name_options.slice(1).map(esc).join(" · ")}</div>`);
-  if (a1.tagline) fill(5, "Website preview", siteSvgB(g.company, a1.tagline, g.colours));
-  if (a1.products?.length) fill(7, "Products & services", `<ul>${a1.products.slice(0, 5).map((p) => `<li><b>${esc(p.name)}</b> — ${esc(p.description)}</li>`).join("")}</ul>`); else fail(7, "Products & services");
+  if (a1.name_options?.length) fill(2, "Business name", `<div class="bigname">${_nm(g.company ?? a1.name_options[0])}</div><div class="small">Also considered: ${a1.name_options.slice(1).map(esc).join(" · ")}</div>`);
+  const b5 = bub("Building your website preview");
+  fill(5, "Website preview", siteSvgB(g.company, a1.tagline ?? g.offer, cols, a1.products)); bubDone(b5);
+  if (a1.products?.length) fill(7, "Products & services", `<ul>${a1.products.slice(0, 5).map((p) => `<li><b>${esc(p.name)}</b></li>`).join("")}</ul>`); else fail(7, "Products & services");
   bubDone(b7);
-  if (a1.plan_phases?.length) fill(4, "90-day plan", `<div class="small">${esc(a1.plan_summary ?? "")}</div><ul>${a1.plan_phases.map((p) => `<li><b>${esc(p.title)}</b> — ${esc(p.detail)}</li>`).join("")}</ul>`); else fail(4, "90-day plan");
+  if (a1.plan_phases?.length) fill(4, "90-day plan", timelineSvg(a1.plan_phases, cols)); else fail(4, "90-day plan");
   bubDone(b4);
   bar(55);
-  const b6 = bub("Drafting your first email"), b8 = bub("Writing your social posts"), b9 = bub("Planning week one + your ad"), b10 = bub("Researching competitors & audience");
+  const b6 = bub("Drafting your first email"), b8 = bub("Designing your social posts"), b9 = bub("Planning week one + your ad"), b10 = bub("Researching competitors & audience");
   let a2 = {};
   if (LIVE) { try { a2 = await api("genesis", { action: "assets", stage: 2 }); } catch { a2 = {}; } }
   else { a2 = { posts_facebook: (g.outcomes ?? []).slice(0, 3).map((o) => o.title), posts_instagram: [], email: { subject: "Hello from your neighbour", body: "I make celebration cakes here in Cardiff..." }, weekly_plan: [], ad: { headline: "", body: "", cta: "" }, competitor_analysis: g.reflection, audience_profile: g.audience }; }
   Object.assign(assets, a2);
-  if (a2.email?.subject) fill(6, "Proposed email", `<div class="small"><b>${esc(a2.email.subject)}</b><br>${esc((a2.email.body ?? "").slice(0, 220))}${(a2.email.body ?? "").length > 220 ? "…" : ""}</div>`); else fail(6, "Proposed email");
+  if (a2.email?.subject) fill(6, "Proposed email", `<div class="emailc"><div class="esub">${esc(a2.email.subject)}</div><div class="ebody">${esc((a2.email.body ?? "").slice(0, 150))}…</div></div>`); else fail(6, "Proposed email");
   bubDone(b6);
   const posts = [...(a2.posts_facebook ?? []).map((p) => ["Facebook", p]), ...(a2.posts_instagram ?? []).map((p) => ["Instagram", p])];
-  if (posts.length) fill(8, "6 social posts", `<ul>${posts.slice(0, 6).map(([k, p]) => `<li><b>${k}:</b> ${esc(p.slice(0, 90))}${p.length > 90 ? "…" : ""}</li>`).join("")}</ul>`); else fail(8, "6 social posts");
+  if (posts.length) fill(8, "6 social posts", postsSvg(posts, g.company, cols)); else fail(8, "6 social posts");
   bubDone(b8);
-  if (a2.weekly_plan?.length || a2.ad?.headline) fill(9, "Weekly plan + ad", `${a2.weekly_plan?.length ? `<ul>${a2.weekly_plan.slice(0, 7).map((d) => `<li>${esc(d)}</li>`).join("")}</ul>` : ""}${a2.ad?.headline ? `<div class="small" style="margin-top:6px"><b>Ad:</b> ${esc(a2.ad.headline)} — ${esc(a2.ad.body)} <b>${esc(a2.ad.cta)}</b></div>` : ""}`); else fail(9, "Weekly plan + ad");
+  if (a2.weekly_plan?.length || a2.ad?.headline) fill(9, "Weekly plan + ad", `${a2.weekly_plan?.length ? weekSvg(a2.weekly_plan, cols) : ""}${a2.ad?.headline ? `<div style="margin-top:8px">${adSvg(a2.ad, cols)}</div>` : ""}`); else fail(9, "Weekly plan + ad");
   bubDone(b9);
-  if (a2.competitor_analysis || a2.audience_profile) fill(10, "Competitor & audience docs", `<div class="small"><b>Competitors:</b> ${esc((a2.competitor_analysis ?? "").slice(0, 160))}${(a2.competitor_analysis ?? "").length > 160 ? "…" : ""}<br><b>Ideal customer:</b> ${esc((a2.audience_profile ?? "").slice(0, 160))}${(a2.audience_profile ?? "").length > 160 ? "…" : ""}</div>`); else fail(10, "Competitor & audience docs");
+  if (a2.competitor_analysis || a2.audience_profile) fill(10, "Research docs", docThumbs(cols)); else fail(10, "Research docs");
   bubDone(b10);
   bar(80);
   if (ASM.stopped) return;
