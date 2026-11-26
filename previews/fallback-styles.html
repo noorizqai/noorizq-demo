@@ -1,0 +1,71 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Caveat:wght@500;600&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;box-sizing:border-box}
+body{font-family:Sora,sans-serif;background:#160b38;color:#f5f0ff;padding:34px 40px}
+h1{font-family:Fraunces;font-weight:400;font-size:34px;text-align:center;margin-bottom:4px}
+h1 em{font-style:italic;color:#e9c98a}
+.sub{text-align:center;color:#b7a8de;font-size:14px;margin-bottom:26px}
+.row{display:grid;grid-template-columns:220px 1fr 1fr 1fr;gap:18px;align-items:stretch;margin-bottom:22px}
+.label{display:flex;flex-direction:column;justify-content:center}
+.label b{font-family:Fraunces;font-size:22px;font-weight:600;color:#e9c98a;display:block}
+.label span{color:#b7a8de;font-size:12.5px;line-height:1.5;margin-top:6px}
+.tile{border-radius:12px;overflow:hidden;position:relative;min-height:170px;box-shadow:0 16px 38px -14px rgba(5,2,20,.7)}
+.tile .nm{position:absolute;left:0;right:0;bottom:0;font:600 15px Caveat,cursive;color:#fff;background:linear-gradient(transparent,rgba(20,12,48,.85));padding:14px 10px 5px}
+.tile .tag{position:absolute;left:9px;top:9px;font:700 8px Sora;letter-spacing:1.5px;color:#fff;background:rgba(20,12,48,.7);padding:3px 8px;border-radius:999px}
+/* ---- STYLE A: atelier pattern ---- */
+.a1{background:linear-gradient(135deg,#3b1d7a,#1e1145)}
+.a1 .pat{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.16) 1.2px,transparent 1.6px);background-size:15px 15px;transform:rotate(0.001deg)}
+.a1 .glow{position:absolute;inset:0;background:radial-gradient(circle at 82% 14%,rgba(233,201,138,.4),transparent 50%)}
+.a1 .mot{position:absolute;right:12px;bottom:26px;width:64px;height:64px;opacity:.9}
+.a2{background:linear-gradient(135deg,#8b3ff0,#2a1a5e)}
+.a2 .pat{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.14) 1.2px,transparent 1.6px);background-size:15px 15px}
+.a2 .glow{position:absolute;inset:0;background:radial-gradient(circle at 82% 14%,rgba(255,255,255,.3),transparent 50%)}
+.a2 .mot{position:absolute;right:12px;bottom:26px;width:64px;height:64px;opacity:.85}
+.a3{background:linear-gradient(135deg,#1e1145,#3b1d7a)}
+.a3 .pat{position:absolute;inset:0;background-image:radial-gradient(rgba(233,201,138,.2) 1.2px,transparent 1.6px);background-size:15px 15px}
+.a3 .glow{position:absolute;inset:0;background:radial-gradient(circle at 20% 90%,rgba(233,201,138,.22),transparent 46%)}
+.a3 .mot{position:absolute;right:12px;bottom:26px;width:64px;height:64px;opacity:.85}
+/* ---- STYLE B: editorial poster ---- */
+.b1,.b2,.b3{background:#f7f2e6;display:flex;flex-direction:column;justify-content:center;padding:20px 18px;text-align:left}
+.b2{background:#1e1145}
+.b2 .big,.b2 .rule,.b2 .cap{color:#f7f2e6}
+.b2 .cap{color:#cfc6ee}
+.b3{background:linear-gradient(150deg,#f7f2e6,#efe3c8)}
+.b1 .k{font:700 8px Sora;letter-spacing:2px;color:#a1641f;margin-bottom:8px}
+.b2 .k{font:700 8px Sora;letter-spacing:2px;color:#e9c98a;margin-bottom:8px}
+.b3 .k{font:700 8px Sora;letter-spacing:2px;color:#a1641f;margin-bottom:8px}
+.big{font:600 26px/1.15 Fraunces,serif;color:#1e1145}
+.big em{font-style:italic;color:#8b3ff0}
+.rule{width:44px;height:2px;background:#e9c98a;margin:10px 0}
+.cap{font:500 13px Caveat,cursive;color:#7a6b8f;font-size:16px}
+.b1 .mot,.b2 .mot,.b3 .mot{position:absolute;right:12px;bottom:14px;width:40px;height:40px;opacity:.85}
+/* ---- STYLE C: studio scene ---- */
+.c1{background:linear-gradient(180deg,#2a1a5e 0%,#1e1145 78%)}
+.c2{background:linear-gradient(180deg,#3b1d7a 0%,#241245 78%)}
+.c3{background:linear-gradient(180deg,#1665fb33,#1e1145 78%),#1e1145}
+.scene{position:absolute;inset:0}
+.foot{text-align:center;color:#8f83b8;font-size:12px;margin-top:8px}
+</style></head><body>
+<h1>Fallback art, <em>three ways.</em></h1>
+<div class="sub">What shows while photos are off — pick one style and it applies everywhere (products, socials, previews).</div>
+<div class="row">
+<div class="label"><b>A · Atelier pattern</b><span>Brand-colour gradients, dot weave, gold glow, big motif watermark. Rich and unmistakably Noorizq. <br><br>(live on the site right now)</span></div>
+<div class="tile a1"><div class="pat"></div><div class="glow"></div><svg class="mot" viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="none" stroke="#fff" stroke-width="2" opacity=".7"/><path d="M8 32a16 16 0 0 1 32 0Z" fill="#ffffffdd"/><circle cx="24" cy="14" r="3.4" fill="#e9c98a"/></svg><div class="nm">Starter Zakat Calc</div><div class="tag">PRODUCT</div></div>
+<div class="tile a2"><div class="pat"></div><div class="glow"></div><div style="position:absolute;left:12px;top:30px;right:60px;font:700 15px/1.35 Georgia,serif;color:#fff">Keeping your freelance finances clean</div><svg class="mot" viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="none" stroke="#fff" stroke-width="2" opacity=".6"/><path d="M24 4l4.5 13.5L42 22l-13.5 4.5L24 40l-4.5-13.5L6 22l13.5-4.5Z" fill="#ffffffcc"/></svg><div class="tag">FACEBOOK</div></div>
+<div class="tile a3"><div class="pat"></div><div class="glow"></div><svg class="mot" viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="none" stroke="#e9c98a" stroke-width="2" opacity=".7"/><path d="M38 8C20 10 10 20 10 30a10 10 0 0 0 10 10c10 0 20-10 18-32Z" fill="#ffffffdd"/></svg><div class="nm">Quarterly Tax Prep</div><div class="tag">PRODUCT</div></div>
+</div>
+<div class="row">
+<div class="label"><b>B · Editorial poster</b><span>Quiet paper cards, big serif words, gold rule, tiny mark. Feels like a printed studio lookbook.</span></div>
+<div class="tile b1"><div class="k">PRODUCT</div><div class="big">Starter <em>Zakat</em> Calc</div><div class="rule"></div><div class="cap">from £49 — books in barakah</div><svg class="mot" viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="none" stroke="#1e1145" stroke-width="2" opacity=".5"/><path d="M8 32a16 16 0 0 1 32 0Z" fill="#1e1145" opacity=".8"/></svg></div>
+<div class="tile b2"><div class="k">FACEBOOK</div><div class="big" style="color:#f7f2e6">Clean books, <em>calm mind.</em></div><div class="rule"></div><div class="cap">Riba-free bookkeeping for freelancers</div><svg class="mot" viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="none" stroke="#e9c98a" stroke-width="2" opacity=".7"/><path d="M24 4l4.5 13.5L42 22l-13.5 4.5L24 40l-4.5-13.5L6 22l13.5-4.5Z" fill="#e9c98a" opacity=".8"/></svg></div>
+<div class="tile b3"><div class="k">PRODUCT</div><div class="big">Quarterly <em>Tax Prep</em></div><div class="rule"></div><div class="cap">filed on time, every time</div><svg class="mot" viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="none" stroke="#1e1145" stroke-width="2" opacity=".5"/><path d="M38 8C20 10 10 20 10 30a10 10 0 0 0 10 10c10 0 20-10 18-32Z" fill="#1e1145" opacity=".8"/></svg></div>
+</div>
+<div class="row">
+<div class="label"><b>C · Studio scene</b><span>Illustrated product mockups — jars, bags, stands on a lit pedestal. Closest to real photography.</span></div>
+<div class="tile c1"><svg class="scene" viewBox="0 0 220 170"><defs><linearGradient id="ped1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8b3ff0"/><stop offset="1" stop-color="#5b2fae"/></linearGradient><radialGradient id="spot1" cx=".5" cy=".18" r=".8"><stop offset="0" stop-color="#e9c98a" stop-opacity=".5"/><stop offset=".6" stop-color="#e9c98a" stop-opacity="0"/></radialGradient></defs><rect width="220" height="170" fill="none"/><rect width="220" height="120" fill="url(#spot1)"/><ellipse cx="110" cy="132" rx="72" ry="12" fill="#00000066"/><rect x="46" y="108" width="128" height="14" rx="4" fill="url(#ped1)"/><rect x="84" y="56" width="52" height="56" rx="8" fill="#f7f2e6"/><rect x="84" y="56" width="52" height="14" rx="7" fill="#e9c98a"/><circle cx="110" cy="88" r="12" fill="none" stroke="#3b1d7a" stroke-width="2.4"/><path d="M104 88l4.5 4.5 8-8" stroke="#3b1d7a" stroke-width="2.6" fill="none" stroke-linecap="round"/></svg><div class="nm">Starter Zakat Calc</div><div class="tag">PRODUCT</div></div>
+<div class="tile c2"><svg class="scene" viewBox="0 0 220 170"><defs><linearGradient id="ped2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9c98a"/><stop offset="1" stop-color="#b98a2e"/></linearGradient><radialGradient id="spot2" cx=".5" cy=".18" r=".8"><stop offset="0" stop-color="#ffffff" stop-opacity=".4"/><stop offset=".6" stop-color="#ffffff" stop-opacity="0"/></radialGradient></defs><rect width="220" height="120" fill="url(#spot2)"/><ellipse cx="110" cy="132" rx="72" ry="12" fill="#00000066"/><rect x="46" y="108" width="128" height="14" rx="4" fill="url(#ped2)"/><path d="M96 52h28l6 60H90Z" fill="#2a1a5e"/><path d="M96 52h28l2 12H94Z" fill="#e9c98a"/><circle cx="110" cy="86" r="11" fill="none" stroke="#e9c98a" stroke-width="2.2"/><path d="M105 86l4 4 7-7" stroke="#e9c98a" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg><div style="position:absolute;left:12px;top:26px;right:60px;font:700 15px/1.35 Georgia,serif;color:#fff">Clean books, calm mind.</div><div class="tag">FACEBOOK</div></div>
+<div class="tile c3"><svg class="scene" viewBox="0 0 220 170"><defs><linearGradient id="ped3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3b1d7a"/><stop offset="1" stop-color="#241245"/></linearGradient><radialGradient id="spot3" cx=".5" cy=".18" r=".8"><stop offset="0" stop-color="#e9c98a" stop-opacity=".45"/><stop offset=".6" stop-color="#e9c98a" stop-opacity="0"/></radialGradient></defs><rect width="220" height="120" fill="url(#spot3)"/><ellipse cx="110" cy="132" rx="72" ry="12" fill="#00000066"/><rect x="46" y="108" width="128" height="14" rx="4" fill="url(#ped3)"/><path d="M110 44l30 14v26c0 16-12 26-30 32-18-6-30-16-30-32V58Z" fill="#f7f2e6"/><path d="M110 44l30 14v26c0 16-12 26-30 32V44Z" fill="#e9d9b8"/><path d="M100 78l7 7 14-14" stroke="#3b1d7a" stroke-width="3.4" fill="none" stroke-linecap="round"/></svg><div class="nm">Quarterly Tax Prep</div><div class="tag">PRODUCT</div></div>
+</div>
+<div class="foot">Same content in all three rows so the styles compare fairly.</div>
+</body></html>
