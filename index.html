@@ -218,7 +218,7 @@ html[data-st="3"] .node.forming{background:linear-gradient(135deg,rgba(79,123,25
 html[data-st="3"] .bs,html[data-st="3"] #res button,html[data-st="3"] #apb button[data-ok]{background:linear-gradient(135deg,#4f7bff,#8b3ff0)!important;color:#fff!important;border-radius:99px!important;box-shadow:0 8px 18px -6px rgba(79,123,255,.8)!important}
 html[data-st="3"] .forming .nlbl,html[data-st="3"] #res .brief .lb{color:#f6dc9a!important}html[data-st="3"] .forming{color:#fff!important}
 html[data-st="3"] #apb .it2.nd{background:#fff4f4!important}
-</style></head><body data-build="b42-0112">
+</style></head><body data-build="b43-0113">
 <div style="position:fixed;inset:0;z-index:0;background:url(assets/hero-backdrop-nolady.jpg) center/cover"></div><div style="position:fixed;inset:0;z-index:1;background:linear-gradient(160deg,rgba(122,53,232,.66),rgba(42,16,98,.76) 78%)"></div>
 <div class="logo"><img src="assets/noorizq-logo-crisp.png" alt="Noorizq"></div>
 <div id="hd" style="height:0"></div>
@@ -485,10 +485,10 @@ document.addEventListener('click',()=>p.classList.remove('o'));
 window._actAdd=o=>{feed.unshift(o);draw();};const _go=window.go;window.go=function(t){t=(t||'').trim();if(t){feed.unshift({me:1,t:'just now',x:'You: "'+t+'"',w:'',u:0});draw();}return _go(t);};
 })();
 
-var BUILD='b42-0112';
+var BUILD='b43-0113';
 fetch(location.pathname+'?nc='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{const m=t.match(/data-build="([^"]+)"/);if(m&&m[1]!==BUILD&&location.search.indexOf(m[1])<0)location.replace(location.pathname+'?v='+m[1]);}).catch(()=>{});
 </script>
-<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b42-0112</div>
+<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b43-0113</div>
 
 <script>
 document.querySelectorAll('.ag').forEach(e=>{const r=e.dataset.r;e.querySelector('.avs').outerHTML=AV(r,30);e.querySelector('b').textContent=CREW[r].n;});
@@ -793,8 +793,7 @@ document.addEventListener('click',function(e){
  if(ok){tick(1);buzz(18)}else if(soft){tick(2);buzz(8)}
 },true);
 })();
-</script><style id="livecss">body.lv .canvas>.node:nth-child(12),body.lv .canvas>.node:nth-child(14),body.lv .canvas>.node:nth-child(15){display:none!important}
-body.lv #res>*:not(#lres){display:none!important}
+</script><style id="livecss">body.lv #res>*:not(#lres){display:none!important}
 body.lv #lres{display:block}
 #lres .al{margin-top:8px}#lres .ar{display:grid;grid-template-columns:22px 1fr auto;gap:6px;padding:6px 2px;border-bottom:1px solid rgba(60,30,110,.1);font:600 12px Sora}
 #lres .ar i{font-style:normal;color:#a1641f}#lres .ar.ok i{color:#1f8f46}#lres .ar.ok{cursor:pointer}#lres .ar small{color:#6b5a3e;font-weight:500}
@@ -808,7 +807,7 @@ body.lv #lres{display:block}
 .lvm .phi{width:100%;border-radius:10px;display:block}
 .lvm .wbm{border-radius:8px;color:#fff;text-align:center;padding:16px 8px;display:flex;flex-direction:column;gap:4px}.lvm .wbm b{font:700 14px Fraunces,serif}.lvm .wbm em{font-style:normal;font-size:9px;opacity:.9}
 .lvm .prc{display:flex;flex-direction:column;gap:4px}.lvm .prc span{display:flex;justify-content:space-between;gap:6px;background:rgba(255,255,255,.14);border-radius:8px;padding:4px 8px;font-size:10px}.lvm .prc b{color:#f2d795}
-.lvm .psn{font-size:10.5px;color:#f1e9ff}
+.lvm .psn{font-size:10px;line-height:1.3;color:#f1e9ff;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .lvm .adm{border-radius:8px;aspect-ratio:1;background-size:cover;background-position:center;color:#fff;padding:10px;display:flex;flex-direction:column;justify-content:flex-end;gap:5px}.lvm .adm b{font:700 13px/1.1 Fraunces,serif}.lvm .adm i{font:700 8px Sora;background:#f2d795;color:#2a1650;padding:3px 7px;border-radius:9px;align-self:flex-start;font-style:normal}
 .lvm .pp{position:absolute;inset:0;border-radius:16px;overflow:hidden;background:#fbf6ea;color:#2a1650}.lvm .pp .pt{height:42%;padding:12px;color:#fff;display:flex;align-items:flex-end}.lvm .pp .pt b{font:700 17px/1.05 Fraunces,serif;text-align:left}.lvm .pp p{margin:0;padding:8px 10px;font-size:7.5px;line-height:1.35;color:#4a3d63}
 .node.failx{border:1.4px dashed #ffb4b4!important}
@@ -824,7 +823,7 @@ body.lv #lres{display:block}
 </style><script id="livejs">;(function(){
 var SB='https://kaeyvypzqmoziprdddyh.supabase.co',AK='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImthZXl2eXB6cW1vemlwcmRkZHloIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTU1NDM4MDcsImV4cCI6MjExMTExOTgwN30.ffeUTlc2WcdVgJ4ii_lYTNhtEPYAwp1F1bOjmkTLZ2o';
 var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
-var can=$('.canvas');if(!can)return;var K=[].slice.call(can.children);
+var can=$('.canvas');if(!can)return;var K=[].slice.call(can.children);[11,13,14].forEach(function(i){if(K[i])K[i].style.display='none'});var _ci=K[11];
 var esc=function(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
 var S=null,running=false,selLogo=0;
 try{S=JSON.parse(localStorage.getItem('nz_live')||'null')}catch(e){}
@@ -836,7 +835,7 @@ async function sess(force){var s=null;try{s=JSON.parse(localStorage.getItem('nz_
  try{localStorage.setItem('nz_sess',JSON.stringify({t:j.access_token,at:Date.now()}))}catch(e){}return j.access_token}
 async function api(fn,body,tries){tries=tries||2;var last;
  for(var i=0;i<tries;i++){try{var t=await sess(i>0);
-  var r=await fetch(SB+'/functions/v1/'+fn,{method:'POST',headers:{'Content-Type':'application/json',apikey:AK,Authorization:'Bearer '+t},body:JSON.stringify(body)});
+  var r=await fetch(SB+'/functions/v1/'+fn,{signal:AbortSignal.timeout(100000),method:'POST',headers:{'Content-Type':'application/json',apikey:AK,Authorization:'Bearer '+t},body:JSON.stringify(body)});
   var j=await r.json();if(r.status===401||r.status===404){last=new Error(j.error||'auth');continue}
   if(!r.ok)throw new Error(j.error||('HTTP '+r.status));return j}catch(e){last=e}}
  throw last}
@@ -906,9 +905,9 @@ function openAsset(key){if(!S)return;var b;
  else if(key==='ideas'&&S.ideas){b=modal('Ideas that could fit you','<p class="nt">Tap one and I will build it.</p>'+S.ideas.map(function(x,i){return '<div class="pc"><p><b>'+esc(x.idea)+'</b><br>'+esc(x.why_it_fits)+'</p><button data-i="'+i+'">Build this</button></div>'}).join(''));$$('button[data-i]',b).forEach(function(x){x.onclick=function(){M.classList.remove('o');window.go(S.ideas[+x.dataset.i].idea)}})}
 }
 /* ---------- board rendering ---------- */
-var LBL={1:'1 · LOGO',2:'2 · WEBSITE · DRAFT',3:'5 · PHOTO · AI-MADE',4:'MARKET NOTES',5:'3 · PRICE LIST · AI-SUGGESTED',6:'90-DAY PLAN',7:'4 · 6 POSTS · DRAFTS',8:'8 · AD · DRAFT',9:'10 · FIRST EMAIL · DRAFT'};
+var LBL={1:'1 · LOGO',2:'2 · WEBSITE',3:'5 · PHOTO · AI',4:'',5:'3 · PRICES · AI',6:'',7:'4 · POSTS',8:'8 · AD DRAFT',9:'10 · EMAIL DRAFT'};
 function setNode(i,state,html,key,failKey){var n=K[i];if(!n)return;n.classList.remove('done','forming','failx');n.classList.add(state==='ready'?'done':'forming');if(state==='fail')n.classList.add('failx');
- n.innerHTML='<span class="nlbl">'+LBL[i]+'</span><div class="pvx lvm">'+html+'</div>';n.style.cursor=(state==='ready'||state==='fail')?'pointer':'default';n.removeAttribute('onclick');n.removeAttribute('role');
+ n.innerHTML=(LBL[i]?'<span class="nlbl">'+LBL[i]+'</span>':'')+'<div class="pvx lvm">'+html+'</div>';n.style.cursor=(state==='ready'||state==='fail')?'pointer':'default';n.removeAttribute('onclick');n.removeAttribute('role');
  n.onclick=state==='ready'?function(){openAsset(key)}:(state==='fail'?function(){redo(failKey)}:null)}
 function wait(i,t){setNode(i,'wait','<em class="w">'+(t||'waiting for your idea')+'</em>')}
 function work(i){setNode(i,'work','<em class="w"><i class="sp"></i>making this now…</em>')}
@@ -934,7 +933,7 @@ function renderBoard(){
  // price
  if(a)setNode(5,'ready','<div class="prc">'+(a.products||[]).slice(0,3).map(function(p){return '<span>'+esc(p.name)+'<b>'+esc(p.price)+'</b></span>'}).join('')+'</div><small>'+(a.products||[]).length+' items · tap</small>','price');else if(S.fl&&S.fl.a1)fail(5,'a1');else work(5);
  // posts, ad, email
- if(b){setNode(7,'ready','<div class="psn">'+esc(((b.posts_instagram||[])[0]||(b.posts_facebook||[])[0]||'')).slice(0,95)+'…</div><small>6 captions · tap</small>','posts');
+ if(b){setNode(7,'ready','<div class="psn">'+esc(((b.posts_instagram||[])[0]||(b.posts_facebook||[])[0]||'')).slice(0,60)+'…</div><small>6 captions · tap</small>','posts');
   setNode(8,'ready','<div class="adm" style="background-image:'+(S.photo?'linear-gradient(rgba(10,6,25,.3),rgba(10,6,25,.85)),url('+S.photo+')':'linear-gradient(160deg,'+k[0]+',#1b1033)')+'"><b>'+esc((b.ad||{}).headline||'')+'</b><i>'+esc((b.ad||{}).cta||'')+'</i></div>','ad');
   setNode(9,'ready','<div class="psn"><b>'+esc((b.email||{}).subject||'')+'</b></div><small>draft · tap to read</small>','email')}
  else if(S.fl&&S.fl.a2){fail(7,'a2');fail(8,'a2');fail(9,'a2')}else{work(7);work(8);work(9)}
@@ -942,8 +941,8 @@ function renderBoard(){
  crew([b?'6 posts drafted':'working',b?'first email drafted':'working',a?(a.products||[]).length+' prices suggested':'working',(a&&b)?'plan and notes ready':'working',(S.logos&&S.logos.length)?S.logos.length+' logo options':'drawing logos']);
  ll(running?(S.step||'Working…'):'Everything above was made from your idea. Nothing has been sent, posted or paid.');
  setTimeout(function(){try{fit()}catch(e){}},30)}
-function crew(a){['a1','a2','a3','a4','a5'].forEach(function(id,i){var e=document.getElementById(id);if(e)e.textContent=a[i]})}
-function ll(t){var e=document.getElementById('llx');if(e)e.textContent=t}
+function crew(a){window.CT={a1:[a[0]],a2:[a[1]],a3:[a[2]],a4:[a[3]],a5:[a[4]]};['a1','a2','a3','a4','a5'].forEach(function(id,i){var e=document.getElementById(id);if(e)e.textContent=a[i]})}
+function ll(t){window.LL=[t];var e=document.getElementById('llx');if(e)e.textContent=t}
 function status(t){var e=document.getElementById('scn');if(!e)return;e.innerHTML=t?'<span>'+t+'</span>':'';e.style.display=t?'block':'none'}
 /* ---------- results + activity (real only) ---------- */
 var R=document.createElement('div');R.id='lres';$('#res').appendChild(R);
