@@ -157,7 +157,7 @@ body.rv #res{position:relative!important;left:auto!important;top:auto!important;
 #chips .ch small{color:#c9a9f2;font-weight:500;font-size:9px}
 @media(max-width:640px){#pmenu{width:calc(100vw - 20px)}}
 </style>
-<style>#scn{display:none;text-align:center;font:600 10px Sora;letter-spacing:1.5px;color:#f2d795;max-width:92vw}#scn button{all:unset;cursor:pointer;margin:6px 4px 0;padding:6px 11px;border-radius:14px;background:rgba(255,255,255,.14);letter-spacing:0;font:600 11px Sora;color:#fff}#scn:empty{display:none}#typer{min-width:0;flex:1}</style></head><body data-build="b14-0073">
+<style>#scn{display:none;text-align:center;font:600 10px Sora;letter-spacing:1.5px;color:#f2d795;max-width:92vw}#scn button{all:unset;cursor:pointer;margin:6px 4px 0;padding:6px 11px;border-radius:14px;background:rgba(255,255,255,.14);letter-spacing:0;font:600 11px Sora;color:#fff}#scn:empty{display:none}#typer{min-width:0;flex:1}</style></head><body data-build="b14-0074">
 <div style="position:fixed;inset:0;z-index:0;background:url(assets/hero-backdrop-nolady.jpg) center/cover"></div><div style="position:fixed;inset:0;z-index:1;background:linear-gradient(160deg,rgba(122,53,232,.66),rgba(42,16,98,.76) 78%)"></div>
 <div class="logo"><img src="assets/noorizq-logo-crisp.png" alt="Noorizq"></div>
 <div id="hd" style="height:0"></div>
@@ -303,7 +303,7 @@ const ad=(b,h)=>'<span class="nlbl" style="margin-left:6px">8 · AD · SAMPLE</s
 const sg=(a,t,n)=>'<b>'+a+'</b>'+t+'<br><button onclick="ap('+n+')">Apply</button>';
 const SC=[
 {key:'ads',re:/\b(ads?|adverts?|advertis\w*|facebook|meta|instagram|tiktok)\b/i,
- c:{1:lg('Your brand'),2:st('2 · LANDING PAGE · SAMPLE','where the ad<br>sends people'),5:pr('3 · AD IDEAS','3 versions to test'),7:pr('4 · AD COPY · DRAFTED','headlines + text…'),8:ad('YOUR BRAND','Your offer, shown to the right people'),9:'<span class="nlbl">10 · BUDGET + AUDIENCE · SAMPLE</span>£10 a day · people 25 to 45 near you<br><button class="bs" id="cmeta" style="margin-top:6px">Connect Meta (preview)</button>',13:sg('FINANCE SUGGESTS','Start with £10 a day for 7 days, then review.',1),14:sg('MARKETING SUGGESTS','Test 3 headlines. Keep the best one.',2)},
+ c:{1:lg('Your brand'),2:st('2 · LANDING PAGE · SAMPLE','where the ad<br>sends people'),5:pr('3 · AD IDEAS','3 versions to test'),7:pr('4 · AD COPY · DRAFTED','headlines + text…'),8:ad('YOUR BRAND','Your offer, shown to the right people'),9:'<span class="nlbl">10 · BUDGET + AUDIENCE · SAMPLE</span>£10 a day · people 25 to 45 near you<br><button id="cmeta" style="all:unset;cursor:pointer;margin-top:6px;font:700 10px Sora;background:#6d2fd0;color:#fff;padding:6px 12px;border-radius:12px;text-align:center">Connect Meta (preview)</button>',13:sg('FINANCE SUGGESTS','Start with £10 a day for 7 days, then review.',1),14:sg('MARKETING SUGGESTS','Test 3 headlines. Keep the best one.',2)},
  crew:{a1:['writing 3 ad versions','testing headlines','scheduling the ad'],a2:['ready for new messages','replying to a lead','2 leads waiting'],a3:['£70 week-one budget','checking cost per click','totals ready'],a4:['tracking link set','landing page checked','sign-up form ready'],a5:['making ad images','picking colours','ad image ready']},
  live:['Marketing is writing 3 ad versions','Creative is making the ad image','Finance is setting a daily budget','Operations is checking the landing page']},
 {key:'fashion',re:/fashion|abaya|hijab|clothing|clothes|modest|dress|boutique/i,
@@ -345,12 +345,12 @@ window.go=function(t){t=(t||'').trim();if(!t)return;const s=SC.find(x=>x.re.test
 // rotate starters in the bar
 const ty=document.getElementById('typer');let ri=0;ty.placeholder=ST[0]+' …';
 setInterval(()=>{if(document.activeElement===ty&&ty.value)return;ri=(ri+1)%ST.length;ty.placeholder=ST[ri]+' …';},2800);
-ty.addEventListener('keydown',e=>{if(e.key==='Enter'&&!ty.value.trim()){e.preventDefault();go(ST[ri]);}});
+ty.addEventListener('keydown',e=>{if(e.key==='Enter'&&!ty.value.trim()){e.preventDefault();e.stopImmediatePropagation();go(ST[ri]);}},true);
 const il=[...document.querySelectorAll('.b .main span')].find(x=>x.textContent.trim()==='I want to');if(il){il.style.cursor='pointer';il.onclick=()=>go(ST[ri]);}
 })();
 
-var BUILD='b14-0073';
+var BUILD='b14-0074';
 fetch(location.pathname+'?nc='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{const m=t.match(/data-build="([^"]+)"/);if(m&&m[1]!==BUILD&&location.search.indexOf(m[1])<0)location.replace(location.pathname+'?v='+m[1]);}).catch(()=>{});
 </script>
-<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b14-0073</div>
+<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b14-0074</div>
 </body></html>
