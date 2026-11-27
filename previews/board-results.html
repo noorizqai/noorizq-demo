@@ -87,7 +87,28 @@ body:not(.rv) .stage,body:not(.rv) #hd{animation:fadein .5s ease both}
 <style>.stage{padding:50px 0 118px!important}#hd{padding-bottom:6px}</style>
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0">
 <style>@media (max-height:640px){#hd{padding-top:50px!important}#hd h1{font-size:30px!important}.stage{padding:50px 0 84px!important}.b{bottom:10px!important}}</style>
-</head><body data-build="b9-0050">
+<style>
+.ag i{animation:none!important;position:relative}
+.ag i{box-shadow:0 0 0 0 rgba(126,224,143,.7);animation:ring 1.8s ease-out infinite!important}
+.ag:nth-child(2) i{animation-delay:.35s!important}.ag:nth-child(3) i{animation-delay:.7s!important}.ag:nth-child(4) i{animation-delay:1.05s!important}.ag:nth-child(5) i{animation-delay:1.4s!important}
+@keyframes ring{0%{box-shadow:0 0 0 0 rgba(126,224,143,.75)}80%,100%{box-shadow:0 0 0 7px rgba(126,224,143,0)}}
+.ag em{transition:opacity .35s}.ag em.sw{opacity:0}
+.live{position:absolute;left:380px;top:56px;width:360px;text-align:center;font:600 12px Sora;color:#f2d795}
+.live span{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:99px;background:rgba(38,14,92,.8);border:1.2px solid rgba(233,201,138,.55);transition:opacity .35s;white-space:nowrap}
+.live span.sw{opacity:0}.live i{width:7px;height:7px;border-radius:50%;background:#7ee08f;animation:ring 1.8s ease-out infinite}
+#tai{position:fixed;right:16px;bottom:16px;z-index:45;font:600 11px Sora;color:#f2d795}
+#tai button{all:unset;cursor:pointer;display:flex;align-items:center;gap:8px;padding:8px 13px 8px 10px;border-radius:99px;background:rgba(38,14,92,.88);border:1.4px solid rgba(233,201,138,.6);color:#f2d795;font:600 11px Sora;box-shadow:0 8px 20px -8px rgba(3,6,26,.8)}
+#tai button small{color:#c9a9f2;font-weight:500}
+#taip{display:none;position:absolute;right:0;bottom:48px;width:250px;background:#f5efe3;color:#1e1145;border-radius:14px;padding:12px 14px;font:500 11px/1.45 Sora;box-shadow:0 14px 30px -10px rgba(3,6,26,.9)}
+#tai.o #taip{display:block}#taip b{display:block;font:700 8.5px Sora;letter-spacing:2px;color:#a1641f;margin-bottom:6px}
+#taip p{margin:5px 0}#taip em{font-style:normal;font-weight:700;color:#6d2fd0}#taip .pv2{margin-top:8px;font:700 9px Sora;color:#a1641f;letter-spacing:1px}
+#res .strip{display:grid;grid-template-columns:1.25fr 1fr;gap:12px;margin-top:12px}
+#res .strip .cd{padding:9px 14px}
+#res .since span.it{display:inline-block;margin:2px 10px 0 0;font-weight:600;font-size:11px}#res .since span.it b{font:700 15px Fraunces,serif;margin-right:3px}
+#res .nbm{background:#f2d795;display:flex;align-items:center;gap:12px}#res .nbm div{flex:1;font:600 11.5px/1.3 Sora}
+@media(max-height:640px){#tai{bottom:10px}}
+</style>
+</head><body data-build="b10-0055">
 <div style="position:fixed;inset:0;z-index:0;background:url(../assets/hero-backdrop-nolady.jpg) center/cover"></div><div style="position:fixed;inset:0;z-index:1;background:linear-gradient(160deg,rgba(122,53,232,.66),rgba(42,16,98,.76) 78%)"></div>
 <div class="logo"><img src="../assets/noorizq-logo-crisp.png" alt="Noorizq"></div>
 <div id="hd" style="height:0"></div>
@@ -98,6 +119,7 @@ body:not(.rv) .stage,body:not(.rv) #hd{animation:fadein .5s ease both}
 <div class="cd" id="prob" style="border-left:6px solid #d1313f"><span class="lb" id="probl" style="color:#d1313f">BIGGEST PROBLEM RIGHT NOW</span><span class="big" id="probt">41% leave at the price card</span></div>
 <div class="cd"><span class="lb">LIVE NOW</span><span class="big"><span class="dot"></span><span data-n="14">14</span> people on your page</span><div class="vd"><i style="left:3.0%;top:3px;--x:-18px;--y:-6px;animation-delay:-0.00s"></i><i style="left:10.3%;top:14px;--x:-9px;--y:0px;animation-delay:-0.37s"></i><i style="left:17.6%;top:5px;--x:0px;--y:6px;animation-delay:-0.74s"></i><i style="left:24.9%;top:16px;--x:9px;--y:-6px;animation-delay:-1.11s"></i><i style="left:32.2%;top:7px;--x:18px;--y:0px;animation-delay:-1.48s"></i><i style="left:39.5%;top:18px;--x:-18px;--y:6px;animation-delay:-1.85s"></i><i style="left:46.8%;top:9px;--x:-9px;--y:-6px;animation-delay:-2.22s"></i><i style="left:54.1%;top:20px;--x:0px;--y:0px;animation-delay:-2.59s"></i><i style="left:61.4%;top:11px;--x:9px;--y:6px;animation-delay:-2.96s"></i><i style="left:68.7%;top:22px;--x:18px;--y:-6px;animation-delay:-3.33s"></i><i style="left:76.0%;top:13px;--x:-18px;--y:0px;animation-delay:-3.70s"></i><i style="left:83.3%;top:4px;--x:-9px;--y:6px;animation-delay:-4.07s"></i><i class="r" style="left:38%;top:12px;--x:4px;--y:0"></i><i class="r" style="left:41%;top:16px;--x:-4px;--y:2px"></i></div><div id="alert" class="dn" style="margin-top:4px">2 stuck on pricing 90s+</div></div>
 </div>
+<div class="strip"><div class="cd since"><span class="lb">SINCE YOU STARTED · DAY <span id="dayn">3</span></span><span class="it"><b>1</b>website live</span><span class="it"><b>6</b>posts drafted</span><span class="it"><b>2</b>PDFs made</span><span class="it"><b>3</b>orders</span></div><div class="cd nbm"><div><span class="lb" style="color:#6d2fd0">NEXT BEST MOVE</span><span id="nbt">Marketing will post the Eid box photo at 7pm tonight.</span></div><button class="bp" id="nbb" onclick="nbm()">Do it</button></div></div>
 <div class="g" style="grid-template-columns:1.8fr 1fr;margin-top:12px">
 <div class="g" style="grid-template-columns:1fr 1fr 1fr">
 <div class="cd mc"><span class="lb">2 · WEBSITE VISITS</span><span class="big" data-n="1240" data-f="c">1,240</span> <span class="up">▲ 18%</span><small>this week</small></div>
@@ -128,13 +150,14 @@ body:not(.rv) .stage,body:not(.rv) #hd{animation:fadein .5s ease both}
 <div class="node forming" style="--r:3deg;left:955px;top:10px;width:165px;transform:rotate(3deg);animation:float1 7.8s ease-in-out infinite;"><span class="nlbl">4 · 6 POSTS · DRAFTED</span>photos + captions…</div>
 <div class="node done" onclick="window.open('../assets/meta-ad.png','_blank')" role="link" style="--r:-2deg;left:955px;top:115px;width:165px;transform:rotate(-2deg);animation:float1 7.2s ease-in-out infinite;padding:8px;cursor:pointer;"><span class="nlbl" style="margin-left:6px">8 · META AD · SAMPLE</span><img src="../assets/meta-ad.png" style="width:100%;border-radius:8px;display:block"><div style="font:700 8px Sora;color:#8b3ff0;margin:5px 0 0 6px;letter-spacing:1px">TAP TO OPEN ↗</div></div>
 <div class="node forming" style="--r:2deg;left:955px;top:330px;width:165px;transform:rotate(2deg);animation:float1 7.9s ease-in-out infinite;"><span class="nlbl">10 · OTHER</span>invoice, menu, contract… anything else</div>
+<div class="live"><span id="llt"><i></i><em style="font-style:normal" id="llx">Marketing is writing your first post</em></span></div>
 <div class="goal"><b>GOAL</b><span>50 orders / week</span><div class="tr"><div class="fl" id="gfl"></div></div><span id="gnum">12 / 50</span></div>
 <div class="crew"><div class="ag"><i></i>Marketing<em id="a1">writing 6 posts</em></div><div class="ag"><i></i>Sales<em id="a2">3 buyers waiting</em></div><div class="ag"><i></i>Finance<em id="a3">checking prices</em></div><div class="ag"><i></i>Operations<em id="a4">packing list ready</em></div><div class="ag"><i></i>Creative<em id="a5">drawing logo options</em></div></div>
 
 <div class="sg" id="sg1" style="left:345px;top:345px;width:205px;transform:rotate(-1deg)"><b>FINANCE SUGGESTS</b>Raise to £14 a box. Nearby sellers charge £14 to £28.<br><button onclick="ap(1)">Apply</button></div>
 <div class="sg" id="sg2" style="left:570px;top:372px;width:210px;transform:rotate(1deg)"><b>MARKETING SUGGESTS</b>Start the Eid push in week 2. Eid is 3 weeks out.<br><button onclick="ap(2)">Apply</button></div>
 </div></div>
-<div class="b" data-bar="8"><div class="main"><button id="mic" style="all:unset;cursor:pointer;display:flex"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f2d795" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button><span id="speakLbl" style="cursor:pointer;">speak</span><span style="color:#c9a9f2">|</span><span style="color:#f2d795;font-family:Fraunces,serif;font-style:italic">I want to</span><input id="typer" placeholder="start a ..." style="background:none;border:none;outline:none;font:13px Sora;color:#fff;"/><span style="color:#c9a9f2">|</span><span>+ photo</span></div></div>
+<div class="b" data-bar="8"><div class="main"><button id="mic" style="all:unset;cursor:pointer;display:flex"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f2d795" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button><span id="speakLbl" style="cursor:pointer;">speak</span><span style="color:#c9a9f2">|</span><span style="color:#f2d795;font-family:Fraunces,serif;font-style:italic">I want to</span><input id="typer" placeholder="start a ..." style="background:none;border:none;outline:none;font:13px Sora;color:#fff;"/><span style="color:#c9a9f2">|</span><span style="white-space:nowrap">+ add anything</span></div></div>
 <div id="veil" style="position:fixed;inset:0;z-index:20;display:none;align-items:center;justify-content:center;background:rgba(28,10,69,.72);backdrop-filter:blur(4px)"><div style="border:2.5px dashed #e9c98a;border-radius:26px;padding:34px 54px;font:600 22px Fraunces,serif;color:#f2d795">drop it — it becomes part of the business</div></div>
 <script>
 const S=["baklava boxes for Eid, sold to my community","Sunday roast prep for busy families","hand-poured oud candles for Ramadan"];
@@ -178,8 +201,14 @@ const z=Math.max(.4,Math.min(1.14,(barT-hdB-50)/470,(innerWidth-30)/1120));docum
 const top=innerHeight<640?78:92;const r=document.getElementById('res');r.style.top=top+'px';const k=Math.max(.3,Math.min(1.28,(barT-top-14)/(r.offsetHeight||440),(innerWidth-30)/1120));r.style.transform='translateX(-50%) scale('+k+')';}
 fit();addEventListener('resize',fit);if(window.ResizeObserver)new ResizeObserver(()=>fit()).observe(document.getElementById('res'));document.addEventListener('click',()=>{setTimeout(fit,60);setTimeout(fit,700)});setTimeout(fit,400);setTimeout(fit,1500);
 
-var BUILD='b9-0050';
+function nbm(){const b=document.getElementById('nbb');if(b.dataset.d)return;b.dataset.d=1;b.textContent='Scheduled ✓';b.className='bs shp';document.getElementById('nbt').textContent='Done. Post scheduled for 7pm. Marketing will report the reach tomorrow.';fit();}
+document.getElementById('dayn').textContent=3;
+(function(){const L=['Marketing is writing your first post','Creative is trying 3 logo colours','Sales is answering a question about delivery','Finance is checking what nearby sellers charge','Operations is drafting your packing list'];let n=0;setInterval(()=>{const t=document.getElementById('llt');t.classList.add('sw');setTimeout(()=>{n=(n+1)%L.length;document.getElementById('llx').textContent=L[n];t.classList.remove('sw');},350)},4200);
+document.querySelectorAll('.ag em').forEach(e=>{const o=Object.getOwnPropertyDescriptor(Node.prototype,'textContent');});})();
+(function(){const d=document.createElement('div');d.id='tai';d.innerHTML='<div id="taip"><b>TOUCHLESS AI · PREVIEW</b><p><em>Eyes:</em> look at a card to open it.</p><p><em>Silent speech:</em> mouth the words, no sound.</p><p><em>Face:</em> the camera notices when you look away or smile.</p><p class="pv2">PREVIEW ONLY. NO CAMERA IS USED. NOTHING IS RECORDED.</p></div><button id="taib"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f2d795" stroke-width="2" stroke-linecap="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Touchless AI <small>preview</small></button>';document.body.appendChild(d);document.getElementById('taib').onclick=e=>{e.stopPropagation();d.classList.toggle('o')};document.addEventListener('click',e=>{if(!d.contains(e.target))d.classList.remove('o')});})();
+
+var BUILD='b10-0055';
 fetch(location.pathname+'?nc='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{const m=t.match(/data-build="([^"]+)"/);if(m&&m[1]!==BUILD&&location.search.indexOf(m[1])<0)location.replace(location.pathname+'?v='+m[1]);}).catch(()=>{});
 </script>
-<div style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b9-0050</div>
+<div style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b10-0055</div>
 </body></html>
