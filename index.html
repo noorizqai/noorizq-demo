@@ -30,10 +30,10 @@ h1 em{font-style:italic;color:#f2d795}
 .goal b{font:700 8.5px Sora;letter-spacing:2px;color:#a1641f}
 .goal .tr{flex:1;height:9px;border-radius:5px;background:#e4d9c3;overflow:hidden}
 .goal .fl{height:100%;width:24%;background:linear-gradient(90deg,#8b3ff0,#c98a2e);border-radius:5px;transition:width .9s ease}
-.crew{position:absolute;left:0;top:388px;width:330px;display:flex;flex-wrap:wrap;gap:6px}
-.ag{flex:1 1 30%;min-width:0;border-radius:12px;background:rgba(38,14,92,.78);border:1.4px solid rgba(233,201,138,.55);padding:5px 8px;color:#f2d795;font:600 10px Sora;white-space:nowrap}
+.crew{position:absolute;left:0;top:388px;width:372px;display:flex;flex-wrap:wrap;gap:6px}
+.ag{flex:1 1 44%;min-width:0;border-radius:12px;background:rgba(38,14,92,.78);border:1.4px solid rgba(233,201,138,.55);padding:5px 8px;color:#f2d795;font:600 10px Sora;white-space:nowrap}
 .ag i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#7ee08f;margin-right:5px;animation:pl 1.4s ease-in-out infinite}
-.ag em{display:block;font:500 9.5px Sora;color:#fff;margin-top:2px;font-style:normal;opacity:.9;overflow:hidden;text-overflow:ellipsis}
+.ag em{display:block;font:500 9.5px Sora;color:#fff;margin-top:2px;font-style:normal;opacity:.9;white-space:normal;overflow:visible}
 @keyframes pl{50%{opacity:.25}}
 .sg{position:absolute;border-radius:12px;background:#f2d795;color:#1e1145;padding:8px 10px;font:600 10px/1.35 Sora;box-shadow:0 12px 26px -10px rgba(3,6,26,.85)}
 .sg b{font:700 8px Sora;letter-spacing:2px;color:#6d2fd0;display:block;margin-bottom:2px}
@@ -165,7 +165,7 @@ body.rv #res{position:relative!important;left:auto!important;top:auto!important;
 .b .main #mic{order:0}.b .main #speakLbl{display:none!important}.b .main .sp{display:none}.b .main #plus{order:2;font:600 12.5px Sora}
 #sendb{all:unset;cursor:pointer;width:34px;height:34px;border-radius:50%;background:#f2d795;display:flex;align-items:center;justify-content:center;flex:none;order:3}
 @media(max-width:640px){.b .main{width:100%!important}.b .main #typer{font-size:13px}.b .main #plus{font-size:12px}#tai,#act{bottom:124px!important}body:has(#pmenu.o) #act,body:has(#pmenu.o) #tai{visibility:hidden}}
-</style></head><body data-build="b19-0083">
+</style></head><body data-build="b20-0084">
 <div style="position:fixed;inset:0;z-index:0;background:url(assets/hero-backdrop-nolady.jpg) center/cover"></div><div style="position:fixed;inset:0;z-index:1;background:linear-gradient(160deg,rgba(122,53,232,.66),rgba(42,16,98,.76) 78%)"></div>
 <div class="logo"><img src="assets/noorizq-logo-crisp.png" alt="Noorizq"></div>
 <div id="hd" style="height:0"></div>
@@ -413,8 +413,8 @@ document.addEventListener('click',()=>p.classList.remove('o'));
 window._actAdd=o=>{feed.unshift(o);draw();};const _go=window.go;window.go=function(t){t=(t||'').trim();if(t){feed.unshift({me:1,t:'just now',x:'You: "'+t+'"',w:'',u:0});draw();}return _go(t);};
 })();
 
-var BUILD='b19-0083';
+var BUILD='b20-0084';
 fetch(location.pathname+'?nc='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{const m=t.match(/data-build="([^"]+)"/);if(m&&m[1]!==BUILD&&location.search.indexOf(m[1])<0)location.replace(location.pathname+'?v='+m[1]);}).catch(()=>{});
 </script>
-<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b19-0083</div>
+<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b20-0084</div>
 </body></html>
