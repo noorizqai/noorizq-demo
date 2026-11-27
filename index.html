@@ -158,14 +158,14 @@ body.rv #res{position:relative!important;left:auto!important;top:auto!important;
 @media(max-width:640px){#pmenu{width:calc(100vw - 20px)}}
 </style>
 <style>#scn{display:none;background:rgba(28,10,69,.9);padding:8px 12px;border-radius:14px;backdrop-filter:blur(6px);text-align:center;font:600 10px Sora;letter-spacing:1.5px;color:#f2d795;max-width:92vw}#scn button{all:unset;cursor:pointer;margin:6px 4px 0;padding:6px 11px;border-radius:14px;background:rgba(255,255,255,.14);letter-spacing:0;font:600 11px Sora;color:#fff}#scn:empty{display:none}#typer{min-width:0;flex:1}</style><style>
-.b .main{border-radius:99px!important;padding:8px 10px 8px 16px!important;gap:10px!important}
+.b .main{width:min(600px,92vw)!important;box-sizing:border-box;border-radius:99px!important;padding:8px 10px 8px 16px!important;gap:10px!important}
 .b .main #typer{display:block;flex:1;min-width:0;width:auto!important;box-sizing:border-box;background:none;border:none;outline:none;resize:none;font:500 14px/22px Sora;color:#fff;height:22px;max-height:22px;overflow:hidden;padding:0;order:1;white-space:nowrap;text-overflow:ellipsis}
 .b .main #typer::placeholder{color:rgba(255,255,255,.55)}
 .b .main .mrow{display:contents}
 .b .main #mic{order:0}.b .main #speakLbl{display:none!important}.b .main .sp{display:none}.b .main #plus{order:2;font:600 12.5px Sora}
 #sendb{all:unset;cursor:pointer;width:34px;height:34px;border-radius:50%;background:#f2d795;display:flex;align-items:center;justify-content:center;flex:none;order:3}
-@media(max-width:640px){.b .main #plus{font-size:12px}#tai,#act{bottom:124px!important}body:has(#pmenu.o) #act,body:has(#pmenu.o) #tai{visibility:hidden}}
-</style></head><body data-build="b17-0080">
+@media(max-width:640px){.b .main{width:100%!important}.b .main #typer{font-size:13px}.b .main #plus{font-size:12px}#tai,#act{bottom:124px!important}body:has(#pmenu.o) #act,body:has(#pmenu.o) #tai{visibility:hidden}}
+</style></head><body data-build="b18-0081">
 <div style="position:fixed;inset:0;z-index:0;background:url(assets/hero-backdrop-nolady.jpg) center/cover"></div><div style="position:fixed;inset:0;z-index:1;background:linear-gradient(160deg,rgba(122,53,232,.66),rgba(42,16,98,.76) 78%)"></div>
 <div class="logo"><img src="assets/noorizq-logo-crisp.png" alt="Noorizq"></div>
 <div id="hd" style="height:0"></div>
@@ -351,7 +351,7 @@ function pick(t){go(t);}
 window.go=function(t){t=(t||'').trim();if(!t)return;if(/^(change|stop|pause|update|make)\b/i.test(t)){say('PREVIEW: THE REAL ONE WOULD DO THIS. THE DEMO ONLY SHOWS IT IN ACTIVITY.',6000);if(window._actAdd)window._actAdd({who:'Crew',t:'just now',x:'(Sample reply) Got it: "'+t+'". The real one would do this and tell you.',w:'',u:0});return;}const s=SC.find(x=>x.re.test(t));if(!s){say('<span>PREVIEW: THE DEMO ONLY KNOWS 4 EXAMPLES. TRY ONE:</span><br>'+EX.map(x=>'<button data-s="'+x+'">'+x+'</button>').join(''));scn.querySelectorAll('button').forEach(e=>e.onclick=ev=>{ev.stopPropagation();go(e.dataset.s);});return;}
  say('PREVIEW · SAMPLE EXAMPLE · NOTHING HERE IS REAL',6000);apply(s);typeSaid((t.length>80?t.slice(0,80)+'…':t).replace(/^./,c=>c.toUpperCase()));};
 // rotate starters in the bar
-const ty=document.getElementById('typer');let ri=0;const PH=ST;ty.placeholder=PH[0]+' …';
+const ty=document.getElementById('typer');let ri=0;const PH=innerWidth<=640?['sell baklava boxes','run ads for Facebook','change my price','start a fashion brand','stop the ad til Friday','start a tutoring job']:ST;ty.placeholder=PH[0]+' …';
 setInterval(()=>{if(document.activeElement===ty&&ty.value)return;ri=(ri+1)%ST.length;ty.placeholder=PH[ri]+' …';},2800);
 ty.addEventListener('input',()=>{fit();});document.getElementById('sendb').onclick=e=>{e.stopPropagation();const v=ty.value.trim();ty.value='';ty.style.height='';go(v||ST[ri]);};ty.addEventListener('keydown',e=>{if(e.key==='Enter'&&!ty.value.trim()){e.preventDefault();e.stopImmediatePropagation();go(ST[ri]);}},true);
 const il=[...document.querySelectorAll('.b .main span')].find(x=>x.textContent.trim()==='I want to');if(il){il.style.cursor='pointer';il.onclick=()=>go(ST[ri]);}
@@ -413,8 +413,8 @@ document.addEventListener('click',()=>p.classList.remove('o'));
 window._actAdd=o=>{feed.unshift(o);draw();};const _go=window.go;window.go=function(t){t=(t||'').trim();if(t){feed.unshift({me:1,t:'just now',x:'You: "'+t+'"',w:'',u:0});draw();}return _go(t);};
 })();
 
-var BUILD='b17-0080';
+var BUILD='b18-0081';
 fetch(location.pathname+'?nc='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{const m=t.match(/data-build="([^"]+)"/);if(m&&m[1]!==BUILD&&location.search.indexOf(m[1])<0)location.replace(location.pathname+'?v='+m[1]);}).catch(()=>{});
 </script>
-<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b17-0080</div>
+<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b18-0081</div>
 </body></html>
