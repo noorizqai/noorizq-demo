@@ -218,7 +218,7 @@ html[data-st="3"] .node.forming{background:linear-gradient(135deg,rgba(79,123,25
 html[data-st="3"] .bs,html[data-st="3"] #res button,html[data-st="3"] #apb button[data-ok]{background:linear-gradient(135deg,#4f7bff,#8b3ff0)!important;color:#fff!important;border-radius:99px!important;box-shadow:0 8px 18px -6px rgba(79,123,255,.8)!important}
 html[data-st="3"] .forming .nlbl,html[data-st="3"] #res .brief .lb{color:#f6dc9a!important}html[data-st="3"] .forming{color:#fff!important}
 html[data-st="3"] #apb .it2.nd{background:#fff4f4!important}
-</style></head><body data-build="b39-0109">
+</style></head><body data-build="b40-0110">
 <div style="position:fixed;inset:0;z-index:0;background:url(assets/hero-backdrop-nolady.jpg) center/cover"></div><div style="position:fixed;inset:0;z-index:1;background:linear-gradient(160deg,rgba(122,53,232,.66),rgba(42,16,98,.76) 78%)"></div>
 <div class="logo"><img src="assets/noorizq-logo-crisp.png" alt="Noorizq"></div>
 <div id="hd" style="height:0"></div>
@@ -485,10 +485,10 @@ document.addEventListener('click',()=>p.classList.remove('o'));
 window._actAdd=o=>{feed.unshift(o);draw();};const _go=window.go;window.go=function(t){t=(t||'').trim();if(t){feed.unshift({me:1,t:'just now',x:'You: "'+t+'"',w:'',u:0});draw();}return _go(t);};
 })();
 
-var BUILD='b39-0109';
+var BUILD='b40-0110';
 fetch(location.pathname+'?nc='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{const m=t.match(/data-build="([^"]+)"/);if(m&&m[1]!==BUILD&&location.search.indexOf(m[1])<0)location.replace(location.pathname+'?v='+m[1]);}).catch(()=>{});
 </script>
-<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b39-0109</div>
+<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b40-0110</div>
 
 <script>
 document.querySelectorAll('.ag').forEach(e=>{const r=e.dataset.r;e.querySelector('.avs').outerHTML=AV(r,30);e.querySelector('b').textContent=CREW[r].n;});
@@ -665,7 +665,7 @@ html[data-st] .node.done:hover{translate:0 -5px}
 html[data-st] .node.done img{box-shadow:0 8px 18px -8px rgba(20,5,60,.6)}
 @media(min-width:641px){
 html[data-st] .canvas>.node:nth-child(3){top:122px!important}
-html[data-st] .canvas>.node:nth-child(4){top:300px!important}
+html[data-st] .canvas>.node:nth-child(4){top:314px!important}
 html[data-st] .canvas>.node:nth-child(9){top:142px!important}
 html[data-st] .canvas>.node:nth-child(10){top:352px!important}
 html[data-st] #sg1{left:575px!important;top:360px!important}
@@ -733,6 +733,7 @@ html[data-st="2"] #apb .tg2{background:rgba(242,215,149,.25);color:#f6dc9a}
 @media(prefers-reduced-motion:reduce){html[data-st] *,html[data-st] *::before,html[data-st] *::after{animation:none!important}}
 html[data-st] #res .msg .tag{align-self:flex-start}
 html[data-st] .canvas>.node.forming:has(button){font-size:11px}html[data-st] .canvas>.node.forming:has(button) button{font-size:10px!important;padding:5px 8px!important}
+@media(max-width:999px){html[data-st] .canvas>.node:nth-child(4){top:250px!important}html[data-st] .wbt{display:none}}
 </style><script id="polishjs">(function(){
 if(!document.documentElement.getAttribute('data-st'))return;
 var $=function(s,r){return (r||document).querySelector(s)},$$=function(s,r){return [].slice.call((r||document).querySelectorAll(s))};
