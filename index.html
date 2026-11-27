@@ -157,7 +157,7 @@ body.rv #res{position:relative!important;left:auto!important;top:auto!important;
 #chips .ch small{color:#c9a9f2;font-weight:500;font-size:9px}
 @media(max-width:640px){#pmenu{width:calc(100vw - 20px)}}
 </style>
-</head><body data-build="b12-0070">
+</head><body data-build="b12-0071">
 <div style="position:fixed;inset:0;z-index:0;background:url(assets/hero-backdrop-nolady.jpg) center/cover"></div><div style="position:fixed;inset:0;z-index:1;background:linear-gradient(160deg,rgba(122,53,232,.66),rgba(42,16,98,.76) 78%)"></div>
 <div class="logo"><img src="assets/noorizq-logo-crisp.png" alt="Noorizq"></div>
 <div id="hd" style="height:0"></div>
@@ -279,7 +279,7 @@ const C=[['EMAIL AND GOOGLE',[['Gmail','#d1313f','G','Crew drafts and sends repl
 const menu=document.getElementById('pmenu'),chips=document.getElementById('chips'),on=new Set();
 const fi=document.createElement('input');fi.type='file';fi.multiple=true;fi.accept='*/*';fi.style.display='none';document.body.appendChild(fi);
 function home(){menu.innerHTML='<div class="opt" id="oa"><div class="ic" style="background:#6d2fd0">+</div><div><b>Attach</b><span class="d">Photo, video, files, anything</span></div></div><div class="opt" id="oc"><div class="ic" style="background:#a1641f">&#9679;</div><div><b>Connectors</b><span class="d">Connect your tools</span></div></div><div class="note">PREVIEW: THE DEMO ONLY TAKES A PHOTO. NOTHING REALLY CONNECTS.</div>';document.getElementById('oa').onclick=()=>{fi.click()};document.getElementById('oc').onclick=cons;}
-function cons(){menu.innerHTML='<span class="back" id="bk">&larr; Back</span><input id="cq" placeholder="Search connectors" autocomplete="off"><div id="cl"></div><div class="note">PREVIEW ONLY. NOTHING REALLY CONNECTS. YOU WILL APPROVE EVERY CONNECTION.</div>';document.getElementById('bk').onclick=home;const q=document.getElementById('cq');q.oninput=lst;lst();if(innerWidth>640)q.focus();}
+function cons(){menu.innerHTML='<span class="back" id="bk">&larr; Back</span><input id="cq" placeholder="Search connectors" autocomplete="off"><div class="note" style="margin:0 6px 4px">PREVIEW ONLY. NOTHING REALLY CONNECTS.</div><div id="cl"></div>';document.getElementById('bk').onclick=home;const q=document.getElementById('cq');q.oninput=lst;lst();if(innerWidth>640)q.focus();}
 function lst(){const q=(document.getElementById('cq').value||'').toLowerCase();let h='';C.forEach(([g,a])=>{const r=a.filter(x=>(x[0]+' '+x[3]).toLowerCase().includes(q));if(!r.length)return;h+='<div class="grp">'+g+'</div>';r.forEach(x=>{h+='<div class="opt'+(on.has(x[0])?' on':'')+'" data-n="'+x[0]+'"><div class="ic" style="background:'+x[1]+'">'+x[2]+'</div><div><b>'+x[0]+'</b><span class="d">'+x[3]+'</span></div>'+(on.has(x[0])?'<span class="tk">Added</span>':'')+'</div>';});});document.getElementById('cl').innerHTML=h||'<div class="note">NO MATCH</div>';document.querySelectorAll('#cl .opt').forEach(e=>e.onclick=()=>{tog(e.dataset.n);lst();});}
 function tog(n){if(on.has(n))on.delete(n);else on.add(n);chips.innerHTML=[...on].map(x=>'<div class="ch"><i></i>'+x+' <small>preview</small><u data-x="'+x+'">&#10005;</u></div>').join('');chips.querySelectorAll('u').forEach(u=>u.onclick=e=>{e.stopPropagation();on.delete(u.dataset.x);tog2();});setTimeout(fit,30);}
 function tog2(){chips.innerHTML=[...on].map(x=>'<div class="ch"><i></i>'+x+' <small>preview</small><u data-x="'+x+'">&#10005;</u></div>').join('');chips.querySelectorAll('u').forEach(u=>u.onclick=e=>{e.stopPropagation();on.delete(u.dataset.x);tog2();});setTimeout(fit,30);}
@@ -289,8 +289,8 @@ menu.onclick=e=>e.stopPropagation();
 document.addEventListener('click',()=>menu.classList.remove('o'));
 })();
 
-var BUILD='b12-0070';
+var BUILD='b12-0071';
 fetch(location.pathname+'?nc='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{const m=t.match(/data-build="([^"]+)"/);if(m&&m[1]!==BUILD&&location.search.indexOf(m[1])<0)location.replace(location.pathname+'?v='+m[1]);}).catch(()=>{});
 </script>
-<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b12-0070</div>
+<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b12-0071</div>
 </body></html>
