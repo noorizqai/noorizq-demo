@@ -30,10 +30,10 @@ h1 em{font-style:italic;color:#f2d795}
 .goal b{font:700 8.5px Sora;letter-spacing:2px;color:#a1641f}
 .goal .tr{flex:1;height:9px;border-radius:5px;background:#e4d9c3;overflow:hidden}
 .goal .fl{height:100%;width:24%;background:linear-gradient(90deg,#8b3ff0,#c98a2e);border-radius:5px;transition:width .9s ease}
-.crew{position:absolute;left:0;top:365px;width:330px;display:flex;gap:8px}
-.ag{flex:1;border-radius:12px;background:rgba(38,14,92,.78);border:1.4px solid rgba(233,201,138,.55);padding:8px 9px;color:#f2d795;font:600 10px Sora}
+.crew{position:absolute;left:0;top:388px;width:330px;display:flex;flex-wrap:wrap;gap:6px}
+.ag{flex:1 1 30%;min-width:0;border-radius:12px;background:rgba(38,14,92,.78);border:1.4px solid rgba(233,201,138,.55);padding:5px 8px;color:#f2d795;font:600 10px Sora;white-space:nowrap}
 .ag i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#7ee08f;margin-right:5px;animation:pl 1.4s ease-in-out infinite}
-.ag em{display:block;font:500 9.5px Sora;color:#fff;margin-top:4px;font-style:normal;opacity:.9;min-height:24px}
+.ag em{display:block;font:500 9.5px Sora;color:#fff;margin-top:2px;font-style:normal;opacity:.9;overflow:hidden;text-overflow:ellipsis}
 @keyframes pl{50%{opacity:.25}}
 .sg{position:absolute;border-radius:12px;background:#f2d795;color:#1e1145;padding:8px 10px;font:600 10px/1.35 Sora;box-shadow:0 12px 26px -10px rgba(3,6,26,.85)}
 .sg b{font:700 8px Sora;letter-spacing:2px;color:#6d2fd0;display:block;margin-bottom:2px}
@@ -87,7 +87,7 @@ body:not(.rv) .stage,body:not(.rv) #hd{animation:fadein .5s ease both}
 <style>.stage{padding:50px 0 118px!important}#hd{padding-bottom:6px}</style>
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0">
 <style>@media (max-height:640px){#hd{padding-top:50px!important}#hd h1{font-size:30px!important}.stage{padding:50px 0 84px!important}.b{bottom:10px!important}}</style>
-</head><body data-build="b6-0035">
+</head><body data-build="b7-0040">
 <div style="position:fixed;inset:0;z-index:0;background:url(assets/hero-backdrop-nolady.jpg) center/cover"></div><div style="position:fixed;inset:0;z-index:1;background:linear-gradient(160deg,rgba(122,53,232,.66),rgba(42,16,98,.76) 78%)"></div>
 <div class="logo"><img src="assets/noorizq-logo-crisp.png" alt="Noorizq"></div>
 <div id="hd" style="height:0"></div>
@@ -130,7 +130,8 @@ body:not(.rv) .stage,body:not(.rv) #hd{animation:fadein .5s ease both}
 <div class="node done" onclick="window.open('assets/meta-ad.png','_blank')" role="link" style="--r:-2deg;left:955px;top:115px;width:165px;transform:rotate(-2deg);animation:float1 7.2s ease-in-out infinite;padding:8px;cursor:pointer;"><span class="nlbl" style="margin-left:6px">8 · META AD · SAMPLE</span><img src="assets/meta-ad.png" style="width:100%;border-radius:8px;display:block"><div style="font:700 8px Sora;color:#8b3ff0;margin:5px 0 0 6px;letter-spacing:1px">TAP TO OPEN ↗</div></div>
 <div class="node forming" style="--r:2deg;left:955px;top:330px;width:165px;transform:rotate(2deg);animation:float1 7.9s ease-in-out infinite;"><span class="nlbl">10 · OTHER</span>invoice, menu, contract… anything else</div>
 <div class="goal"><b>GOAL</b><span>50 orders / week</span><div class="tr"><div class="fl" id="gfl"></div></div><span id="gnum">12 / 50</span></div>
-<div class="crew"><div class="ag"><i></i>Design<em id="a1">drawing logo options</em></div><div class="ag"><i></i>Marketing<em id="a2">writing 6 posts</em></div><div class="ag"><i></i>Finance<em id="a3">checking prices</em></div></div>
+<div class="crew"><div class="ag"><i></i>Marketing<em id="a1">writing 6 posts</em></div><div class="ag"><i></i>Sales<em id="a2">3 buyers waiting</em></div><div class="ag"><i></i>Finance<em id="a3">checking prices</em></div><div class="ag"><i></i>Operations<em id="a4">packing list ready</em></div><div class="ag"><i></i>Creative<em id="a5">drawing logo options</em></div></div>
+
 <div class="sg" id="sg1" style="left:345px;top:345px;width:205px;transform:rotate(-1deg)"><b>FINANCE SUGGESTS</b>Raise to £14 a box. Nearby sellers charge £14 to £28.<br><button onclick="ap(1)">Apply</button></div>
 <div class="sg" id="sg2" style="left:570px;top:372px;width:210px;transform:rotate(1deg)"><b>MARKETING SUGGESTS</b>Start the Eid push in week 2. Eid is 3 weeks out.<br><button onclick="ap(2)">Apply</button></div>
 </div></div>
@@ -155,7 +156,7 @@ setG(12);
 function ap(n){const b=document.getElementById('sg'+n);if(b.classList.contains('ok'))return;b.classList.add('ok');b.querySelector('button').textContent='Applied ✓';
 if(n==1){[...document.querySelectorAll('.nlbl')].find(l=>/PRICE LIST/.test(l.textContent)).parentNode.lastChild.textContent='£14 box · £20 duo';document.getElementById('a3').textContent='price updated to £14';setG(gv+7);}
 else{[...document.querySelectorAll('.nlbl')].find(l=>/90-DAY PLAN/.test(l.textContent)).parentNode.innerHTML='<span class="nlbl">6 · 90-DAY PLAN</span>Wk 1 photos + price list<br>Wk 2 Eid pre-order push<br>Wk 3 soft launch, 20 boxes';document.getElementById('a2').textContent='plan reordered';setG(gv+9);}}
-setInterval(()=>{const T={a1:['drawing logo options','picking brand colours','logo ready'],a2:['writing 6 posts','choosing photos','scheduling posts'],a3:['checking prices','pricing the gift box','totals ready']};for(const k in T){const e=document.getElementById(k);if(/updated|reordered/.test(e.textContent))continue;e.textContent=T[k][Math.floor(Date.now()/3500+k.charCodeAt(1))%3];}},3500);
+setInterval(()=>{const T={a1:['writing 6 posts','choosing photos','scheduling posts'],a2:['3 buyers waiting','replying to Sam','quote sent'],a3:['checking prices','gift box costed','totals ready'],a4:['packing list ready','20 boxes planned','courier booked'],a5:['drawing logo options','picking colours','logo ready']};for(const k in T){const e=document.getElementById(k);if(/updated|reordered/.test(e.textContent))continue;e.textContent=T[k][Math.floor(Date.now()/3500+k.charCodeAt(1))%3];}},3500);
 
 function sv(r){document.body.classList.toggle('rv',!!r);document.getElementById('tb').classList.toggle('on',!r);document.getElementById('tr').classList.toggle('on',!!r);}
 function pvw(){document.getElementById('pv').style.display='block';}
@@ -178,8 +179,8 @@ const z=Math.max(.4,Math.min(1.14,(barT-hdB-50)/470,(innerWidth-30)/1120));docum
 const top=innerHeight<640?78:92;const r=document.getElementById('res');r.style.top=top+'px';const k=Math.max(.4,Math.min(1.28,(barT-top-14)/(r.offsetHeight||440),(innerWidth-30)/1120));r.style.transform='translateX(-50%) scale('+k+')';}
 fit();addEventListener('resize',fit);setTimeout(fit,400);setTimeout(fit,1500);
 
-var BUILD='b6-0035';
+var BUILD='b7-0040';
 fetch(location.pathname+'?nc='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{const m=t.match(/data-build="([^"]+)"/);if(m&&m[1]!==BUILD&&location.search.indexOf(m[1])<0)location.replace(location.pathname+'?v='+m[1]);}).catch(()=>{});
 </script>
-<div style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b6-0035</div>
+<div style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b7-0040</div>
 </body></html>
