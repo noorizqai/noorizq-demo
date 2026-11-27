@@ -218,7 +218,7 @@ html[data-st="3"] .node.forming{background:linear-gradient(135deg,rgba(79,123,25
 html[data-st="3"] .bs,html[data-st="3"] #res button,html[data-st="3"] #apb button[data-ok]{background:linear-gradient(135deg,#4f7bff,#8b3ff0)!important;color:#fff!important;border-radius:99px!important;box-shadow:0 8px 18px -6px rgba(79,123,255,.8)!important}
 html[data-st="3"] .forming .nlbl,html[data-st="3"] #res .brief .lb{color:#f6dc9a!important}html[data-st="3"] .forming{color:#fff!important}
 html[data-st="3"] #apb .it2.nd{background:#fff4f4!important}
-</style></head><body data-build="b44-0114">
+</style></head><body data-build="b45-0115">
 <div style="position:fixed;inset:0;z-index:0;background:url(assets/hero-backdrop-nolady.jpg) center/cover"></div><div style="position:fixed;inset:0;z-index:1;background:linear-gradient(160deg,rgba(122,53,232,.66),rgba(42,16,98,.76) 78%)"></div>
 <div class="logo"><img src="assets/noorizq-logo-crisp.png" alt="Noorizq"></div>
 <div id="hd" style="height:0"></div>
@@ -485,10 +485,10 @@ document.addEventListener('click',()=>p.classList.remove('o'));
 window._actAdd=o=>{feed.unshift(o);draw();};const _go=window.go;window.go=function(t){t=(t||'').trim();if(t){feed.unshift({me:1,t:'just now',x:'You: "'+t+'"',w:'',u:0});draw();}return _go(t);};
 })();
 
-var BUILD='b44-0114';
+var BUILD='b45-0115';
 fetch(location.pathname+'?nc='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{const m=t.match(/data-build="([^"]+)"/);if(m&&m[1]!==BUILD&&location.search.indexOf(m[1])<0)location.replace(location.pathname+'?v='+m[1]);}).catch(()=>{});
 </script>
-<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b44-0114</div>
+<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b45-0115</div>
 
 <script>
 document.querySelectorAll('.ag').forEach(e=>{const r=e.dataset.r;e.querySelector('.avs').outerHTML=AV(r,30);e.querySelector('b').textContent=CREW[r].n;});
@@ -803,7 +803,7 @@ body.lv #lres{display:block}
 .lvm{font:500 11px/1.35 Sora;text-align:left}.lvm small{display:block;color:#a99ad0;margin-top:5px;font-size:9px;letter-spacing:.5px}
 .lvm .w{font-style:normal;color:#cdbbf0;font-size:11px;display:block;padding:10px 0;text-align:center}.lvm .w.bad{color:#ffb4b4}
 .lvm .sp{display:inline-block;width:10px;height:10px;border:2px solid #f2d795;border-top-color:transparent;border-radius:50%;margin-right:6px;animation:lvs .8s linear infinite;vertical-align:-1px}@keyframes lvs{to{transform:rotate(360deg)}}
-.lvm .lgi{width:78px;height:78px;border-radius:50%;object-fit:cover;display:block;margin:2px auto 4px;background:#fff}.lvm>b{display:block;text-align:center;font:700 13px Fraunces,serif}
+.lvm .lgi{width:58px;height:58px;border-radius:50%;object-fit:cover;display:block;margin:2px auto 4px;background:#fff}.lvm>b{display:block;text-align:center;font:700 13px Fraunces,serif}
 .lvm .phi{width:100%;border-radius:10px;display:block}
 .lvm .wbm{border-radius:8px;color:#fff;text-align:center;padding:16px 8px;display:flex;flex-direction:column;gap:4px}.lvm .wbm b{font:700 14px Fraunces,serif}.lvm .wbm em{font-style:normal;font-size:9px;opacity:.9}
 .lvm .prc{display:flex;flex-direction:column;gap:4px}.lvm .prc span{display:flex;justify-content:space-between;gap:6px;background:rgba(255,255,255,.14);border-radius:8px;padding:4px 8px;font-size:10px}.lvm .prc b{color:#f2d795}
@@ -843,6 +843,9 @@ async function api(fn,body,tries){tries=tries||2;var last;
   if(!r.ok)throw new Error(j.error||('HTTP '+r.status));return j}catch(e){last=e}}
  throw last}
 /* ---------- helpers ---------- */
+async function trimLogo(src){try{var im=await img(src),w=im.width,h=im.height,c=document.createElement('canvas');c.width=w;c.height=h;var x=c.getContext('2d');x.drawImage(im,0,0);var d=x.getImageData(0,0,w,h).data,bg=[d[0],d[1],d[2]],x0=w,y0=h,x1=0,y1=0;
+ for(var yy=0;yy<h;yy+=2)for(var xx=0;xx<w;xx+=2){var i=(yy*w+xx)*4;if(Math.abs(d[i]-bg[0])+Math.abs(d[i+1]-bg[1])+Math.abs(d[i+2]-bg[2])>60){if(xx<x0)x0=xx;if(xx>x1)x1=xx;if(yy<y0)y0=yy;if(yy>y1)y1=yy}}
+ if(x1<=x0||y1<=y0)return src;var side=Math.max(x1-x0,y1-y0),pad=side*.16,cx=(x0+x1)/2,cy=(y0+y1)/2,S2=side+2*pad,o=document.createElement('canvas');o.width=o.height=640;var ox=o.getContext('2d');ox.fillStyle='rgb('+bg.join(',')+')';ox.fillRect(0,0,640,640);ox.drawImage(c,cx-S2/2,cy-S2/2,S2,S2,0,0,640,640);return o.toDataURL('image/jpeg',.9)}catch(e){return src}}
 var CREW={noor:'Noor',sami:'Sami',mira:'Mira',farah:'Farah',layla:'Layla'};
 function nowT(){return new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'})}
 function log(who,x,bad){if(!S)return;S.log=S.log||[];S.log.unshift({who:who,t:nowT(),x:x,bad:bad?1:0});save();renderAct()}
@@ -920,8 +923,8 @@ function renderBoard(){
  var saidEl=K[0];
  if(!S){saidEl.innerHTML='<span data-said class="nlbl">YOUR IDEA</span><b style="font-family:Fraunces,serif;font-size:27px">Type your idea in the bar below <span style="color:#8b3ff0">▍</span></b>';
   for(var i=1;i<=9;i++)wait(i);crew(['waiting for your idea','waiting for your idea','waiting for your idea','waiting for your idea','waiting for your idea']);ll('Nothing is running yet');return}
- var idea=S.idea.length>90?S.idea.slice(0,90)+'…':S.idea;
- saidEl.innerHTML='<span data-said class="nlbl">YOU SAID</span><b style="font-family:Fraunces,serif;font-size:27px">"'+esc(idea.charAt(0).toUpperCase()+idea.slice(1))+'"</b>';
+ var idea=S.idea.length>80?S.idea.slice(0,80)+'…':S.idea;var fs=idea.length>55?20:27;
+ saidEl.innerHTML='<span data-said class="nlbl">YOU SAID</span><b style="font-family:Fraunces,serif;font-size:'+fs+'px">"'+esc(idea.charAt(0).toUpperCase()+idea.slice(1))+'"</b>';
  var a=A1(),b=A2(),k=cols();
  // logo
  if(S.logos&&S.logos.length)setNode(1,'ready','<img class="lgi" src="'+S.logos[selLogo]+'"><b>'+esc(cname())+'</b><small>'+S.logos.length+' options · tap</small>','logo');
@@ -971,7 +974,7 @@ function photoPrompt(){var r=S.read||{};return (r.hero_subject||r.offer||S.idea)
 var T={
  a1:function(){return step('names, prices and plan',function(){return api('genesis',{action:'assets',stage:1})},'Farah',function(r){return 'Suggested '+(r.products||[]).length+' products with prices, a tagline and a 90-day plan.'},'a1').then(function(r){if(r){S.a1=r;delete S.fl.a1}save();renderBoard();renderRes()})},
  a2:function(){return step('posts, ad and notes',function(){return api('genesis',{action:'assets',stage:2})},'Mira',function(r){return 'Drafted 6 posts, 1 ad, a first email and market notes.'},'a2').then(function(r){if(r){S.a2=r;delete S.fl.a2}save();renderBoard();renderRes()})},
- logo:function(){return step('logos',function(){var one=function(){return api('genesis',{action:'logo'},1).then(function(r){if(!r.ok||!(r.imgs||[]).length)throw new Error('no image');return r})};return one().catch(one)},'Layla',function(r){return 'Drew '+r.imgs.length+' logo options with Cloudflare AI.'},'logo').then(function(r){if(r){S.logos=r.imgs;selLogo=0;S.sel=0;delete S.fl.logo}save();renderBoard();renderRes()})},
+ logo:function(){return step('logos',function(){var one=function(){return api('genesis',{action:'logo'},1).then(function(r){if(!r.ok||!(r.imgs||[]).length)throw new Error('no image');return r})};return one().catch(one)},'Layla',function(r){return 'Drew '+r.imgs.length+' logo options with Cloudflare AI.'},'logo').then(async function(r){if(r){S.logos=await Promise.all(r.imgs.map(trimLogo));selLogo=0;S.sel=0;delete S.fl.logo}save();renderBoard();renderRes()})},
  photo:function(){return step('photo',function(){return api('genesis',{action:'image',prompt:photoPrompt()}).then(function(r){if(!r.ok||!r.img)throw new Error('no image');return r})},'Layla',function(){return 'Made a photo with Cloudflare AI.'},'photo').then(function(r){if(r){S.photo=r.img;delete S.fl.photo}save();renderBoard();renderRes()})}
 };
 async function redo(k){if(!S||running)return;running=true;S.fl=S.fl||{};delete S.fl[k];S.step='Trying again…';renderBoard();try{await T[k]()}finally{running=false;S.step='';renderBoard();renderRes()}}
