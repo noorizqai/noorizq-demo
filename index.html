@@ -202,6 +202,10 @@ html[data-st="2"] .node.forming{background:rgba(255,255,255,.08)!important;backd
 html[data-st="2"] .bs,html[data-st="2"] #apb button[data-ok]{background:linear-gradient(135deg,#f6dc9a,#d9a94e)!important;color:#2a1560!important;border-radius:99px!important}
 html[data-st="2"] #apn{background:linear-gradient(180deg,#2a1268,#150640)!important;color:#f7f1ff!important}
 html[data-st="2"] #apb .it2.nd{border-left-color:#ff6b78!important}html[data-st="2"] #apb .t2,html[data-st="2"] #apb .g2{color:#f2d795!important}
+html[data-st="2"] #res .cd.brief{background:linear-gradient(150deg,#f6dc9a,#d9a94e)!important;color:#2a1560!important;backdrop-filter:none}html[data-st="2"] #res .cd.brief *{color:#2a1560!important}html[data-st="2"] #res .cd.brief .bs{color:#2a1560!important}html[data-st="2"] #res .cd.brief .bp{color:#6d2fd0!important}
+html[data-st="2"] #res button:not(.bp):not(.bs),html[data-st="2"] #res .inb button{background:linear-gradient(135deg,#f6dc9a,#d9a94e)!important;color:#2a1560!important;border-radius:99px!important;border:0!important}
+html[data-st="2"] #res .cd span,html[data-st="2"] #res .cd div{color:inherit}html[data-st="2"] #res .vd{background:rgba(255,255,255,.12)!important;border-radius:8px}
+html[data-st="3"] #res .cd.brief{background:linear-gradient(135deg,#2b2fb0,#6d2fd0 55%,#b8741d)!important}
 /* ===== STYLE 3: AURORA PAPER ===== */
 html[data-st="3"] .node.done,html[data-st="3"] #res .cd,html[data-st="3"] #apb .it2{background:#fff!important;border:0!important;border-radius:24px!important;box-shadow:0 2px 0 rgba(255,255,255,.9) inset,0 26px 50px -18px rgba(20,5,70,.85),0 0 0 1px rgba(139,63,240,.12)!important;overflow:hidden}
 html[data-st="3"] .node.done::after,html[data-st="3"] #res .cd:not(.brief)::after,html[data-st="3"] #apb .it2::after{content:"";position:absolute;left:0;right:0;top:0;height:6px;background:linear-gradient(90deg,#4f7bff,#8b3ff0,#e0a93b)}
@@ -213,7 +217,7 @@ html[data-st="3"] .brief{background:linear-gradient(135deg,#2b2fb0,#6d2fd0 55%,#
 html[data-st="3"] .node.forming{background:linear-gradient(135deg,rgba(79,123,255,.35),rgba(139,63,240,.45))!important;border:1.4px solid rgba(255,255,255,.5)!important;border-radius:24px!important;box-shadow:0 18px 40px -14px rgba(3,2,20,.9)!important}
 html[data-st="3"] .bs,html[data-st="3"] #res button,html[data-st="3"] #apb button[data-ok]{background:linear-gradient(135deg,#4f7bff,#8b3ff0)!important;color:#fff!important;border-radius:99px!important;box-shadow:0 8px 18px -6px rgba(79,123,255,.8)!important}
 html[data-st="3"] #apb .it2.nd{background:#fff4f4!important}
-</style></head><body data-build="b30-0100">
+</style></head><body data-build="b31-0101">
 <div style="position:fixed;inset:0;z-index:0;background:url(assets/hero-backdrop-nolady.jpg) center/cover"></div><div style="position:fixed;inset:0;z-index:1;background:linear-gradient(160deg,rgba(122,53,232,.66),rgba(42,16,98,.76) 78%)"></div>
 <div class="logo"><img src="assets/noorizq-logo-crisp.png" alt="Noorizq"></div>
 <div id="hd" style="height:0"></div>
@@ -480,10 +484,10 @@ document.addEventListener('click',()=>p.classList.remove('o'));
 window._actAdd=o=>{feed.unshift(o);draw();};const _go=window.go;window.go=function(t){t=(t||'').trim();if(t){feed.unshift({me:1,t:'just now',x:'You: "'+t+'"',w:'',u:0});draw();}return _go(t);};
 })();
 
-var BUILD='b30-0100';
+var BUILD='b31-0101';
 fetch(location.pathname+'?nc='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{const m=t.match(/data-build="([^"]+)"/);if(m&&m[1]!==BUILD&&location.search.indexOf(m[1])<0)location.replace(location.pathname+'?v='+m[1]);}).catch(()=>{});
 </script>
-<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b30-0100</div>
+<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b31-0101</div>
 
 <script>
 document.querySelectorAll('.ag').forEach(e=>{const r=e.dataset.r;e.querySelector('.avs').outerHTML=AV(r,30);e.querySelector('b').textContent=CREW[r].n;});
