@@ -157,7 +157,7 @@ body.rv #res{position:relative!important;left:auto!important;top:auto!important;
 #chips .ch small{color:#c9a9f2;font-weight:500;font-size:9px}
 @media(max-width:640px){#pmenu{width:calc(100vw - 20px)}}
 </style>
-</head><body data-build="b13-0072">
+<style>#scn{display:none;text-align:center;font:600 10px Sora;letter-spacing:1.5px;color:#f2d795;max-width:92vw}#scn button{all:unset;cursor:pointer;margin:6px 4px 0;padding:6px 11px;border-radius:14px;background:rgba(255,255,255,.14);letter-spacing:0;font:600 11px Sora;color:#fff}#scn:empty{display:none}#typer{min-width:0;flex:1}</style></head><body data-build="b14-0073">
 <div style="position:fixed;inset:0;z-index:0;background:url(assets/hero-backdrop-nolady.jpg) center/cover"></div><div style="position:fixed;inset:0;z-index:1;background:linear-gradient(160deg,rgba(122,53,232,.66),rgba(42,16,98,.76) 78%)"></div>
 <div class="logo"><img src="assets/noorizq-logo-crisp.png" alt="Noorizq"></div>
 <div id="hd" style="height:0"></div>
@@ -213,9 +213,9 @@ let si=0;
 const _t=document.querySelector('[data-said]');const saidEl=document.querySelector('[data-said] b')||((_t.closest('.node')||_t).querySelector('b'))||_t;
 function typeSaid(t){let i=0;saidEl.innerHTML='';const iv=setInterval(()=>{saidEl.innerHTML='"'+t.slice(0,++i)+'"<span style="color:#8b3ff0">▍</span>';if(i>=t.length){clearInterval(iv);evolve();}},26);}
 function evolve(){const f=document.querySelector('.forming:not(.evolved)');if(!f)return;f.classList.remove('forming');f.classList.add('done','evolved');const l=f.querySelector('.nlbl');if(l)l.textContent=l.textContent.replace(/DRAFTED|IGNITING|FORMING|RISING|DAWNING|SETTING NOW|DOCKING|IN THE WINGS/,'DONE');f.style.animation='none';}
-function listen(){const m=document.getElementById('mic'),l=document.getElementById('speakLbl');l.textContent='listening…';m.querySelectorAll('i').forEach(b=>b.style.animation='tw .5s ease-in-out infinite');setTimeout(()=>{l.textContent='speak';m.querySelectorAll('i').forEach(b=>b.style.animation='');typeSaid(S[si++%S.length]);},1500);}
+function listen(){const m=document.getElementById('mic'),l=document.getElementById('speakLbl');l.textContent='listening…';m.querySelectorAll('i').forEach(b=>b.style.animation='tw .5s ease-in-out infinite');setTimeout(()=>{l.textContent='speak';m.querySelectorAll('i').forEach(b=>b.style.animation='');window.go(['sell baklava boxes for Eid','run ads for Facebook','launch a modest fashion brand','start a home tutoring service'][si++%4]);},1500);}
 document.getElementById('mic').onclick=listen;document.getElementById('speakLbl').onclick=listen;
-document.getElementById('typer').addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.value.trim()){const v=e.target.value.trim();e.target.value='';typeSaid(v);}});
+document.getElementById('typer').addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.value.trim()){const v=e.target.value.trim();e.target.value='';window.go(v);}});
 const veil=document.getElementById('veil');
 window.addEventListener('dragover',e=>{e.preventDefault();veil.style.display='flex';});
 veil.addEventListener('dragleave',()=>veil.style.display='none');
@@ -226,7 +226,7 @@ setG(12);
 function ap(n){const b=document.getElementById('sg'+n);if(b.classList.contains('ok'))return;b.classList.add('ok');b.querySelector('button').textContent='Applied ✓';
 if(n==1){[...document.querySelectorAll('.nlbl')].find(l=>/PRICE LIST/.test(l.textContent)).parentNode.lastChild.textContent='£14 box · £20 duo';document.getElementById('a3').textContent='price updated to £14';setG(gv+7);}
 else{document.getElementById('a1').textContent='Eid push moved to week 2';setG(gv+9);}}
-setInterval(()=>{const T={a1:['writing 6 posts','choosing photos','scheduling posts'],a2:['3 buyers waiting','replying to Sam','quote sent'],a3:['checking prices','gift box costed','totals ready'],a4:['packing list ready','20 boxes planned','courier booked'],a5:['drawing logo options','picking colours','logo ready']};for(const k in T){const e=document.getElementById(k);if(/updated|reordered/.test(e.textContent))continue;e.textContent=T[k][Math.floor(Date.now()/3500+k.charCodeAt(1))%3];}},3500);
+setInterval(()=>{const T=window.CT||{a1:['writing 6 posts','choosing photos','scheduling posts'],a2:['3 buyers waiting','replying to Sam','quote sent'],a3:['checking prices','gift box costed','totals ready'],a4:['packing list ready','20 boxes planned','courier booked'],a5:['drawing logo options','picking colours','logo ready']};for(const k in T){const e=document.getElementById(k);if(/updated|reordered/.test(e.textContent))continue;e.textContent=T[k][Math.floor(Date.now()/3500+k.charCodeAt(1))%3];}},3500);
 
 function sv(r){document.body.classList.toggle('rv',!!r);document.getElementById('tb').classList.toggle('on',!r);document.getElementById('tr').classList.toggle('on',!!r);}
 function pvw(){document.getElementById('pv').style.display='block';}
@@ -251,7 +251,7 @@ fit();addEventListener('resize',fit);if(window.ResizeObserver)new ResizeObserver
 
 function nbm(){const b=document.getElementById('nbb');if(b.dataset.d)return;b.dataset.d=1;b.textContent='Scheduled ✓';b.className='bs shp';document.getElementById('nbt').textContent='Done. Post scheduled for 7pm. Marketing will report the reach tomorrow.';fit();}
 document.getElementById('dayn').textContent=3;
-(function(){const L=['Marketing is writing your first post','Creative is trying 3 logo colours','Sales is answering a question about delivery','Finance is checking what nearby sellers charge','Operations is drafting your packing list'];let n=0;setInterval(()=>{const t=document.getElementById('llt');t.classList.add('sw');setTimeout(()=>{n=(n+1)%L.length;document.getElementById('llx').textContent=L[n];t.classList.remove('sw');},350)},4200);
+(function(){const L=['Marketing is writing your first post','Creative is trying 3 logo colours','Sales is answering a question about delivery','Finance is checking what nearby sellers charge','Operations is drafting your packing list'];let n=0;setInterval(()=>{const t=document.getElementById('llt');t.classList.add('sw');setTimeout(()=>{const LL=window.LL||L;n=(n+1)%LL.length;document.getElementById('llx').textContent=LL[n];t.classList.remove('sw');},350)},4200);
 document.querySelectorAll('.ag em').forEach(e=>{const o=Object.getOwnPropertyDescriptor(Node.prototype,'textContent');});})();
 (function(){const d=document.createElement('div');d.id='tai';d.innerHTML='<div id="taip"><b>TOUCHLESS AI · PREVIEW</b><p><em>Eyes:</em> look at a card to open it.</p><p><em>Silent speech:</em> mouth the words, no sound.</p><p><em>Face:</em> the camera notices when you look away or smile.</p><p class="pv2">PREVIEW ONLY. NO CAMERA IS USED. NOTHING IS RECORDED.</p></div><button id="taib"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f2d795" stroke-width="2" stroke-linecap="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>Touchless AI <small>preview</small></button>';document.body.appendChild(d);document.getElementById('taib').onclick=e=>{e.stopPropagation();d.classList.toggle('o')};document.addEventListener('click',e=>{if(!d.contains(e.target))d.classList.remove('o')});})();
 
@@ -285,12 +285,72 @@ function tog(n){if(on.has(n))on.delete(n);else on.add(n);chips.innerHTML=[...on]
 function tog2(){chips.innerHTML=[...on].map(x=>'<div class="ch"><i></i>'+x+' <small>preview</small><u data-x="'+x+'">&#10005;</u></div>').join('');chips.querySelectorAll('u').forEach(u=>u.onclick=e=>{e.stopPropagation();on.delete(u.dataset.x);tog2();});setTimeout(fit,30);}
 fi.onchange=()=>{const f=[...fi.files];fi.value='';if(!f.length)return;menu.classList.remove('o');if(f.some(x=>/^image\//.test(x.type)))document.getElementById('veil').dispatchEvent(new Event('drop'));else{menu.classList.add('o');menu.innerHTML='<div class="note">PREVIEW: THE DEMO ONLY HANDLES PHOTOS. THE REAL ONE WILL TAKE THIS FILE.</div><span class="back" id="bk">&larr; Back</span>';document.getElementById('bk').onclick=home;}};
 document.getElementById('plus').onclick=e=>{e.stopPropagation();if(menu.classList.toggle('o'))home();};
-menu.onclick=e=>e.stopPropagation();
+menu.onclick=e=>e.stopPropagation();window._on=on;window._tog=tog;
 document.addEventListener('click',()=>menu.classList.remove('o'));
 })();
 
-var BUILD='b13-0072';
+(function(){
+const can=document.querySelector('.canvas'),K=[...can.children];
+// 0 said,1 logo,2 site,3 photo,4 pdf1,5 price,6 pdf2,7 posts,8 ad,9 other,10 live,11 goal,12 crew,13 sg1,14 sg2
+const ORIG={};[1,2,5,7,8,9,13,14].forEach(i=>ORIG[i]=K[i].innerHTML);
+const oc={};[4,6,8].forEach(i=>oc[i]=K[i].getAttribute('onclick'));
+const OCL=K[9].className,PCL=K[7].className;
+const BASE={key:'base',name:'baklava boxes for Eid',base:1};
+const lg=n=>'<span class="nlbl">1 · LOGO</span><div style="width:34px;height:34px;border:2.5px solid #8b3ff0;border-radius:50%;margin:2px auto 4px"></div><b style="font-family:Fraunces,serif;display:block;text-align:center">'+n+'</b>';
+const st=(l,t)=>'<span class="nlbl">'+l+'</span><span style="font-size:11px">'+t+'</span>';
+const pr=(l,t)=>'<span class="nlbl">'+l+'</span>'+t;
+const ad=(b,h)=>'<span class="nlbl" style="margin-left:6px">8 · AD · SAMPLE</span><div style="aspect-ratio:1;border-radius:8px;background:linear-gradient(160deg,#6d2fd0,#a31f5c);color:#fff;padding:12px 10px;display:flex;flex-direction:column;justify-content:flex-end;gap:6px"><span style="font:700 8px Sora;letter-spacing:2px;color:#f2d795">'+b+'</span><b style="font:700 15px/1.1 Fraunces,serif">'+h+'</b><span style="align-self:flex-start;font:700 9px Sora;background:#f2d795;color:#2a1650;padding:4px 8px;border-radius:10px">Learn more</span></div>';
+const sg=(a,t,n)=>'<b>'+a+'</b>'+t+'<br><button onclick="ap('+n+')">Apply</button>';
+const SC=[
+{key:'ads',re:/\b(ads?|adverts?|advertis\w*|facebook|meta|instagram|tiktok)\b/i,
+ c:{1:lg('Your brand'),2:st('2 · LANDING PAGE · SAMPLE','where the ad<br>sends people'),5:pr('3 · AD IDEAS','3 versions to test'),7:pr('4 · AD COPY · DRAFTED','headlines + text…'),8:ad('YOUR BRAND','Your offer, shown to the right people'),9:'<span class="nlbl">10 · BUDGET + AUDIENCE · SAMPLE</span>£10 a day · people 25 to 45 near you<br><button class="bs" id="cmeta" style="margin-top:6px">Connect Meta (preview)</button>',13:sg('FINANCE SUGGESTS','Start with £10 a day for 7 days, then review.',1),14:sg('MARKETING SUGGESTS','Test 3 headlines. Keep the best one.',2)},
+ crew:{a1:['writing 3 ad versions','testing headlines','scheduling the ad'],a2:['ready for new messages','replying to a lead','2 leads waiting'],a3:['£70 week-one budget','checking cost per click','totals ready'],a4:['tracking link set','landing page checked','sign-up form ready'],a5:['making ad images','picking colours','ad image ready']},
+ live:['Marketing is writing 3 ad versions','Creative is making the ad image','Finance is setting a daily budget','Operations is checking the landing page']},
+{key:'fashion',re:/fashion|abaya|hijab|clothing|clothes|modest|dress|boutique/i,
+ c:{1:lg('Hayat Modest'),2:st('2 · WEBSITE · SAMPLE','hayatmodest<br>.noorizq.site'),5:pr('3 · PRICE LIST','Abaya £45 · Hijab £12'),7:pr('4 · 6 POSTS · DRAFTED','lookbook photos + captions…'),8:ad('HAYAT MODEST','The new collection is here'),9:'<span class="nlbl">10 · OTHER</span>size guide, returns policy, supplier list… anything else',13:sg('FINANCE SUGGESTS','Price abayas at £45. Similar shops charge £38 to £70.',1),14:sg('MARKETING SUGGESTS','Post 3 outfit photos before you launch.',2)},
+ crew:{a1:['writing 6 posts','choosing photos','scheduling posts'],a2:['2 buyers waiting','replying to Sam','quote sent'],a3:['costing fabric','pricing the abaya','totals ready'],a4:['size guide ready','supplier list drafted','returns policy drafted'],a5:['drawing logo options','picking colours','logo ready']},
+ live:['Marketing is writing your first post','Creative is trying 3 logo colours','Finance is checking what similar shops charge','Operations is drafting a size guide']},
+{key:'tutor',re:/tutor|tuition|gcse|homework/i,
+ c:{1:lg('BrightPath Tutors'),2:st('2 · WEBSITE · SAMPLE','brightpathtutors<br>.noorizq.site'),5:pr('3 · PRICE LIST','£25 an hour · 5 lessons £110'),7:pr('4 · FLYER + POSTS · DRAFTED','flyer + parent posts…'),8:ad('BRIGHTPATH TUTORS','GCSE maths and English, at home'),9:'<span class="nlbl">10 · OTHER</span>timetable, parent contract, lesson plans… anything else',13:sg('FINANCE SUGGESTS','Offer a 5-lesson pack at £110. It saves parents £15.',1),14:sg('MARKETING SUGGESTS','Post in local parent groups on Sunday evening.',2)},
+ crew:{a1:['writing the flyer','choosing photos','scheduling posts'],a2:['2 parents waiting','replying to a parent','trial lesson booked'],a3:['pricing lesson packs','hourly rate checked','totals ready'],a4:['timetable ready','parent contract drafted','lesson plans drafted'],a5:['drawing logo options','picking colours','logo ready']},
+ live:['Marketing is writing your flyer','Creative is trying 3 logo colours','Sales is answering a parent','Finance is pricing lesson packs']},
+{key:'base',re:/baklava|eid|bak(e|er|ery|ing)|\bbox(es)?\b|dessert|sweets?|cake|food/i,base:1}
+];
+const BC={a1:['writing 6 posts','choosing photos','scheduling posts'],a2:['3 buyers waiting','replying to Sam','quote sent'],a3:['checking prices','gift box costed','totals ready'],a4:['packing list ready','20 boxes planned','courier booked'],a5:['drawing logo options','picking colours','logo ready']};
+const BL=['Marketing is writing your first post','Creative is trying 3 logo colours','Sales is answering a question about delivery','Finance is checking what nearby sellers charge','Operations is drafting your packing list'];
+function pop(e){const o=e.style.animation;e.style.animation='popin .55s cubic-bezier(.2,1.3,.4,1) both';setTimeout(()=>{e.style.animation=o;},600);}
+function apply(s){
+ window._sc=s;
+ [1,2,5,7,8,9,13,14].forEach(i=>{K[i].innerHTML=s.base?ORIG[i]:s.c[i];pop(K[i]);});
+ [13,14].forEach(i=>K[i].classList.remove('ok'));
+ K[9].className=OCL;K[7].className=PCL;
+ [4,6,8].forEach(i=>{if(s.base){if(oc[i])K[i].setAttribute('onclick',oc[i]);K[i].style.cursor='pointer';}else{K[i].removeAttribute('onclick');K[i].style.cursor='default';}});
+ [4,6].forEach(i=>{const t=[...K[i].querySelectorAll('div')].find(d=>/TAP TO OPEN/.test(d.textContent)&&!d.children.length);if(t)t.style.display=s.base?'':'none';});
+ window.CT=s.base?BC:s.crew;window.LL=s.base?BL:s.live;
+ ['a1','a2','a3','a4','a5'].forEach(k=>document.getElementById(k).textContent=window.CT[k][0]);
+ document.getElementById('llx').textContent=window.LL[0];
+ const cm=document.getElementById('cmeta');if(cm)cm.onclick=e=>{e.stopPropagation();if(!window._on.has('Meta Ads'))window._tog('Meta Ads');cm.textContent='Meta Ads added to the bar (preview) ✓';};
+ setGoal();
+}
+function setGoal(){setG(12);}
+// ap override for non-base examples
+const _ap=ap;ap=function(n){const s=window._sc;if(!s||s.base)return _ap(n);const b=document.getElementById('sg'+n);if(b.classList.contains('ok'))return;b.classList.add('ok');b.querySelector('button').textContent='Applied ✓';setG(gv+(n==1?7:9));};
+// message line
+const b=document.querySelector('.b');const scn=document.createElement('div');scn.id='scn';b.insertBefore(scn,document.getElementById('chips'));
+const ST=['sell baklava boxes for Eid','run ads for Facebook','launch a modest fashion brand','start a home tutoring service'];
+let tm;function say(h,ms){scn.innerHTML=h;scn.style.display='block';clearTimeout(tm);if(ms)tm=setTimeout(()=>{scn.style.display='none';setTimeout(fit,30);},ms);setTimeout(fit,30);}
+function pick(t){go(t);}
+window.go=function(t){t=(t||'').trim();if(!t)return;const s=SC.find(x=>x.re.test(t));if(!s){say('<span>PREVIEW: THE DEMO ONLY KNOWS 4 EXAMPLES. TRY ONE:</span><br>'+ST.map(x=>'<button data-s="'+x+'">'+x+'</button>').join(''));scn.querySelectorAll('button').forEach(e=>e.onclick=ev=>{ev.stopPropagation();go(e.dataset.s);});return;}
+ say('PREVIEW · SAMPLE EXAMPLE · NOTHING HERE IS REAL',6000);apply(s);typeSaid(t.charAt(0).toUpperCase()+t.slice(1));};
+// rotate starters in the bar
+const ty=document.getElementById('typer');let ri=0;ty.placeholder=ST[0]+' …';
+setInterval(()=>{if(document.activeElement===ty&&ty.value)return;ri=(ri+1)%ST.length;ty.placeholder=ST[ri]+' …';},2800);
+ty.addEventListener('keydown',e=>{if(e.key==='Enter'&&!ty.value.trim()){e.preventDefault();go(ST[ri]);}});
+const il=[...document.querySelectorAll('.b .main span')].find(x=>x.textContent.trim()==='I want to');if(il){il.style.cursor='pointer';il.onclick=()=>go(ST[ri]);}
+})();
+
+var BUILD='b14-0073';
 fetch(location.pathname+'?nc='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{const m=t.match(/data-build="([^"]+)"/);if(m&&m[1]!==BUILD&&location.search.indexOf(m[1])<0)location.replace(location.pathname+'?v='+m[1]);}).catch(()=>{});
 </script>
-<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b13-0072</div>
+<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b14-0073</div>
 </body></html>
