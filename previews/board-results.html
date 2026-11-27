@@ -84,14 +84,13 @@ body:not(.rv) .stage,body:not(.rv) #hd{animation:fadein .5s ease both}
 .cfp{position:fixed;width:9px;height:14px;border-radius:2px;z-index:60;pointer-events:none;animation:cf 1.2s ease-out forwards}
 .shp{animation:pop .5s ease}
 </style>
-<style>.stage{padding:44px 0 118px!important}#hd{padding-bottom:6px}</style>
+<style>.stage{padding:50px 0 118px!important}#hd{padding-bottom:6px}</style>
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0">
-<style>@media (max-height:640px){#hd{padding-top:50px!important}#hd h1{font-size:30px!important}.stage{padding:40px 0 84px!important}.b{bottom:10px!important}}</style>
-</head><body>
+<style>@media (max-height:640px){#hd{padding-top:50px!important}#hd h1{font-size:30px!important}.stage{padding:50px 0 84px!important}.b{bottom:10px!important}}</style>
+</head><body data-build="b6-0035">
 <div style="position:fixed;inset:0;z-index:0;background:url(../assets/hero-backdrop-nolady.jpg) center/cover"></div><div style="position:fixed;inset:0;z-index:1;background:linear-gradient(160deg,rgba(122,53,232,.66),rgba(42,16,98,.76) 78%)"></div>
 <div class="logo"><img src="../assets/noorizq-logo-crisp.png" alt="Noorizq"></div>
-<div id="hd" style="text-align:center;padding-top:96px;position:relative;z-index:5"><h1>Say <em>one</em> thing. Big.</h1>
-</div>
+<div id="hd" style="height:0"></div>
 <div class="tg"><button id="tb" class="on" onclick="sv(0)">Build</button><button id="tr" onclick="sv(1)">Results</button></div>
 <div id="res">
 <div class="g" style="grid-template-columns:1fr 1fr 1fr">
@@ -174,9 +173,13 @@ function conf(el){const r=el.getBoundingClientRect(),cs=['#6d2fd0','#c98a2e','#f
 const _shp=shp;shp=function(){const b=document.getElementById('ship');if(b.dataset.d)return;_shp();conf(b);b.classList.add('shp');document.getElementById('prob').classList.add('ok');const g=document.getElementById('rg');cu(g,31,'');const m=document.getElementById('pmv');cu(m,30,'p');document.querySelectorAll('#res .vd i.r').forEach(i=>{i.className='';});};
 
 var hdB=150,barT=640;
-function fit(){const rv=document.body.classList.contains('rv');const b=document.querySelector('.b');if(!rv){hdB=document.getElementById('hd').getBoundingClientRect().bottom;barT=b.getBoundingClientRect().top;}
-const z=Math.max(.4,Math.min(1.14,(barT-hdB-54)/470,(innerWidth-30)/1120));document.querySelector('.canvas').style.zoom=z;
+function fit(){const rv=document.body.classList.contains('rv');const b=document.querySelector('.b');if(!rv){hdB=70;barT=b.getBoundingClientRect().top;}
+const z=Math.max(.4,Math.min(1.14,(barT-hdB-50)/470,(innerWidth-30)/1120));document.querySelector('.canvas').style.zoom=z;
 const top=innerHeight<640?78:92;const r=document.getElementById('res');r.style.top=top+'px';const k=Math.max(.4,Math.min(1.28,(barT-top-14)/(r.offsetHeight||440),(innerWidth-30)/1120));r.style.transform='translateX(-50%) scale('+k+')';}
 fit();addEventListener('resize',fit);setTimeout(fit,400);setTimeout(fit,1500);
+
+var BUILD='b6-0035';
+fetch(location.pathname+'?nc='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{const m=t.match(/data-build="([^"]+)"/);if(m&&m[1]!==BUILD&&location.search.indexOf(m[1])<0)location.replace(location.pathname+'?v='+m[1]);}).catch(()=>{});
 </script>
+<div style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b6-0035</div>
 </body></html>
