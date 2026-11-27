@@ -140,7 +140,24 @@ body.rv #res{position:relative!important;left:auto!important;top:auto!important;
 #res .big{font-size:22px}
 }
 </style>
-</head><body data-build="b11-0063">
+<style>
+#pmenu{display:none;position:absolute;bottom:calc(100% + 10px);left:50%;transform:translateX(-50%);width:360px;max-height:min(380px,calc(100vh - 150px));overflow:auto;background:#f5efe3;color:#1e1145;border-radius:16px;padding:10px;font:500 12px/1.4 Sora;box-shadow:0 18px 40px -10px rgba(3,6,26,.9);z-index:50}
+#pmenu.o{display:block}
+#pmenu .opt{display:flex;gap:12px;align-items:center;padding:10px;border-radius:12px;cursor:pointer}
+#pmenu .opt:hover{background:#ebe1cf}
+#pmenu .ic{flex:none;width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font:700 14px Sora;color:#fff}
+#pmenu .opt b{display:block;font:700 13px Sora}#pmenu .opt span.d{color:#6b5a3e;font-size:11px}
+#pmenu .note{margin:6px 6px 2px;font:700 8.5px Sora;letter-spacing:1.5px;color:#a1641f}
+#pmenu input{width:100%;border:1.5px solid #d9cdb8;border-radius:10px;padding:8px 10px;font:500 12px Sora;background:#fff;color:#1e1145;outline:none;margin:2px 0 6px}
+#pmenu .grp{font:700 8.5px Sora;letter-spacing:2px;color:#6d2fd0;margin:8px 6px 2px}
+#pmenu .back{cursor:pointer;font:700 11px Sora;color:#6d2fd0;margin:2px 6px 4px;display:inline-block}
+#pmenu .opt.on{background:#e4dbf6}#pmenu .opt .tk{margin-left:auto;font:700 11px Sora;color:#6d2fd0}
+#chips:empty{display:none}#chips{flex-wrap:wrap;justify-content:center;max-width:640px}
+#chips .ch{display:flex;gap:6px;align-items:center;font:600 11px Sora;color:#f2d795;padding:5px 10px}#chips .ch i{width:7px;height:7px;border-radius:50%;background:#7ee08f;display:inline-block}#chips .ch u{text-decoration:none;opacity:.7;cursor:pointer;margin-left:2px}
+#chips .ch small{color:#c9a9f2;font-weight:500;font-size:9px}
+@media(max-width:640px){#pmenu{width:calc(100vw - 20px)}}
+</style>
+</head><body data-build="b12-0070">
 <div style="position:fixed;inset:0;z-index:0;background:url(../assets/hero-backdrop-nolady.jpg) center/cover"></div><div style="position:fixed;inset:0;z-index:1;background:linear-gradient(160deg,rgba(122,53,232,.66),rgba(42,16,98,.76) 78%)"></div>
 <div class="logo"><img src="../assets/noorizq-logo-crisp.png" alt="Noorizq"></div>
 <div id="hd" style="height:0"></div>
@@ -188,7 +205,7 @@ body.rv #res{position:relative!important;left:auto!important;top:auto!important;
 <div class="sg" id="sg1" style="left:345px;top:345px;width:205px;transform:rotate(-1deg)"><b>FINANCE SUGGESTS</b>Raise to £14 a box. Nearby sellers charge £14 to £28.<br><button onclick="ap(1)">Apply</button></div>
 <div class="sg" id="sg2" style="left:570px;top:285px;width:210px;transform:rotate(1deg)"><b>MARKETING SUGGESTS</b>Start the Eid push in week 2. Eid is 3 weeks out.<br><button onclick="ap(2)">Apply</button></div>
 </div></div>
-<div class="b" data-bar="8"><div class="main"><button id="mic" style="all:unset;cursor:pointer;display:flex"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f2d795" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button><span id="speakLbl" style="cursor:pointer;">speak</span><span style="color:#c9a9f2">|</span><span style="color:#f2d795;font-family:Fraunces,serif;font-style:italic">I want to</span><input id="typer" placeholder="start a ..." style="background:none;border:none;outline:none;font:13px Sora;color:#fff;"/><span style="color:#c9a9f2">|</span><span style="white-space:nowrap">+ add anything</span></div></div>
+<div class="b" data-bar="8"><div id="pmenu"></div><div class="row" id="chips"></div><div class="main"><button id="mic" style="all:unset;cursor:pointer;display:flex"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f2d795" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button><span id="speakLbl" style="cursor:pointer;">speak</span><span style="color:#c9a9f2">|</span><span style="color:#f2d795;font-family:Fraunces,serif;font-style:italic">I want to</span><input id="typer" placeholder="start a ..." style="background:none;border:none;outline:none;font:13px Sora;color:#fff;"/><span style="color:#c9a9f2">|</span><span id="plus" style="white-space:nowrap;cursor:pointer">+ add anything</span></div></div>
 <div id="veil" style="position:fixed;inset:0;z-index:20;display:none;align-items:center;justify-content:center;background:rgba(28,10,69,.72);backdrop-filter:blur(4px)"><div style="border:2.5px dashed #e9c98a;border-radius:26px;padding:34px 54px;font:600 22px Fraunces,serif;color:#f2d795">drop it — it becomes part of the business</div></div>
 <script>
 const S=["baklava boxes for Eid, sold to my community","Sunday roast prep for busy families","hand-poured oud candles for Ramadan"];
@@ -257,8 +274,23 @@ setTimeout(done,700+rest.length*430+900);
 }catch(err){done();}
 })();
 
-var BUILD='b11-0063';
+(function(){
+const C=[['EMAIL AND GOOGLE',[['Gmail','#d1313f','G','Crew drafts and sends replies, you approve'],['Google Drive','#1f8f46','D','Keeps your files and PDFs in one place'],['Google Sheets','#1f8f46','S','Tracks orders and prices in a sheet'],['Google Calendar','#2d6bd8','C','Puts launches and deadlines on your calendar']]],['ADS AND SOCIAL',[['Meta Ads','#2d6bd8','M','Crew writes the ad, you approve it, it runs'],['Instagram','#c4308a','I','Posts your drafted photos and captions'],['TikTok','#1e1145','T','Posts short videos made from your photos']]],['SELLING AND CHAT',[['Shopify','#5a8f2a','S','Syncs your products and orders'],['Stripe','#6d2fd0','$','Takes payments, shows money in Results'],['WhatsApp','#1f8f46','W','Answers customers and sends order updates']]]];
+const menu=document.getElementById('pmenu'),chips=document.getElementById('chips'),on=new Set();
+const fi=document.createElement('input');fi.type='file';fi.multiple=true;fi.accept='*/*';fi.style.display='none';document.body.appendChild(fi);
+function home(){menu.innerHTML='<div class="opt" id="oa"><div class="ic" style="background:#6d2fd0">+</div><div><b>Attach</b><span class="d">Photo, video, files, anything</span></div></div><div class="opt" id="oc"><div class="ic" style="background:#a1641f">&#9679;</div><div><b>Connectors</b><span class="d">Connect your tools</span></div></div><div class="note">PREVIEW: THE DEMO ONLY TAKES A PHOTO. NOTHING REALLY CONNECTS.</div>';document.getElementById('oa').onclick=()=>{fi.click()};document.getElementById('oc').onclick=cons;}
+function cons(){menu.innerHTML='<span class="back" id="bk">&larr; Back</span><input id="cq" placeholder="Search connectors" autocomplete="off"><div id="cl"></div><div class="note">PREVIEW ONLY. NOTHING REALLY CONNECTS. YOU WILL APPROVE EVERY CONNECTION.</div>';document.getElementById('bk').onclick=home;const q=document.getElementById('cq');q.oninput=lst;lst();if(innerWidth>640)q.focus();}
+function lst(){const q=(document.getElementById('cq').value||'').toLowerCase();let h='';C.forEach(([g,a])=>{const r=a.filter(x=>(x[0]+' '+x[3]).toLowerCase().includes(q));if(!r.length)return;h+='<div class="grp">'+g+'</div>';r.forEach(x=>{h+='<div class="opt'+(on.has(x[0])?' on':'')+'" data-n="'+x[0]+'"><div class="ic" style="background:'+x[1]+'">'+x[2]+'</div><div><b>'+x[0]+'</b><span class="d">'+x[3]+'</span></div>'+(on.has(x[0])?'<span class="tk">Added</span>':'')+'</div>';});});document.getElementById('cl').innerHTML=h||'<div class="note">NO MATCH</div>';document.querySelectorAll('#cl .opt').forEach(e=>e.onclick=()=>{tog(e.dataset.n);lst();});}
+function tog(n){if(on.has(n))on.delete(n);else on.add(n);chips.innerHTML=[...on].map(x=>'<div class="ch"><i></i>'+x+' <small>preview</small><u data-x="'+x+'">&#10005;</u></div>').join('');chips.querySelectorAll('u').forEach(u=>u.onclick=e=>{e.stopPropagation();on.delete(u.dataset.x);tog2();});setTimeout(fit,30);}
+function tog2(){chips.innerHTML=[...on].map(x=>'<div class="ch"><i></i>'+x+' <small>preview</small><u data-x="'+x+'">&#10005;</u></div>').join('');chips.querySelectorAll('u').forEach(u=>u.onclick=e=>{e.stopPropagation();on.delete(u.dataset.x);tog2();});setTimeout(fit,30);}
+fi.onchange=()=>{const f=[...fi.files];fi.value='';if(!f.length)return;menu.classList.remove('o');if(f.some(x=>/^image\//.test(x.type)))document.getElementById('veil').dispatchEvent(new Event('drop'));else{menu.classList.add('o');menu.innerHTML='<div class="note">PREVIEW: THE DEMO ONLY HANDLES PHOTOS. THE REAL ONE WILL TAKE THIS FILE.</div><span class="back" id="bk">&larr; Back</span>';document.getElementById('bk').onclick=home;}};
+document.getElementById('plus').onclick=e=>{e.stopPropagation();if(menu.classList.toggle('o'))home();};
+menu.onclick=e=>e.stopPropagation();
+document.addEventListener('click',()=>menu.classList.remove('o'));
+})();
+
+var BUILD='b12-0070';
 fetch(location.pathname+'?nc='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{const m=t.match(/data-build="([^"]+)"/);if(m&&m[1]!==BUILD&&location.search.indexOf(m[1])<0)location.replace(location.pathname+'?v='+m[1]);}).catch(()=>{});
 </script>
-<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b11-0063</div>
+<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b12-0070</div>
 </body></html>
