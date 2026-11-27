@@ -155,7 +155,7 @@ let gv=12;function setG(v){gv=v;document.getElementById('gfl').style.width=(v/50
 setG(12);
 function ap(n){const b=document.getElementById('sg'+n);if(b.classList.contains('ok'))return;b.classList.add('ok');b.querySelector('button').textContent='Applied ✓';
 if(n==1){[...document.querySelectorAll('.nlbl')].find(l=>/PRICE LIST/.test(l.textContent)).parentNode.lastChild.textContent='£14 box · £20 duo';document.getElementById('a3').textContent='price updated to £14';setG(gv+7);}
-else{[...document.querySelectorAll('.nlbl')].find(l=>/90-DAY PLAN/.test(l.textContent)).parentNode.innerHTML='<span class="nlbl">6 · 90-DAY PLAN</span>Wk 1 photos + price list<br>Wk 2 Eid pre-order push<br>Wk 3 soft launch, 20 boxes';document.getElementById('a2').textContent='plan reordered';setG(gv+9);}}
+else{[...document.querySelectorAll('.nlbl')].find(l=>/90-DAY PLAN/.test(l.textContent)).parentNode.innerHTML='<span class="nlbl">6 · 90-DAY PLAN</span>Wk 1 photos + price list<br>Wk 2 Eid pre-order push<br>Wk 3 soft launch, 20 boxes';document.getElementById('a1').textContent='plan reordered';setG(gv+9);}}
 setInterval(()=>{const T={a1:['writing 6 posts','choosing photos','scheduling posts'],a2:['3 buyers waiting','replying to Sam','quote sent'],a3:['checking prices','gift box costed','totals ready'],a4:['packing list ready','20 boxes planned','courier booked'],a5:['drawing logo options','picking colours','logo ready']};for(const k in T){const e=document.getElementById(k);if(/updated|reordered/.test(e.textContent))continue;e.textContent=T[k][Math.floor(Date.now()/3500+k.charCodeAt(1))%3];}},3500);
 
 function sv(r){document.body.classList.toggle('rv',!!r);document.getElementById('tb').classList.toggle('on',!r);document.getElementById('tr').classList.toggle('on',!!r);}
