@@ -84,11 +84,12 @@ body:not(.rv) .stage,body:not(.rv) #hd{animation:fadein .5s ease both}
 .cfp{position:fixed;width:9px;height:14px;border-radius:2px;z-index:60;pointer-events:none;animation:cf 1.2s ease-out forwards}
 .shp{animation:pop .5s ease}
 </style>
+<style>.stage{padding:44px 0 118px!important}#hd{padding-bottom:6px}</style>
 </head><body>
 <div style="position:fixed;inset:0;z-index:0;background:url(../assets/hero-backdrop-nolady.jpg) center/cover"></div><div style="position:fixed;inset:0;z-index:1;background:linear-gradient(160deg,rgba(122,53,232,.66),rgba(42,16,98,.76) 78%)"></div>
 <div class="logo"><img src="../assets/noorizq-logo-crisp.png" alt="Noorizq"></div>
 <div id="hd" style="text-align:center;padding-top:96px;position:relative;z-index:5"><h1>Say <em>one</em> thing. Big.</h1>
-<div class="sub">Your sentence is the headline; everything else is small print that builds itself.</div></div>
+</div>
 <div class="tg"><button id="tb" class="on" onclick="sv(0)">Build</button><button id="tr" onclick="sv(1)">Results</button></div>
 <div id="res">
 <div class="g" style="grid-template-columns:1fr 1fr 1fr">
@@ -169,5 +170,8 @@ function cu(e,t,f){const T=900,t0=performance.now();(function st(n){const k=Math
 const _sv=sv;sv=function(r){_sv(r);if(r){document.querySelectorAll('#res [data-n]').forEach(e=>{const f=e.dataset.f;let t=+e.dataset.n;if(e.id=='pmv'&&document.getElementById('ship').dataset.d)t=30;if(e.id=='rg'&&document.getElementById('ship').dataset.d)t=31;cu(e,t,f)});document.getElementById('rgb').style.width='0';setTimeout(()=>document.getElementById('rgb').style.width=(document.getElementById('ship').dataset.d?62:56)+'%',60);}};
 function conf(el){const r=el.getBoundingClientRect(),cs=['#6d2fd0','#c98a2e','#f2d795','#1f8f46','#8b3ff0'];for(let i=0;i<34;i++){const d=document.createElement('i');d.className='cfp';d.style.left=(r.left+r.width/2)+'px';d.style.top=(r.top+r.height/2)+'px';d.style.background=cs[i%5];const a=Math.random()*6.28,k=80+Math.random()*140;d.style.setProperty('--dx',Math.cos(a)*k+'px');d.style.setProperty('--dy',Math.sin(a)*k-40+'px');document.body.appendChild(d);setTimeout(()=>d.remove(),1300);}}
 const _shp=shp;shp=function(){const b=document.getElementById('ship');if(b.dataset.d)return;_shp();conf(b);b.classList.add('shp');document.getElementById('prob').classList.add('ok');const g=document.getElementById('rg');cu(g,31,'');const m=document.getElementById('pmv');cu(m,30,'p');document.querySelectorAll('#res .vd i.r').forEach(i=>{i.className='';});};
+
+function fit(){const z=Math.max(.6,Math.min(1.14,(innerHeight-287)/470,(innerWidth-30)/1120));document.querySelector('.canvas').style.zoom=z;const r=document.getElementById('res');const k=Math.max(.6,Math.min(1.28,(innerHeight-92-125)/400,(innerWidth-30)/1120));r.style.transform='translateX(-50%) scale('+k+')';}
+fit();addEventListener('resize',fit);
 </script>
 </body></html>
