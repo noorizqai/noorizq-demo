@@ -176,7 +176,7 @@ const _shp=shp;shp=function(){const b=document.getElementById('ship');if(b.datas
 var hdB=150,barT=640;
 function fit(){const rv=document.body.classList.contains('rv');const b=document.querySelector('.b');if(!rv){hdB=document.getElementById('hd').getBoundingClientRect().bottom;barT=b.getBoundingClientRect().top;}
 const z=Math.max(.4,Math.min(1.14,(barT-hdB-54)/470,(innerWidth-30)/1120));document.querySelector('.canvas').style.zoom=z;
-const top=innerHeight<640?56:92;const r=document.getElementById('res');r.style.top=top+'px';const k=Math.max(.4,Math.min(1.28,(barT-top-14)/400,(innerWidth-30)/1120));r.style.transform='translateX(-50%) scale('+k+')';}
+const top=innerHeight<640?78:92;const r=document.getElementById('res');r.style.top=top+'px';const k=Math.max(.4,Math.min(1.28,(barT-top-14)/(r.offsetHeight||440),(innerWidth-30)/1120));r.style.transform='translateX(-50%) scale('+k+')';}
 fit();addEventListener('resize',fit);setTimeout(fit,400);setTimeout(fit,1500);
 </script>
 </body></html>
