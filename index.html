@@ -165,8 +165,8 @@ body.rv #res{position:relative!important;left:auto!important;top:auto!important;
 .b .main .mrow .sp{flex:1}
 .b .main #speakLbl{display:inline!important;color:#f2d795}
 #sendb{all:unset;cursor:pointer;width:36px;height:36px;border-radius:50%;background:#f2d795;display:flex;align-items:center;justify-content:center;flex:none}
-@media(max-width:640px){.b .main{width:100%!important;padding:14px 16px 10px!important}.b .main #typer{font-size:15px}#tai,#act{bottom:150px!important}}
-</style></head><body data-build="b16-0077">
+@media(max-width:640px){.b .main{width:100%!important;padding:14px 16px 10px!important}.b .main #typer{font-size:15px}#tai,#act{bottom:150px!important}body:has(#pmenu.o) #act,body:has(#pmenu.o) #tai{visibility:hidden}}
+</style></head><body data-build="b16-0078">
 <div style="position:fixed;inset:0;z-index:0;background:url(assets/hero-backdrop-nolady.jpg) center/cover"></div><div style="position:fixed;inset:0;z-index:1;background:linear-gradient(160deg,rgba(122,53,232,.66),rgba(42,16,98,.76) 78%)"></div>
 <div class="logo"><img src="assets/noorizq-logo-crisp.png" alt="Noorizq"></div>
 <div id="hd" style="height:0"></div>
@@ -350,7 +350,7 @@ const ST=['sell baklava boxes for Eid','run ads for Facebook','change my price t
 let tm;function say(h,ms){scn.innerHTML=h;scn.style.display='block';clearTimeout(tm);if(ms)tm=setTimeout(()=>{scn.style.display='none';setTimeout(fit,30);},ms);setTimeout(fit,30);}
 function pick(t){go(t);}
 window.go=function(t){t=(t||'').trim();if(!t)return;if(/^(change|stop|pause|update|make)\b/i.test(t)){say('PREVIEW: THE REAL ONE WOULD DO THIS. THE DEMO ONLY SHOWS IT IN ACTIVITY.',6000);if(window._actAdd)window._actAdd({who:'Crew',t:'just now',x:'(Sample reply) Got it: "'+t+'". The real one would do this and tell you.',w:'',u:0});return;}const s=SC.find(x=>x.re.test(t));if(!s){say('<span>PREVIEW: THE DEMO ONLY KNOWS 4 EXAMPLES. TRY ONE:</span><br>'+EX.map(x=>'<button data-s="'+x+'">'+x+'</button>').join(''));scn.querySelectorAll('button').forEach(e=>e.onclick=ev=>{ev.stopPropagation();go(e.dataset.s);});return;}
- say('PREVIEW · SAMPLE EXAMPLE · NOTHING HERE IS REAL',6000);apply(s);typeSaid(t.charAt(0).toUpperCase()+t.slice(1));};
+ say('PREVIEW · SAMPLE EXAMPLE · NOTHING HERE IS REAL',6000);apply(s);typeSaid((t.length>80?t.slice(0,80)+'…':t).replace(/^./,c=>c.toUpperCase()));};
 // rotate starters in the bar
 const ty=document.getElementById('typer');let ri=0;const PH=ST;ty.placeholder=PH[0]+' …';
 setInterval(()=>{if(document.activeElement===ty&&ty.value)return;ri=(ri+1)%ST.length;ty.placeholder=PH[ri]+' …';},2800);
@@ -414,8 +414,8 @@ document.addEventListener('click',()=>p.classList.remove('o'));
 window._actAdd=o=>{feed.unshift(o);draw();};const _go=window.go;window.go=function(t){t=(t||'').trim();if(t){feed.unshift({me:1,t:'just now',x:'You: "'+t+'"',w:'',u:0});draw();}return _go(t);};
 })();
 
-var BUILD='b16-0077';
+var BUILD='b16-0078';
 fetch(location.pathname+'?nc='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{const m=t.match(/data-build="([^"]+)"/);if(m&&m[1]!==BUILD&&location.search.indexOf(m[1])<0)location.replace(location.pathname+'?v='+m[1]);}).catch(()=>{});
 </script>
-<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b16-0077</div>
+<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b16-0078</div>
 </body></html>
