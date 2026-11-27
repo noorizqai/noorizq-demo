@@ -157,7 +157,7 @@ body.rv #res{position:relative!important;left:auto!important;top:auto!important;
 #chips .ch small{color:#c9a9f2;font-weight:500;font-size:9px}
 @media(max-width:640px){#pmenu{width:calc(100vw - 20px)}}
 </style>
-<style>#scn{display:none;background:rgba(28,10,69,.9);padding:8px 12px;border-radius:14px;backdrop-filter:blur(6px);text-align:center;font:600 10px Sora;letter-spacing:1.5px;color:#f2d795;max-width:92vw}#scn button{all:unset;cursor:pointer;margin:6px 4px 0;padding:6px 11px;border-radius:14px;background:rgba(255,255,255,.14);letter-spacing:0;font:600 11px Sora;color:#fff}#scn:empty{display:none}#typer{min-width:0;flex:1}</style></head><body data-build="b14-0075">
+<style>#scn{display:none;background:rgba(28,10,69,.9);padding:8px 12px;border-radius:14px;backdrop-filter:blur(6px);text-align:center;font:600 10px Sora;letter-spacing:1.5px;color:#f2d795;max-width:92vw}#scn button{all:unset;cursor:pointer;margin:6px 4px 0;padding:6px 11px;border-radius:14px;background:rgba(255,255,255,.14);letter-spacing:0;font:600 11px Sora;color:#fff}#scn:empty{display:none}#typer{min-width:0;flex:1}</style></head><body data-build="b15-0076">
 <div style="position:fixed;inset:0;z-index:0;background:url(assets/hero-backdrop-nolady.jpg) center/cover"></div><div style="position:fixed;inset:0;z-index:1;background:linear-gradient(160deg,rgba(122,53,232,.66),rgba(42,16,98,.76) 78%)"></div>
 <div class="logo"><img src="assets/noorizq-logo-crisp.png" alt="Noorizq"></div>
 <div id="hd" style="height:0"></div>
@@ -349,8 +349,64 @@ ty.addEventListener('keydown',e=>{if(e.key==='Enter'&&!ty.value.trim()){e.preven
 const il=[...document.querySelectorAll('.b .main span')].find(x=>x.textContent.trim()==='I want to');if(il){il.style.cursor='pointer';il.onclick=()=>go(ST[ri]);}
 })();
 
-var BUILD='b14-0075';
+(function(){
+const css=document.createElement('style');css.textContent=`
+#act{position:fixed;left:16px;bottom:22px;z-index:45;font:600 11px Sora}
+#actb{all:unset;cursor:pointer;display:flex;align-items:center;gap:8px;padding:8px 13px 8px 10px;border-radius:99px;background:rgba(38,14,92,.88);border:1.4px solid rgba(233,201,138,.6);color:#f2d795;font:600 11px Sora;box-shadow:0 8px 20px -6px rgba(3,6,26,.8);position:relative}
+#actn{position:absolute;top:-7px;right:-4px;min-width:17px;height:17px;border-radius:9px;background:#d1313f;color:#fff;font:700 10px/17px Sora;text-align:center;display:none}
+#apn{position:fixed;z-index:70;top:0;right:0;bottom:0;width:350px;max-width:100vw;background:#f5efe3;color:#1e1145;box-shadow:-18px 0 40px -12px rgba(3,6,26,.8);transform:translateX(105%);transition:transform .3s ease;display:flex;flex-direction:column;font:500 12px/1.4 Sora}
+#apn.o{transform:none}
+#apn .hd{display:flex;align-items:center;justify-content:space-between;padding:16px 16px 6px}
+#apn .hd b{font:700 10px Sora;letter-spacing:2.5px;color:#6d2fd0}
+#apn .hd u{text-decoration:none;cursor:pointer;font-size:18px;padding:0 4px}
+#apn .smp2{font:700 8.5px Sora;letter-spacing:1.5px;color:#a1641f;padding:0 16px 8px}
+#apb{overflow:auto;padding:0 12px 16px;flex:1}
+#apb .g2{font:700 9px Sora;letter-spacing:2px;color:#a1641f;margin:10px 4px 6px}
+#apb .it2{background:#fff;border-radius:12px;padding:9px 11px;margin-bottom:8px;box-shadow:0 2px 8px -4px rgba(30,17,69,.4);border-left:4px solid #1f8f46}
+#apb .it2.nd{border-left-color:#d1313f;background:#fff7f4}
+#apb .it2.me{border-left-color:#8b3ff0;background:#f1e8ff}
+#apb .it2.un{opacity:.55;text-decoration:line-through}
+#apb .t2{font:600 10px Sora;color:#6b5a3e}
+#apb .w2{color:#6b5a3e;font-size:11px;margin-top:2px}
+#apb button{all:unset;cursor:pointer;font:700 10px Sora;padding:5px 11px;border-radius:10px;background:#6d2fd0;color:#fff;margin:7px 6px 0 0}
+#apb button.s{background:#e8dfcf;color:#1e1145}
+@media(max-width:640px){#act{left:10px;bottom:82px}#actb{font-size:0;padding:10px}#apn{top:auto;left:0;right:0;width:auto;height:72vh;border-radius:20px 20px 0 0;transform:translateY(105%)}#apn.o{transform:none}}
+@media(max-height:640px){#act{bottom:10px}}`;
+document.head.appendChild(css);
+const a=document.createElement('div');a.id='act';
+a.innerHTML='<button id="actb"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f2d795" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>Activity<span id="actn"></span></button>';
+document.body.appendChild(a);
+const p=document.createElement('div');p.id='apn';
+p.innerHTML='<div class="hd"><b>ACTIVITY</b><u id="apx">&#10005;</u></div><div class="smp2">SAMPLE ENTRIES. NOTHING HERE REALLY HAPPENED.</div><div id="apb"></div>';
+document.body.appendChild(p);
+let need=[
+{id:'n1',who:'Marketing',t:'now',x:'Post the Eid box photo at 7pm tonight?',w:'Because your goal is 50 orders and posts bring visits.',b:'Approve'},
+{id:'n2',who:'Finance',t:'2 min ago',x:'Show the £20 duo first on the price card?',w:'41% of visitors leave at the price card.',b:'Approve'}];
+let feed=[
+{who:'Finance',t:'6:58pm',x:'Checked what nearby sellers charge.',w:'Because the price card loses 41% of visitors.',u:1},
+{who:'Marketing',t:'6:40pm',x:'Drafted 3 posts.',w:'Grouped: 3 captions and 3 photos picked.',u:1},
+{who:'Sales',t:'6:31pm',x:'Answered 2 customer questions.',w:'Delivery to Cardiff, and nut-free boxes.',u:1},
+{me:1,t:'6:20pm',x:'You: "change the price to £14"',w:'',u:0},
+{who:'Finance',t:'6:20pm',x:'Set the box price to £14.',w:'Because you asked. Nearby sellers charge £14 to £28.',u:1},
+{who:'Creative',t:'6:05pm',x:'Made 3 logo colour options and picked one.',w:'Cream and purple matched your photo best.',u:1}];
+const B=document.getElementById('apb'),N=document.getElementById('actn');
+function badge(){N.textContent=need.length;N.style.display=need.length?'block':'none';}
+function draw(){let h='';if(need.length){h+='<div class="g2">NEEDS YOU</div>'+need.map(n=>'<div class="it2 nd"><div class="t2">'+n.t+' · '+n.who+'</div>'+n.x+'<div class="w2">'+n.w+'</div><button data-ok="'+n.id+'">'+n.b+'</button><button class="s" data-no="'+n.id+'">Not now</button></div>').join('');}
+h+='<div class="g2">EARLIER</div>'+feed.map((f,i)=>'<div class="it2'+(f.me?' me':'')+(f.un?' un':'')+'"><div class="t2">'+f.t+(f.who?' · '+f.who:'')+'</div>'+f.x+(f.w?'<div class="w2">'+f.w+'</div>':'')+(f.u&&!f.un?'<button class="s" data-un="'+i+'">Undo</button>':'')+(f.un?'<div class="w2">Undone (sample)</div>':'')+'</div>').join('');
+B.innerHTML=h;badge();
+B.querySelectorAll('[data-ok]').forEach(e=>e.onclick=()=>{const n=need.find(x=>x.id===e.dataset.ok);need=need.filter(x=>x!==n);feed.unshift({who:n.who,t:'just now',x:'Approved: '+n.x.replace(/\?$/,'.'),w:n.w,u:1});draw();});
+B.querySelectorAll('[data-no]').forEach(e=>e.onclick=()=>{need=need.filter(x=>x.id!==e.dataset.no);draw();});
+B.querySelectorAll('[data-un]').forEach(e=>e.onclick=()=>{feed[+e.dataset.un].un=1;draw();});}
+draw();
+document.getElementById('actb').onclick=e=>{e.stopPropagation();p.classList.toggle('o');};
+document.getElementById('apx').onclick=()=>p.classList.remove('o');
+p.onclick=e=>e.stopPropagation();
+document.addEventListener('click',()=>p.classList.remove('o'));
+const _go=window.go;window.go=function(t){t=(t||'').trim();if(t){feed.unshift({me:1,t:'just now',x:'You: "'+t+'"',w:'',u:0});draw();}return _go(t);};
+})();
+
+var BUILD='b15-0076';
 fetch(location.pathname+'?nc='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{const m=t.match(/data-build="([^"]+)"/);if(m&&m[1]!==BUILD&&location.search.indexOf(m[1])<0)location.replace(location.pathname+'?v='+m[1]);}).catch(()=>{});
 </script>
-<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b14-0075</div>
+<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b15-0076</div>
 </body></html>
