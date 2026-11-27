@@ -116,7 +116,7 @@ html.pre .canvas>*{opacity:0}
 body{overflow-y:auto}
 .logo{top:12px;left:12px;padding:6px 10px;border-radius:11px}.logo img{height:20px}
 .tg{top:12px;right:12px;font-size:11px}
-.stage{display:block!important;padding:64px 0 104px!important}
+.stage{display:block!important;padding:64px 0 104px!important}body.rv .stage{display:none!important}
 .canvas{zoom:1!important;width:auto!important;height:auto!important;display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 12px;position:static!important}
 .canvas>*{position:relative!important;left:auto!important;top:auto!important;width:auto!important;transform:none!important;rotate:var(--r,0deg);min-width:0}
 .canvas{align-items:start}.canvas>.node{height:auto!important;min-height:0}
@@ -140,7 +140,7 @@ body.rv #res{position:relative!important;left:auto!important;top:auto!important;
 #res .big{font-size:22px}
 }
 </style>
-</head><body data-build="b11-0061">
+</head><body data-build="b11-0062">
 <div style="position:fixed;inset:0;z-index:0;background:url(assets/hero-backdrop-nolady.jpg) center/cover"></div><div style="position:fixed;inset:0;z-index:1;background:linear-gradient(160deg,rgba(122,53,232,.66),rgba(42,16,98,.76) 78%)"></div>
 <div class="logo"><img src="assets/noorizq-logo-crisp.png" alt="Noorizq"></div>
 <div id="hd" style="height:0"></div>
@@ -257,8 +257,8 @@ setTimeout(done,700+rest.length*430+900);
 }catch(err){done();}
 })();
 
-var BUILD='b11-0061';
+var BUILD='b11-0062';
 fetch(location.pathname+'?nc='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{const m=t.match(/data-build="([^"]+)"/);if(m&&m[1]!==BUILD&&location.search.indexOf(m[1])<0)location.replace(location.pathname+'?v='+m[1]);}).catch(()=>{});
 </script>
-<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b11-0061</div>
+<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b11-0062</div>
 </body></html>
