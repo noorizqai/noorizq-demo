@@ -157,7 +157,7 @@ body.rv #res{position:relative!important;left:auto!important;top:auto!important;
 #chips .ch small{color:#c9a9f2;font-weight:500;font-size:9px}
 @media(max-width:640px){#pmenu{width:calc(100vw - 20px)}}
 </style>
-<style>#scn{display:none;text-align:center;font:600 10px Sora;letter-spacing:1.5px;color:#f2d795;max-width:92vw}#scn button{all:unset;cursor:pointer;margin:6px 4px 0;padding:6px 11px;border-radius:14px;background:rgba(255,255,255,.14);letter-spacing:0;font:600 11px Sora;color:#fff}#scn:empty{display:none}#typer{min-width:0;flex:1}</style></head><body data-build="b14-0074">
+<style>#scn{display:none;background:rgba(28,10,69,.9);padding:8px 12px;border-radius:14px;backdrop-filter:blur(6px);text-align:center;font:600 10px Sora;letter-spacing:1.5px;color:#f2d795;max-width:92vw}#scn button{all:unset;cursor:pointer;margin:6px 4px 0;padding:6px 11px;border-radius:14px;background:rgba(255,255,255,.14);letter-spacing:0;font:600 11px Sora;color:#fff}#scn:empty{display:none}#typer{min-width:0;flex:1}</style></head><body data-build="b14-0075">
 <div style="position:fixed;inset:0;z-index:0;background:url(assets/hero-backdrop-nolady.jpg) center/cover"></div><div style="position:fixed;inset:0;z-index:1;background:linear-gradient(160deg,rgba(122,53,232,.66),rgba(42,16,98,.76) 78%)"></div>
 <div class="logo"><img src="assets/noorizq-logo-crisp.png" alt="Noorizq"></div>
 <div id="hd" style="height:0"></div>
@@ -343,14 +343,14 @@ function pick(t){go(t);}
 window.go=function(t){t=(t||'').trim();if(!t)return;const s=SC.find(x=>x.re.test(t));if(!s){say('<span>PREVIEW: THE DEMO ONLY KNOWS 4 EXAMPLES. TRY ONE:</span><br>'+ST.map(x=>'<button data-s="'+x+'">'+x+'</button>').join(''));scn.querySelectorAll('button').forEach(e=>e.onclick=ev=>{ev.stopPropagation();go(e.dataset.s);});return;}
  say('PREVIEW · SAMPLE EXAMPLE · NOTHING HERE IS REAL',6000);apply(s);typeSaid(t.charAt(0).toUpperCase()+t.slice(1));};
 // rotate starters in the bar
-const ty=document.getElementById('typer');let ri=0;ty.placeholder=ST[0]+' …';
-setInterval(()=>{if(document.activeElement===ty&&ty.value)return;ri=(ri+1)%ST.length;ty.placeholder=ST[ri]+' …';},2800);
+const ty=document.getElementById('typer');let ri=0;const PH=innerWidth<=640?['sell baklava boxes','run ads for Facebook','start a fashion brand','start a tutoring job']:ST;ty.placeholder=PH[0]+' …';
+setInterval(()=>{if(document.activeElement===ty&&ty.value)return;ri=(ri+1)%ST.length;ty.placeholder=PH[ri]+' …';},2800);
 ty.addEventListener('keydown',e=>{if(e.key==='Enter'&&!ty.value.trim()){e.preventDefault();e.stopImmediatePropagation();go(ST[ri]);}},true);
 const il=[...document.querySelectorAll('.b .main span')].find(x=>x.textContent.trim()==='I want to');if(il){il.style.cursor='pointer';il.onclick=()=>go(ST[ri]);}
 })();
 
-var BUILD='b14-0074';
+var BUILD='b14-0075';
 fetch(location.pathname+'?nc='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{const m=t.match(/data-build="([^"]+)"/);if(m&&m[1]!==BUILD&&location.search.indexOf(m[1])<0)location.replace(location.pathname+'?v='+m[1]);}).catch(()=>{});
 </script>
-<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b14-0074</div>
+<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b14-0075</div>
 </body></html>
