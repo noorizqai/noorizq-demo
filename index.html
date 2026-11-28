@@ -218,7 +218,7 @@ html[data-st="3"] .node.forming{background:linear-gradient(135deg,rgba(79,123,25
 html[data-st="3"] .bs,html[data-st="3"] #res button,html[data-st="3"] #apb button[data-ok]{background:linear-gradient(135deg,#4f7bff,#8b3ff0)!important;color:#fff!important;border-radius:99px!important;box-shadow:0 8px 18px -6px rgba(79,123,255,.8)!important}
 html[data-st="3"] .forming .nlbl,html[data-st="3"] #res .brief .lb{color:#f6dc9a!important}html[data-st="3"] .forming{color:#fff!important}
 html[data-st="3"] #apb .it2.nd{background:#fff4f4!important}
-</style></head><body data-build="b58-0128">
+</style></head><body data-build="b59-0129">
 <div style="position:fixed;inset:0;z-index:0;background:url(assets/hero-backdrop-nolady.jpg) center/cover"></div><div style="position:fixed;inset:0;z-index:1;background:linear-gradient(160deg,rgba(122,53,232,.66),rgba(42,16,98,.76) 78%)"></div>
 <div class="logo"><img src="assets/noorizq-logo-crisp.png" alt="Noorizq"></div>
 <div id="hd" style="height:0"></div>
@@ -463,10 +463,10 @@ document.addEventListener('click',()=>p.classList.remove('o'));
 window._actAdd=o=>{feed.unshift(o);draw();};const _go=window.go;window.go=function(t){t=(t||'').trim();if(t){feed.unshift({me:1,t:'just now',x:'You: "'+t+'"',w:'',u:0});draw();}return _go(t);};
 })();
 
-var BUILD='b58-0128';
+var BUILD='b59-0129';
 fetch(location.pathname+'?nc='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{const m=t.match(/data-build="([^"]+)"/);if(m&&m[1]!==BUILD&&location.search.indexOf(m[1])<0)location.replace(location.pathname+'?v='+m[1]);}).catch(()=>{});
 </script>
-<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b58-0128</div>
+<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b59-0129</div>
 
 <script>
 document.querySelectorAll('.ag').forEach(e=>{const r=e.dataset.r;e.querySelector('.avs').outerHTML=AV(r,30);e.querySelector('b').textContent=CREW[r].n;});
@@ -961,7 +961,7 @@ function photoPrompt(){var r=S.read||{};return (r.hero_subject||r.offer||S.idea)
 var T={
  a1:function(){return step('names, prices and plan',function(){return api('genesis',{action:'assets',stage:1})},'Farah',function(r){return 'Suggested '+(r.products||[]).length+' products with prices, a tagline and a 90-day plan.'},'a1').then(function(r){if(r){S.a1=r;delete S.fl.a1}save();renderBoard();renderRes()})},
  a2:function(){return step('posts, ad and notes',function(){return api('genesis',{action:'assets',stage:2})},'Mira',function(r){return 'Drafted 6 posts, 1 ad, a first email and market notes.'},'a2').then(function(r){if(r){S.a2=r;delete S.fl.a2}save();renderBoard();renderRes()})},
- logo:function(){return step('logos',function(){var one=function(){return api('genesis',{action:'logo'},1).then(function(r){if(!r.ok||!(r.imgs||[]).length)throw new Error(r.reason==='quota'?'Cloudflare free image quota used up for today, resets 00:00 GMT':'no image');return r})};return one().catch(one)},'Layla',function(r){return 'Drew '+r.imgs.length+' vector logo options with Gemini AI (typeset name).'},'logo').then(async function(r){if(r){S.logos=r.vector?r.imgs:await Promise.all(r.imgs.map(trimLogo));S.lk=!!r.lockup;S.lv=!!r.vector;selLogo=0;S.sel=0;delete S.fl.logo}save();renderBoard();renderRes()})},
+ logo:function(){return step('logos',function(){var one=function(){return api('genesis',{action:'logo'},1).then(function(r){if(!r.ok||!(r.imgs||[]).length)throw new Error(r.reason==='quota'?'Gemini free limit reached for now, try again in a minute':'no image');return r})};return one().catch(one)},'Layla',function(r){return 'Drew '+r.imgs.length+' vector logo options with Gemini AI (typeset name).'},'logo').then(async function(r){if(r){S.logos=r.vector?r.imgs:await Promise.all(r.imgs.map(trimLogo));S.lk=!!r.lockup;S.lv=!!r.vector;selLogo=0;S.sel=0;delete S.fl.logo}save();renderBoard();renderRes()})},
  photo:function(){return step('photo',function(){return api('genesis',{action:'image',prompt:photoPrompt()}).then(function(r){if(!r.ok||!r.img)throw new Error(r.reason==='quota'?'Cloudflare free image quota used up for today, resets 00:00 GMT':'no image');return r})},'Layla',function(){return 'Made a photo with Cloudflare AI.'},'photo').then(function(r){if(r){S.photo=r.img;delete S.fl.photo}save();renderBoard();renderRes()})}
 };
 async function redo(k){if(!S||running)return;running=true;S.fl=S.fl||{};delete S.fl[k];S.step='Trying again…';renderBoard();try{await T[k]()}finally{running=false;S.step='';renderBoard();renderRes()}}
