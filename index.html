@@ -218,7 +218,7 @@ html[data-st="3"] .node.forming{background:linear-gradient(135deg,rgba(79,123,25
 html[data-st="3"] .bs,html[data-st="3"] #res button,html[data-st="3"] #apb button[data-ok]{background:linear-gradient(135deg,#4f7bff,#8b3ff0)!important;color:#fff!important;border-radius:99px!important;box-shadow:0 8px 18px -6px rgba(79,123,255,.8)!important}
 html[data-st="3"] .forming .nlbl,html[data-st="3"] #res .brief .lb{color:#f6dc9a!important}html[data-st="3"] .forming{color:#fff!important}
 html[data-st="3"] #apb .it2.nd{background:#fff4f4!important}
-</style></head><body data-build="b64-0134">
+</style></head><body data-build="b65-0135">
 <div style="position:fixed;inset:0;z-index:0;background:url(assets/hero-backdrop-nolady.jpg) center/cover"></div><div style="position:fixed;inset:0;z-index:1;background:linear-gradient(160deg,rgba(122,53,232,.66),rgba(42,16,98,.76) 78%)"></div>
 <div class="logo"><img src="assets/noorizq-logo-crisp.png" alt="Noorizq"></div>
 <div id="hd" style="height:0"></div>
@@ -463,10 +463,10 @@ document.addEventListener('click',()=>p.classList.remove('o'));
 window._actAdd=o=>{feed.unshift(o);draw();};const _go=window.go;window.go=function(t){t=(t||'').trim();if(t){feed.unshift({me:1,t:'just now',x:'You: "'+t+'"',w:'',u:0});draw();}return _go(t);};
 })();
 
-var BUILD='b64-0134';
+var BUILD='b65-0135';
 fetch(location.pathname+'?nc='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{const m=t.match(/data-build="([^"]+)"/);if(m&&m[1]!==BUILD&&location.search.indexOf(m[1])<0)location.replace(location.pathname+'?v='+m[1]);}).catch(()=>{});
 </script>
-<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b64-0134</div>
+<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b65-0135</div>
 
 <script>
 document.querySelectorAll('.ag').forEach(e=>{const r=e.dataset.r;e.querySelector('.avs').outerHTML=AV(r,30);e.querySelector('b').textContent=CREW[r].n;});
@@ -982,6 +982,7 @@ var T={
  photo:function(){return step('photo',function(){return api('genesis',{action:'image',prompt:photoPrompt()}).then(function(r){if(!r.ok||!r.img)throw new Error(r.reason==='quota'?'Cloudflare free image quota used up for today, resets 00:00 GMT':'no image');return r})},'Layla',function(){return 'Made a photo with Cloudflare AI.'},'photo').then(function(r){if(r){S.photo=r.img;delete S.fl.photo}save();renderBoard();renderRes()})}
 };
 async function redo(k){if(!S||running)return;running=true;S.fl=S.fl||{};delete S.fl[k];S.step='Trying again…';renderBoard();try{await T[k]()}finally{running=false;S.step='';renderBoard();renderRes()}}
+window.__nzrun=function(){return running};window.__nzst=function(){var f=S.fl||{},done=0,now='Noor is reading your idea';if(S.read){done++;now='Layla is drawing logos, Mira is writing'}var ks=[['a1',S.a1],['a2',S.a2],['logo',S.logos&&S.logos.length],['photo',S.photo]];ks.forEach(function(k){if(k[1]||f[k[0]])done++});return {done:done,total:5,now:now}};
 async function run(idea){
  if(running)return;running=true;selLogo=0;S={idea:idea,at:Date.now(),log:[],fl:{},step:'Noor is reading your idea…'};
  document.body.classList.add('lv');M.classList.remove('o');renderBoard();renderRes();renderAct();status('BUILDING FROM YOUR IDEA · THIS TAKES ABOUT 30 SECONDS');log('Noor','Got your idea. Reading it now.');
@@ -1038,7 +1039,7 @@ async function runJob(t){if(running)return;running=true;S.jobs=S.jobs||[];S.step
  running=false;S.step='';save();renderBoard();renderRes();status('');if(j&&j.st==='ready')openJob(S.jobs.indexOf(j))}
 /* ---------- wiring: every typed idea is real; no scripted examples ---------- */
 window.go=function(t){t=(t||'').trim();if(t.length<3)return;
- if(!(S&&S.read)&&!running&&/^(please\s+)?(set\s?up|setup|run|create|write|send|post|launch)\b[\s\S]*\b(ads?|adverts?|campaign|facebook|instagram|tiktok|posts?|emails?|newsletter)\b/i.test(t)){status('FIRST TELL ME YOUR BUSINESS · E.G. "MAKE ME A KIDS FOOTBALL BUSINESS"');log('Noor','You asked: "'+t.slice(0,80)+'". I need to know your business first. Tell me the idea in one line, then I will do this as a job for the crew.');renderAct&&renderAct();setTimeout(function(){status('')},9000);return}
+ if(!(S&&S.read)&&!running&&/^(please\s+)?(set\s?up|setup|run|create|write|send|post|launch)\b[\s\S]*\b(ads?|adverts?|campaign|facebook|instagram|tiktok|posts?|emails?|newsletter)\b/i.test(t)){window.nzToast('FIRST TELL ME YOUR BUSINESS<small>For example: make me a kids football business. Then I can do this as a job.</small>');log('Noor','You asked: "'+t.slice(0,80)+'". I need to know your business first. Tell me the idea in one line, then I will do this as a job for the crew.');renderAct&&renderAct();setTimeout(function(){status('')},9000);return}
  if(S&&S.read&&(S.a1||S.a2||(S.logos&&S.logos.length))&&!running){runJob(t);return}
  run(t)};
 var ty=$('#typer');
@@ -1057,4 +1058,7 @@ window._lvStill=1;
 .jb{cursor:pointer}.jb span small{display:block;opacity:.7;font-size:11px;margin-top:2px}
 #lact .it2{padding:10px 12px;margin:8px 0;border-radius:12px;background:rgba(255,255,255,.06);line-height:1.45}
 #lact .t2{font-size:11px;letter-spacing:.04em;text-transform:uppercase;opacity:.75;margin-bottom:3px;font-weight:700}
-</style><style>#lvf{height:62vh!important;min-height:380px}</style></body></html>
+</style><style>#lvf{height:62vh!important;min-height:380px}</style><style>#nzp{position:fixed;left:50%;top:66px;transform:translateX(-50%);z-index:60;width:min(92vw,420px);background:rgba(28,10,69,.94);border:1px solid #f2d79555;border-radius:16px;padding:10px 14px;color:#f2d795;font:600 11px Sora,system-ui;letter-spacing:1.2px;text-align:center;display:none;backdrop-filter:blur(8px);box-shadow:0 10px 30px -10px #000a}#nzp i{display:block;height:5px;border-radius:5px;background:#ffffff22;margin-top:8px;overflow:hidden}#nzp i u{display:block;height:100%;background:linear-gradient(90deg,#f2d795,#fff);transition:width .5s}#nzp small{display:block;margin-top:5px;font-weight:400;letter-spacing:.4px;color:#fff;opacity:.8}</style><div id="nzp"></div>
+<script>(function(){var P=document.getElementById('nzp'),t0=0,tt=0;window.nzToast=function(m){clearTimeout(tt);P.innerHTML=m;P.style.display='block';P.dataset.t=1;tt=setTimeout(function(){delete P.dataset.t;P.style.display='none'},9000)};
+setInterval(function(){var live=document.body.classList.contains('lv')&&window.__nzrun&&window.__nzrun();if(!live){if(!P.dataset.t)P.style.display='none';t0=0;return}if(!t0)t0=Date.now();var st=window.__nzst(),d=st.done,n=st.total,el=Math.round((Date.now()-t0)/1000);P.dataset.t='';P.style.display='block';P.innerHTML='YOUR CREW IS WORKING · '+d+' OF '+n+' DONE<i><u style="width:'+Math.max(6,Math.round(d/n*100))+'%"></u></i><small>'+st.now+' · '+el+'s'+(el>60?' · taking longer than usual, a card will say if it fails':'')+'</small>'},700)})();</script>
+</body></html>
