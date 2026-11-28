@@ -218,7 +218,7 @@ html[data-st="3"] .node.forming{background:linear-gradient(135deg,rgba(79,123,25
 html[data-st="3"] .bs,html[data-st="3"] #res button,html[data-st="3"] #apb button[data-ok]{background:linear-gradient(135deg,#4f7bff,#8b3ff0)!important;color:#fff!important;border-radius:99px!important;box-shadow:0 8px 18px -6px rgba(79,123,255,.8)!important}
 html[data-st="3"] .forming .nlbl,html[data-st="3"] #res .brief .lb{color:#f6dc9a!important}html[data-st="3"] .forming{color:#fff!important}
 html[data-st="3"] #apb .it2.nd{background:#fff4f4!important}
-</style></head><body data-build="b70-0140">
+</style></head><body data-build="b71-0141">
 <div style="position:fixed;inset:0;z-index:0;background:url(assets/hero-backdrop-nolady.jpg) center/cover"></div><div style="position:fixed;inset:0;z-index:1;background:linear-gradient(160deg,rgba(122,53,232,.66),rgba(42,16,98,.76) 78%)"></div>
 <div class="logo"><img src="assets/noorizq-logo-crisp.png" alt="Noorizq"></div>
 <div id="hd" style="height:0"></div>
@@ -463,10 +463,10 @@ document.addEventListener('click',()=>p.classList.remove('o'));
 window._actAdd=o=>{feed.unshift(o);draw();};const _go=window.go;window.go=function(t){t=(t||'').trim();if(t){feed.unshift({me:1,t:'just now',x:'You: "'+t+'"',w:'',u:0});draw();}return _go(t);};
 })();
 
-var BUILD='b70-0140';
+var BUILD='b71-0141';
 fetch(location.pathname+'?nc='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{const m=t.match(/data-build="([^"]+)"/);if(m&&m[1]!==BUILD&&location.search.indexOf(m[1])<0)location.replace(location.pathname+'?v='+m[1]);}).catch(()=>{});
 </script>
-<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b70-0140</div>
+<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b71-0141</div>
 
 <script>
 document.querySelectorAll('.ag').forEach(e=>{const r=e.dataset.r;e.querySelector('.avs').outerHTML=AV(r,30);e.querySelector('b').textContent=CREW[r].n;});
@@ -805,7 +805,7 @@ body.lv #sg1,body.lv #sg2{display:none!important}
 @media(max-width:640px){#nzmute{top:20px;left:128px}}
 @media(max-width:640px){.node:has(.pp){min-height:200px!important;height:200px}}
 @media(max-width:640px){.canvas>.node:nth-child(4){top:8px!important}}
-</style><script>(function(){var BV='b70-0140',errs=[];window.addEventListener('error',function(e){errs.push(String(e.message||e.type).slice(0,120))});
+</style><script>(function(){var BV='b71-0141',errs=[];window.addEventListener('error',function(e){errs.push(String(e.message||e.type).slice(0,120))});
 try{if(navigator.serviceWorker)navigator.serviceWorker.getRegistrations().then(function(r){r.forEach(function(x){x.unregister()})});if(window.caches)caches.keys().then(function(k){k.forEach(function(n){caches.delete(n)})})}catch(e){}
 setTimeout(function(){if(window.__nzlive)return;var d=document.createElement('div');d.style.cssText='position:fixed;inset:0;z-index:99999;background:#1b0d3d;color:#fff;font:16px/1.5 system-ui;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center';d.innerHTML='<div style="max-width:420px"><b style="font-size:20px">This page did not load properly</b><p>You are seeing an old or broken copy (build '+BV+'). Nothing was lost.</p><p>1. Open the invite link again in a <b>new private tab</b>.<br>2. If it still fails, tell us the code below.</p><p style="font:12px monospace;opacity:.7">'+(errs[0]||'no error captured')+'</p><button onclick="location.href=location.pathname+\'?r=\'+Date.now()+location.hash" style="padding:12px 22px;border:0;border-radius:99px;background:#f2d795;font-weight:700">Reload fresh</button></div>';document.body.appendChild(d)},5000)})();</script>
 <script id="livejs">;(function(){window.__nzlive=1;
@@ -928,7 +928,7 @@ function fail(i,k){setNode(i,'fail','<em class="w bad">Could not make this time.
 function paper(i,title,body,colr){setNode(i,'ready','<div class="pp"><div class="pt" style="background:'+colr+'"><b>'+esc(title)+'</b></div><p>'+esc(body).slice(0,190)+'</p></div>',i===4?'notes':'plan')}
 function renderBoard(){
  var saidEl=K[0];
- if(!S){saidEl.innerHTML='<span data-said class="nlbl">YOUR IDEA</span><b style="font-family:Fraunces,serif;font-size:27px">Type your idea in the bar below <span style="color:#8b3ff0">▍</span></b>';
+ if(!S){saidEl.innerHTML='<span data-said class="nlbl">YOUR IDEA</span><b style="font-family:Fraunces,serif;font-size:27px">Type your <em class="ac">idea</em> in the bar below <span style="color:#8b3ff0">▍</span></b>';
   for(var i=1;i<=9;i++)wait(i);crew(['waiting for your idea','waiting for your idea','waiting for your idea','waiting for your idea','waiting for your idea']);ll('Nothing is running yet');return}
  var idea=S.idea.length>80?S.idea.slice(0,80)+'…':S.idea;var fs=idea.length>55?20:27;
  saidEl.innerHTML='<span data-said class="nlbl">YOU SAID</span><b style="font-family:Fraunces,serif;font-size:'+fs+'px">"'+esc(idea.charAt(0).toUpperCase()+idea.slice(1))+'"</b>';
@@ -1086,4 +1086,17 @@ var _gm=window.go;window.go=function(t){t=(t||'').trim();if(t&&MODE!=='build'){a
 </style><style>#lvf{height:62vh!important;min-height:380px}</style><style>#nzp{position:fixed;left:50%;top:66px;transform:translateX(-50%);z-index:60;width:min(92vw,420px);background:rgba(28,10,69,.94);border:1px solid #f2d79555;border-radius:16px;padding:10px 14px;color:#f2d795;font:600 11px Sora,system-ui;letter-spacing:1.2px;text-align:center;display:none;backdrop-filter:blur(8px);box-shadow:0 10px 30px -10px #000a}#nzp i{display:block;height:5px;border-radius:5px;background:#ffffff22;margin-top:8px;overflow:hidden}#nzp i u{display:block;height:100%;background:linear-gradient(90deg,#f2d795,#fff);transition:width .5s}#nzp small{display:block;margin-top:5px;font-weight:400;letter-spacing:.4px;color:#fff;opacity:.8}</style><div id="nzp"></div>
 <script>(function(){var P=document.getElementById('nzp'),t0=0,tt=0;window.nzToast=function(m){clearTimeout(tt);P.innerHTML=m;P.style.display='block';P.dataset.t=1;tt=setTimeout(function(){delete P.dataset.t;P.style.display='none'},9000)};
 setInterval(function(){var live=document.body.classList.contains('lv')&&window.__nzrun&&window.__nzrun();if(!live){if(!P.dataset.t)P.style.display='none';t0=0;return}if(!t0)t0=Date.now();var st=window.__nzst(),d=st.done,n=st.total,el=Math.round((Date.now()-t0)/1000);P.dataset.t='';P.style.display='block';P.innerHTML='YOUR CREW IS WORKING · '+d+' OF '+n+' DONE<i><u style="width:'+Math.max(6,Math.round(d/n*100))+'%"></u></i><small>'+st.now+' · '+el+'s'+(el>60?' · taking longer than usual, a card will say if it fails':'')+'</small>'},700)})();</script>
-</body></html>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"><style id="polish">
+[data-said]+b{font-family:"Inter Tight",Sora,system-ui!important;font-weight:700!important;letter-spacing:-.03em!important;line-height:1.08!important}
+[data-said]+b em,.ac{font-family:"Instrument Serif",Georgia,serif!important;font-style:italic!important;font-weight:400!important;color:#cbb8ff!important;font-size:1.14em;letter-spacing:-.01em}
+.nlbl{letter-spacing:.14em!important;font-weight:600!important}
+.b .main{background:rgba(255,255,255,.96)!important;border:1px solid #ffffff66!important;border-radius:20px!important;box-shadow:0 18px 50px -18px #000b,0 0 0 1px #ffffff22!important;color:#241a3a!important}
+.b .main #typer{color:#1d1830!important;font:500 15px "Inter Tight",Sora,system-ui!important}
+.b .main #typer::placeholder{color:#8b82a3!important;opacity:1}
+.b .main span,.b .main .mrow{color:#6b5a8f!important}
+#mic svg{stroke:#7a4cff!important}
+#sendb{background:#16092f!important;border-radius:12px!important;width:38px!important;height:38px!important}
+#sendb svg,#sendb svg *{stroke:#fff!important}
+#nzmb{background:rgba(255,255,255,.14)!important;border-color:#ffffff40!important;color:#fff!important;backdrop-filter:blur(10px)}
+.node{backdrop-filter:blur(14px)}
+</style></body></html>
