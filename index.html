@@ -218,7 +218,7 @@ html[data-st="3"] .node.forming{background:linear-gradient(135deg,rgba(79,123,25
 html[data-st="3"] .bs,html[data-st="3"] #res button,html[data-st="3"] #apb button[data-ok]{background:linear-gradient(135deg,#4f7bff,#8b3ff0)!important;color:#fff!important;border-radius:99px!important;box-shadow:0 8px 18px -6px rgba(79,123,255,.8)!important}
 html[data-st="3"] .forming .nlbl,html[data-st="3"] #res .brief .lb{color:#f6dc9a!important}html[data-st="3"] .forming{color:#fff!important}
 html[data-st="3"] #apb .it2.nd{background:#fff4f4!important}
-</style></head><body data-build="b53-0123">
+</style></head><body data-build="b54-0124">
 <div style="position:fixed;inset:0;z-index:0;background:url(assets/hero-backdrop-nolady.jpg) center/cover"></div><div style="position:fixed;inset:0;z-index:1;background:linear-gradient(160deg,rgba(122,53,232,.66),rgba(42,16,98,.76) 78%)"></div>
 <div class="logo"><img src="assets/noorizq-logo-crisp.png" alt="Noorizq"></div>
 <div id="hd" style="height:0"></div>
@@ -463,10 +463,10 @@ document.addEventListener('click',()=>p.classList.remove('o'));
 window._actAdd=o=>{feed.unshift(o);draw();};const _go=window.go;window.go=function(t){t=(t||'').trim();if(t){feed.unshift({me:1,t:'just now',x:'You: "'+t+'"',w:'',u:0});draw();}return _go(t);};
 })();
 
-var BUILD='b53-0123';
+var BUILD='b54-0124';
 fetch(location.pathname+'?nc='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{const m=t.match(/data-build="([^"]+)"/);if(m&&m[1]!==BUILD&&location.search.indexOf(m[1])<0)location.replace(location.pathname+'?v='+m[1]);}).catch(()=>{});
 </script>
-<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b53-0123</div>
+<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b54-0124</div>
 
 <script>
 document.querySelectorAll('.ag').forEach(e=>{const r=e.dataset.r;e.querySelector('.avs').outerHTML=AV(r,30);e.querySelector('b').textContent=CREW[r].n;});
@@ -818,9 +818,12 @@ async function sess(force){var s=null;try{s=JSON.parse(localStorage.getItem('nz_
  if(!force&&s&&Date.now()-s.at<45*60000)return s.t;
  var r=await fetch(SB+'/auth/v1/signup',{method:'POST',headers:{'Content-Type':'application/json',apikey:AK},body:'{}'});var j=await r.json();if(!j.access_token)throw new Error('session');
  try{localStorage.setItem('nz_sess',JSON.stringify({t:j.access_token,at:Date.now()}))}catch(e){}return j.access_token}
-function GK(){try{var m=/[#&]k=([^&]+)/.exec(location.hash);if(m){localStorage.setItem('nz_gate',decodeURIComponent(m[1]));history.replaceState(null,'',location.pathname+location.search)}return localStorage.getItem('nz_gate')||''}catch(e){return ''}}
-GK();
-async function api(fn,body,tries){tries=tries||2;var last;
+function GK(){try{return localStorage.getItem('nz_gate')||''}catch(e){return ''}}
+async function redeem(){try{var m=/[#&]k=([^&]+)/.exec(location.hash);if(!m)return;var c=decodeURIComponent(m[1]);history.replaceState(null,'',location.pathname+location.search);
+ var r=await fetch(SB+'/functions/v1/gate',{method:'POST',headers:{'Content-Type':'application/json',apikey:AK,Authorization:'Bearer '+AK},body:JSON.stringify({code:c})});var j=await r.json();
+ if(j.token){localStorage.setItem('nz_gate',j.token);window.__nzgate=1}else{window.__nzgate='bad';alert('This invite link was already used or has expired. Ask for a new one.')}}catch(e){}}
+var GP=redeem();
+async function api(fn,body,tries){tries=tries||2;var last;await GP;
  for(var i=0;i<tries;i++){try{var t=await sess(i>0);
   var r=await fetch(SB+'/functions/v1/'+fn,{signal:AbortSignal.timeout(100000),method:'POST',headers:{'Content-Type':'application/json','x-nz-key':GK(),apikey:AK,Authorization:'Bearer '+t},body:JSON.stringify(body)});
   var j=await r.json();if(r.status===403)throw new Error('Private preview. Open your invite link to unlock the engine.');if(r.status===401||r.status===404){last=new Error(j.error||'auth');continue}
