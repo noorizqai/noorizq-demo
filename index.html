@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="Cache-Control" content="no-cache"><meta name="viewport" content="width=device-width,initial-scale=1">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Caveat:wght@500;600&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;box-sizing:border-box}
@@ -218,7 +218,7 @@ html[data-st="3"] .node.forming{background:linear-gradient(135deg,rgba(79,123,25
 html[data-st="3"] .bs,html[data-st="3"] #res button,html[data-st="3"] #apb button[data-ok]{background:linear-gradient(135deg,#4f7bff,#8b3ff0)!important;color:#fff!important;border-radius:99px!important;box-shadow:0 8px 18px -6px rgba(79,123,255,.8)!important}
 html[data-st="3"] .forming .nlbl,html[data-st="3"] #res .brief .lb{color:#f6dc9a!important}html[data-st="3"] .forming{color:#fff!important}
 html[data-st="3"] #apb .it2.nd{background:#fff4f4!important}
-</style></head><body data-build="b79-0149">
+</style></head><body data-build="b80-0150">
 <div style="position:fixed;inset:0;z-index:0;background:url(assets/hero-backdrop-nolady.jpg) center/cover"></div><div style="position:fixed;inset:0;z-index:1;background:linear-gradient(160deg,rgba(122,53,232,.66),rgba(42,16,98,.76) 78%)"></div>
 <div class="logo"><img src="assets/noorizq-logo-crisp.png" alt="Noorizq"></div>
 <div id="hd" style="height:0"></div>
@@ -463,10 +463,10 @@ document.addEventListener('click',()=>p.classList.remove('o'));
 window._actAdd=o=>{feed.unshift(o);draw();};const _go=window.go;window.go=function(t){t=(t||'').trim();if(t){feed.unshift({me:1,t:'just now',x:'You: "'+t+'"',w:'',u:0});draw();}return _go(t);};
 })();
 
-var BUILD='b79-0149';
+var BUILD='b80-0150';
 fetch(location.pathname+'?nc='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{const m=t.match(/data-build="([^"]+)"/);if(m&&m[1]!==BUILD&&location.search.indexOf(m[1])<0)location.replace(location.pathname+'?v='+m[1]);}).catch(()=>{});
 </script>
-<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b79-0149</div>
+<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b80-0150</div>
 
 <script>
 document.querySelectorAll('.ag').forEach(e=>{const r=e.dataset.r;e.querySelector('.avs').outerHTML=AV(r,30);e.querySelector('b').textContent=CREW[r].n;});
@@ -805,7 +805,8 @@ body.lv #sg1,body.lv #sg2{display:none!important}
 @media(max-width:640px){#nzmute{top:20px;left:128px}}
 @media(max-width:640px){.node:has(.pp){min-height:200px!important;height:200px}}
 @media(max-width:640px){.canvas>.node:nth-child(4){top:8px!important}}
-</style><script>(function(){var BV='b79-0149',errs=[];window.addEventListener('error',function(e){errs.push(String(e.message||e.type).slice(0,120))});
+</style><script>(function(){var BV='b80-0150',errs=[];window.addEventListener('error',function(e){errs.push(String(e.message||e.type).slice(0,120))});
+try{fetch('version.json?x='+Date.now()+Math.random(),{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){if(j&&j.b&&j.b!==BV&&sessionStorage.getItem('nzr')!==j.b){sessionStorage.setItem('nzr',j.b);location.replace(location.pathname+'?v='+j.b+'&r='+Date.now()+location.hash)}}).catch(function(){})}catch(e){}
 try{if(navigator.serviceWorker)navigator.serviceWorker.getRegistrations().then(function(r){r.forEach(function(x){x.unregister()})});if(window.caches)caches.keys().then(function(k){k.forEach(function(n){caches.delete(n)})})}catch(e){}
 setTimeout(function(){if(window.__nzlive)return;var d=document.createElement('div');d.style.cssText='position:fixed;inset:0;z-index:99999;background:#1b0d3d;color:#fff;font:16px/1.5 system-ui;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center';d.innerHTML='<div style="max-width:420px"><b style="font-size:20px">This page did not load properly</b><p>You are seeing an old or broken copy (build '+BV+'). Nothing was lost.</p><p>1. Open the invite link again in a <b>new private tab</b>.<br>2. If it still fails, tell us the code below.</p><p style="font:12px monospace;opacity:.7">'+(errs[0]||'no error captured')+'</p><button onclick="location.href=location.pathname+\'?r=\'+Date.now()+location.hash" style="padding:12px 22px;border:0;border-radius:99px;background:#f2d795;font-weight:700">Reload fresh</button></div>';document.body.appendChild(d)},5000)})();</script>
 <script id="livejs">;(function(){window.__nzlive=1;
@@ -824,7 +825,7 @@ async function sess(force){var s=null;try{s=JSON.parse(localStorage.getItem('nz_
 function GK(){try{return localStorage.getItem('nz_gate')||''}catch(e){return ''}}
 async function redeem(){try{var m=/[#&]k=([^&]+)/.exec(location.hash);if(!m)return;var c=decodeURIComponent(m[1]);history.replaceState(null,'',location.pathname+location.search);
  var r=await fetch(SB+'/functions/v1/gate',{method:'POST',headers:{'Content-Type':'application/json',apikey:AK,Authorization:'Bearer '+AK},body:JSON.stringify({code:c})});var j=await r.json();
- if(j.token){localStorage.setItem('nz_gate',j.token);window.__nzgate=1}else{window.__nzgate='bad';alert('This invite link was already used or has expired. Ask for a new one.')}}catch(e){}}
+ if(j.token){localStorage.setItem('nz_gate',j.token);window.__nzgate=1}else{window.__nzgate='bad';if(!GK())alert('This invite link has expired. Ask for a new one.')}}catch(e){}}
 var GP=redeem();
 async function api(fn,body,tries){tries=tries||2;var last;await GP;
  for(var i=0;i<tries;i++){try{var t=await sess(i>0);
