@@ -218,11 +218,11 @@ html[data-st="3"] .node.forming{background:linear-gradient(135deg,rgba(79,123,25
 html[data-st="3"] .bs,html[data-st="3"] #res button,html[data-st="3"] #apb button[data-ok]{background:linear-gradient(135deg,#4f7bff,#8b3ff0)!important;color:#fff!important;border-radius:99px!important;box-shadow:0 8px 18px -6px rgba(79,123,255,.8)!important}
 html[data-st="3"] .forming .nlbl,html[data-st="3"] #res .brief .lb{color:#f6dc9a!important}html[data-st="3"] .forming{color:#fff!important}
 html[data-st="3"] #apb .it2.nd{background:#fff4f4!important}
-</style></head><body data-build="b76-0146">
+</style></head><body data-build="b77-0147">
 <div style="position:fixed;inset:0;z-index:0;background:url(assets/hero-backdrop-nolady.jpg) center/cover"></div><div style="position:fixed;inset:0;z-index:1;background:linear-gradient(160deg,rgba(122,53,232,.66),rgba(42,16,98,.76) 78%)"></div>
 <div class="logo"><img src="assets/noorizq-logo-crisp.png" alt="Noorizq"></div>
 <div id="hd" style="height:0"></div>
-<div class="tg"><button id="tb" class="on" onclick="sv(0)">Build</button><button id="tr" onclick="sv(1)">Results</button></div>
+<div class="tgs"><button id="tb" class="on" onclick="sv(0)">Build</button><button id="tr" onclick="sv(1)">Results</button></div>
 <div id="res">
 <div id="resstub" style="display:none"><i id="alert"></i><i id="dayn"></i><i id="nbb"></i><i id="nbt"></i><i id="nmt"></i><i id="nmx"></i><i id="pm"></i><i id="pms"></i><i id="pmt"></i><i id="pmv"></i><i id="prob"></i><i id="probl"></i><i id="probt"></i><i id="psm"></i><i id="pv"></i><i id="rg"></i><i id="rgb"></i><i id="ship"></i><i id="to"></i><div id="nm"></div></div>
 </div>
@@ -463,10 +463,10 @@ document.addEventListener('click',()=>p.classList.remove('o'));
 window._actAdd=o=>{feed.unshift(o);draw();};const _go=window.go;window.go=function(t){t=(t||'').trim();if(t){feed.unshift({me:1,t:'just now',x:'You: "'+t+'"',w:'',u:0});draw();}return _go(t);};
 })();
 
-var BUILD='b76-0146';
+var BUILD='b77-0147';
 fetch(location.pathname+'?nc='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{const m=t.match(/data-build="([^"]+)"/);if(m&&m[1]!==BUILD&&location.search.indexOf(m[1])<0)location.replace(location.pathname+'?v='+m[1]);}).catch(()=>{});
 </script>
-<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b76-0146</div>
+<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b77-0147</div>
 
 <script>
 document.querySelectorAll('.ag').forEach(e=>{const r=e.dataset.r;e.querySelector('.avs').outerHTML=AV(r,30);e.querySelector('b').textContent=CREW[r].n;});
@@ -805,7 +805,7 @@ body.lv #sg1,body.lv #sg2{display:none!important}
 @media(max-width:640px){#nzmute{top:20px;left:128px}}
 @media(max-width:640px){.node:has(.pp){min-height:200px!important;height:200px}}
 @media(max-width:640px){.canvas>.node:nth-child(4){top:8px!important}}
-</style><script>(function(){var BV='b76-0146',errs=[];window.addEventListener('error',function(e){errs.push(String(e.message||e.type).slice(0,120))});
+</style><script>(function(){var BV='b77-0147',errs=[];window.addEventListener('error',function(e){errs.push(String(e.message||e.type).slice(0,120))});
 try{if(navigator.serviceWorker)navigator.serviceWorker.getRegistrations().then(function(r){r.forEach(function(x){x.unregister()})});if(window.caches)caches.keys().then(function(k){k.forEach(function(n){caches.delete(n)})})}catch(e){}
 setTimeout(function(){if(window.__nzlive)return;var d=document.createElement('div');d.style.cssText='position:fixed;inset:0;z-index:99999;background:#1b0d3d;color:#fff;font:16px/1.5 system-ui;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center';d.innerHTML='<div style="max-width:420px"><b style="font-size:20px">This page did not load properly</b><p>You are seeing an old or broken copy (build '+BV+'). Nothing was lost.</p><p>1. Open the invite link again in a <b>new private tab</b>.<br>2. If it still fails, tell us the code below.</p><p style="font:12px monospace;opacity:.7">'+(errs[0]||'no error captured')+'</p><button onclick="location.href=location.pathname+\'?r=\'+Date.now()+location.hash" style="padding:12px 22px;border:0;border-radius:99px;background:#f2d795;font-weight:700">Reload fresh</button></div>';document.body.appendChild(d)},5000)})();</script>
 <script id="livejs">;(function(){window.__nzlive=1;
@@ -908,8 +908,8 @@ function openAsset(key){if(!S)return;var b;
  else if(key==='price'){var a=A1();if(!a)return;b=modal('Price list','<p class="nt">Prices are AI suggestions from general knowledge. Check them against your own costs.</p><table class="pt">'+(a.products||[]).map(function(p){return '<tr><td><b>'+esc(p.name)+'</b><br><small>'+esc(p.description)+'</small></td><td>'+esc(p.price)+'</td></tr>'}).join('')+'</table>');
   b.appendChild(actions([['Download CSV',function(){var rows=[['Product','Description','Price']].concat((a.products||[]).map(function(p){return [p.name,p.description,p.price]}));dlText(slug()+'-prices.csv',rows.map(function(r){return r.map(function(c){return '"'+String(c).replace(/"/g,'""')+'"'}).join(',')}).join('\n'),'text/csv')}],['Copy',function(bt){copy((a.products||[]).map(function(p){return p.name+' '+p.price}).join('\n'),bt)}]]));}
  else if(key==='posts'){var q=A2();if(!q)return;var all=[].concat((q.posts_facebook||[]).map(function(t){return['Facebook',t]}),(q.posts_instagram||[]).map(function(t){return['Instagram',t]}));
-  var hd=function(t){var m=String(t).match(/^[^.!?\n]{12,70}[.!?]?/);return (m?m[0]:String(t).slice(0,60)).replace(/#\w+/g,'').trim()};
-  b=modal('6 post drafts','<p class="nt">Drafts only. Nothing has been posted anywhere. Each post comes with a designed picture (AI-written text).</p>'+all.map(function(p,i){var tx=String(p[1]),tags=(tx.match(/#\w+/g)||[]),body=tx.replace(/#\w+/g,'').replace(/\s+\n/g,'\n').trim();return '<div class="pc pp2"><small>'+p[0].toUpperCase()+' \u00b7 POST '+(i+1)+'</small><img class="pi" data-i="'+i+'" alt=""><p>'+esc(body)+'</p><div class="tg">'+tags.map(function(t){return '<span>'+esc(t)+'</span>'}).join('')+'</div><div class="ac"><button data-c="'+i+'">Copy text</button><button data-d="'+i+'">Download picture</button></div></div>'}).join(''));
+  var hd=function(t){var m=String(t).replace(/#\w+/g,'').trim().match(/^[^.!?\n]{8,}?[.!?]/);var x=(m?m[0]:String(t).slice(0,80));if(x.length>44){var c=x.indexOf(',');x=(c>14&&c<48)?x.slice(0,c):x.slice(0,44).replace(/\s+\S*$/,'')}return x.replace(/[,;:]$/,'').trim()};
+  b=modal('6 post drafts','<p class="nt">Drafts only. Nothing has been posted anywhere. Each post comes with a designed picture (AI-written text).</p>'+all.map(function(p,i){var tx=String(p[1]),tags=(tx.match(/#\w+/g)||[]),body=tx.replace(/#\w+/g,'').replace(/\s+\n/g,'\n').trim();return '<div class="pc pp2"><small>'+p[0].toUpperCase()+' \u00b7 POST '+(i+1)+'</small><img class="pi" data-i="'+i+'" alt=""><p>'+esc(body)+'</p><div class="tgs">'+tags.map(function(t){return '<span>'+esc(t)+'</span>'}).join('')+'</div><div class="ac"><button data-c="'+i+'">Copy text</button><button data-d="'+i+'">Download picture</button></div></div>'}).join(''));
   $$('img.pi',b).forEach(function(im){var v=all[+im.dataset.i];adImg({headline:hd(v[1]),primary_text:'',cta:v[0]==='Instagram'?'Follow us':'Join us'},1080,1080).then(function(u){im.src=u})});
   $$('button[data-c]',b).forEach(function(x){x.onclick=function(){copy(all[+x.dataset.c][1],x)}});
   $$('button[data-d]',b).forEach(function(x){x.onclick=async function(){var v=all[+x.dataset.d];dl(slug()+'-post-'+(+x.dataset.d+1)+'.png',await (await fetch(await adImg({headline:hd(v[1]),primary_text:'',cta:v[0]==='Instagram'?'Follow us':'Join us'},1080,1080))).blob())}});
@@ -1101,5 +1101,5 @@ setInterval(function(){var live=document.body.classList.contains('lv')&&window._
 #sendb{background:#16092f!important;border-radius:12px!important;width:38px!important;height:38px!important}
 #sendb svg,#sendb svg *{stroke:#fff!important}
 #nzml{color:#4b2bb0!important}.b .main #nzm span{color:#4b2bb0!important}
-.lgi.lk{width:auto!important;height:116px!important;max-height:none!important;aspect-ratio:1;object-fit:cover!important;border-radius:18px!important;box-shadow:0 12px 26px -10px #000b;background:none!important}.b{z-index:80!important}.pp2 .pi{width:100%;border-radius:16px;display:block;margin:8px 0;aspect-ratio:1;background:#1b0d3d;object-fit:cover}.pp2 p{font-size:15px;line-height:1.55}.tg{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}.tg span{background:#ece6fa;color:#4b2bb0;border-radius:99px;padding:3px 10px;font-size:12.5px;font-weight:600}.node{backdrop-filter:blur(14px)}
+.lgi.lk{width:auto!important;height:116px!important;max-height:none!important;aspect-ratio:1;object-fit:cover!important;border-radius:18px!important;box-shadow:0 12px 26px -10px #000b;background:none!important}.b{z-index:80!important}.pp2 .pi{width:100%;border-radius:16px;display:block;margin:8px 0;aspect-ratio:1;background:#1b0d3d;object-fit:cover}.pp2 p{font-size:15px;line-height:1.55}.tgs{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}.tgs span{background:#ece6fa;color:#4b2bb0;border-radius:99px;padding:3px 10px;font-size:12.5px;font-weight:600}.node{backdrop-filter:blur(14px)}
 </style></body></html>
