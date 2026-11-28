@@ -218,7 +218,7 @@ html[data-st="3"] .node.forming{background:linear-gradient(135deg,rgba(79,123,25
 html[data-st="3"] .bs,html[data-st="3"] #res button,html[data-st="3"] #apb button[data-ok]{background:linear-gradient(135deg,#4f7bff,#8b3ff0)!important;color:#fff!important;border-radius:99px!important;box-shadow:0 8px 18px -6px rgba(79,123,255,.8)!important}
 html[data-st="3"] .forming .nlbl,html[data-st="3"] #res .brief .lb{color:#f6dc9a!important}html[data-st="3"] .forming{color:#fff!important}
 html[data-st="3"] #apb .it2.nd{background:#fff4f4!important}
-</style></head><body data-build="b59-0129">
+</style></head><body data-build="b60-0130">
 <div style="position:fixed;inset:0;z-index:0;background:url(assets/hero-backdrop-nolady.jpg) center/cover"></div><div style="position:fixed;inset:0;z-index:1;background:linear-gradient(160deg,rgba(122,53,232,.66),rgba(42,16,98,.76) 78%)"></div>
 <div class="logo"><img src="assets/noorizq-logo-crisp.png" alt="Noorizq"></div>
 <div id="hd" style="height:0"></div>
@@ -463,10 +463,10 @@ document.addEventListener('click',()=>p.classList.remove('o'));
 window._actAdd=o=>{feed.unshift(o);draw();};const _go=window.go;window.go=function(t){t=(t||'').trim();if(t){feed.unshift({me:1,t:'just now',x:'You: "'+t+'"',w:'',u:0});draw();}return _go(t);};
 })();
 
-var BUILD='b59-0129';
+var BUILD='b60-0130';
 fetch(location.pathname+'?nc='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{const m=t.match(/data-build="([^"]+)"/);if(m&&m[1]!==BUILD&&location.search.indexOf(m[1])<0)location.replace(location.pathname+'?v='+m[1]);}).catch(()=>{});
 </script>
-<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b59-0129</div>
+<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b60-0130</div>
 
 <script>
 document.querySelectorAll('.ag').forEach(e=>{const r=e.dataset.r;e.querySelector('.avs').outerHTML=AV(r,30);e.querySelector('b').textContent=CREW[r].n;});
@@ -858,13 +858,25 @@ async function adPng(){var ad=(A2()||{}).ad||{};var c=document.createElement('ca
  return new Promise(function(r){c.toBlob(r,'image/png')})}
 /* ---------- real documents / site (openable files) ---------- */
 function docHtml(title,sub,blocks){var k=cols();var logo=(S.logos&&S.logos[selLogo])?'<img src="'+S.logos[selLogo]+'" style="height:64px;border-radius:12px;background:#fff">':'';
- return '<!doctype html><html><head><meta charset="utf-8"><title>'+esc(title)+' - '+esc(cname())+'</title><style>@page{size:A4;margin:16mm}body{font:15px/1.6 Georgia,serif;color:#241a3a;margin:0}.cv{background:'+k[0]+';color:#fff;padding:36px 40px}.cv h1{margin:14px 0 4px;font-size:34px}.cv p{margin:0;opacity:.85}main{padding:24px 40px}h2{color:'+k[0]+';border-bottom:2px solid '+k[1]+';padding-bottom:4px;margin-top:26px}li{margin:6px 0}.n{font:12px Arial;color:#776;border-top:1px solid #ddd;margin-top:30px;padding-top:10px}</style></head><body><div class="cv">'+logo+'<h1>'+esc(title)+'</h1><p>'+esc(cname())+' &middot; '+esc(sub)+'</p></div><main>'+blocks+'<div class="n">Written by AI from the idea you typed. Check facts and prices yourself before relying on them. Made '+new Date().toLocaleDateString('en-GB')+'.</div></main></body></html>'}
+ return '<!doctype html><html><head><meta charset="utf-8"><title>'+esc(title)+' - '+esc(cname())+'</title><style>@page{size:A4;margin:16mm}body{font:15px/1.6 Georgia,serif;color:#241a3a;margin:0}.cv{background:'+k[0]+';color:#fff;padding:36px 40px}.cv h1{margin:14px 0 4px;font-size:34px}.cv p{margin:0;opacity:.85}main{padding:24px 40px}h2{color:'+k[0]+';border-bottom:2px solid '+k[1]+';padding-bottom:4px;margin-top:26px}li{margin:6px 0}.n{font:12px Arial;color:#776;border-top:1px solid #ddd;margin-top:30px;padding-top:10px}</style></head><body><div class="cv">'+logo+'<h1>'+esc(title)+'</h1><p>'+esc(cname())+' &middot; '+esc(sub)+'</p></div><main>'+blocks+'<div class="n">Written by AI from the idea you typed. Check facts and prices yourself before relying on them. Made '+new Date().toLocaleDateString('en-GB')+'.</div></main><style>
+.gl{margin:6px 0 4px;padding-left:18px;font-size:13px;line-height:1.5}.gl li{margin:3px 0}
+.adg{display:grid;gap:10px;margin:8px 0}.adg .adi{width:100%;border-radius:14px;box-shadow:0 6px 22px rgba(20,8,50,.35)}
+.jb{cursor:pointer}.jb span small{display:block;opacity:.7;font-size:11px;margin-top:2px}
+#lact .it2{padding:10px 12px;margin:8px 0;border-radius:12px;background:rgba(255,255,255,.06);line-height:1.45}
+#lact .t2{font-size:11px;letter-spacing:.04em;text-transform:uppercase;opacity:.75;margin-bottom:3px;font-weight:700}
+</style></body></html>'}
 function notesDoc(){var a=A2()||{},r=S.read||{};return docHtml('Market notes','competitors and first customer','<h2>Your idea</h2><p>'+esc(r.offer||S.idea)+'</p><h2>Who else serves this audience</h2><p>'+esc(a.competitor_analysis||'')+'</p><h2>Your ideal first customer</h2><p>'+esc(a.audience_profile||'')+'</p><h2>How this was made</h2><p>AI-written from general knowledge. Not checked against live websites or sales data.</p>')}
 function planDoc(){var a=A1()||{},b=A2()||{};var ph=(a.plan_phases||[]).map(function(p){return '<li><b>'+esc(p.title)+'.</b> '+esc(p.detail)+'</li>'}).join('');var wk=(b.weekly_plan||[]).map(function(x){return '<li>'+esc(x)+'</li>'}).join('');return docHtml('90-day plan','from the idea you typed','<h2>The 90-day aim</h2><p>'+esc(a.plan_summary||'')+'</p><h2>Three phases</h2><ul>'+ph+'</ul><h2>Week one, day by day</h2><ul>'+wk+'</ul>')}
 function siteHtml(){var a=A1()||{},r=S.read||{},k=cols();var hero=S.photo?'background:linear-gradient(rgba(15,8,35,.55),rgba(15,8,35,.7)),url('+S.photo+') center/cover':'background:'+k[0];
  var logo=(S.logos&&S.logos[selLogo])?'<img src="'+S.logos[selLogo]+'" alt="" style="height:84px;border-radius:16px;background:#fff;padding:4px">':'';
  var pr=(a.products||[]).map(function(p){return '<div class="c"><h3>'+esc(p.name)+'</h3><p>'+esc(p.description)+'</p><b>'+esc(p.price)+'</b></div>'}).join('');
- return '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+esc(cname())+'</title><style>*{box-sizing:border-box}body{margin:0;font:16px/1.6 system-ui,Segoe UI,Arial,sans-serif;color:#241a3a;background:'+k[2]+'}.h{'+hero+';color:#fff;text-align:center;padding:70px 20px}.h h1{font:700 44px Georgia,serif;margin:14px 0 6px}.h p{max-width:560px;margin:8px auto;opacity:.92}section{max-width:900px;margin:0 auto;padding:36px 20px}.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}.c{background:#fff;border-radius:14px;padding:16px;box-shadow:0 4px 14px -8px #0004}.c b{color:'+k[0]+';font-size:18px}h2{font-family:Georgia,serif;color:'+k[0]+'}.f{text-align:center;padding:28px;background:'+k[0]+';color:#fff}</style></head><body><div class="h">'+logo+'<h1>'+esc(cname())+'</h1><p>'+esc(a.tagline||'')+'</p><p>'+esc(a.idea_pitch||r.reflection||'')+'</p></div><section><h2>What we offer</h2><div class="g">'+pr+'</div></section><section><h2>Who it is for</h2><p>'+esc(r.audience||'')+'</p></section><div class="f">Contact: add your WhatsApp number or email here before you share this page.<br><small>Draft made by Noorizq from your idea. Prices are suggestions.</small></div></body></html>'}
+ return '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>'+esc(cname())+'</title><style>*{box-sizing:border-box}body{margin:0;font:16px/1.6 system-ui,Segoe UI,Arial,sans-serif;color:#241a3a;background:'+k[2]+'}.h{'+hero+';color:#fff;text-align:center;padding:70px 20px}.h h1{font:700 44px Georgia,serif;margin:14px 0 6px}.h p{max-width:560px;margin:8px auto;opacity:.92}section{max-width:900px;margin:0 auto;padding:36px 20px}.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}.c{background:#fff;border-radius:14px;padding:16px;box-shadow:0 4px 14px -8px #0004}.c b{color:'+k[0]+';font-size:18px}h2{font-family:Georgia,serif;color:'+k[0]+'}.f{text-align:center;padding:28px;background:'+k[0]+';color:#fff}</style></head><body><div class="h">'+logo+'<h1>'+esc(cname())+'</h1><p>'+esc(a.tagline||'')+'</p><p>'+esc(a.idea_pitch||r.reflection||'')+'</p></div><section><h2>What we offer</h2><div class="g">'+pr+'</div></section><section><h2>Who it is for</h2><p>'+esc(r.audience||'')+'</p></section><div class="f">Contact: add your WhatsApp number or email here before you share this page.<br><small>Draft made by Noorizq from your idea. Prices are suggestions.</small></div><style>
+.gl{margin:6px 0 4px;padding-left:18px;font-size:13px;line-height:1.5}.gl li{margin:3px 0}
+.adg{display:grid;gap:10px;margin:8px 0}.adg .adi{width:100%;border-radius:14px;box-shadow:0 6px 22px rgba(20,8,50,.35)}
+.jb{cursor:pointer}.jb span small{display:block;opacity:.7;font-size:11px;margin-top:2px}
+#lact .it2{padding:10px 12px;margin:8px 0;border-radius:12px;background:rgba(255,255,255,.06);line-height:1.45}
+#lact .t2{font-size:11px;letter-spacing:.04em;text-transform:uppercase;opacity:.75;margin-bottom:3px;font-weight:700}
+</style></body></html>'}
 function openBlob(html){var u=URL.createObjectURL(new Blob([html],{type:'text/html'}));window.open(u,'_blank')}
 function printDoc(html){var h=html.replace('</body>','<script>onload=function(){setTimeout(function(){print()},500)}<\/script></body>');openBlob(h)}
 /* ---------- modal ---------- */
@@ -944,12 +956,12 @@ function renderRes(){var h='';
  var a=A1(),b=A2();
  var rows=[['Logo',S.logos&&S.logos.length?S.logos.length+' options made':null,'logo'],['Website draft',a?'one page, opens as a file':null,'site'],['Photo',S.photo?'1 made':null,'photo'],['Price list',a?(a.products||[]).length+' items':null,'price'],['Post drafts',b?'6 captions':null,'posts'],['Ad draft',b?'1 ad + image':null,'ad'],['First email',b?'1 draft':null,'email'],['Market notes',b?'1 document':null,'notes'],['90-day plan',(a&&b)?'1 document':null,'plan']];
  var made=rows.filter(function(r){return r[1]}).length;
- h+='<div class="g" style="grid-template-columns:1.2fr 1fr"><div class="cd"><span class="lb">WHAT YOUR CREW MADE FOR "'+esc(cname().toUpperCase())+'"</span><span class="big">'+made+' of '+rows.length+' ready</span><div class="al">'+rows.map(function(r){return '<div class="ar'+(r[1]?' ok':'')+'" data-k="'+r[2]+'"><i>'+(r[1]?'✓':'…')+'</i><span>'+r[0]+'</span><small>'+(r[1]||(running?'making…':'not made'))+'</small></div>'}).join('')+'</div></div>';
- h+='<div class="cd"><span class="lb">REAL NUMBERS</span><span class="big">None yet</span><small>Orders, website visits, ad clicks and leads are not connected yet, so they are not shown. They will appear here only when your site, posts and ads are really live.</small></div>'+'<div class="cd"><span class="lb">WHAT YOU WILL SEE HERE AS YOU GROW</span><small style="font-size:12px;line-height:1.5"><b>Right now</b>: nothing to measure, because nothing is live. <br><b>Once your site and posts are live</b>: visits, orders, and which post or ad brought them. <br><b>As customers arrive</b>: what sells, what they ask, and your crew\'s suggestions for what to change next. <br>Every number here will be real. Until then it stays empty.</small></div></div>';
+ h+=jobsCard();h+='<div class="g" style="grid-template-columns:1.2fr 1fr"><div class="cd"><span class="lb">ONBOARDING · FIRST ASSETS FOR "'+esc(cname().toUpperCase())+'"</span><span class="big">'+made+' of '+rows.length+' ready</span><div class="al">'+rows.map(function(r){return '<div class="ar'+(r[1]?' ok':'')+'" data-k="'+r[2]+'"><i>'+(r[1]?'✓':'…')+'</i><span>'+r[0]+'</span><small>'+(r[1]||(running?'making…':'not made'))+'</small></div>'}).join('')+'</div></div>';
+ h+='<div class="cd"><span class="lb">REAL NUMBERS</span><span class="big">None yet</span><small>Orders, website visits, ad clicks and leads are not connected yet, so they are not shown. They will appear here only when your site, posts and ads are really live.</small></div>'+'<div class="cd"><span class="lb">WHAT WILL APPEAR HERE</span><ul class="gl"><li><b>Now:</b> nothing, because nothing is live yet.</li><li><b>When your site and posts are live:</b> visits and orders.</li><li><b>As customers arrive:</b> what sells and what to change.</li></ul><small>Every number will be real.</small></div></div>';
  if(b&&(b.weekly_plan||[]).length)h+='<div class="cd" style="margin-top:12px"><span class="lb">YOUR FIRST WEEK (AI PLAN)</span><div class="al">'+b.weekly_plan.map(function(x){return '<div class="ar"><i>•</i><span style="grid-column:2/4">'+esc(x)+'</span></div>'}).join('')+'</div></div>';
  if(S.read)h+='<div class="cd" style="margin-top:12px"><span class="lb">HOW NOOR READ YOUR IDEA</span><p style="margin:6px 0">'+esc(S.read.reflection||'')+'</p><small><b>Audience:</b> '+esc(S.read.audience||'')+'</small></div>';
  h+='<div class="smp">REAL OUTPUT FROM YOUR IDEA · AI-WRITTEN · NOTHING SENT, POSTED OR PAID</div>';
- R.innerHTML=h;$$('.ar[data-k]',R).forEach(function(r){r.onclick=function(){if(r.classList.contains('ok'))openAsset(r.dataset.k)}})}
+ R.innerHTML=h;$$('.jb[data-j]',R).forEach(function(r){r.onclick=function(){var i=+r.dataset.j,j=S.jobs[i];if(j.st==='ready')openJob(i);else if(j.st==='failed'){var b=j.brief;S.jobs.splice(i,1);save();runJob(b)}}});$$('.ar[data-k]',R).forEach(function(r){r.onclick=function(){if(r.classList.contains('ok'))openAsset(r.dataset.k)}})}
 var AB=$('#apb'),AL=document.createElement('div');AL.id='lact';AB.parentNode.insertBefore(AL,AB);
 function renderAct(){var sm=$('.smp2');if(sm)sm.textContent=S?'REAL ACTIVITY FROM YOUR IDEA':'NOTHING HAS HAPPENED YET';
  var n=$('#actn');if(n)n.style.display='none';
@@ -979,9 +991,49 @@ async function run(idea){
  running=false;S.step='';save();renderBoard();renderRes();status('');
  var okc=['a1','a2','logo','photo'].filter(function(k){return !(S.fl&&S.fl[k])}).length;
  status(okc===4?'DONE · OPEN ANY CARD TO USE IT':'PARTLY DONE · TAP A FAILED CARD TO RETRY');setTimeout(function(){status('')},8000)}
+/* ---------- jobs: after onboarding, typed requests are jobs for the crew ---------- */
+function dk(h,f){var m=/^#?([0-9a-f]{6})$/i.exec(String(h||'').trim());if(!m)return '#1b1033';var n=parseInt(m[1],16),r=(n>>16)&255,g=(n>>8)&255,b=n&255;return 'rgb('+Math.round(r*f)+','+Math.round(g*f)+','+Math.round(b*f)+')'}
+async function adImg(v,W,H){var c=document.createElement('canvas');c.width=W;c.height=H;var x=c.getContext('2d'),k=cols(),sq=W===H,u=W/1080;
+ var g=x.createLinearGradient(0,0,W,H);g.addColorStop(0,dk(k[0],.62));g.addColorStop(1,dk(k[0],.22));x.fillStyle=g;x.fillRect(0,0,W,H);
+ if(S.photo){try{var p=await img(S.photo);var r=Math.max(W/p.width,H/p.height);x.globalAlpha=.5;x.drawImage(p,(W-p.width*r)/2,(H-p.height*r)/2,p.width*r,p.height*r);x.globalAlpha=1}catch(e){}}
+ var o=x.createLinearGradient(0,0,0,H);o.addColorStop(0,'rgba(8,4,20,.35)');o.addColorStop(.55,'rgba(8,4,20,.55)');o.addColorStop(1,'rgba(8,4,20,.9)');x.fillStyle=o;x.fillRect(0,0,W,H);
+ x.fillStyle='rgba(255,255,255,.06)';x.beginPath();x.arc(W*.92,H*.08,H*.38,0,7);x.fill();x.fillStyle=k[1]+'33';x.beginPath();x.arc(W*.05,H*.95,H*.3,0,7);x.fill();
+ var pad=70*u,y=pad;
+ if(S.logos&&S.logos[selLogo]){try{var li=await img(S.logos[selLogo]);var ls=(sq?170:150)*u;x.save();x.beginPath();x.roundRect?x.roundRect(pad,y,ls,ls,22*u):x.rect(pad,y,ls,ls);x.clip();x.drawImage(li,pad,y,ls,ls);x.restore()}catch(e){}}
+ x.fillStyle='rgba(255,255,255,.85)';x.font='600 '+(30*u)+'px Georgia,serif';x.textAlign='left';x.fillText(cname().toUpperCase(),pad+((S.logos&&S.logos[selLogo])?(sq?200:180)*u:0),y+(sq?95:85)*u);
+ var hy=sq?H*.5:H*.45;x.fillStyle='#fff';x.font='700 '+((sq?92:74)*u)+'px Georgia,serif';var ny=wrap(x,v.headline||'',pad,hy,W-pad*2,(sq?104:86)*u,3);
+ x.fillStyle='rgba(255,255,255,.88)';x.font='400 '+((sq?36:30)*u)+'px Helvetica,Arial,sans-serif';ny=wrap(x,v.primary_text||'',pad,ny+12*u,W-pad*2,(sq?50:42)*u,sq?4:3);
+ var cta=v.cta||'Learn more';x.font='700 '+(34*u)+'px Helvetica,Arial,sans-serif';var cw=x.measureText(cta).width+80*u,cy=H-pad-70*u;
+ var gg=x.createLinearGradient(pad,cy,pad+cw,cy+70*u);gg.addColorStop(0,'#f6e3a1');gg.addColorStop(1,'#c9a24a');x.fillStyle=gg;x.beginPath();x.roundRect?x.roundRect(pad,cy,cw,70*u,35*u):x.rect(pad,cy,cw,70*u);x.fill();
+ x.fillStyle='#2a1650';x.textAlign='center';x.fillText(cta,pad+cw/2,cy+46*u);
+ return c.toDataURL('image/png')}
+function jobsCard(){var J=(S&&S.jobs)||[];var h='<div class="cd" style="margin-bottom:12px"><span class="lb">JOBS FOR YOUR CREW</span>';
+ if(!J.length)h+='<small style="font-size:13px;line-height:1.5">None yet. Your starter assets are done. Now type what you want, like "set up Facebook ads", and the crew does just that job.</small>';
+ else h+='<div class="al">'+J.map(function(j,i){return '<div class="ar jb'+(j.st==='ready'?' ok':'')+'" data-j="'+i+'"><i>'+(j.st==='ready'?'✓':(j.st==='failed'?'!':'…'))+'</i><span>'+esc(j.title)+'<br><small>'+esc(j.crew)+' · '+esc(j.t)+'</small></span><small>'+(j.st==='ready'?'open':(j.st==='failed'?'try again':'working…'))+'</small></div>'}).join('')+'</div>';
+ return h+'</div>'}
+async function openJob(i){var j=(S.jobs||[])[i];if(!j||j.st!=='ready')return;var d=j.data||{},b;
+ if(j.kind==='ads'){b=modal(j.title,'<p class="nt">Draft campaign. Nothing is running and nothing has been spent. Spend, page and area need your OK first.</p><div id="adg" class="adg"><em class="w"><i class="sp"></i>drawing your ads…</em></div>'
+  +'<div class="pc"><small>CAMPAIGN</small><p><b>'+esc(d.campaign_name)+'</b><br>'+esc(d.objective)+'</p></div><div class="pc"><small>WHO SEES IT</small><p>'+esc(d.audience_where)+'<br>Ages '+esc(d.audience_age)+'<br>Interests: '+esc((d.audience_interests||[]).join(', '))+'</p></div>'
+  +'<div class="pc"><small>BUDGET (ESTIMATE)</small><p><b>'+esc(d.daily_budget_gbp)+'</b><br>'+esc(d.budget_note)+'</p></div><div class="pc"><small>7-DAY TEST</small><p>'+(d.test_plan||[]).map(function(x,n){return (n+1)+'. '+esc(x)}).join('<br>')+'</p></div><div class="pc"><small>I NEED FROM YOU BEFORE ANYTHING RUNS</small><p>'+(d.needs_from_you||[]).map(function(x){return '• '+esc(x)}).join('<br>')+'</p></div>');
+  var g=$('#adg',b),vs=(d.variants||[]).slice(0,3);g.innerHTML='';
+  for(var n=0;n<vs.length;n++){var sqd=await adImg(vs[n],1080,1080);var im=document.createElement('img');im.src=sqd;im.className='adi';g.appendChild(im);(function(v,u,k){var bt=document.createElement('button');bt.textContent='Download ad '+(k+1);bt.onclick=async function(){dl(slug()+'-ad-'+(k+1)+'.png',await (await fetch(await adImg(v,1080,1080))).blob())};var bt2=document.createElement('button');bt2.textContent='Wide version '+(k+1);bt2.onclick=async function(){dl(slug()+'-ad-'+(k+1)+'-wide.png',await (await fetch(await adImg(v,1200,628))).blob())};var w=document.createElement('div');w.className='ac';w.appendChild(bt);w.appendChild(bt2);var cp=document.createElement('div');cp.className='pc';cp.innerHTML='<small>AD '+(k+1)+' TEXT</small><p><b>'+esc(v.headline)+'</b><br>'+esc(v.primary_text)+'<br><i>Button: '+esc(v.cta)+' · Picture idea: '+esc(v.visual_idea)+'</i></p>';g.appendChild(cp);g.appendChild(w)})(vs[n],sqd,n)}
+ }else{b=modal(j.title,'<p class="nt">Made by '+esc(j.crew)+' for "'+esc(cname())+'". AI-written draft. Nothing sent or posted.</p><div class="pc"><p>'+esc(d.summary||'')+'</p></div>'+(d.sections||[]).map(function(x,n){return '<div class="pc"><small>'+esc(x.heading)+'</small><p>'+esc(x.body).replace(/\n/g,'<br>')+'</p><button data-c="'+n+'">Copy</button></div>'}).join('')+((d.next_steps||[]).length?'<div class="pc"><small>NEXT STEPS</small><p>'+d.next_steps.map(function(x){return '• '+esc(x)}).join('<br>')+'</p></div>':''));
+  $$('button[data-c]',b).forEach(function(x){x.onclick=function(){copy(d.sections[+x.dataset.c].body,x)}})}}
+async function runJob(t){if(running)return;running=true;S.jobs=S.jobs||[];S.step='Noor is reading your request…';renderBoard();status('YOUR CREW IS ON IT');log('Noor','Got your request: "'+t.slice(0,90)+'".');
+ var j=null;
+ try{var rt=await api('genesis',{action:'route',input:t},2);
+  if(rt.type==='new_business'){running=false;S.step='';status('');renderBoard();if(window.confirm('That sounds like a different business ("'+(rt.title||t).slice(0,50)+'"). Start it as a new business? Your current assets stay saved on this phone only until you start the new one.')){delete localStorage.nz_live;S=null;await run(t)}else log('Noor','Okay, I kept "'+cname()+'". Tell me which job you want done for it.');return}
+  var kind=rt.kind||'other';
+  if(kind==='logo'){running=false;S.step='';log('Layla','Making 3 new logo options for you.');renderBoard();await redo('logo');return}
+  if(kind==='photo'){running=false;S.step='';log('Layla','Making a new photo.');renderBoard();await redo('photo');return}
+  if(kind==='website'){running=false;S.step='';renderBoard();log('Layla','Your website draft is already built. Opening it.');openAsset('site');return}
+  j={kind:kind,title:rt.title||t.slice(0,40),crew:rt.crew||'Noor',t:nowT(),st:'working',brief:rt.brief||t};S.jobs.unshift(j);save();renderRes();S.step=j.crew+' is working on "'+j.title+'"…';renderBoard();log(j.crew,'Started: '+j.title+'.');
+  var r=await api('genesis',{action:'job',kind:kind,brief:j.brief},2);j.data=r;j.st='ready';log(j.crew,'Finished: '+j.title+'. Nothing sent, posted or paid.');
+ }catch(e){if(j){j.st='failed'}log('Noor','Could not finish that request ('+String(e.message||e).slice(0,70)+'). Nothing was lost. Try again in a minute.',1)}
+ running=false;S.step='';save();renderBoard();renderRes();status('');if(j&&j.st==='ready')openJob(S.jobs.indexOf(j))}
 /* ---------- wiring: every typed idea is real; no scripted examples ---------- */
 window.go=function(t){t=(t||'').trim();if(t.length<3)return;
- if(/^(change|stop|pause|update|make)\b/i.test(t)&&S&&S.read){status('EDITING AFTER THE BUILD IS NOT CONNECTED YET. NOTHING CHANGED.');log('Noor','You asked: "'+t.slice(0,80)+'". Editing after the build is not connected yet, so nothing was changed.',1);setTimeout(function(){status('')},6000);return}
+ if(S&&S.read&&(S.a1||S.a2||(S.logos&&S.logos.length))&&!running){runJob(t);return}
  run(t)};
 var ty=$('#typer');
 document.addEventListener('keydown',function(e){if(e.key==='Enter'&&e.target===ty&&!ty.value.trim()){e.preventDefault();e.stopImmediatePropagation()}},true);
@@ -993,4 +1045,10 @@ renderBoard();renderRes();renderAct();
 // the intro animation and the old scripted example buttons must not repaint over live cards
 window._lvStill=1;
 })();
-</script></body></html>
+</script><style>
+.gl{margin:6px 0 4px;padding-left:18px;font-size:13px;line-height:1.5}.gl li{margin:3px 0}
+.adg{display:grid;gap:10px;margin:8px 0}.adg .adi{width:100%;border-radius:14px;box-shadow:0 6px 22px rgba(20,8,50,.35)}
+.jb{cursor:pointer}.jb span small{display:block;opacity:.7;font-size:11px;margin-top:2px}
+#lact .it2{padding:10px 12px;margin:8px 0;border-radius:12px;background:rgba(255,255,255,.06);line-height:1.45}
+#lact .t2{font-size:11px;letter-spacing:.04em;text-transform:uppercase;opacity:.75;margin-bottom:3px;font-weight:700}
+</style></body></html>
