@@ -218,7 +218,7 @@ html[data-st="3"] .node.forming{background:linear-gradient(135deg,rgba(79,123,25
 html[data-st="3"] .bs,html[data-st="3"] #res button,html[data-st="3"] #apb button[data-ok]{background:linear-gradient(135deg,#4f7bff,#8b3ff0)!important;color:#fff!important;border-radius:99px!important;box-shadow:0 8px 18px -6px rgba(79,123,255,.8)!important}
 html[data-st="3"] .forming .nlbl,html[data-st="3"] #res .brief .lb{color:#f6dc9a!important}html[data-st="3"] .forming{color:#fff!important}
 html[data-st="3"] #apb .it2.nd{background:#fff4f4!important}
-</style></head><body data-build="b54-0124">
+</style></head><body data-build="b55-0125">
 <div style="position:fixed;inset:0;z-index:0;background:url(assets/hero-backdrop-nolady.jpg) center/cover"></div><div style="position:fixed;inset:0;z-index:1;background:linear-gradient(160deg,rgba(122,53,232,.66),rgba(42,16,98,.76) 78%)"></div>
 <div class="logo"><img src="assets/noorizq-logo-crisp.png" alt="Noorizq"></div>
 <div id="hd" style="height:0"></div>
@@ -781,7 +781,7 @@ body.lv #lres{display:block}
 .lvm{font:500 11px/1.35 Sora;text-align:left}.lvm small{display:block;color:#a99ad0;margin-top:5px;font-size:9px;letter-spacing:.5px}
 .lvm .w{font-style:normal;color:#cdbbf0;font-size:11px;display:block;padding:10px 0;text-align:center}.lvm .w.bad{color:#ffb4b4}
 .lvm .sp{display:inline-block;width:10px;height:10px;border:2px solid #f2d795;border-top-color:transparent;border-radius:50%;margin-right:6px;animation:lvs .8s linear infinite;vertical-align:-1px}@keyframes lvs{to{transform:rotate(360deg)}}
-.lvm .lgi{width:58px;height:58px;border-radius:50%;object-fit:cover;display:block;margin:2px auto 4px;background:#fff}.lvm>b{display:block;text-align:center;font:700 13px Fraunces,serif}
+.lvm .lgi.lk{width:100%;height:auto;max-height:96px;border-radius:8px;object-fit:contain;margin:0 0 2px}.lvm .lgi{width:58px;height:58px;border-radius:50%;object-fit:cover;display:block;margin:2px auto 4px;background:#fff}.lvm>b{display:block;text-align:center;font:700 13px Fraunces,serif}
 .lvm .phi{width:100%;border-radius:10px;display:block}
 .lvm .wbm{border-radius:8px;color:#fff;text-align:center;padding:16px 8px;display:flex;flex-direction:column;gap:4px}.lvm .wbm b{font:700 14px Fraunces,serif}.lvm .wbm em{font-style:normal;font-size:9px;opacity:.9}
 .lvm .prc{display:flex;flex-direction:column;gap:4px}.lvm .prc span{display:flex;justify-content:space-between;gap:6px;background:rgba(255,255,255,.14);border-radius:8px;padding:4px 8px;font-size:10px}.lvm .prc b{color:#f2d795}
@@ -846,8 +846,8 @@ function copy(t,btn){try{navigator.clipboard.writeText(t)}catch(e){var x=documen
 function img(src){return new Promise(function(res,rej){var i=new Image();i.onload=function(){res(i)};i.onerror=rej;i.src=src})}
 function wrap(ctx,text,x,y,maxW,lh,maxLines){var w=text.split(/\s+/),line='',n=0;for(var i=0;i<w.length;i++){var t=line?line+' '+w[i]:w[i];if(ctx.measureText(t).width>maxW&&line){ctx.fillText(line,x,y);y+=lh;line=w[i];if(++n>=maxLines)return y}else line=t}ctx.fillText(line,x,y);return y+lh}
 async function logoPng(){var c=document.createElement('canvas');c.width=c.height=1200;var x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,1200,1200);
- if(S.logos&&S.logos[selLogo]){var im=await img(S.logos[selLogo]);x.drawImage(im,100,60,1000,1000)}
- x.fillStyle=cols()[0];x.font='700 84px Georgia,serif';x.textAlign='center';x.fillText(cname(),600,1150);return new Promise(function(r){c.toBlob(r,'image/png')})}
+ if(S.logos&&S.logos[selLogo]){var im=await img(S.logos[selLogo]);if(S.lk)x.drawImage(im,0,0,1200,1200);else x.drawImage(im,100,60,1000,1000)}
+ if(!S.lk){x.fillStyle=cols()[0];x.font='700 84px Georgia,serif';x.textAlign='center';x.fillText(cname(),600,1150)}return new Promise(function(r){c.toBlob(r,'image/png')})}
 async function adPng(){var ad=(A2()||{}).ad||{};var c=document.createElement('canvas');c.width=c.height=1080;var x=c.getContext('2d');var k=cols();
  var g=x.createLinearGradient(0,0,1080,1080);g.addColorStop(0,k[0]);g.addColorStop(1,'#1b1033');x.fillStyle=g;x.fillRect(0,0,1080,1080);
  if(S.photo){try{var p=await img(S.photo);x.globalAlpha=.55;x.drawImage(p,0,0,1080,1080);x.globalAlpha=1;var o=x.createLinearGradient(0,300,0,1080);o.addColorStop(0,'rgba(10,6,25,0)');o.addColorStop(1,'rgba(10,6,25,.88)');x.fillStyle=o;x.fillRect(0,0,1080,1080)}catch(e){}}
@@ -874,7 +874,7 @@ function modal(title,html){$('#lvt').textContent=title;$('#lvb').innerHTML=html;
 function btn(label,fn,cls){var b=document.createElement('button');b.textContent=label;b.className=cls||'';b.onclick=function(e){e.stopPropagation();fn(b)};return b}
 function actions(list){var d=document.createElement('div');d.className='ac';list.forEach(function(x){d.appendChild(btn(x[0],x[1],x[2]))});return d}
 function openAsset(key){if(!S)return;var b;
- if(key==='logo'){if(!(S.logos&&S.logos.length))return;b=modal('Logo options','<p class="nt">Made by Cloudflare AI from your idea. Tap one to pick it. The name is typeset by us.</p><div class="lgs">'+S.logos.map(function(l,i){return '<img data-i="'+i+'" class="'+(i===selLogo?'on':'')+'" src="'+l+'">'}).join('')+'</div>');
+ if(key==='logo'){if(!(S.logos&&S.logos.length))return;b=modal('Logo options','<p class="nt">Made by Cloudflare AI from your idea. Tap one to pick it.'+(S.lk?' The name is drawn by the AI and was spell-checked against your business name.':' The name is typeset by us.')+'</p><div class="lgs">'+S.logos.map(function(l,i){return '<img data-i="'+i+'" class="'+(i===selLogo?'on':'')+'" src="'+l+'">'}).join('')+'</div>');
   $$('.lgs img',b).forEach(function(im){im.onclick=function(){selLogo=+im.dataset.i;S.sel=selLogo;save();$$('.lgs img',b).forEach(function(x){x.classList.toggle('on',x===im)});renderBoard();renderRes()}});
   b.appendChild(actions([['Download PNG',async function(){dl(slug()+'-logo.png',await logoPng())}],['Make 3 new ones',function(){M.classList.remove('o');redo('logo')}]]));}
  else if(key==='site'){b=modal('Website draft','<p class="nt">A real one-page site made from your idea. It opens as a file and is not on the internet yet. Add your contact details before you share it.</p><iframe id="lvf"></iframe>');$('#lvf').srcdoc=siteHtml();
@@ -914,7 +914,7 @@ function renderBoard(){
  saidEl.innerHTML='<span data-said class="nlbl">YOU SAID</span><b style="font-family:Fraunces,serif;font-size:'+fs+'px">"'+esc(idea.charAt(0).toUpperCase()+idea.slice(1))+'"</b>';
  var a=A1(),b=A2(),k=cols();
  // logo
- if(S.logos&&S.logos.length)setNode(1,'ready','<img class="lgi" src="'+S.logos[selLogo]+'"><b>'+esc(cname())+'</b><small>'+S.logos.length+' options · tap</small>','logo');
+ if(S.logos&&S.logos.length)setNode(1,'ready','<img class="lgi'+(S.lk?' lk':'')+'" src="'+S.logos[selLogo]+'">'+(S.lk?'':'<b>'+esc(cname())+'</b>')+'<small>'+S.logos.length+' options · tap</small>','logo');
  else if(S.fl&&S.fl.logo)fail(1,'logo');else if(S.read)work(1);else work(1);
  // site
  if(S.read&&a)setNode(2,'ready','<div class="wbm" style="background:'+(S.photo?'linear-gradient(rgba(15,8,35,.5),rgba(15,8,35,.65)),url('+S.photo+') center/cover':k[0])+'"><b>'+esc(cname())+'</b><em>'+esc(a.tagline||'')+'</em></div><small>real page · tap to open</small>','site');else if(S.fl&&S.fl.a1)fail(2,'a1');else work(2);
@@ -961,7 +961,7 @@ function photoPrompt(){var r=S.read||{};return (r.hero_subject||r.offer||S.idea)
 var T={
  a1:function(){return step('names, prices and plan',function(){return api('genesis',{action:'assets',stage:1})},'Farah',function(r){return 'Suggested '+(r.products||[]).length+' products with prices, a tagline and a 90-day plan.'},'a1').then(function(r){if(r){S.a1=r;delete S.fl.a1}save();renderBoard();renderRes()})},
  a2:function(){return step('posts, ad and notes',function(){return api('genesis',{action:'assets',stage:2})},'Mira',function(r){return 'Drafted 6 posts, 1 ad, a first email and market notes.'},'a2').then(function(r){if(r){S.a2=r;delete S.fl.a2}save();renderBoard();renderRes()})},
- logo:function(){return step('logos',function(){var one=function(){return api('genesis',{action:'logo'},1).then(function(r){if(!r.ok||!(r.imgs||[]).length)throw new Error('no image');return r})};return one().catch(one)},'Layla',function(r){return 'Drew '+r.imgs.length+' logo options with Cloudflare AI.'},'logo').then(async function(r){if(r){S.logos=await Promise.all(r.imgs.map(trimLogo));selLogo=0;S.sel=0;delete S.fl.logo}save();renderBoard();renderRes()})},
+ logo:function(){return step('logos',function(){var one=function(){return api('genesis',{action:'logo'},1).then(function(r){if(!r.ok||!(r.imgs||[]).length)throw new Error('no image');return r})};return one().catch(one)},'Layla',function(r){return 'Drew '+r.imgs.length+' logo options with Cloudflare AI.'},'logo').then(async function(r){if(r){S.logos=await Promise.all(r.imgs.map(trimLogo));S.lk=!!r.lockup;selLogo=0;S.sel=0;delete S.fl.logo}save();renderBoard();renderRes()})},
  photo:function(){return step('photo',function(){return api('genesis',{action:'image',prompt:photoPrompt()}).then(function(r){if(!r.ok||!r.img)throw new Error('no image');return r})},'Layla',function(){return 'Made a photo with Cloudflare AI.'},'photo').then(function(r){if(r){S.photo=r.img;delete S.fl.photo}save();renderBoard();renderRes()})}
 };
 async function redo(k){if(!S||running)return;running=true;S.fl=S.fl||{};delete S.fl[k];S.step='Trying again…';renderBoard();try{await T[k]()}finally{running=false;S.step='';renderBoard();renderRes()}}
