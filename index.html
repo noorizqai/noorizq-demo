@@ -218,7 +218,7 @@ html[data-st="3"] .node.forming{background:linear-gradient(135deg,rgba(79,123,25
 html[data-st="3"] .bs,html[data-st="3"] #res button,html[data-st="3"] #apb button[data-ok]{background:linear-gradient(135deg,#4f7bff,#8b3ff0)!important;color:#fff!important;border-radius:99px!important;box-shadow:0 8px 18px -6px rgba(79,123,255,.8)!important}
 html[data-st="3"] .forming .nlbl,html[data-st="3"] #res .brief .lb{color:#f6dc9a!important}html[data-st="3"] .forming{color:#fff!important}
 html[data-st="3"] #apb .it2.nd{background:#fff4f4!important}
-</style></head><body data-build="b69-0139">
+</style></head><body data-build="b70-0140">
 <div style="position:fixed;inset:0;z-index:0;background:url(assets/hero-backdrop-nolady.jpg) center/cover"></div><div style="position:fixed;inset:0;z-index:1;background:linear-gradient(160deg,rgba(122,53,232,.66),rgba(42,16,98,.76) 78%)"></div>
 <div class="logo"><img src="assets/noorizq-logo-crisp.png" alt="Noorizq"></div>
 <div id="hd" style="height:0"></div>
@@ -463,10 +463,10 @@ document.addEventListener('click',()=>p.classList.remove('o'));
 window._actAdd=o=>{feed.unshift(o);draw();};const _go=window.go;window.go=function(t){t=(t||'').trim();if(t){feed.unshift({me:1,t:'just now',x:'You: "'+t+'"',w:'',u:0});draw();}return _go(t);};
 })();
 
-var BUILD='b69-0139';
+var BUILD='b70-0140';
 fetch(location.pathname+'?nc='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{const m=t.match(/data-build="([^"]+)"/);if(m&&m[1]!==BUILD&&location.search.indexOf(m[1])<0)location.replace(location.pathname+'?v='+m[1]);}).catch(()=>{});
 </script>
-<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b69-0139</div>
+<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b70-0140</div>
 
 <script>
 document.querySelectorAll('.ag').forEach(e=>{const r=e.dataset.r;e.querySelector('.avs').outerHTML=AV(r,30);e.querySelector('b').textContent=CREW[r].n;});
@@ -805,7 +805,7 @@ body.lv #sg1,body.lv #sg2{display:none!important}
 @media(max-width:640px){#nzmute{top:20px;left:128px}}
 @media(max-width:640px){.node:has(.pp){min-height:200px!important;height:200px}}
 @media(max-width:640px){.canvas>.node:nth-child(4){top:8px!important}}
-</style><script>(function(){var BV='b69-0139',errs=[];window.addEventListener('error',function(e){errs.push(String(e.message||e.type).slice(0,120))});
+</style><script>(function(){var BV='b70-0140',errs=[];window.addEventListener('error',function(e){errs.push(String(e.message||e.type).slice(0,120))});
 try{if(navigator.serviceWorker)navigator.serviceWorker.getRegistrations().then(function(r){r.forEach(function(x){x.unregister()})});if(window.caches)caches.keys().then(function(k){k.forEach(function(n){caches.delete(n)})})}catch(e){}
 setTimeout(function(){if(window.__nzlive)return;var d=document.createElement('div');d.style.cssText='position:fixed;inset:0;z-index:99999;background:#1b0d3d;color:#fff;font:16px/1.5 system-ui;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center';d.innerHTML='<div style="max-width:420px"><b style="font-size:20px">This page did not load properly</b><p>You are seeing an old or broken copy (build '+BV+'). Nothing was lost.</p><p>1. Open the invite link again in a <b>new private tab</b>.<br>2. If it still fails, tell us the code below.</p><p style="font:12px monospace;opacity:.7">'+(errs[0]||'no error captured')+'</p><button onclick="location.href=location.pathname+\'?r=\'+Date.now()+location.hash" style="padding:12px 22px;border:0;border-radius:99px;background:#f2d795;font-weight:700">Reload fresh</button></div>';document.body.appendChild(d)},5000)})();</script>
 <script id="livejs">;(function(){window.__nzlive=1;
@@ -1069,7 +1069,7 @@ var MPH={build:null,chat:'Ask Noor anything, or ask for a plan …'};
  document.addEventListener('click',function(e){if(!e.target.closest('#nzm'))m.classList.remove('o')});
  setMode('build');setInterval(function(){var ty=$('#typer');if(ty&&MODE!=='build'&&ty.placeholder!==MPH[MODE])ty.placeholder=MPH[MODE]},800);
 })();
-function chatHtml(busy){var h='';CH.forEach(function(c){if(c.r==='u')h+='<div class="cb u">'+esc(c.t)+'</div>';else if(c.plan){var p=c.plan;h+='<div class="cb a pl"><b style="font-size:18px">'+esc(p.title)+'</b><p>'+esc(p.summary)+'</p>'+(p.steps||[]).map(function(s,i){return '<h4>'+(i+1)+'. '+esc(s.heading)+'</h4><p>'+esc(s.body)+'</p>'}).join('')+(p.first_week&&p.first_week.length?'<h4>First week</h4><p>'+p.first_week.map(function(x){return '\u2022 '+esc(x)}).join('<br>')+'</p>':'')+(p.risks&&p.risks.length?'<h4>Watch out for</h4><p>'+p.risks.map(function(x){return '\u2022 '+esc(x)}).join('<br>')+'</p>':'')+'<div class="cn">AI-written plan. Costs are estimates. Nothing was built or started.</div></div>'}else h+='<div class="cb a">'+esc(c.t)+(c.rel?'<div class="cn">Reference, not a fatwa. Please confirm with a qualified scholar.</div>':'')+'<div class="cn" style="color:#6b6480">AI answer. Check important facts yourself.</div></div>'});if(busy)h+='<div class="cb a" style="opacity:.7">Noor is thinking\u2026</div>';return h}
+function chatHtml(busy){var h='';CH.forEach(function(c){if(c.r==='u')h+='<div class="cb u">'+esc(c.t)+'</div>';else if(c.plan){var p=c.plan;h+='<div class="cb a pl"><b style="font-size:18px">'+esc(p.title)+'</b><p>'+esc(p.summary)+'</p>'+(p.steps||[]).map(function(s,i){return '<h4>'+(i+1)+'. '+esc(s.heading)+'</h4><p>'+esc(s.body)+'</p>'}).join('')+(p.first_week&&p.first_week.length?'<h4>First week</h4><p>'+p.first_week.map(function(x){return '\u2022 '+esc(x)}).join('<br>')+'</p>':'')+(p.risks&&p.risks.length?'<h4>Watch out for</h4><p>'+p.risks.map(function(x){return '\u2022 '+esc(x)}).join('<br>')+'</p>':'')+'<div class="cn">AI-written plan. Costs are estimates. Nothing was built or started.</div></div>'}else h+='<div class="cb a">'+esc(c.t).replace(/([.:!?])\s+(\d{1,2})\.\s/g,'$1<br><br>$2. ').replace(/\s+(\d{1,2})\.\s(?=[A-Z])/g,'<br>$1. ')+(c.rel?'<div class="cn">Reference, not a fatwa. Please confirm with a qualified scholar.</div>':'')+'<div class="cn" style="color:#6b6480">AI answer. Check important facts yourself.</div></div>'});if(busy)h+='<div class="cb a" style="opacity:.7">Noor is thinking\u2026</div>';return h}
 async function askMode(t){var plan=MODE==='plan';CH.push({r:'u',t:t});var b=modal(plan?'Plan \u00b7 nothing is built':'Chat \u00b7 nothing is built',chatHtml(true));b.scrollTop=b.scrollHeight;
  try{var r=await api('genesis',{action:'ask',mode:MODE,input:t,history:CH.filter(function(c){return !c.plan}).slice(-7,-1).map(function(c){return {r:c.r,t:c.t}})},2);
   if(plan)CH.push({r:'a',plan:r});else CH.push({r:'a',t:r.answer||'I could not answer that.',rel:!!r.religious})}
