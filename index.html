@@ -218,7 +218,7 @@ html[data-st="3"] .node.forming{background:linear-gradient(135deg,rgba(79,123,25
 html[data-st="3"] .bs,html[data-st="3"] #res button,html[data-st="3"] #apb button[data-ok]{background:linear-gradient(135deg,#4f7bff,#8b3ff0)!important;color:#fff!important;border-radius:99px!important;box-shadow:0 8px 18px -6px rgba(79,123,255,.8)!important}
 html[data-st="3"] .forming .nlbl,html[data-st="3"] #res .brief .lb{color:#f6dc9a!important}html[data-st="3"] .forming{color:#fff!important}
 html[data-st="3"] #apb .it2.nd{background:#fff4f4!important}
-</style></head><body data-build="b63-0133">
+</style></head><body data-build="b64-0134">
 <div style="position:fixed;inset:0;z-index:0;background:url(assets/hero-backdrop-nolady.jpg) center/cover"></div><div style="position:fixed;inset:0;z-index:1;background:linear-gradient(160deg,rgba(122,53,232,.66),rgba(42,16,98,.76) 78%)"></div>
 <div class="logo"><img src="assets/noorizq-logo-crisp.png" alt="Noorizq"></div>
 <div id="hd" style="height:0"></div>
@@ -463,10 +463,10 @@ document.addEventListener('click',()=>p.classList.remove('o'));
 window._actAdd=o=>{feed.unshift(o);draw();};const _go=window.go;window.go=function(t){t=(t||'').trim();if(t){feed.unshift({me:1,t:'just now',x:'You: "'+t+'"',w:'',u:0});draw();}return _go(t);};
 })();
 
-var BUILD='b63-0133';
+var BUILD='b64-0134';
 fetch(location.pathname+'?nc='+Date.now(),{cache:'no-store'}).then(r=>r.text()).then(t=>{const m=t.match(/data-build="([^"]+)"/);if(m&&m[1]!==BUILD&&location.search.indexOf(m[1])<0)location.replace(location.pathname+'?v='+m[1]);}).catch(()=>{});
 </script>
-<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b63-0133</div>
+<div id="bld" style="position:fixed;left:10px;bottom:4px;z-index:40;font:600 9px Sora;color:rgba(255,255,255,.55);pointer-events:none">build b64-0134</div>
 
 <script>
 document.querySelectorAll('.ag').forEach(e=>{const r=e.dataset.r;e.querySelector('.avs').outerHTML=AV(r,30);e.querySelector('b').textContent=CREW[r].n;});
@@ -861,7 +861,7 @@ function docHtml(title,sub,blocks){var k=cols();var logo=(S.logos&&S.logos[selLo
  return '<!doctype html><html><head><meta charset="utf-8"><title>'+esc(title)+' - '+esc(cname())+'</title><style>@page{size:A4;margin:16mm}body{font:15px/1.6 Georgia,serif;color:#241a3a;margin:0}.cv{background:'+k[0]+';color:#fff;padding:36px 40px}.cv h1{margin:14px 0 4px;font-size:34px}.cv p{margin:0;opacity:.85}main{padding:24px 40px}h2{color:'+k[0]+';border-bottom:2px solid '+k[1]+';padding-bottom:4px;margin-top:26px}li{margin:6px 0}.n{font:12px Arial;color:#776;border-top:1px solid #ddd;margin-top:30px;padding-top:10px}</style></head><body><div class="cv">'+logo+'<h1>'+esc(title)+'</h1><p>'+esc(cname())+' &middot; '+esc(sub)+'</p></div><main>'+blocks+'<div class="n">Written by AI from the idea you typed. Check facts and prices yourself before relying on them. Made '+new Date().toLocaleDateString('en-GB')+'.</div></main></body></html>'}
 function notesDoc(){var a=A2()||{},r=S.read||{};return docHtml('Market notes','competitors and first customer','<h2>Your idea</h2><p>'+esc(r.offer||S.idea)+'</p><h2>Who else serves this audience</h2><p>'+esc(a.competitor_analysis||'')+'</p><h2>Your ideal first customer</h2><p>'+esc(a.audience_profile||'')+'</p><h2>How this was made</h2><p>AI-written from general knowledge. Not checked against live websites or sales data.</p>')}
 function planDoc(){var a=A1()||{},b=A2()||{};var ph=(a.plan_phases||[]).map(function(p){return '<li><b>'+esc(p.title)+'.</b> '+esc(p.detail)+'</li>'}).join('');var wk=(b.weekly_plan||[]).map(function(x){return '<li>'+esc(x)+'</li>'}).join('');return docHtml('90-day plan','from the idea you typed','<h2>The 90-day aim</h2><p>'+esc(a.plan_summary||'')+'</p><h2>Three phases</h2><ul>'+ph+'</ul><h2>Week one, day by day</h2><ul>'+wk+'</ul>')}
-function siteHtml(){var a=A1()||{},r=S.read||{},k=cols();var P=k[0],AC=k[1]||'#d9b25f',BG=k[2]||'#fbf7ee';var N=cname();
+function siteHtml(){var a=A1()||{},r=S.read||{},k=cols();var P=k[0],AC=k[1]||'#d9b25f',BG='#fbf7ee';var N=cname();
  var hero=S.photo?'linear-gradient(115deg,'+dk(P,.55)+'ee,'+dk(P,.3)+'aa),url('+S.photo+') center/cover':'radial-gradient(900px 500px at 85% 10%,'+AC+'55,transparent 60%),linear-gradient(135deg,'+dk(P,.7)+','+dk(P,.25)+')';
  var logo=(S.logos&&S.logos[selLogo])?'<img src="'+S.logos[selLogo]+'" alt="'+esc(N)+' logo" class="lg">':'';
  var prods=(a.products||[]);
@@ -1057,4 +1057,4 @@ window._lvStill=1;
 .jb{cursor:pointer}.jb span small{display:block;opacity:.7;font-size:11px;margin-top:2px}
 #lact .it2{padding:10px 12px;margin:8px 0;border-radius:12px;background:rgba(255,255,255,.06);line-height:1.45}
 #lact .t2{font-size:11px;letter-spacing:.04em;text-transform:uppercase;opacity:.75;margin-bottom:3px;font-weight:700}
-</style></body></html>
+</style><style>#lvf{height:62vh!important;min-height:380px}</style></body></html>
